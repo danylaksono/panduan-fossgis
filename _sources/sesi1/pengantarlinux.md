@@ -1,5 +1,7 @@
 # Pengantar Linux dan Server
 
+Bagian ini akan mengulas mengenai sejarah perkembangan Linux dan bagaimana Linux menjadi salah satu sistem operasi yang paling banyak digunakan dan paling pesat perkembangannya di dunia: **Lisensi yang bebas dan terbuka**.
+
 
 ## Sejarah dan Perkembangan Sistem Operasi Linux
 

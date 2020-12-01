@@ -196,25 +196,15 @@
   <a class="reference internal nav-link" href="#arsitektur-linux">
    Arsitektur Linux
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pengaturan-pengguna-dan-hak-akses">
-   Pengaturan Pengguna dan Hak Akses
-  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#administrasi-pengguna">
-     Administrasi Pengguna
+    <a class="reference internal nav-link" href="#kernel-dan-komponen-komponen-linux">
+     Kernel dan komponen-komponen Linux
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pengaturan-grup">
-     Pengaturan Grup
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pengaturan-hak-akses">
-     Pengaturan Hak Akses
+    <a class="reference internal nav-link" href="#filosofi-linux">
+     Filosofi Linux
     </a>
    </li>
   </ul>
@@ -225,18 +215,40 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#manajemen-file-dan-direktori">
-     Manajemen File dan Direktori
+    <a class="reference internal nav-link" href="#latihan-perintah-dasar-pada-shell">
+     Latihan: Perintah Dasar pada Shell
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#operasi-file">
-     Operasi File
+    <a class="reference internal nav-link" href="#latihan-operasi-pada-file">
+     Latihan: Operasi pada File
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#instalasi-aplikasi">
      Instalasi aplikasi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pengaturan-pengguna-dan-hak-akses">
+   Pengaturan Pengguna dan Hak Akses
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#latihan-administrasi-pengguna">
+     Latihan: Administrasi Pengguna
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pengaturan-grup">
+     Pengaturan Grup
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pengaturan-hak-akses">
+     Pengaturan Hak Akses
     </a>
    </li>
   </ul>
@@ -254,35 +266,138 @@
                 
   <div class="section" id="pengaturan-dan-administrasi-linux">
 <h1>Pengaturan dan Administrasi Linux<a class="headerlink" href="#pengaturan-dan-administrasi-linux" title="Permalink to this headline">¶</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><strong>Ubuntu Pocket Guide</strong> merupakan panduan yang cukup komprehensive untuk ‘penggunaan Ubuntu sehari-hari’. Buku ini dapat diunduh secara gratis dari alamat http://www.ubuntupocketguide.com/download_main.html</p>
+<p>Setelah memiliki sebuah sistem operasi Linux yang dapat digunakan untuk latihan dengan menggunakan WSL, pada bagian ini akan dibahas mengenai beberapa perintah dasar pada Linux.</p>
+<div class="admonition-catatan admonition">
+<p class="admonition-title">Catatan</p>
+<p><strong>Ubuntu Pocket Guide</strong> merupakan panduan yang cukup komprehensive untuk ‘penggunaan Ubuntu sehari-hari’. Buku ini dapat diunduh secara gratis dari alamat: <a class="reference external" href="http://www.ubuntupocketguide.com/download_main.html">http://www.ubuntupocketguide.com/download_main.html</a></p>
 </div>
 <div class="section" id="arsitektur-linux">
 <h2>Arsitektur Linux<a class="headerlink" href="#arsitektur-linux" title="Permalink to this headline">¶</a></h2>
+<p>Sebelum terjun langsung dalam penggunaan Linux, sebaiknya terlebih dahulu dipelajari mengenai filosofi dan arsitektur sebuah sistem operasi Linux. Pemahaman mengenai hal ini akan memudahkan dalam bekerja dengan Linux serta menghindari permasalahan pada saat bekerja dengan Linux.</p>
+<div class="section" id="kernel-dan-komponen-komponen-linux">
+<h3>Kernel dan komponen-komponen Linux<a class="headerlink" href="#kernel-dan-komponen-komponen-linux" title="Permalink to this headline">¶</a></h3>
+<p>Sebelumnya, <a class="reference internal" href="#kernel"><span class="std std-ref">kernel linux</span></a> telah disebutkan beberapa kali pada panduan ini. Lisensi kernel Linux yang dikembangkan oleh Linus Torvalds sebagai rangkaian kode yang bersifat bebas dan terbuka memungkinkan pengembangan berbagai aplikasi lain di atasnya, yang kemudian melahirkan ratusan distro yang masing-masingnya adalah sebuah sistem operasi sendiri. Tetapi, apa sebenarnya yang dimaksud dengan <em>Linux Kernel</em>?</p>
+<div class="figure align-default" id="kernel">
+<img alt="../_images/2020-12-02-02-49-33.png" src="../_images/2020-12-02-02-49-33.png" />
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Arsitektur Sistem Operasi Linux</span><a class="headerlink" href="#kernel" title="Permalink to this image">¶</a></p>
+</div>
+<p>Sebuah ‘kernel’ dapat diartikan sebagai potongan kode yang menjadi antarmuka antara perangkat keras (<em>hardware</em>) dan berbagai aplikasi yang menggunakan perangkat tersebut. Linux Kernel yang awalnya didesain oleh Linus Torvalds sebagai sebuah sistem yang tertutup dan tidak portabel ternyata berubah menjadi kode yang dapat digunakan pada berbagai platform dengan dukungan pada berbagai perangkat keras, sehingga muncul berbagai pengembangan versi distribusi Linux yang berbeda.</p>
+</div>
+<div class="section" id="filosofi-linux">
+<h3>Filosofi Linux<a class="headerlink" href="#filosofi-linux" title="Permalink to this headline">¶</a></h3>
+<p>Di atas kernel inilah berbagai aplikasi berdiri sebagai perantara antara perangkat keras dan perangkat lunak pada sebuah sistem operasi. Filosofi Linux ini kemudian dikenal luas dengan istilah, <strong><a class="reference external" href="https://unix.stackexchange.com/questions/225537/everything-is-a-file">“Everything is a File”</a></strong>: setiap transaksi, proses, dan apapun yang terjadi pada sebuah sistem Unix sejatinya adalah ‘<em>stream of byte</em>’ yang berdiri di atas kernel.</p>
+<div class="figure align-default" id="komponen">
+<img alt="../_images/2020-12-02-03-10-30.png" src="../_images/2020-12-02-03-10-30.png" />
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Komponen-komponen Linux</span><a class="headerlink" href="#komponen" title="Permalink to this image">¶</a></p>
+</div>
+<p>Jika Kernel digunakan untuk berkomunikasi dengan perangkat keras, maka sebuah <strong>Shell</strong> pada Linux berfungsi sebagai penghubung antara pengguna dan kernel. Shell dapat menerima berbagai perintah pengguna dan menerjemahkannya menjadi perintah yang dapat dipahami oleh perangkat keras. Berbagai aplikasi juga menggunakan shell untuk melakukan operasi-operasi yang diinginkan pengguna, misalnya pada antarmuka desktop. Karena setiap operasi adalah ‘file’, maka pengguna yang berbeda dapat melakukan operasi yang berbeda pada sebuah berkas yang sama. Pada Linux, kondisi berikut berlaku:</p>
+<ul class="simple">
+<li><p>Tiap program dijalankan oleh <em>user</em>/pengguna</p></li>
+<li><p>Tiap berkas dimiliki oleh pengguna</p></li>
+<li><p>Tiap pengguna memiliki identitas unik yang membedakan pengguna satu dengan yang lain</p></li>
+</ul>
+<p>Dari uraian di atas, dapat disimpulkan bahwa beberapa karakteristik dari Linux adalah sebagai berikut <a class="footnote-reference brackets" href="#footnote2" id="id1">1</a>:</p>
+<ul class="simple">
+<li><p>Portabel - Portabilitas berarti perangkat lunak dapat bekerja pada berbagai jenis perangkat keras dengan cara yang sama. Kernel Linux dan program aplikasi mendukung instalasi mereka pada semua jenis platform perangkat keras.</p></li>
+<li><p>Open Source - Kode sumber Linux tersedia secara gratis dan merupakan proyek pengembangan berbasis komunitas. Beberapa tim bekerja sama untuk meningkatkan kemampuan sistem operasi Linux dan pengembangannya terus berjalan.</p></li>
+<li><p>Multi-User - Linux adalah sistem multiuser yang berarti banyak pengguna dapat mengakses sumber daya sistem seperti memori / ram / program aplikasi pada saat yang bersamaan.</p></li>
+<li><p>Multiprogramming - Linux adalah sistem multiprogramming yang berarti banyak aplikasi dapat berjalan pada waktu yang bersamaan.</p></li>
+<li><p>Sistem File Hirarkis - Linux menyediakan struktur file standar di mana file sistem / file pengguna disusun dengan struktur yang sama pada berbagai distribusi Linux.</p></li>
+<li><p>Shell - Linux menyediakan program penerjemah khusus yang dapat digunakan untuk menjalankan perintah sistem operasi. Dapat digunakan untuk melakukan berbagai jenis operasi, memanggil program aplikasi. dll.</p></li>
+<li><p>Keamanan - Linux menyediakan keamanan pengguna menggunakan fitur otentikasi seperti proteksi kata sandi / akses terkontrol ke file / enkripsi data tertentu.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="mengunakan-shell">
+<h2>Mengunakan Shell<a class="headerlink" href="#mengunakan-shell" title="Permalink to this headline">¶</a></h2>
+<p>Shell Command merupakan antarmuka untuk melakukan berbagai operasi pada sistem operasi Linux. Meskipun saat ini berbagai Distro Linux telah dilengkapi dengan antarmuka yang sangat canggih, penggunaan Shell untuk operasi sehari-hari memiliki beberapa kelebihan:</p>
+<ul class="simple">
+<li><p>Perintah yang kompleks dapat dilakukan dengan mudah menggunakan Shell (coba: <code class="docutils literal notranslate"><span class="pre">cal</span></code>)</p></li>
+<li><p>Shell diperlukan pada saat menggunakan Linux sebagai mesin server: perintah shell jauh lebih cepat dan menggunakan bandwith lebih sedikit apabila koneksi dilakukan dengan shell</p></li>
+<li><p>Shell dapat diprogram (contoh: <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">*.png</span> <span class="pre">do</span> <span class="pre">...</span></code>)</p></li>
+<li><p>Penggunaan Shell memungkinkan kustomisasi, misalnya dengan menggunakan argumen untuk berbagai perintah (contoh: pipe operation)</p></li>
+</ul>
+<p>Pada bagian ini akan dilakukan beberapa latihan untuk mengenal perintah-perintah shell pada Linux. Perintah-perintah pada panduan ini dilakukan pada Ubuntu, sehingga penggunaan distro yang lain mungkin memerlukan penyesuaian. Meskipun sebagian besar perintah antar distro Linux yang satu dengan yang lain sama, tetapi boleh jadi ada sedikit perbedaan (sebagai contoh, Ubuntu yang berbasis Debian menggunakan Package Manager <em>apt</em>, sedangkan CentOS yang berbasis RedHat menggunakan <em>yum</em>).</p>
+<div class="admonition-catatan admonition">
+<p class="admonition-title">Catatan</p>
+<p><strong>Bash Shell</strong> adalah aplikasi Command Shell yang saat ini merupakan aplikasi standar pada hampir semua distribusi Linux, sehingga perintah pada panduan ini mengacu pada Bash Shell. Perintah-perintah pada Bash Shell dapat dilihat pada <a class="reference external" href="https://devhints.io/bash">link berikut</a>.</p>
+</div>
+<div class="section" id="latihan-perintah-dasar-pada-shell">
+<h3>Latihan: Perintah Dasar pada Shell<a class="headerlink" href="#latihan-perintah-dasar-pada-shell" title="Permalink to this headline">¶</a></h3>
+<p>WSL2 untuk Windows 10 yang diinstall pada latihan sebelumnya memberikan antarmuka Shell pada pengguna (lihat <a class="reference internal" href="pengantarlinux.html#wsl2"><span class="std std-ref">gambar sebelumnya</span></a>). Latihan-latihan berikut menggunakan antarmuka <em>shell command</em> yang diberikan oleh WSL2 ini.</p>
+<p>Berikut adalah beberapa perintah yang dapat digunakan untuk berlatih memanajemen file pada Linux:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Command</p></th>
+<th class="text-align:left head"><p>Deskripsi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>pwd</p></td>
+<td class="text-align:left"><p>print current working directory</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>cd</p></td>
+<td class="text-align:left"><p>change working directory</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>ls</p></td>
+<td class="text-align:left"><p>list files in working directory</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>man</p></td>
+<td class="text-align:left"><p>bring up manual for a command</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>exit</p></td>
+<td class="text-align:left"><p>log out of shell</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>clear</p></td>
+<td class="text-align:left"><p>clears all output from console</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>date</p></td>
+<td class="text-align:left"><p>output the system date</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>cal</p></td>
+<td class="text-align:left"><p>output a text calendar</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>uname</p></td>
+<td class="text-align:left"><p>print information about the current system</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p></p></td>
+<td class="text-align:left"><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>Untuk latihan, buka konsol Ubuntu WSL2, kemudian ketikkan salah satu perintah di atas:</p>
+<p><img alt="" src="../_images/2020-12-02-04-08-05.png" /></p>
+<p>Perintah <code class="docutils literal notranslate"><span class="pre">pwd</span></code> pada gambar di atas digunakan untuk menampilkan direktori tempat shell saat ini berjalan. Keluaran dari perintah ini langsung ditampilkan pada konsol. Untuk latihan, jalankan perintah-perintah lain dan perhatikan apa yang terjadi pada konsol.</p>
+</div>
+<div class="section" id="latihan-operasi-pada-file">
+<h3>Latihan: Operasi pada File<a class="headerlink" href="#latihan-operasi-pada-file" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="instalasi-aplikasi">
+<h3>Instalasi aplikasi<a class="headerlink" href="#instalasi-aplikasi" title="Permalink to this headline">¶</a></h3>
+<p>Ubuntu menggunakan APT (<em>Advanced Package Tool</em>) sebagai package manager untuk mengatur</p>
+<p>https://itsfoss.com/apt-command-guide/</p>
+</div>
 </div>
 <div class="section" id="pengaturan-pengguna-dan-hak-akses">
 <h2>Pengaturan Pengguna dan Hak Akses<a class="headerlink" href="#pengaturan-pengguna-dan-hak-akses" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="administrasi-pengguna">
-<h3>Administrasi Pengguna<a class="headerlink" href="#administrasi-pengguna" title="Permalink to this headline">¶</a></h3>
+<p>Sebagaimana disebutkan, Linux merupakan sistem operasi MultiUser dan Multiprogramming, dimana tiap berkas dimiliki oleh seorang pengguna, dan tiap pengguna memiliki hak akses tertentu. Latihan berikut akan memberikan gambaran mengenai pengaturan pengguna dan hak akses pada berkas atau direktori <a class="footnote-reference brackets" href="#footnote3" id="id2">2</a>.</p>
+<div class="section" id="latihan-administrasi-pengguna">
+<h3>Latihan: Administrasi Pengguna<a class="headerlink" href="#latihan-administrasi-pengguna" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="pengaturan-grup">
 <h3>Pengaturan Grup<a class="headerlink" href="#pengaturan-grup" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="pengaturan-hak-akses">
 <h3>Pengaturan Hak Akses<a class="headerlink" href="#pengaturan-hak-akses" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-<div class="section" id="mengunakan-shell">
-<h2>Mengunakan Shell<a class="headerlink" href="#mengunakan-shell" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="manajemen-file-dan-direktori">
-<h3>Manajemen File dan Direktori<a class="headerlink" href="#manajemen-file-dan-direktori" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="operasi-file">
-<h3>Operasi File<a class="headerlink" href="#operasi-file" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="instalasi-aplikasi">
-<h3>Instalasi aplikasi<a class="headerlink" href="#instalasi-aplikasi" title="Permalink to this headline">¶</a></h3>
+<hr class="docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="footnote2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>https://www.tutorialspoint.com/operating_system/os_linux.htm</p>
+</dd>
+<dt class="label" id="footnote3"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>https://vitux.com/a-beginners-guide-to-user-management-on-ubuntu/</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
