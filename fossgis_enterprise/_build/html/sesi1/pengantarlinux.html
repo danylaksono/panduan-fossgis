@@ -1,0 +1,496 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pengantar Linux dan Server &#8212; fossgis-enterprise</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.30270b6e4c972e43c488.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Pengaturan dan Administrasi Linux" href="arsitektur.html" />
+    <link rel="prev" title="Pengantar Linux Server, FOSS-GIS dan Web Server" href="introlinux.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">fossgis-enterprise</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  Bagian I - Linux Server dan FOSS-GIS
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introlinux.html">
+   Pengantar Linux Server, FOSS-GIS dan Web Server
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Pengantar Linux dan Server
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="arsitektur.html">
+   Pengaturan dan Administrasi Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="linuxserver.html">
+   Linux untuk WebServer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="fossgis.html">
+   Free and Open Source Software-GIS
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/sesi1/pengantarlinux.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sejarah-dan-perkembangan-sistem-operasi-linux">
+   Sejarah dan Perkembangan Sistem Operasi Linux
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distribusi-linux">
+   Distribusi Linux
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ubuntu">
+     Ubuntu
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#centos">
+     CentOS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linuxmint">
+     Linuxmint
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#archlinux">
+     ArchLinux
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#elemetary-os">
+     Elemetary OS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kali-linux">
+     Kali Linux
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#windows-subsystem-for-linux">
+   Windows Subsystem for Linux
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tentang-windows-subsystem-for-linux-wsl">
+     Tentang Windows Subsystem for Linux (WSL)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#latihan-instalasi-wsl2-pada-windows-10">
+     Latihan: Instalasi WSL2 Pada Windows 10
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="pengantar-linux-dan-server">
+<h1>Pengantar Linux dan Server<a class="headerlink" href="#pengantar-linux-dan-server" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sejarah-dan-perkembangan-sistem-operasi-linux">
+<h2>Sejarah dan Perkembangan Sistem Operasi Linux<a class="headerlink" href="#sejarah-dan-perkembangan-sistem-operasi-linux" title="Permalink to this headline">¶</a></h2>
+<p>Pada tanggal 25 Agustus 1991, <a class="reference external" href="https://github.com/torvalds">Linus Benedict Torvalds</a> yang saat itu adalah seorang mahasiswa di University of Helsinky menulis sebuah email yang kemudian menjadi <em>ikon</em> di dunia pengembangan perangkat lunak:</p>
+<blockquote>
+<div><p>Hello everybody out there using minix -</p>
+</div></blockquote>
+<p>Email sederhana ini, dengan sedikit penjelasan mengenai sistem operasi baru yang sedang ia kembangkan, kemudian menjadi awal dari adopsi besar-besaran Linux sampai menjadi sistem operasi yang sangat populer saat ini.</p>
+<div class="figure align-default" id="linus-email">
+<a class="reference internal image-reference" href="../_images/2020-12-01-22-47-51.png"><img alt="../_images/2020-12-01-22-47-51.png" src="../_images/2020-12-01-22-47-51.png" style="height: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Email bersejarah Linus pada forum <em>com.os.minix</em></span><a class="headerlink" href="#linus-email" title="Permalink to this image">¶</a></p>
+</div>
+<p>Meskipun diakhiri dengan nada pesimis, Kernel Linux yang dikembangkannya menjadi salah satu <em>milestone</em> dalam sejarah komputer. Dari kernel sederhana yang menurutnya ‘hanya dapat digunakan pada mesin AT-386’, Linux kemudian berkembang menjadi sistem operasi yang dapat digunakan pada berbagai platform: super komputer, server, <em>embedded device</em>, dan berbagai platform lain.</p>
+<div class="figure align-default" id="sejarah-linux">
+<img alt="../_images/2020-12-01-23-05-51.png" src="../_images/2020-12-01-23-05-51.png" />
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Sejarah perkembangan Linux</span><a class="headerlink" href="#sejarah-linux" title="Permalink to this image">¶</a></p>
+</div>
+<p>Lisensi yang terbuka (<a class="reference external" href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU General Public License</a> yang dikembangkan oleh <a class="reference external" href="https://stallman.org/">Richard Stallman</a>) memungkinkan Linux untuk dikembangkan secara bebas: tiap orang dapat membuat versi Linux mereka sendiri, membuat <em>copy</em>, melakukan modifikasi pada kode sumber, serta membagikan modifikasi tersebut dengan satu syarat, yaitu setiap perubahan tersebut dibuat dalam lisensi publik yang terbuka. Penggunaan lisensi ini penting dalam perkembangan Linux kemudian, sehingga bermunculan berbagai macam distribusi Linux yang menyesuaikan berbagai platform dan kebutuhan penggunanya.</p>
+</div>
+<div class="section" id="distribusi-linux">
+<h2>Distribusi Linux<a class="headerlink" href="#distribusi-linux" title="Permalink to this headline">¶</a></h2>
+<p><em>Linux Distribution</em> (disingkat <em>Distro</em>) merupakan sistem operasi yang menggunakan Kernel Linux sebagai basisnya, dengan berbagai komponen lain yang berbeda-beda, seperti <em>Desktop Environment, package management system,</em> berbagai pustaka tambahan, dan seterusnya.</p>
+<p>Meskipun menggunakan kernel Linux yang sama, dengan sifatnya yang bebas dan terbuka, berbagai distro ini kemudian memiliki komponen yang beragam sehingga muncul berbagai variasi <a class="reference external" href="https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg">distro Linux yang tersedia saat ini</a>. Saat dokumen ini ditulis, tidak kurang terdapat 600 distro Linux yang berbeda, dengan 500 diantaranya masih dalam tahap <em>development</em> aktif.</p>
+<div class="figure align-default" id="distro-linux">
+<img alt="../_images/2020-12-01-23-31-58.png" src="../_images/2020-12-01-23-31-58.png" />
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Timeline Distribusi Linux. Klik <a class="reference external" href="https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg">di sini</a> untuk melihat versi interaktifnya</span><a class="headerlink" href="#distro-linux" title="Permalink to this image">¶</a></p>
+</div>
+<p>Beberapa distro Linux yang populer antara lain <a class="footnote-reference brackets" href="#footnote1" id="id1">1</a>:</p>
+<div class="section" id="ubuntu">
+<h3>Ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://ubuntu.com/">Ubuntu</a> merupakan salah satu sistem operasi Linux yang paling populer saat ini. Ubuntu dilengkapi dengan package management (<em>Advanced Package Tool</em> atau <em>apt</em>) dan <em>destop environment</em> berbasis GNOME yang mendukung kemudahan penggunaannya untuk pemula. Ubuntu didukung dengan stabilitas dan keamanan yang mumpuni dengan versi LTS (<em>Long Term Support</em>) yang dirilis secara berkala oleh Canonical sebagai developer sistem operasi ini. Atas alasan itulah Ubuntu juga menjadi salah satu sistem operasi yang banyak dijumpai pada server. Ini juga didukung oleh adanya <em>community support</em> yang besar dan aktif, serta dukungan berbagai perangkat lunak pihak ketiga pada sistemnya.</p>
+<p><img alt="" src="../_images/2020-12-01-23-47-59.png" /></p>
+<p>Saat ini, versi Long Term Support untuk Ubuntu adalah 20.04 (Focal Fossa). Selain versi ini, versi LTS sebelumnya adalah 18.04 (Bionic Beaver) dan 16.04 (Xenial Xerus). Untuk penggunaan pada modul ini, akan digunakan Ubuntu versi LTS 18.04, untuk mengantisipasi adanya beberapa package yang belum didukung pada versi LTS terbaru. Pada prakteknya, penggunaan versi LTS yang lebih baru akan lebih baik, karena adanya dukungan keamanan dan <em>patch</em> yang diberikan pada tiap versi terbarunya.</p>
+</div>
+<div class="section" id="centos">
+<h3>CentOS<a class="headerlink" href="#centos" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://www.centos.org/">CentOS</a> merupakan pengembangan dari RedHat Linux yang banyak digunakan untuk komputer pada server maupun komputasi awan. Sebagai sebuah sistem operasi desktop, CentOS juga dilengkapi dengan antarmuka berbasis GNOME, sama seperti Ubuntu. CentOS dikenal karena menyediakan fungsi Enterprise sebagai sebuah sistem operasi pada server tanpa perlu mengeluarkan biaya sepeser pun.</p>
+<p><img alt="" src="../_images/2020-12-02-00-10-11.png" /></p>
+</div>
+<div class="section" id="linuxmint">
+<h3>Linuxmint<a class="headerlink" href="#linuxmint" title="Permalink to this headline">¶</a></h3>
+<p>Bagi pengguna yang baru saja ingin migrasi dari Windows dan mencoba antarmuka Linux Desktop, <a class="reference external" href="https://www.centos.org/">Linuxmint</a> merupakan pilihan yang sesuai. Desain antarmukanya dibuat sedemikian rupa untuk memudahkan pengguna pemula yang ingin mencoba Linux.
+<img alt="" src="../_images/2020-12-02-00-08-54.png" /></p>
+</div>
+<div class="section" id="archlinux">
+<h3>ArchLinux<a class="headerlink" href="#archlinux" title="Permalink to this headline">¶</a></h3>
+<p>Untuk pengguna yang menginginkan kebebasan kustomisasi tanpa mengorbankan antarmuka berbasis desktop, <a class="reference external" href="https://www.archlinux.org/">ArchLinux</a> dapat menjadi pilihan yang sesuai. ArchLinux memiliki konsep ringan (<em>lightweight</em>), dengan komponen desktop environment yang kaya pilihan: Cinnamon, Enlightenment, GNOME, KDE, LXDE, MATE, Xfce.</p>
+<p><img alt="" src="../_images/2020-12-02-00-08-08.png" /></p>
+</div>
+<div class="section" id="elemetary-os">
+<h3>Elemetary OS<a class="headerlink" href="#elemetary-os" title="Permalink to this headline">¶</a></h3>
+<p>Selain LinuxMint, <a class="reference external" href="https://elementary.io/">ElementaryOS</a> dikenal sebagai sistem operasi dengan tampilan yang paling memukau. Sistem Operasi ini didesain dengan tampilan yang, bagi pengguna Mac maupun Windows, akan terasa familiar. ElementaryOS dikembangkan dari sistem operasi Ubuntu LTS, dan membanggakan kebijakan penjagaan privasi yang kuat untuk penggunanya.</p>
+<p><img alt="" src="../_images/2020-12-02-00-11-43.png" /></p>
+</div>
+<div class="section" id="kali-linux">
+<h3>Kali Linux<a class="headerlink" href="#kali-linux" title="Permalink to this headline">¶</a></h3>
+<p>Barangkali <a class="reference external" href="https://www.kali.org/">Kali Linux</a> merupakan sistem operasi yang paling dikenal di kalangan Hacker. Kali Linux merupakan sistem operasi Linux yang dirancang khusus untuk keperluan <em>penetration testing</em> atau pengujian keamanan suatu sistem atau perangkat lunak. Instalasi standar Kali Linux dilengkapi dengan <a class="reference external" href="https://tools.kali.org/">berbagai perangkat</a> yang dapat digunakan untuk melakukan <em>pentesting</em>, seperti <code class="docutils literal notranslate"><span class="pre">aircrack-ng</span></code> dan <code class="docutils literal notranslate"><span class="pre">Wireshark</span></code>. Kali Linux bahkan juga dilengkapi dengan PowerShell bagi pengguna yang menginginkan lingkungan scripting tersebut pada Linux.</p>
+<p><img alt="" src="../_images/2020-12-02-00-11-06.png" /></p>
+<p>Selain berbagai distro yang disebutkan di atas, terdapat ratusan distro lain yang digunakan untuk berbagai keperluan. Tiap distro memiliki keunggulan masing-masing, sehingga daftar ini terlalu pendek untuk sebuah ulasan lengkap. <a class="reference external" href="https://distrowatch.com/">Situs ini</a> menyediakan perbandingan untuk tiap distro yang terdaftar berikut ulasan singkat mengenai masing-masing distro.</p>
+</div>
+</div>
+<div class="section" id="windows-subsystem-for-linux">
+<h2>Windows Subsystem for Linux<a class="headerlink" href="#windows-subsystem-for-linux" title="Permalink to this headline">¶</a></h2>
+<p>Dengan perkembangan pesat Linux pada berbagai platform dan dukungan komunitas yang sangat besar, Linux menjadi sistem operasi yang banyak digunakan oleh pengembang aplikasi, khususnya pada penggunaan server. Linux banyak digunakan karena selain mudah, keamanan dan stabilitas sistem yang diberikan juga menjadi poin penting dalam penggunaannya untuk keperluan server. Di sisi lain, Windows sebagai sistem operasi yang paling populer saat ini juga banyak digunakan untuk keperluan sehari-hari. Untuk itu, pengembangan perangkat lunak seringkali melibatkan kedua sistem operasi ini sekaligus (juga MacOS, bagi pengguna setianya). Pada bagian ini akan dibahas mengenai WSL versi 2 sebagai jembatan untuk Windows dan Linux yang akan sangat membantu pengembang dalam menggunakan Linux pada Sistem Operasi Windows.</p>
+<div class="section" id="tentang-windows-subsystem-for-linux-wsl">
+<h3>Tentang Windows Subsystem for Linux (WSL)<a class="headerlink" href="#tentang-windows-subsystem-for-linux-wsl" title="Permalink to this headline">¶</a></h3>
+<p>Pada tahun 2017, Microsoft sebagai pesaing terbesar Linux membuat pengumuman yang mengejutkan: Windows 10 sebagai sistem operasi utama Windows pada saat ini akan memiliki dukungan untuk menjalankan Linux Kernel secara <em>native</em>. Sebelumnya, bagi <em>developer</em> yang ingin menggunakan Windows dan Linux secara bersamaan harus menggunakan perangkat virtualisasi (misalnya Vagrant) atau melakukan instalasi dual-boot agar kedua sistem dapat berjalan. Penggunaan WSL memungkinkan Linux untuk dapat dijalankan dengan ringan pada sistem operasi Windows.</p>
+<div class="figure align-default" id="wsl">
+<img alt="../_images/2020-12-02-00-35-17.png" src="../_images/2020-12-02-00-35-17.png" />
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">WSL memungkinkan Linux dijalankan pada Windows</span><a class="headerlink" href="#wsl" title="Permalink to this image">¶</a></p>
+</div>
+<p>WSL2 (Windows Subsystem for Linux 2) merupakan integrasi mesin berbasis Linux pada Windows yang memungkinkan mesin Linux untuk dapat dijalankan pada Windows dengan performa maksimal. Indeks angka “2” menunjukkan bahwa virtualisasi ini adalah pengembangan lebih jauh dari mesin WSL yang pertama kali diusulkan oleh Microsoft pada tahun 2017. Perbedaan mencolok terlihat karena pada WSL2, mesin virtual yang dipasang menggunakan kernel linux yang sebenarnya. Artinya, performa yang dapat diperoleh dari mesin virtual ini juga sebaik mesin Linux dengan kekuatan penuh. Selain itu, dengan menggunakan <a class="reference external" href="https://ubuntu.com/wsl">Distro yang didukung oleh WSL2</a>, akses Windows pada mesin (dan sebaliknya) dapat dilakukan secara hampir <em>seamless</em>.</p>
+<div class="figure align-default" id="wsl2">
+<img alt="../_images/image-20201129191425719.png" src="../_images/image-20201129191425719.png" />
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Ubuntu yang khusus dirancang untuk WSL</span><a class="headerlink" href="#wsl2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="latihan-instalasi-wsl2-pada-windows-10">
+<h3>Latihan: Instalasi WSL2 Pada Windows 10<a class="headerlink" href="#latihan-instalasi-wsl2-pada-windows-10" title="Permalink to this headline">¶</a></h3>
+<p>Untuk instalasi WSL2 ini, berikut adalah persyaratan yang harus dipenuhi:</p>
+<ul class="simple">
+<li><p>Windows 10 dengan versi update terbaru: Windows 10 May 2020 (2004), Windows 10 May 2019 (1903), or Windows 10 November 2019 (1909). Windows dengan versi update lama (1903 atau 1909) tetap dapat menginstall WSL2 dengan terlebih dahulu melakukan instalasi Windows Update <a class="reference external" href="https://support.microsoft.com/en-us/help/4566116/windows-10-update-kb4566116">berikut ini</a></p></li>
+<li><p>Komputer atau laptop yang memiliki dukungan <strong>Hyper-V Virtualization</strong>. Periksa <a class="reference external" href="https://www.zdnet.com/article/windows-10-tip-find-out-if-your-pc-can-run-hyper-v/">link berikut</a> untuk mengetahui apakah Komputer atau laptop Anda memiliki dukungan Hyper-V.</p></li>
+</ul>
+<p>Untuk melihat versi build Windows yang Anda gunakan, lakukan langkah berikut:</p>
+<ul>
+<li><p>Buka Windows Run (Win+R)</p></li>
+<li><p>Ketikkan <code class="docutils literal notranslate"><span class="pre">'winver'</span></code></p></li>
+<li><p>Pada jendela yang muncul, akan terlihat versi build Windows yang sedang berjalan</p>
+<p><img alt="" src="../_images/2020-12-02-00-26-50.png" /></p>
+<p>Apabila versi build Windows Anda di bawah <code class="docutils literal notranslate"><span class="pre">18362</span></code>, maka terlebih dulu lakukan update Windows menggunakan <a class="reference external" href="https://www.microsoft.com/software-download/windows10">Update Assistant</a>.</p>
+</li>
+</ul>
+<blockquote>
+<div><p><strong>Catatan:</strong></p>
+<p>Panduan ini dibuat dengan mengikuti panduan resmi di:</p>
+<p>https://docs.microsoft.com/en-us/windows/wsl/install-win10</p>
+<p>Periksa tautan tersebut untuk melihat perubahan terbaru terkait dengan instalasi WSL</p>
+</div></blockquote>
+<p>Berikut adalah petunjuk untuk melakukan instalasi WSL2 pada Sistem Operasi Windows 10:</p>
+<ol>
+<li><p><em>Mengaktifkan WSL melalui PowerShell</em></p>
+<p>Buka <code class="docutils literal notranslate"><span class="pre">Windows</span> <span class="pre">PowerShell</span></code> sebagai Administrator.</p>
+<p><img alt="" src="../_images/2020-12-02-00-27-16.png" /></p>
+<p>Ketikkan perintah berikut pada command prompt yang tersedia:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+</pre></div>
+</div>
+<p>Akan muncul pemberitahuan apabila proses telah berhasil:</p>
+<p><img alt="" src="../_images/2020-12-02-00-27-37.png" /></p>
+</li>
+<li><p><em>Update ke WSL versi 2</em></p>
+<p>Pastikan versi build Windows yang digunakan sesuai untuk persyaratan WSL2 seperti di atas. Periksa <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install-win10#step-2---update-to-wsl-2">link berikut</a> untuk melihat lebih detil mengenai bagian ini.</p>
+</li>
+<li><p><em>Aktifkan Virtual Machine Platform</em></p>
+<p>Pada jendela PowerShell yang sama (sebagai Administrator), ketikkan perintah berikut:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+</pre></div>
+</div>
+<p>Setelah perintah selesai dijalankan, lakukan restart pada Windows. Ini akan mengupdate WSL pada system menjadi versi ke-2</p>
+</li>
+<li><p><em>Unduh Linux kernel untuk WSL2</em></p>
+<p>Terlebih dahulu unduh dan install Linux Kernel untuk WSL2 dari <a class="reference external" href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">Link Berikut</a>.</p>
+<p>Setelah instalasi berhasil, masukkan perintah berikut ke dalam PowerShell yang sama seperti sebelumnya:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wsl --set-default-version <span class="m">2</span>
+</pre></div>
+</div>
+<p>Ini akan membuat versi WSL yang telah terinstall menggunakan versi kedua.</p>
+</li>
+<li><p><em>Melakukan Instalasi Distro Linux</em></p>
+<p>Pada <a class="reference external" href="https://aka.ms/wslstore">Microsoft Store</a> telah tersedia beberapa distro Linux yang dapat digunakan pada WSL. Buka Microsoft Store, kemudian lakukan instalasi untuk distro yang dipilih. Untuk latihan ini, gunakan <code class="docutils literal notranslate"><span class="pre">Ubuntu</span></code>, khususnya versi <a class="reference external" href="https://www.microsoft.com/store/apps/9N9TNGVNDL3Q">Ubuntu 18.04</a>.</p>
+<p><img alt="" src="../_images/2020-12-02-00-28-08.png" /></p>
+<p>Klik <code class="docutils literal notranslate"><span class="pre">Get</span></code> untuk melakukan instalasi Ubuntu pada WSL2</p>
+<p><img alt="" src="../_images/2020-12-02-00-28-23.png" /></p>
+</li>
+<li><p><em>Memulai WSL</em></p>
+<p>Setelah instalasi selesai, Ubuntu dapat langsung digunakan pada Windows. Untuk memulai WSL, buka icon menu bergambar logo Ubuntu (<img alt="" src="../_images/2020-12-02-00-28-54.png" />).</p>
+<p>Pada saat pertama kali dibuka, mesin akan meminta <strong>username</strong> dan <strong>password</strong>. Catat username dan password yang dimasukkan karena ini akan menjadi akun <em>sudoer</em>  pada mesin Linux yang dibuat.</p>
+<p><img alt="" src="../_images/2020-12-02-00-29-10.png" /></p>
+<p>Selanjutnya, Ubuntu siap digunakan</p>
+<p><img alt="" src="../_images/2020-12-02-00-29-18.png" /></p>
+</li>
+<li><p><em>Integrasi WSL dan Windows</em></p>
+<p>Telah disampaikan sebelumnya bahwa integrasi Linux dan Windows menggunakan WSL2 bersifat hampir seamless. Artinya, kedua sistem dapat saling berkomunikasi tanpa memerlukan media perantara yang rumit.</p>
+<p>Untuk mengakses file WSL dari windows, buka Explorer, kemudian ketikkan pada bagian directory list: <code class="docutils literal notranslate"><span class="pre">\\wsl$</span></code>.</p>
+<p><img alt="" src="../_images/2020-12-02-00-29-29.png" /></p>
+<p>Maka Windows akan membuka drive pada Linux sebagaimana sebuah folder biasa pada Explorer.</p>
+<p><img alt="" src="../_images/2020-12-02-00-29-36.png" /></p>
+<p>Berkas yang disimpan pada ‘folder’ ini akan langsung terintegrasi dengan Linux tanpa perlu melakukan <em>rebooting</em>.</p>
+<p>Demikian pula, pada saat Ubuntu memanggil port tertentu, maka WSL akan secara otomatis melakukan <em>port forwarding</em>, sehingga port tersebut dapat dibuka pada Windows tanpa perlu melakukan langkah tambahan apapun.</p>
+<p>Sebagai contoh, berikut adalah pemanggilan Jupyter Lab dari konsol Ubuntu pada WSL2:</p>
+<p><img alt="" src="../_images/2020-12-02-00-29-45.png" /></p>
+<p>Dan berikut adalah tampilan Jupyter Lab apabila dibuka pada browser di Windows:</p>
+<p><img alt="" src="../_images/2020-12-02-00-29-53.png" /></p>
+</li>
+<li><p><em>WSL2 untuk keperluan pembangunan aplikasi (development)</em></p>
+<p>Untuk keperluan pembangunan aplikasi, WSL2 memungkinkan koneksi pada beberapa Code Editor. Sebagai contoh, VSCode memiliki dukungan untuk melakukan <em>editing</em> kode pada WSL2 melalui plugin. Klik <a class="reference external" href="https://code.visualstudio.com/docs/remote/wsl">Link berikut</a> untuk detilnya.</p>
+<p><img alt="" src="../_images/2020-12-02-00-30-07.png" /></p>
+<p>Berikut adalah contoh pemanggilan VSCode dari mesin Ubuntu:</p>
+<p><img alt="" src="../_images/2020-12-02-00-30-17.png" /></p>
+<p>dan berikut adalah tampilan dari VSCode yang langsung terbuka dan terkoneksi dengan WSL2 tersebut:</p>
+<p><img alt="" src="../_images/2020-12-02-00-30-27.png" /></p>
+</li>
+</ol>
+<p>Karena pengaturan <em>resource</em> untuk komputasi (memory, space harddisk) dilakukan <a class="reference external" href="https://www.digitalocean.com/community/posts/trying-the-new-wsl-2-its-fast-windows-subsystem-for-linux">secara bersama-sama</a> oleh Windows dan WSL2 melalui Linux Kernel, maka penggunaan WSL tidak akan membebani sistem Windows. Dengan demikian, penggunaan Linux pada WSL2 ini adalah metode yang lebih disarankan daripada menggunakan Virtual Machine seperti VirtualBox atau VMWare yang dapat membebani kinerja sistem.</p>
+<p>Hasil dari latihan di atas adalah WSL2 dengan Ubuntu sebagai sistem operasi yang dapat digunakan pada Windows. Selain diinstall sebagai WSL yang dapat diakses pada sistem lokal, terdapat beberapa opsi lain yang daat dilakukan untuk menggunakan Linux. <a class="reference external" href="https://www.danylaksono.com/docs/linuxvm/">Link berikut</a> memberikan panduan ringkas mengenai bagaimana melakukan instalasi Linux baik pada Cloud maupun lokal.</p>
+<hr class="docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="footnote1"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>https://www.techradar.com/best/best-linux-distros</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./sesi1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="introlinux.html" title="previous page">Pengantar Linux Server, FOSS-GIS dan Web Server</a>
+    <a class='right-next' id="next-link" href="arsitektur.html" title="next page">Pengaturan dan Administrasi Linux</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Dany Laksono<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.30270b6e4c972e43c488.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,17 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+- file: intro
+
+- part: Bagian I - Linux Server dan FOSS-GIS
+  expand_sections: true
+  sections:
+  - file: sesi1/introlinux
+  - file: sesi1/pengantarlinux
+  - file: sesi1/arsitektur
+  - file: sesi1/linuxserver
+    #sections:
+    #  - file: sesi1/linuxserver/prerequisites
+    #  - file: sesi1/linuxserver/webserver
+  - file: sesi1/fossgis
+  
