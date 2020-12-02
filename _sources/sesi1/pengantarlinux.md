@@ -140,6 +140,9 @@ Untuk melihat versi build Windows yang Anda gunakan, lakukan langkah berikut:
   
   Apabila versi build Windows Anda di bawah `18362`, maka terlebih dulu lakukan update Windows menggunakan [Update Assistant](https://www.microsoft.com/software-download/windows10).
 
+  Jika Hyper-V belum diaktifkan pada firmware, maka opsi ini perlu diaktifkan terlebih dulu pada BIOS. [Panduan ini](https://techcommunity.microsoft.com/t5/itops-talk-blog/step-by-step-enabling-hyper-v-for-use-on-windows-10/ba-p/267945) menyediakan langkah yang diperlukan untuk mengaktifkan Hyper-V pada BIOS dan pada Windows 10.
+
+
 > **Catatan:**
 >
 > Panduan ini dibuat dengan mengikuti panduan resmi di:
@@ -250,7 +253,11 @@ Berikut adalah petunjuk untuk melakukan instalasi WSL2 pada Sistem Operasi Windo
 
    ![](img/2020-12-02-00-30-17.png)
 
+   <br>
+
    dan berikut adalah tampilan dari VSCode yang langsung terbuka dan terkoneksi dengan WSL2 tersebut:
+
+   <br>
 
    ![](img/2020-12-02-00-30-27.png)
 
