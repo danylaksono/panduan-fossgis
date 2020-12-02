@@ -19,10 +19,21 @@ Apache adalah salah satu webserver berbasis PHP yang paling sering digunakan. Ca
 
 Dengan Apache, maka berkas yang tersimpan pada komputer akan dapat dionlinekan dengan pengaturan tertentu. Pengaturan yang dimaksud meliputi pengaturan keamanan, virtual host, proxy, dan lain sebagainya.
 
+Untuk sekedar menguji kemampuan *port forwarding* dari WSL2 dan demonstrasi webserver, kita coba buat sebuah webserver sederhana. Python menyediakan sebuah webserver sederhana dengan perintah singkat:
+
+```bash
+python3 -m http.server  
+```
+
+maka folder tempat perintah tersebut dijalankan akan dapat diakses pada browser pada alamat `localhost:8000` (port default untuk server ini):
+
+![](img/2020-12-02-12-12-30.png)
+
 
 
 ## Menggunakan Apache
 
+Server web Apache adalah perangkat paling populer saat ini untuk menyajikan konten web di internet. Apache menyumbang lebih dari setengah dari selurh situs web aktif di internet dengan berbagai fungsi dan kelebihan yang dimilikinya.
 Pada latihan ini akan dilakukan instalasi dan konfigurasi Apache untuk publikasi data dalam bentuk HTML sederhana.
 
 ### Instalasi Apache 
@@ -84,18 +95,124 @@ Lakukan langkah berikut untuk melakukan instalasi Apache pada sistem Ubuntu WSL:
 
    Apabila halaman Apache Ubuntu sudah terbuka, artinya instalasi Apache berhasil dengan baik    
 
-
-### Konfigurasi Apache
-
+//### Konfigurasi Apache
 
 ### Membuat Website sederhana
+Setelah webserver selesai dipasang, selanjutnya adalah menggunakan webserver ini untuk mempublikasi halaman web dalam bentuk HTML. Apache memiliki direktori default dalam publikasi webnya di folder:
+```
+/var/www/html
+```
 
+Dengan demikian, seluruh file yang disimpan pada folder tersebut akan dapat dibuka melalui browser pada alamat `localhost`.
+Untuk menguji webserver ini, kita akan lakukan latihan sebagai berikut:
 
+1. Masuk ke folder `/var/www/html` menggunakan perintah `cd`
+2. Buat sebuah folder baru dengan nama `trial` pada direktori `/html` tersebut. 
+   ```bash
+   sudo mkdir trial
+   ``` 
+   Perintah `mkdir` pada folder tersebut memerlukan akses `sudo`, karena owner dari folder adalah `root`.
+3. Pada folder tersebut, buat sebuah file dengan nama `index.html`
+   ```bash
+   sudo touch index.html
+   ```
+4. Isilah file tersebut dengan baris bahasa HTML berikut:
+   ```html
+   <html>
+   <head></head>
+   <body>
+   <h1> The hello world</h1>
+   <p> Ini paragraf html </p>
+   </body>
+   </html>   
+   ```
+5. Buka http://localhost/trial:
+   ![](img/2020-12-02-12-38-31.png)
+   File html yang dibuat pada folder berhasil dipanggil pada webserver
 
-## Tomcat sebagai Servlet Aplikasi
+## Tomcat sebagai Servlet Aplikasi berbasis Java
+Apache Tomcat adalah implementasi open-source dari Java Servlet, JavaServer Pages, Java Expression Language, dan teknologi Java WebSocket. Ini adalah salah satu aplikasi dan server web yang paling banyak diadopsi di dunia saat ini. Tomcat mudah digunakan dan memiliki ekosistem add-on yang kuat. Apache Tomcat digunakan untuk publikasi berbagai aplikasi geospasial, seperti misalnya Geoserver dan Mapstore.
 
+### Instalasi Tomcat
+Untuk melakukan instalasi Tomcat, lakukan langkah berikut:
+//https://linuxize.com/post/how-to-install-tomcat-9-on-ubuntu-18-04/
+1. Update apk, kemudian install OpenJDK. OpenJDK diperlukan oleh Tomcat yang berbasis Java untuk dapat dijalankan pada Ubuntu
+   ```bash
+   sudo apt install default-jdk
+   ```
+2. Atas alasan keamanan, Tomcat tidak boleh dijalankan di bawah pengguna root. Kita perlu membuat pengguna dan grup sistem baru dengan direktori home /opt/tomcat yang akan menjalankan layanan Tomcat:
+   ```bash
+   sudo useradd -r -m -U -d /opt/tomcat -s /bin/false tomcat
+   ```
+3. Unduh instalasi Tomcat 9. Pada saat penulisan modul ini, Versi terbaru Tomcat adalah 9.0.40. Sesuaikan versi Tomcat yang digunakan dengan melihat versi rilis terbaru pada [halaman ini](https://tomcat.apache.org/download-90.cgi).
+   Gunakan wget untuk mengunduh binary Tomcat untuk Instalasi:
+   ```bash
+   wget http://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.40/bin/apache-tomcat-9.0.40.tar.gz -P /tmp
+   ```
+4. Setelah unduhan selesai, gunakan perintah berikut untuk mengekstrak dan memindah file Tomcat pada folder `/opt/tomcat`:
+   ```bash
+   sudo tar xf /tmp/apache-tomcat-9*.tar.gz -C /opt/tomcat
+   ```
+5. Untuk keperluan praktis, lebih baik apabila dibuat sebuah Symbolic Link untuk mengacu pada binary yang dimaksud:
+   ```bash
+   sudo ln -s /opt/tomcat/apache-tomcat-9.0.40 /opt/tomcat/latest
+   ```
+6. Agar folder tomcat dimiliki oleh pengguna `tomcat` yang telah dibuat sebelumnya, gunakan perintah berikut:
+   ```bash
+   sudo chown -RH tomcat: /opt/tomcat/latest
+   ```
+   Demikian pula, rubah pengaturan akses pada script yang ada di dalamnya agar dapat dieksekusi:
+   ```bash
+   sudo sh -c 'chmod +x /opt/tomcat/latest/bin/*.sh'
+   ```
+7. Untuk memudahkan manajemen, Tomcat perlu dijalankan sebagai service:
+   ```bash
+   sudo nano /etc/systemd/system/tomcat.service
+   ```
+   masukkan baris berikut pada file yang dibuka:
+   ```
+   [Unit]
+   Description=Tomcat 9 servlet container
+   After=network.target
 
+   [Service]
+   Type=forking
 
+   User=tomcat
+   Group=tomcat
+
+   Environment="JAVA_HOME=/usr/lib/jvm/default-java"
+   Environment="JAVA_OPTS=-Djava.security.egd=file:///dev/urandom -Djava.awt.headless=true"
+
+   Environment="CATALINA_BASE=/opt/tomcat/latest"
+   Environment="CATALINA_HOME=/opt/tomcat/latest"
+   Environment="CATALINA_PID=/opt/tomcat/latest/temp/tomcat.pid"
+   Environment="CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC"
+
+   ExecStart=/opt/tomcat/latest/bin/startup.sh
+   ExecStop=/opt/tomcat/latest/bin/shutdown.sh
+
+   [Install]
+   WantedBy=multi-user.target
+   ```
+
+8. Lakukan aktivasi untuk Tomcat yang sudah diinstall:
+   ```bash
+   sudo systemctl daemon-reload
+   sudo systemctl start tomcat
+   sudo systemctl status tomcat
+   ```
+   Aktifkan tomcat pada saat mesin dimulai:
+   ```bash
+   sudo systemctl enable tomcat
+   ```
+9.  Izinkan Firewall untuk Tomcat
+    Sama seperti pada Apache, firewall perlu dibuka untuk mengizinkan Tomcat dapat diakses:
+    ```bash
+    sudo ufw allow 8080/tcp
+    ```
+
+Pada WSL, terdapat beberapa bug yang mempengaruhi layanan service  untuk Tomcat, sehingga penggunaannya memerlukan pengaturan lebih lanjut yang akan dibahas kemudian.
 
 
 
