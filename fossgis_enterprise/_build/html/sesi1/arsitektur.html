@@ -56,7 +56,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Linux untuk WebServer" href="linuxserver.html" />
+    <link rel="next" title="Linux sebagai Sistem Operasi Server" href="linuxserver.html" />
     <link rel="prev" title="Pengantar Linux dan Server" href="pengantarlinux.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -113,12 +113,39 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="linuxserver.html">
-   Linux untuk WebServer
+   Linux sebagai Sistem Operasi Server
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="fossgis.html">
    Free and Open Source Software-GIS
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Bagian II - Relational Spatial Database
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi2/relationaldb.html">
+   Tentang Panduan ini
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi2/dbmanagement.html">
+   Tentang Panduan ini
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi2/postgisquery.html">
+   Tentang Panduan ini
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi2/nosql.html">
+   Tentang Panduan ini
   </a>
  </li>
 </ul>
@@ -196,25 +223,15 @@
   <a class="reference internal nav-link" href="#arsitektur-linux">
    Arsitektur Linux
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pengaturan-pengguna-dan-hak-akses">
-   Pengaturan Pengguna dan Hak Akses
-  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#administrasi-pengguna">
-     Administrasi Pengguna
+    <a class="reference internal nav-link" href="#kernel-dan-komponen-komponen-linux">
+     Kernel dan komponen-komponen Linux
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pengaturan-grup">
-     Pengaturan Grup
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pengaturan-hak-akses">
-     Pengaturan Hak Akses
+    <a class="reference internal nav-link" href="#filosofi-linux">
+     Filosofi Linux
     </a>
    </li>
   </ul>
@@ -225,18 +242,40 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#manajemen-file-dan-direktori">
-     Manajemen File dan Direktori
+    <a class="reference internal nav-link" href="#latihan-perintah-dasar-pada-shell">
+     Latihan: Perintah Dasar pada Shell
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#operasi-file">
-     Operasi File
+    <a class="reference internal nav-link" href="#latihan-operasi-pada-file-dan-direktori">
+     Latihan: Operasi pada File dan Direktori
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#instalasi-aplikasi">
-     Instalasi aplikasi
+    <a class="reference internal nav-link" href="#latihan-instalasi-aplikasi">
+     Latihan: Instalasi aplikasi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pengaturan-pengguna-dan-hak-akses">
+   Pengaturan Pengguna dan Hak Akses
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#latihan-administrasi-pengguna">
+     Latihan: Administrasi Pengguna
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#latihan-pengaturan-grup">
+     Latihan: Pengaturan Grup
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pengaturan-hak-akses">
+     Pengaturan Hak Akses
     </a>
    </li>
   </ul>
@@ -254,35 +293,425 @@
                 
   <div class="section" id="pengaturan-dan-administrasi-linux">
 <h1>Pengaturan dan Administrasi Linux<a class="headerlink" href="#pengaturan-dan-administrasi-linux" title="Permalink to this headline">¶</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><strong>Ubuntu Pocket Guide</strong> merupakan panduan yang cukup komprehensive untuk ‘penggunaan Ubuntu sehari-hari’. Buku ini dapat diunduh secara gratis dari alamat http://www.ubuntupocketguide.com/download_main.html</p>
+<p>Setelah memiliki sebuah sistem operasi Linux yang dapat digunakan untuk latihan dengan menggunakan WSL, pada bagian ini akan dibahas mengenai beberapa perintah dasar pada Linux.</p>
+<div class="admonition-catatan admonition">
+<p class="admonition-title">Catatan</p>
+<p><strong>Ubuntu Pocket Guide</strong> merupakan panduan yang cukup komprehensive untuk ‘penggunaan Ubuntu sehari-hari’. Buku ini dapat diunduh secara gratis dari alamat: <a class="reference external" href="http://www.ubuntupocketguide.com/download_main.html">http://www.ubuntupocketguide.com/download_main.html</a></p>
 </div>
 <div class="section" id="arsitektur-linux">
 <h2>Arsitektur Linux<a class="headerlink" href="#arsitektur-linux" title="Permalink to this headline">¶</a></h2>
+<p>Sebelum terjun langsung dalam penggunaan Linux, sebaiknya terlebih dahulu dipelajari mengenai filosofi dan arsitektur sebuah sistem operasi Linux. Pemahaman mengenai hal ini akan memudahkan dalam bekerja dengan Linux serta menghindari permasalahan pada saat bekerja dengan Linux.</p>
+<div class="section" id="kernel-dan-komponen-komponen-linux">
+<h3>Kernel dan komponen-komponen Linux<a class="headerlink" href="#kernel-dan-komponen-komponen-linux" title="Permalink to this headline">¶</a></h3>
+<p>Sebelumnya, <a class="reference internal" href="#kernel"><span class="std std-ref">kernel linux</span></a> telah disebutkan beberapa kali pada panduan ini. Lisensi kernel Linux yang dikembangkan oleh Linus Torvalds sebagai rangkaian kode yang bersifat bebas dan terbuka memungkinkan pengembangan berbagai aplikasi lain di atasnya, yang kemudian melahirkan ratusan distro yang masing-masingnya adalah sebuah sistem operasi sendiri. Tetapi, apa sebenarnya yang dimaksud dengan <em>Linux Kernel</em>?</p>
+<div class="figure align-default" id="kernel">
+<img alt="../_images/2020-12-02-02-49-33.png" src="../_images/2020-12-02-02-49-33.png" />
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Arsitektur Sistem Operasi Linux</span><a class="headerlink" href="#kernel" title="Permalink to this image">¶</a></p>
 </div>
-<div class="section" id="pengaturan-pengguna-dan-hak-akses">
-<h2>Pengaturan Pengguna dan Hak Akses<a class="headerlink" href="#pengaturan-pengguna-dan-hak-akses" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="administrasi-pengguna">
-<h3>Administrasi Pengguna<a class="headerlink" href="#administrasi-pengguna" title="Permalink to this headline">¶</a></h3>
+<p>Sebuah ‘kernel’ dapat diartikan sebagai potongan kode yang menjadi antarmuka antara perangkat keras (<em>hardware</em>) dan berbagai aplikasi yang menggunakan perangkat tersebut. Linux Kernel yang awalnya didesain oleh Linus Torvalds sebagai sebuah sistem yang tertutup dan tidak portabel ternyata berubah menjadi kode yang dapat digunakan pada berbagai platform dengan dukungan pada berbagai perangkat keras, sehingga muncul berbagai pengembangan versi distribusi Linux yang berbeda.</p>
 </div>
-<div class="section" id="pengaturan-grup">
-<h3>Pengaturan Grup<a class="headerlink" href="#pengaturan-grup" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="filosofi-linux">
+<h3>Filosofi Linux<a class="headerlink" href="#filosofi-linux" title="Permalink to this headline">¶</a></h3>
+<p>Di atas kernel inilah berbagai aplikasi berdiri sebagai perantara antara perangkat keras dan perangkat lunak pada sebuah sistem operasi. Filosofi Linux ini kemudian dikenal luas dengan istilah, <strong><a class="reference external" href="https://unix.stackexchange.com/questions/225537/everything-is-a-file">“Everything is a File”</a></strong>: setiap transaksi, proses, dan apapun yang terjadi pada sebuah sistem Unix sejatinya adalah ‘<em>stream of byte</em>’ yang berdiri di atas kernel.</p>
+<div class="figure align-default" id="komponen">
+<img alt="../_images/2020-12-02-03-10-30.png" src="../_images/2020-12-02-03-10-30.png" />
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Komponen-komponen Linux</span><a class="headerlink" href="#komponen" title="Permalink to this image">¶</a></p>
 </div>
-<div class="section" id="pengaturan-hak-akses">
-<h3>Pengaturan Hak Akses<a class="headerlink" href="#pengaturan-hak-akses" title="Permalink to this headline">¶</a></h3>
+<p>Jika Kernel digunakan untuk berkomunikasi dengan perangkat keras, maka sebuah <strong>Shell</strong> pada Linux berfungsi sebagai penghubung antara pengguna dan kernel. Shell dapat menerima berbagai perintah pengguna dan menerjemahkannya menjadi perintah yang dapat dipahami oleh perangkat keras. Berbagai aplikasi juga menggunakan shell untuk melakukan operasi-operasi yang diinginkan pengguna, misalnya pada antarmuka desktop. Karena setiap operasi adalah ‘file’, maka pengguna yang berbeda dapat melakukan operasi yang berbeda pada sebuah berkas yang sama. Pada Linux, kondisi berikut berlaku:</p>
+<ul class="simple">
+<li><p>Tiap program dijalankan oleh <em>user</em>/pengguna</p></li>
+<li><p>Tiap berkas dimiliki oleh pengguna</p></li>
+<li><p>Tiap pengguna memiliki identitas unik yang membedakan pengguna satu dengan yang lain</p></li>
+</ul>
+<p>Dari uraian di atas, dapat disimpulkan bahwa beberapa karakteristik dari Linux adalah sebagai berikut <a class="footnote-reference brackets" href="#footnote2" id="id1">1</a>:</p>
+<ul class="simple">
+<li><p><strong>Portabel</strong> - Portabilitas berarti perangkat lunak dapat bekerja pada berbagai jenis perangkat keras dengan cara yang sama. Kernel Linux dan program aplikasi mendukung instalasi mereka pada semua jenis platform perangkat keras.</p></li>
+<li><p><strong>Open Source</strong> - Kode sumber Linux tersedia secara gratis dan merupakan proyek pengembangan berbasis komunitas. Beberapa tim bekerja sama untuk meningkatkan kemampuan sistem operasi Linux dan pengembangannya terus berjalan.</p></li>
+<li><p><strong>Multi-User</strong> - Linux adalah sistem multiuser yang berarti banyak pengguna dapat mengakses sumber daya sistem seperti memori / ram / program aplikasi pada saat yang bersamaan.</p></li>
+<li><p><strong>Multiprogramming</strong> - Linux adalah sistem multiprogramming yang berarti banyak aplikasi dapat berjalan pada waktu yang bersamaan.</p></li>
+<li><p><strong>Sistem File Hirarkis</strong> - Linux menyediakan struktur file standar di mana file sistem / file pengguna disusun dengan struktur yang sama pada berbagai distribusi Linux.</p></li>
+<li><p><strong>Shell</strong> - Linux menyediakan program penerjemah khusus yang dapat digunakan untuk menjalankan perintah sistem operasi. Dapat digunakan untuk melakukan berbagai jenis operasi, memanggil program aplikasi. dll.</p></li>
+<li><p><strong>Keamanan</strong> - Linux menyediakan keamanan pengguna menggunakan fitur otentikasi seperti proteksi password dan akses terkontrol ke file/enkripsi data tertentu.</p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="mengunakan-shell">
 <h2>Mengunakan Shell<a class="headerlink" href="#mengunakan-shell" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="manajemen-file-dan-direktori">
-<h3>Manajemen File dan Direktori<a class="headerlink" href="#manajemen-file-dan-direktori" title="Permalink to this headline">¶</a></h3>
+<p><strong>Shell Command</strong> merupakan antarmuka untuk melakukan berbagai operasi pada sistem operasi Linux. Meskipun saat ini berbagai Distro Linux telah dilengkapi dengan antarmuka yang sangat canggih, penggunaan Shell untuk operasi sehari-hari memiliki beberapa kelebihan:</p>
+<ul class="simple">
+<li><p>Perintah yang kompleks dapat dilakukan dengan mudah menggunakan Shell (coba: <code class="docutils literal notranslate"><span class="pre">cal</span></code>)</p></li>
+<li><p>Shell diperlukan pada saat menggunakan Linux sebagai mesin server: perintah shell jauh lebih cepat dan menggunakan bandwith lebih sedikit apabila koneksi dilakukan dengan shell</p></li>
+<li><p>Shell dapat diprogram (contoh: <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">*.png</span> <span class="pre">do</span> <span class="pre">...</span></code>)</p></li>
+<li><p>Penggunaan Shell memungkinkan kustomisasi, misalnya dengan menggunakan argumen untuk berbagai perintah (contoh: <em>pipe operation</em>)</p></li>
+</ul>
+<p>Pada bagian ini akan dilakukan beberapa latihan untuk mengenal perintah-perintah shell pada Linux. Perintah-perintah pada panduan ini dilakukan pada Ubuntu, sehingga penggunaan distro yang lain mungkin memerlukan penyesuaian. Meskipun sebagian besar perintah antar distro Linux yang satu dengan yang lain sama, tetapi boleh jadi ada sedikit perbedaan (sebagai contoh, Ubuntu yang berbasis Debian menggunakan Package Manager <em>apt</em>, sedangkan CentOS yang berbasis RedHat menggunakan <em>yum</em>).</p>
+<div class="admonition-catatan admonition">
+<p class="admonition-title">Catatan</p>
+<p><strong>Bash Shell</strong> adalah aplikasi Command Shell yang saat ini merupakan aplikasi standar pada hampir semua distribusi Linux, sehingga perintah pada panduan ini mengacu pada Bash Shell. Perintah-perintah pada Bash Shell dapat dilihat pada <a class="reference external" href="https://devhints.io/bash">link berikut</a> atau <a class="reference external" href="https://courses.cs.washington.edu/courses/cse391/16sp/bash.html">link berikut</a>.</p>
 </div>
-<div class="section" id="operasi-file">
-<h3>Operasi File<a class="headerlink" href="#operasi-file" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="latihan-perintah-dasar-pada-shell">
+<h3>Latihan: Perintah Dasar pada Shell<a class="headerlink" href="#latihan-perintah-dasar-pada-shell" title="Permalink to this headline">¶</a></h3>
+<p>WSL2 untuk Windows 10 yang diinstall pada latihan sebelumnya memberikan antarmuka Shell pada pengguna (lihat <a class="reference internal" href="pengantarlinux.html#wsl2"><span class="std std-ref">gambar sebelumnya</span></a>). Latihan-latihan berikut menggunakan antarmuka <em>shell command</em> yang diberikan oleh WSL2 ini.</p>
+<p>Berikut adalah beberapa perintah yang dapat digunakan untuk berlatih manajemen file pada Linux:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Command</p></th>
+<th class="text-align:left head"><p>Deskripsi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>pwd</p></td>
+<td class="text-align:left"><p>print current working directory</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>cd</p></td>
+<td class="text-align:left"><p>change working directory</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>ls</p></td>
+<td class="text-align:left"><p>list files in working directory</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>man</p></td>
+<td class="text-align:left"><p>bring up manual for a command</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>exit</p></td>
+<td class="text-align:left"><p>log out of shell</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>clear</p></td>
+<td class="text-align:left"><p>clears all output from console</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>date</p></td>
+<td class="text-align:left"><p>output the system date</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>cal</p></td>
+<td class="text-align:left"><p>output a text calendar</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>uname</p></td>
+<td class="text-align:left"><p>print information about the current system</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p></p></td>
+<td class="text-align:left"><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>Untuk latihan, buka konsol Ubuntu WSL2, kemudian ketikkan salah satu perintah di atas:</p>
+<p><img alt="" src="../_images/2020-12-02-04-08-05.png" /></p>
+<p>Perintah <code class="docutils literal notranslate"><span class="pre">pwd</span></code> pada gambar di atas digunakan untuk menampilkan direktori tempat shell saat ini berjalan. Keluaran dari perintah ini langsung ditampilkan pada konsol. Untuk latihan, jalankan perintah-perintah lain dan perhatikan apa yang terjadi pada konsol.</p>
 </div>
-<div class="section" id="instalasi-aplikasi">
-<h3>Instalasi aplikasi<a class="headerlink" href="#instalasi-aplikasi" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="latihan-operasi-pada-file-dan-direktori">
+<h3>Latihan: Operasi pada File dan Direktori<a class="headerlink" href="#latihan-operasi-pada-file-dan-direktori" title="Permalink to this headline">¶</a></h3>
+<p>Sebagaimana pada Windows, berkas pada Linux disusun dalam beberapa folder yang masing-masing mengatur pekerjaan tertentu. Pada Linux, struktur direktorinya adalah sebagai berikut:</p>
+<p><img alt="" src="../_images/2020-12-02-04-35-50.png" /></p>
+<p>Perintah pada Shell umumnya mengikuti struktur sebagai berikut:</p>
+<p><img alt="" src="../_images/2020-12-02-05-10-13.png" /></p>
+<p><code class="docutils literal notranslate"><span class="pre">Command</span></code> adalah perintah yang dipanggil pada shell. <code class="docutils literal notranslate"><span class="pre">Flags</span></code> menunjukkan opsi yang dapat dipanggil oleh command tersebut, sedangkan <code class="docutils literal notranslate"><span class="pre">Argument</span></code> menyatakan variabel yang dipanggil oleh perintah tersebut.</p>
+<ol>
+<li><p>Untuk berpindah antar satu direktori ke direktori lain, dapat digunakan <em>Relative Directory</em>, dimana struktur direktori dapat diakses secara hirarkis.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Command</p></th>
+<th class="text-align:left head"><p>Deskripsi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>.</p></td>
+<td class="text-align:left"><p>direktory saat ini</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>..</p></td>
+<td class="text-align:left"><p>direktory yang berada satu tingkat di atas direktori saat ini</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>~</p></td>
+<td class="text-align:left"><p>home directory untuk pengguna saat ini</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>/</p></td>
+<td class="text-align:left"><p>root directory</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>/apt</p></td>
+<td class="text-align:left"><p>folder <strong>apt</strong> pada root</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p></p></td>
+<td class="text-align:left"><p></p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>Selanjutnya, perintah-perintah berikut dapat digunakan pada saat berhubungan dengan pengaturan direktori:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Command</p></th>
+<th class="text-align:left head"><p>Deskripsi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>ls</p></td>
+<td class="text-align:left"><p>list files in working directory</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>pwd</p></td>
+<td class="text-align:left"><p>print current working directory</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>cd</p></td>
+<td class="text-align:left"><p>change working directory</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>mkdir</p></td>
+<td class="text-align:left"><p>make a new directory</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>rmdir</p></td>
+<td class="text-align:left"><p>remove the given directory (must be empty)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p></p></td>
+<td class="text-align:left"><p></p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>Gunakan perintah <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">&lt;namaperintah&gt;</span></code> atau <code class="docutils literal notranslate"><span class="pre">namaperintah</span> <span class="pre">--help</span></code> untuk menampilkan opsi apa saja yang dapat digunakan pada tiap perintah tersebut</p></li>
+<li><p>Untuk latihan selanjutnya, tampilkan isi dari root folder, seperti berikut:
+<img alt="" src="../_images/2020-12-02-05-08-58.png" /></p></li>
+<li><p>Selanjutnya, buatlah struktur folder berikut pada home directory Anda (pengguna aktif saat ini):
+<img alt="" src="../_images/2020-12-02-05-01-36.png" /></p>
+<p>Buat folder <code class="docutils literal notranslate"><span class="pre">workspace</span></code> yang didalamnya berisi dua buah folder, masing-masing folder <code class="docutils literal notranslate"><span class="pre">latihan1</span></code> dan <code class="docutils literal notranslate"><span class="pre">latihan2</span></code>. Di dalam folder <code class="docutils literal notranslate"><span class="pre">latihan1</span></code> berisi sebuah folder lain</p>
+</li>
+<li><p>Untuk bekerja dengan file, gunakan perintah-perintah berikut:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Command</p></th>
+<th class="text-align:left head"><p>Deskripsi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>cp</p></td>
+<td class="text-align:left"><p>copy a file</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>mv</p></td>
+<td class="text-align:left"><p>move a file (also used to rename files)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>rm</p></td>
+<td class="text-align:left"><p>remove the given file</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>touch</p></td>
+<td class="text-align:left"><p>create empty file, or change time-modified</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p></p></td>
+<td class="text-align:left"><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>Gunakan perintah di atas untuk membuat file <code class="docutils literal notranslate"><span class="pre">berkas1.txt</span></code> pada <code class="docutils literal notranslate"><span class="pre">folder_a</span></code> di dalam folder <code class="docutils literal notranslate"><span class="pre">latihan1</span></code>. Selanjutnya, lakukan perintah copy dan rename untuk menghasilkan struktur file seperti berikut:</p>
+<p><img alt="" src="../_images/2020-12-02-05-21-44.png" /></p>
+</li>
+<li><p>Terakhir, hapus folder_b berikut semua file dan sub direktori di dalamnya. Hasil akhirnya sebagai berikut:</p>
+<p><img alt="" src="../_images/2020-12-02-05-29-52.png" /></p>
+</li>
+</ol>
+<p>Dengan demikian, latihan ini menunjukkan bagaimana manajemen terhadap file dilakukan di Linux. Berbagai perintah dapat digabungkan untuk memperoleh hasil yang diinginkan, misalnya membuat beberapa folder baru sekaligus atau membuat dan mengcopy berkas secara cepat.</p>
+</div>
+<div class="section" id="latihan-instalasi-aplikasi">
+<h3>Latihan: Instalasi aplikasi<a class="headerlink" href="#latihan-instalasi-aplikasi" title="Permalink to this headline">¶</a></h3>
+<p>Ubuntu menggunakan APT (<em>Advanced Package Tool</em>) sebagai <em>package manager</em> untuk mengatur seluruh aplikasi yang digunakan. Sebuah Package manager menghubungkan antara Repository dan mesin linux yang kita gunakan. <a class="reference external" href="https://www.linuxid.net/24289/penjelasan-lengkap-ubuntu-repository-dan-cara-menggunakan-repository/"><strong>Repositori Linux</strong></a> merupakan lokasi penyimpanan tempat sistem Anda mengambil dan menginstal pembaruan dan aplikasi OS. Setiap repositori adalah kumpulan perangkat lunak yang disimpan pada server jarak jauh dan digunakan untuk menginstal dan memperbarui paket perangkat lunak pada sistem Linux.</p>
+<div class="figure align-default" id="apt">
+<img alt="../_images/2020-12-03-02-08-32.png" src="../_images/2020-12-03-02-08-32.png" />
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Cara kerja Package Manager pada Linux</span><a class="headerlink" href="#apt" title="Permalink to this image">¶</a></p>
+</div>
+<p>Terdapat beberapa antarmuka yang berhubungan dengan Package Manager ini yang dikenal di sistem operasi berbasis Debian, seperti <em>apt-get, aptitude,</em> maupun <em>apt</em>. Antarmuka ini menghubungkan perintah dari pengguna (misalnya <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">update</span></code>) dengan <em>package manager</em>, seperti APT untuk kemudian melakukan operasi terkait dengan basisdata aplikasi pada repository.</p>
+<p>Latihan berikut diberikan untuk memahamkan bagaimana menggunakan <em>apt</em> untuk memanajemen aplikasi pada Linux <a class="footnote-reference brackets" href="#footnote4" id="id2">2</a>.</p>
+<ol>
+<li><p>Melakukan <em>update</em> basisdata APT
+Pada Ubuntu dan distro berbasis Debian lainnya, aplikasi yang terinstall disimpan pada basisdata. Untuk melakukan update atau pembaruan aplikasi dari repository, gunakan perintah:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt update
+</pre></div>
+</div>
+<p>keluaran perintah tersebut adalah seperti berikut:</p>
+<p><img alt="" src="../_images/2020-12-02-05-36-00.png" /></p>
+<p>Hasil dari <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">update</span></code> adalah daftar aplikasi yang dapat diperbarui. Untuk mengeksekusi pembaruan aplikasi, gunakan perintah:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt upgrade
+</pre></div>
+</div>
+<p>Kedua perintah di atas dapat diringkas menggunakan <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt update <span class="o">&amp;&amp;</span> sudo apt upgrade
+</pre></div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Upgrade adalah hak <em>sudoers</em>. Apa yang terjadi jika perintah di atas dijalankan tanpa <code class="docutils literal notranslate"><span class="pre">sudo</span></code>?</p>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">apt</span></code> dapat digunakan untuk melakukan instalasi paket aplikasi. sebagai contoh, perintah berikut akan menginstall aplikasi <code class="docutils literal notranslate"><span class="pre">tree</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install tree
+</pre></div>
+</div>
+<p>selanjutnya, perintah <code class="docutils literal notranslate"><span class="pre">tree</span></code> dapat langsung digunakan pada shell.</p>
+</li>
+<li><p>Untuk menghapus aplikasi, gunakan perintah:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt purge &lt;nama aplikasi&gt;
+</pre></div>
+</div>
+<p>atau</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt remove &lt;nama aplikasi&gt;
+</pre></div>
+</div>
+<p>perbedaan keduanya terletak pada kedalaman penghapusan. <code class="docutils literal notranslate"><span class="pre">purge</span></code> menghapus seluruh aplikasi berikut konfigurasi yang tersimpan, sedangkan <code class="docutils literal notranslate"><span class="pre">remove</span></code> hanya menghapus aplikasi dari daftar basisdata <strong>APT</strong>, tetapi meninggalkan konfigurasi dari aplikasi, sehingga apabila kelak dilakukan instalasi kembali, konfigurasi ini akan digunakan</p>
+</li>
+<li><p>Sebagai latihan, lakukan instalasi untuk aplikasi editing bernama <code class="docutils literal notranslate"><span class="pre">vim</span></code>. <strong>vim</strong> dapat digunakan untuk mengedit sebuah file yang memiliki tingkat kompleksitas tinggi, dan akan membantu pada saat kita melakukan editing file, misalnya pada sebuah mesin server.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="pengaturan-pengguna-dan-hak-akses">
+<h2>Pengaturan Pengguna dan Hak Akses<a class="headerlink" href="#pengaturan-pengguna-dan-hak-akses" title="Permalink to this headline">¶</a></h2>
+<p>Sebagaimana disebutkan, Linux merupakan sistem operasi MultiUser dan Multiprogramming, dimana tiap berkas dimiliki oleh seorang pengguna, dan tiap pengguna memiliki hak akses tertentu. <em><strong>Sudoers</strong></em> merupakan kelas pengguna yang memiliki hak akses lebih tinggi (<em>elevated</em>) dibandingkan pengguna biasa, sehingga mampu melakukan berbagai perintah yang tidak diizinkan untuk pengguna yang tidak termasuk dalam <strong>grup 27 (sudo)</strong>, misalnya <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">upgrade</span></code>.</p>
+<div class="figure align-default" id="sudo">
+<img alt="../_images/2020-12-02-05-41-38.png" src="../_images/2020-12-02-05-41-38.png" />
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Sumber: https://xkcd.com/149/</span><a class="headerlink" href="#sudo" title="Permalink to this image">¶</a></p>
+</div>
+<p>Beberapa perintah terkait user pada Linux adalah sebagai berikut:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Command</p></th>
+<th class="text-align:left head"><p>Deskripsi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>whoami</p></td>
+<td class="text-align:left"><p>print your username</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>id</p></td>
+<td class="text-align:left"><p>print user id and group membership</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>users</p></td>
+<td class="text-align:left"><p>list logged-in users (short)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>who</p></td>
+<td class="text-align:left"><p>list logged-in users (long)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>finger</p></td>
+<td class="text-align:left"><p>print information about users</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><img width=100/></p></td>
+<td class="text-align:left"><p><img width=500/></p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="latihan-administrasi-pengguna">
+<h3>Latihan: Administrasi Pengguna<a class="headerlink" href="#latihan-administrasi-pengguna" title="Permalink to this headline">¶</a></h3>
+<p>Latihan berikut akan memberikan gambaran mengenai pengaturan pengguna dan hak akses pada berkas atau direktori <a class="footnote-reference brackets" href="#footnote3" id="id3">3</a>.</p>
+<ol>
+<li><p>Membuat user baru
+Akun pengguna baru dapat digunakan pada sebuah sistem Enterprise, dimana satu sistem operasi yang sama digunakan oleh beberapa pengguna yang berbeda. untuk menambahkan pengguna baru, gunakan perintah berikut:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo adduser namauser
+</pre></div>
+</div>
+<p>Setelah user baru dibuat, kita akan diminta untuk memasukkan nama pengguna dan password, serta beberapa informasi lainnya.</p>
+</li>
+<li><p>Merubah password
+Setelah membuat akun, langkah selanjutnya adalah merubah password untuk akun tersebut:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo passwd namauser
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="latihan-pengaturan-grup">
+<h3>Latihan: Pengaturan Grup<a class="headerlink" href="#latihan-pengaturan-grup" title="Permalink to this headline">¶</a></h3>
+<p>Grup pada Linux dapat digunakan untuk mendefinisikan peranan yang berbeda untuk tiap pengguna, misalnya membatasi akses pada direktori serta akses untuk perintah tertentu. Untuk memasukkan pengguna yang sudah dibuat pada sebuah grup, perintahnya adalah sebagai berikut:</p>
+<ol class="simple">
+<li><p>Menambahkan pengguna ke grup</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo usermod –a –G namagrup namauser
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>jika grup yang dimaksud adalah <strong>sudoer</strong>, maka perintahnya adalah sebagai berikut:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>usermod -aG sudo namauser
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>selanjutnya, lakukan penambahan akses pengguna ini ke dalam sudoer:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo visudo
+</pre></div>
+</div>
+<p>masukkan informasi nama user sebagai sudoer</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>namauser  <span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span> NOPASSWD:ALL
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Berpindah akun (switch user)
+Untuk keperluan administrasi, seringkali pengguna harus berpindah dari satu akun (non-sudoer) ke akun lain (sudoer). untuk itu, perintah berikut dapat digunakan:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> su –u userkedua
+ whoami
+</pre></div>
+</div>
+<p>untuk mengakses <em>superelevated user</em> atau root, perintah berikut dapat digunakan:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> su –u userkedua
+ whoami
+</pre></div>
+</div>
+</div>
+<div class="section" id="pengaturan-hak-akses">
+<h3>Pengaturan Hak Akses<a class="headerlink" href="#pengaturan-hak-akses" title="Permalink to this headline">¶</a></h3>
+<p>Sebagaimana disebutkan sebelumnya, akses terhadap file dan perintah pada Linux dapat dibatasi untuk user tertentu. Izin (<em>Permission</em>) ini pada linux dibagi menjadi:</p>
+<ul class="simple">
+<li><p><strong>owner</strong> (u) - user yang membuat file. ini dapat dirubah menggunakan perintah <code class="docutils literal notranslate"><span class="pre">chown</span></code></p></li>
+<li><p><strong>group</strong> (g) - grup yang berhubungan dengan tiap file</p></li>
+<li><p><strong>others</strong> (o) - orang lain yang bukan owner maupun anggota grup yang dapat mengakses file tersebut (‘=semua orang’)</p></li>
+</ul>
+<p>Sebagai contoh, jika kita menggunakan perintah <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-al</span></code> berikut:</p>
+<p><img alt="" src="../_images/2020-12-02-08-39-09.png" /></p>
+<p>akan muncul keterangan (<code class="docutils literal notranslate"><span class="pre">drwxr-xr-x</span></code>) mengenai status dan hak akses pada file tersebut, yaitu:</p>
+<ul class="simple">
+<li><p><strong>d</strong> : menunjukkan bahwa berkas tersebut adalah sebuah <code class="docutils literal notranslate"><span class="pre">directory</span></code></p></li>
+<li><p><strong>rwx</strong> : permission (izin) yang diberikan pada pemilik file untuk <em><strong>r</strong>ead, <strong>w</strong>rite dan e</em><em>x</em>*ecute</p></li>
+<li><p><strong>r-x</strong> : izin <em>grup</em>, pengguna dari grup <code class="docutils literal notranslate"><span class="pre">danylaksono</span></code> (kebetulan untuk contoh di atas nama pengguna dan grup sama) dapat melakukan <em>read dan execute</em> pada file tersebut</p></li>
+<li><p><strong>r-x</strong> : izin untuk <em>other</em>, atau pengguna lain</p></li>
+</ul>
+<p><img alt="" src="../_images/2020-12-03-02-33-45.png" /></p>
+<p>Penulisan izin tersebut juga dapat dilakukan menggunakan <strong>notasi numerik</strong>:</p>
+<ul class="simple">
+<li><p>0: Tidak ada izin</p></li>
+<li><p>1: Jalankan (x)</p></li>
+<li><p>2: Tulis (w)</p></li>
+<li><p>4: Baca (r)</p></li>
+</ul>
+<p>Sekarang, bagaimana cara menghitung izin untuk pengguna dan grup dalam notasi numerik? Cukup tambahkan nilai izin untuk mendapatkan nilai pengguna, grup, dan izin lainnya masing-masing.</p>
+<p>Sebagai contoh:</p>
+<p>baca (4), tulis (2) dan jalankan (1) izin <strong>rwx</strong> diterjemahkan ke 7 (4 + 2 + 1)
+baca (4) dan tulis (2) izin <strong>rw-</strong> diterjemahkan ke 6 (4 + 2)
+tulis (2) dan jalankan (1) izin <strong>-wx</strong> diterjemahkan ke 3 (2 + 1), dan seterusnya.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Kira-kira apa pengaruh <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">777</span></code>?</p>
+</div>
+<p>Dengan menggunakan perintah <code class="docutils literal notranslate"><span class="pre">chmod</span></code>, izin suatu file dapat dirubah. perintah ini menggunakan notasi:</p>
+<ul class="simple">
+<li><p>tanda minus (-), yang berarti “hapus izin ini”</p></li>
+<li><p>tanda tambah (+), yang berarti “tambahkan izin ini”</p></li>
+<li><p>tanda sama dengan (=), yang berarti “ubah izin menjadi persis seperti ini”.</p></li>
+</ul>
+<p>Sebagai contoh:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod +x latihan.txt
+</pre></div>
+</div>
+<p>maksudnya adalah memberi izin kepada semua pengguna untuk mengakses file tersebut. Ini sama dengan <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">a+x</span> <span class="pre">latihan1.txt</span></code>, dimana <strong>a</strong> berarti ‘all’. Hal yang sama berlaku untuk grup (g) dan other (o).</p>
+<p>Perintah lain yang berguna untuk merubah kepemilikan berkas pada Linux adalah <code class="docutils literal notranslate"><span class="pre">chown</span></code>. Format untuk perintah ini adalah:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chown user<span class="o">[</span>:group<span class="o">]</span> namafile
+</pre></div>
+</div>
+<p>Perintah di atas akan merubah owner untuk file <code class="docutils literal notranslate"><span class="pre">namafile</span></code> menjadi <code class="docutils literal notranslate"><span class="pre">user</span></code> pada grup <code class="docutils literal notranslate"><span class="pre">group</span></code>. Selain file, perintah ini juga dapat digunakan untuk merubah kepemilikan sebuah folder atau direktori. Untuk kasus ini, flag <code class="docutils literal notranslate"><span class="pre">-R</span></code> berguna untuk merubah kepemilikan sebuah direktori secara rekursif, yaitu sekaligus merubah seluruh subdirektory dan berkas yang ada di dalamnya.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chown -R user<span class="o">[</span>:group<span class="o">]</span> direktori
+</pre></div>
+</div>
+<p>Sebagai latihan untuk sesi ini, buat user kedua, kemudian rubah akses pada file <code class="docutils literal notranslate"><span class="pre">latihan1.txt</span></code> yang sudah dibuat sebelumnya agar user lain tidak dapat membaca file tersebut. Apa pengaruhnya apabila user pertama hendak mengakses file tersebut?</p>
+<hr class="docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="footnote2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>https://www.tutorialspoint.com/operating_system/os_linux.htm</p>
+</dd>
+<dt class="label" id="footnote4"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>https://itsfoss.com/apt-command-guide/</p>
+</dd>
+<dt class="label" id="footnote3"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>https://vitux.com/a-beginners-guide-to-user-management-on-ubuntu/</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -316,7 +745,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="pengantarlinux.html" title="previous page">Pengantar Linux dan Server</a>
-    <a class='right-next' id="next-link" href="linuxserver.html" title="next page">Linux untuk WebServer</a>
+    <a class='right-next' id="next-link" href="linuxserver.html" title="next page">Linux sebagai Sistem Operasi Server</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

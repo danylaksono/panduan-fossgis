@@ -15,3 +15,11 @@
     #  - file: sesi1/linuxserver/webserver
   - file: sesi1/fossgis
   
+
+- part: Bagian II - Relational Spatial Database
+  expand_sections: true
+  sections:
+  - file: sesi2/relationaldb
+  - file: sesi2/dbmanagement
+  - file: sesi2/postgisquery
+  - file: sesi2/nosql

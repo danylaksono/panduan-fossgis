@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Linux untuk WebServer &#8212; fossgis-enterprise</title>
+    <title>Linux sebagai Sistem Operasi Server &#8212; fossgis-enterprise</title>
     
   <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
 
@@ -113,12 +113,39 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Linux untuk WebServer
+   Linux sebagai Sistem Operasi Server
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="fossgis.html">
    Free and Open Source Software-GIS
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Bagian II - Relational Spatial Database
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi2/relationaldb.html">
+   Tentang Panduan ini
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi2/dbmanagement.html">
+   Tentang Panduan ini
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi2/postgisquery.html">
+   Tentang Panduan ini
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi2/nosql.html">
+   Tentang Panduan ini
   </a>
  </li>
 </ul>
@@ -193,24 +220,38 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cara-kerja-internet-dan-web-server">
-   Cara kerja Internet dan Web Server
+  <a class="reference internal nav-link" href="#perangkat-lunak-untuk-web-server-dan-application-server">
+   Perangkat Lunak untuk Web Server dan Application Server
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#latihan-menjalankan-sebuah-web-server-sederhana">
+     Latihan: Menjalankan sebuah Web Server Sederhana
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#instalasi-apache-http-server">
+     Instalasi Apache HTTP Server
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#membuat-website-sederhana">
+     Membuat Website sederhana
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aplikasi-web-server">
-   Aplikasi Web Server
+  <a class="reference internal nav-link" href="#tomcat-sebagai-servlet-aplikasi-berbasis-java">
+   Tomcat sebagai Servlet Aplikasi berbasis Java
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#menggunakan-apache">
-   Menggunakan Apache
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tomcat-sebagai-servlet-aplikasi">
-   Tomcat sebagai Servlet Aplikasi
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#instalasi-tomcat">
+     Instalasi Tomcat
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -223,19 +264,259 @@
         
               <div>
                 
-  <div class="section" id="linux-untuk-webserver">
-<h1>Linux untuk WebServer<a class="headerlink" href="#linux-untuk-webserver" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="cara-kerja-internet-dan-web-server">
-<h2>Cara kerja Internet dan Web Server<a class="headerlink" href="#cara-kerja-internet-dan-web-server" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="linux-sebagai-sistem-operasi-server">
+<h1>Linux sebagai Sistem Operasi Server<a class="headerlink" href="#linux-sebagai-sistem-operasi-server" title="Permalink to this headline">¶</a></h1>
+<p>Linux merupakan salah satu sistem operasi yang paling banyak digunakan untuk server, karena kemampuan enterprise dan biaya yang murah (bahkan gratis). Atas alasan itulah, Linux banyak dijumpai pada berbagai server, baik dalam skala besar maupun kecil.  Pada bagian ini akan dilakukan pengaturan Linux untuk sebagai server dengan menggunakan beberapa perangkat webserver dan application server.</p>
+<div class="section" id="perangkat-lunak-untuk-web-server-dan-application-server">
+<h2>Perangkat Lunak untuk Web Server dan Application Server<a class="headerlink" href="#perangkat-lunak-untuk-web-server-dan-application-server" title="Permalink to this headline">¶</a></h2>
+<p>Sebuah aplikasi <strong>webserver</strong> berguna untuk mempublikasi file lokal agar dapat diakses melalui jaringan. Sebagai contoh, halaman HTML yang dibuat di komputer belum akan dapat diakses secara luas apabila tidak dipasang pada aplikasi webserver yang dapat mempublikasi data ini. Beberapa contoh perangkat Webserver adalah sebagai berikut:</p>
+<ul class="simple">
+<li><p>Apache HTTP Server</p></li>
+<li><p>Nginx</p></li>
+<li><p>LightHTTPd</p></li>
+<li><p>Microsoft IIS</p></li>
+<li><p>NodeJS</p></li>
+<li><p>Flask</p></li>
+</ul>
+<p>Apache adalah salah satu webserver berbasis PHP yang paling sering digunakan. Dengan Apache, maka berkas yang tersimpan pada komputer akan dapat dionlinekan dengan pengaturan tertentu. Pengaturan yang dimaksud meliputi pengaturan keamanan, <em>virtual host</em>, <em>proxy</em>, dan lain sebagainya.</p>
+<p><strong>Application Server</strong> merupakan sebuah kelompok <em>framework</em> perangkat lunak yang memungkinkan sebuah <em>web application</em> untuk disajikan melalui internet. Contoh application server adalah <em>Java Servlet Container</em>, yaitu perangkat yang berfungsi untuk menyajikan aplikasi yang dibuat dengan bahasa Java pada internet. Beberapa Contoh Application Server adalah sebagai berikut:</p>
+<ul class="simple">
+<li><p>Apache Tomcat</p></li>
+<li><p>Eclipse Jetty</p></li>
+<li><p>ASP.Net</p></li>
+<li><p>ZendServer</p></li>
+<li><p>JBoss EAP</p></li>
+</ul>
+<p>Jika sebuah <em>webserver</em> umumnya menyajikan <em>static content</em>(seperti HTML, CSS, Javascript, gambar, video, dst) maka sebuah <em>application server</em> menyajikan <em>bussiness logic</em> yang memungkinkan aplikasi yang disajikan bersifat dinamis.</p>
+<div class="figure align-default" id="appserver">
+<img alt="../_images/2020-12-03-03-02-24.png" src="../_images/2020-12-03-03-02-24.png" />
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Perbandingan App Server dan Web Server</span><a class="headerlink" href="#appserver" title="Permalink to this image">¶</a></p>
 </div>
-<div class="section" id="aplikasi-web-server">
-<h2>Aplikasi Web Server<a class="headerlink" href="#aplikasi-web-server" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="latihan-menjalankan-sebuah-web-server-sederhana">
+<h3>Latihan: Menjalankan sebuah Web Server Sederhana<a class="headerlink" href="#latihan-menjalankan-sebuah-web-server-sederhana" title="Permalink to this headline">¶</a></h3>
+<p>Untuk sekedar menguji kemampuan <em>port forwarding</em> dari WSL2 dan demonstrasi webserver, kita akan coba untuk membuat sebuah webserver sederhana. Python menyediakan sebuah webserver sederhana dengan perintah singkat:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m http.server  
+</pre></div>
 </div>
-<div class="section" id="menggunakan-apache">
-<h2>Menggunakan Apache<a class="headerlink" href="#menggunakan-apache" title="Permalink to this headline">¶</a></h2>
+<p>maka folder tempat perintah tersebut dijalankan akan dapat diakses pada browser pada alamat <code class="docutils literal notranslate"><span class="pre">localhost:8000</span></code> (port default untuk server ini):</p>
+<p><img alt="" src="../_images/2020-12-02-12-12-30.png" /></p>
+<p>Apabila kita membuat sebuah file HTML pada folder tersebut, maka berkas tersebut dapat dibuka pada browser sebagai sebuah halaman web.</p>
 </div>
-<div class="section" id="tomcat-sebagai-servlet-aplikasi">
-<h2>Tomcat sebagai Servlet Aplikasi<a class="headerlink" href="#tomcat-sebagai-servlet-aplikasi" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="instalasi-apache-http-server">
+<h3>Instalasi Apache HTTP Server<a class="headerlink" href="#instalasi-apache-http-server" title="Permalink to this headline">¶</a></h3>
+<p>Server web **Apache HTTP Server **adalah perangkat paling populer saat ini untuk menyajikan konten web di internet. Apache menyumbang lebih dari setengah dari selurh situs web aktif di internet dengan berbagai fungsi dan kelebihan yang dimilikinya.
+Pada latihan ini akan dilakukan instalasi dan konfigurasi Apache untuk publikasi data dalam bentuk HTML sederhana.</p>
+<p>Lakukan langkah berikut untuk melakukan instalasi Apache pada sistem Ubuntu WSL:</p>
+<ol>
+<li><p>Update basisdata aplikasi di Ubuntu</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> sudo apt update
+</pre></div>
+</div>
+</li>
+<li><p>Instalasi Apache2</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install apache2
+</pre></div>
+</div>
+</li>
+<li><p>Pengaturan firewall. Firewall berfungsi untuk ‘mencegat’ terjadinya  transfer data antara sistem lokal dengan jaringan internet. Pengaturan ini diperlukan agar apache diizinkan untuk mengakses port yang diperlukan untuk berkomunikasi dengan dunia luar</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo ufw allow <span class="s1">&#39;Apache&#39;</span>
+</pre></div>
+</div>
+<p>Selanjutnya periksa status <code class="docutils literal notranslate"><span class="pre">ufw</span></code> menggunakan perintah:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo ufw status
+</pre></div>
+</div>
+<p>Apabila keluarannya seperti berikut, artinya port berhasil dibuka:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Output</span>
+<span class="n">Status</span><span class="p">:</span> <span class="n">active</span>
+
+<span class="n">To</span>                         <span class="n">Action</span>      <span class="n">From</span>
+<span class="o">--</span>                         <span class="o">------</span>      <span class="o">----</span>
+<span class="n">OpenSSH</span>                    <span class="n">ALLOW</span>       <span class="n">Anywhere</span>                  
+<span class="n">Apache</span>                     <span class="n">ALLOW</span>       <span class="n">Anywhere</span>                  
+<span class="n">OpenSSH</span> <span class="p">(</span><span class="n">v6</span><span class="p">)</span>               <span class="n">ALLOW</span>       <span class="n">Anywhere</span> <span class="p">(</span><span class="n">v6</span><span class="p">)</span>             
+<span class="n">Apache</span> <span class="p">(</span><span class="n">v6</span><span class="p">)</span>                <span class="n">ALLOW</span>       <span class="n">Anywhere</span> <span class="p">(</span><span class="n">v6</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Jalankan Apache setelah instalasi</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo service apache2 start
+</pre></div>
+</div>
+<p>Periksa apakah Apache sudah dijalankan oleh <em>Service</em></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo service apache2 status
+</pre></div>
+</div>
+<p>Apabila status menunjukkan ‘running’, artinya webserver Apache sudah berhasil dijalankan
+<img alt="" src="../_images/2020-12-02-10-56-11.png" /></p>
+</li>
+<li><p>Buka localhost melalui browser pada Windows</p>
+<p><img alt="" src="../_images/2020-12-02-10-57-55.png" /></p>
+<p>Apabila halaman Apache Ubuntu sudah terbuka, artinya instalasi Apache berhasil dengan baik</p>
+</li>
+</ol>
+</div>
+<div class="section" id="membuat-website-sederhana">
+<h3>Membuat Website sederhana<a class="headerlink" href="#membuat-website-sederhana" title="Permalink to this headline">¶</a></h3>
+<p>Setelah webserver selesai dipasang, selanjutnya adalah menggunakan webserver ini untuk mempublikasi halaman web dalam bentuk HTML. Apache memiliki direktori default dalam publikasi webnya di folder:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span>
+</pre></div>
+</div>
+<p>Dengan demikian, seluruh file yang disimpan pada folder tersebut akan dapat dibuka melalui browser pada alamat <code class="docutils literal notranslate"><span class="pre">localhost</span></code>.
+Untuk menguji webserver ini, kita akan lakukan latihan sebagai berikut:</p>
+<ol>
+<li><p>Masuk ke folder <code class="docutils literal notranslate"><span class="pre">/var/www/html</span></code> menggunakan perintah <code class="docutils literal notranslate"><span class="pre">cd</span></code></p></li>
+<li><p>Buat sebuah folder baru dengan nama <code class="docutils literal notranslate"><span class="pre">trial</span></code> pada direktori <code class="docutils literal notranslate"><span class="pre">/html</span></code> tersebut.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo mkdir trial
+</pre></div>
+</div>
+<p>Perintah <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> pada folder tersebut memerlukan akses <code class="docutils literal notranslate"><span class="pre">sudo</span></code>, karena owner dari folder adalah <code class="docutils literal notranslate"><span class="pre">root</span></code>.</p>
+</li>
+<li><p>Pada folder tersebut, buat sebuah file dengan nama <code class="docutils literal notranslate"><span class="pre">index.html</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo touch index.html
+</pre></div>
+</div>
+</li>
+<li><p>Isilah file tersebut dengan baris bahasa HTML berikut:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span> The hello world<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span> Ini paragraf html <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>   
+</pre></div>
+</div>
+</li>
+<li><p>Buka http://localhost/trial:
+<img alt="" src="../_images/2020-12-02-12-38-31.png" />
+File html yang dibuat pada folder berhasil dipanggil pada webserver</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="tomcat-sebagai-servlet-aplikasi-berbasis-java">
+<h2>Tomcat sebagai Servlet Aplikasi berbasis Java<a class="headerlink" href="#tomcat-sebagai-servlet-aplikasi-berbasis-java" title="Permalink to this headline">¶</a></h2>
+<p>Apache Tomcat adalah implementasi open-source dari Java Servlet, JavaServer Pages, Java Expression Language, dan teknologi Java WebSocket. Tomcat merupakan salah satu web Application yang paling banyak diadopsi di dunia saat ini. Tomcat mudah digunakan dan memiliki ekosistem add-on yang kuat. Apache Tomcat digunakan untuk publikasi berbagai aplikasi geospasial, seperti misalnya Geoserver dan Mapstore.</p>
+<div class="section" id="instalasi-tomcat">
+<h3>Instalasi Tomcat<a class="headerlink" href="#instalasi-tomcat" title="Permalink to this headline">¶</a></h3>
+<p>Untuk melakukan instalasi Tomcat, lakukan langkah berikut:
+//https://linuxize.com/post/how-to-install-tomcat-9-on-ubuntu-18-04/</p>
+<ol>
+<li><p>Update apk, kemudian install OpenJDK. OpenJDK diperlukan oleh Tomcat yang berbasis Java untuk dapat dijalankan pada Ubuntu</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install default-jdk
+</pre></div>
+</div>
+</li>
+<li><p>Atas alasan keamanan, Tomcat tidak boleh dijalankan di bawah pengguna root. Kita perlu membuat pengguna dan grup sistem baru dengan direktori home /opt/tomcat yang akan menjalankan layanan Tomcat:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo useradd -r -m -U -d /opt/tomcat -s /bin/false tomcat
+</pre></div>
+</div>
+</li>
+<li><p>Unduh instalasi Tomcat 9. Pada saat penulisan modul ini, Versi terbaru Tomcat adalah 9.0.40. Sesuaikan versi Tomcat yang digunakan dengan melihat versi rilis terbaru pada <a class="reference external" href="https://tomcat.apache.org/download-90.cgi">halaman ini</a>.
+Gunakan wget untuk mengunduh binary Tomcat untuk Instalasi:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget http://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.40/bin/apache-tomcat-9.0.40.tar.gz -P /tmp
+</pre></div>
+</div>
+</li>
+<li><p>Setelah unduhan selesai, gunakan perintah berikut untuk mengekstrak dan memindah file Tomcat pada folder <code class="docutils literal notranslate"><span class="pre">/opt/tomcat</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo tar xf /tmp/apache-tomcat-9*.tar.gz -C /opt/tomcat
+</pre></div>
+</div>
+</li>
+<li><p>Untuk keperluan praktis, lebih baik apabila dibuat sebuah Symbolic Link untuk mengacu pada binary yang dimaksud:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo ln -s /opt/tomcat/apache-tomcat-9.0.40 /opt/tomcat/latest
+</pre></div>
+</div>
+</li>
+<li><p>Agar folder tomcat dimiliki oleh pengguna <code class="docutils literal notranslate"><span class="pre">tomcat</span></code> yang telah dibuat sebelumnya, gunakan perintah berikut:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo chown -RH tomcat: /opt/tomcat/latest
+</pre></div>
+</div>
+<p>Demikian pula, rubah pengaturan akses pada script yang ada di dalamnya agar dapat dieksekusi:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo sh -c <span class="s1">&#39;chmod +x /opt/tomcat/latest/bin/*.sh&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Untuk memudahkan manajemen, Tomcat perlu dijalankan sebagai service:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo nano /etc/systemd/system/tomcat.service
+</pre></div>
+</div>
+<p>masukkan baris berikut pada file yang dibuka:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Unit</span><span class="p">]</span>
+<span class="n">Description</span><span class="o">=</span><span class="n">Tomcat</span> <span class="mi">9</span> <span class="n">servlet</span> <span class="n">container</span>
+<span class="n">After</span><span class="o">=</span><span class="n">network</span><span class="o">.</span><span class="n">target</span>
+
+<span class="p">[</span><span class="n">Service</span><span class="p">]</span>
+<span class="n">Type</span><span class="o">=</span><span class="n">forking</span>
+
+<span class="n">User</span><span class="o">=</span><span class="n">tomcat</span>
+<span class="n">Group</span><span class="o">=</span><span class="n">tomcat</span>
+
+<span class="n">Environment</span><span class="o">=</span><span class="s2">&quot;JAVA_HOME=/usr/lib/jvm/default-java&quot;</span>
+<span class="n">Environment</span><span class="o">=</span><span class="s2">&quot;JAVA_OPTS=-Djava.security.egd=file:///dev/urandom -Djava.awt.headless=true&quot;</span>
+
+<span class="n">Environment</span><span class="o">=</span><span class="s2">&quot;CATALINA_BASE=/opt/tomcat/latest&quot;</span>
+<span class="n">Environment</span><span class="o">=</span><span class="s2">&quot;CATALINA_HOME=/opt/tomcat/latest&quot;</span>
+<span class="n">Environment</span><span class="o">=</span><span class="s2">&quot;CATALINA_PID=/opt/tomcat/latest/temp/tomcat.pid&quot;</span>
+<span class="n">Environment</span><span class="o">=</span><span class="s2">&quot;CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC&quot;</span>
+
+<span class="n">ExecStart</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">tomcat</span><span class="o">/</span><span class="n">latest</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">startup</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">ExecStop</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">tomcat</span><span class="o">/</span><span class="n">latest</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">shutdown</span><span class="o">.</span><span class="n">sh</span>
+
+<span class="p">[</span><span class="n">Install</span><span class="p">]</span>
+<span class="n">WantedBy</span><span class="o">=</span><span class="n">multi</span><span class="o">-</span><span class="n">user</span><span class="o">.</span><span class="n">target</span>
+</pre></div>
+</div>
+</li>
+<li><p>Lakukan aktivasi untuk Tomcat yang sudah diinstall:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo systemctl daemon-reload
+sudo systemctl start tomcat
+sudo systemctl status tomcat
+</pre></div>
+</div>
+<p>Aktifkan tomcat pada saat mesin dimulai:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo systemctl <span class="nb">enable</span> tomcat
+</pre></div>
+</div>
+</li>
+<li><p>Izinkan Firewall untuk Tomcat
+Sama seperti pada Apache, firewall perlu dibuka untuk mengizinkan Tomcat dapat diakses:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo ufw allow <span class="m">8080</span>/tcp
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="admonition-catatan admonition">
+<p class="admonition-title">Catatan</p>
+<p>Saat panduan ini ditulis, <a class="reference external" href="https://github.com/systemd/systemd/issues/8036">WSL2 belum memiliki support untuk <code class="docutils literal notranslate"><span class="pre">systemd</span></code></a>, sehingga perintah <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">daemon-reload</span></code> dan seterusnya di atas akan menghasilkan error.</p>
+<p>Untuk saat ini, berikut adalah cara yang dapat digunakan sebagai <em>workaround</em>. Metode ini diambil dari <a class="reference external" href="https://github.com/DamionGans/ubuntu-wsl2-systemd-script">repository github berikut</a>:</p>
+<ol>
+<li><p>Install Git. Git akan digunakan untuk melakukan clone pada repository yang dimaksud:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install git
+</pre></div>
+</div>
+</li>
+<li><p>Lakukan clone pada repository di atas. Sebelum menjalankan perintah ini, pastikan pengguna aktif memiliki izin akses pada folder di dalamnya:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/DamionGans/ubuntu-wsl2-systemd-script.git
+</pre></div>
+</div>
+</li>
+<li><p>Masuk ke dalam folder hasil clone, kemudian lakukan eksekusi pada script di dalamnya:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ubuntu-wsl2-systemd-script/
+bash ubuntu-wsl2-systemd-script.sh
+</pre></div>
+</div>
+</li>
+<li><p>Tunggu sampai script selesai di eksekusi, kemudian lakukan restart pada konsol WSL (tutup jendela konsol, kemudian buka kembali)</p></li>
+<li><p>Untuk menguji apakah workaround sudah berjalan, ketikkan perintah:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl
+</pre></div>
+</div>
+</li>
+</ol>
+<p>apabila tidak muncul error, maka perbaikan sistem berhasil dilakukan, dan <code class="docutils literal notranslate"><span class="pre">systemctl</span></code> sudah bisa digunakan</p>
+</div>
+</div>
 </div>
 </div>
 
