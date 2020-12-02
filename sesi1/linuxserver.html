@@ -193,11 +193,6 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cara-kerja-internet-dan-web-server">
-   Cara kerja Internet dan Web Server
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#aplikasi-web-server">
    Aplikasi Web Server
   </a>
@@ -242,17 +237,77 @@
                 
   <div class="section" id="linux-untuk-webserver">
 <h1>Linux untuk WebServer<a class="headerlink" href="#linux-untuk-webserver" title="Permalink to this headline">¶</a></h1>
-<p>Linux merupakan salah satu sistem operasi yang paling banyak digunakan untuk server, karena kemampuan enterprise dan biaya yang murah (bahkan gratis).</p>
-<div class="section" id="cara-kerja-internet-dan-web-server">
-<h2>Cara kerja Internet dan Web Server<a class="headerlink" href="#cara-kerja-internet-dan-web-server" title="Permalink to this headline">¶</a></h2>
-</div>
+<p>Linux merupakan salah satu sistem operasi yang paling banyak digunakan untuk server, karena kemampuan enterprise dan biaya yang murah (bahkan gratis). Atas alasan itulah, Linux banyak dijumpai pada berbagai server, baik dalam skala besar maupun kecil.  Pada bagian ini akan dilakukan pengaturan Linux untuk webserver</p>
 <div class="section" id="aplikasi-web-server">
 <h2>Aplikasi Web Server<a class="headerlink" href="#aplikasi-web-server" title="Permalink to this headline">¶</a></h2>
+<p>Sebuah aplikasi webserver berguna untuk mempublikasi file lokal agar dapat diakses melalui jaringan. Sebagai contoh, halaman HTML yang dibuat di komputer belum akan dapat diakses secara luas apabila tidak dipasang pada aplikasi webserver yang dapat mempublikasi data ini.
+Terdapat banyak aplikasi webserver yang tersedia dengan masing-masing bahasa yang melandasinya. berikut beberapa diantaranya:</p>
+<ul class="simple">
+<li><p>Apache</p></li>
+<li><p>Tomcat</p></li>
+<li><p>Flask</p></li>
+<li><p>Django</p></li>
+<li><p>NodeJS</p></li>
+<li><p>Nginx</p></li>
+</ul>
+<p>Apache adalah salah satu webserver berbasis PHP yang paling sering digunakan. Cara kerja Apache adalah seperti berikut:</p>
+<p><img alt="" src="../_images/2020-12-02-10-44-11.png" /></p>
+<p>Dengan Apache, maka berkas yang tersimpan pada komputer akan dapat dionlinekan dengan pengaturan tertentu. Pengaturan yang dimaksud meliputi pengaturan keamanan, virtual host, proxy, dan lain sebagainya.</p>
 </div>
 <div class="section" id="menggunakan-apache">
 <h2>Menggunakan Apache<a class="headerlink" href="#menggunakan-apache" title="Permalink to this headline">¶</a></h2>
+<p>Pada latihan ini akan dilakukan instalasi dan konfigurasi Apache untuk publikasi data dalam bentuk HTML sederhana.</p>
 <div class="section" id="instalasi-apache">
 <h3>Instalasi Apache<a class="headerlink" href="#instalasi-apache" title="Permalink to this headline">¶</a></h3>
+<p>Lakukan langkah berikut untuk melakukan instalasi Apache pada sistem Ubuntu WSL:</p>
+<ol>
+<li><p>Update basisdata aplikasi di Ubuntu</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> sudo apt update
+</pre></div>
+</div>
+</li>
+<li><p>Instalasi Apache2</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install apache2
+</pre></div>
+</div>
+</li>
+<li><p>Pengaturan firewall. Firewall berfungsi untuk ‘mencegat’ terjadinya  transfer data antara sistem lokal dengan jaringan internet. Pengaturan ini diperlukan agar apache diizinkan untuk mengakses port yang diperlukan untuk berkomunikasi dengan dunia luar</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo ufw allow <span class="s1">&#39;Apache&#39;</span>
+</pre></div>
+</div>
+<p>Selanjutnya periksa status <code class="docutils literal notranslate"><span class="pre">ufw</span></code> menggunakan perintah:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo ufw status
+</pre></div>
+</div>
+<p>Apabila keluarannya seperti berikut, artinya port berhasil dibuka:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Output</span>
+<span class="n">Status</span><span class="p">:</span> <span class="n">active</span>
+
+<span class="n">To</span>                         <span class="n">Action</span>      <span class="n">From</span>
+<span class="o">--</span>                         <span class="o">------</span>      <span class="o">----</span>
+<span class="n">OpenSSH</span>                    <span class="n">ALLOW</span>       <span class="n">Anywhere</span>                  
+<span class="n">Apache</span>                     <span class="n">ALLOW</span>       <span class="n">Anywhere</span>                  
+<span class="n">OpenSSH</span> <span class="p">(</span><span class="n">v6</span><span class="p">)</span>               <span class="n">ALLOW</span>       <span class="n">Anywhere</span> <span class="p">(</span><span class="n">v6</span><span class="p">)</span>             
+<span class="n">Apache</span> <span class="p">(</span><span class="n">v6</span><span class="p">)</span>                <span class="n">ALLOW</span>       <span class="n">Anywhere</span> <span class="p">(</span><span class="n">v6</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Jalankan Apache setelah instalasi</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo service apache2 start
+</pre></div>
+</div>
+<p>Periksa apakah Apache sudah dijalankan oleh <em>Service</em></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo service apache2 status
+</pre></div>
+</div>
+<p>Apabila status menunjukkan ‘running’, artinya webserver Apache sudah berhasil dijalankan
+<img alt="" src="../_images/2020-12-02-10-56-11.png" /></p>
+</li>
+<li><p>Buka Apache pada browser pada port 80</p>
+<p><img alt="" src="../_images/2020-12-02-10-57-55.png" /></p>
+<p>Apabila halaman Apache Ubuntu sudah terbuka, artinya instalasi Apache berhasil dengan baik</p>
+</li>
+</ol>
 </div>
 <div class="section" id="konfigurasi-apache">
 <h3>Konfigurasi Apache<a class="headerlink" href="#konfigurasi-apache" title="Permalink to this headline">¶</a></h3>
