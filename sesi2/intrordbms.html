@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pengantar Linux Server, FOSS-GIS dan Web Server &#8212; fossgis-enterprise</title>
+    <title>Pengantar Basisdata Relational &#8212; fossgis-enterprise</title>
     
   <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
 
@@ -56,8 +56,8 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Pengantar Linux dan Server" href="pengantarlinux.html" />
-    <link rel="prev" title="Tentang Panduan ini" href="../intro.html" />
+    <link rel="next" title="Basisdata Relational" href="relationaldb.html" />
+    <link rel="prev" title="Free and Open Source Software-GIS" href="../sesi1/fossgis.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -95,29 +95,29 @@
   Bagian I - Linux Server dan FOSS-GIS
  </span>
 </p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi1/introlinux.html">
    Pengantar Linux Server, FOSS-GIS dan Web Server
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="pengantarlinux.html">
+  <a class="reference internal" href="../sesi1/pengantarlinux.html">
    Pengantar Linux dan Server
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="arsitektur.html">
+  <a class="reference internal" href="../sesi1/arsitektur.html">
    Pengaturan dan Administrasi Linux
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="linuxserver.html">
+  <a class="reference internal" href="../sesi1/linuxserver.html">
    Linux sebagai Sistem Operasi Server
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="fossgis.html">
+  <a class="reference internal" href="../sesi1/fossgis.html">
    Free and Open Source Software-GIS
   </a>
  </li>
@@ -127,29 +127,29 @@
   Bagian II - Relational Spatial Database
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../sesi2/intrordbms.html">
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Pengantar Basisdata Relational
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../sesi2/relationaldb.html">
+  <a class="reference internal" href="relationaldb.html">
    Basisdata Relational
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../sesi2/dbmanagement.html">
+  <a class="reference internal" href="dbmanagement.html">
    Administrasi Pengguna pada Basisdata
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../sesi2/postgisquery.html">
+  <a class="reference internal" href="postgisquery.html">
    Basisdata Spasial dengan PostGIS
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../sesi2/nosql.html">
+  <a class="reference internal" href="nosql.html">
    Basisdata SQL dan NoSQL
   </a>
  </li>
@@ -195,7 +195,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/sesi1/introlinux.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/sesi2/intrordbms.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -226,19 +226,18 @@
         
               <div>
                 
-  <div class="section" id="pengantar-linux-server-foss-gis-dan-web-server">
-<h1>Pengantar Linux Server, FOSS-GIS dan Web Server<a class="headerlink" href="#pengantar-linux-server-foss-gis-dan-web-server" title="Permalink to this headline">¶</a></h1>
-<p>Linux, atau GNU/Linux, mengacu pada sistem operasi komputer Unix-like yang menggunakan kernel Linux. Linux merupakan contoh paling menonjol dari pengembangan open source dan perangkat lunak bebas serta perangkat lunak yang dibuat pengguna; kode sumber yang mendasarinya tersedia bagi siapa saja untuk digunakan, dimodifikasi, dan didistribusikan kembali secara bebas.</p>
-<p>Bagian ini merupakan bagian pertama dari panduan ini. Sesi ini membahas mengenai Linux dan cara kerjanya, serta bagaimana Linux digunakan sebagai sistem operasi untuk menunjang penggunaan <em>Free and Open Source Software (FOSS)</em>, khususnya untuk menunjang analisis dan manajemen data Geospasial.</p>
-<p>Berikut adalah materi yang dibahas pada bagian ini:</p>
-<p><span class="fa fa-check text-success mr-1"></span> <a class="reference internal" href="pengantarlinux.html"><span class="doc std std-doc">Pengantar mengenai Linux</span></a>
-: Sejarah dan perkembangan Linux, beberapa Distro Linux yang terkenal, serta instalasi dan penggunaan Ubuntu Linux, yang akan digunakan pada seluruh dokumen latihan ini.</p>
-<p><span class="fa fa-check text-success mr-1"></span> <a class="reference internal" href="arsitektur.html"><span class="doc std std-doc">Arsitektur dan Administrasi sistem Linux</span></a>
-: Beberapa konsep tentang arsitektur Linux sebagai sebuah sistem operasi, serta bagaimana pengaturan Linux pada sebuah lingkungan server</p>
-<p><span class="fa fa-check text-success mr-1"></span> <a class="reference internal" href="linuxserver.html"><span class="doc std std-doc">Linux untuk Webserver</span></a>
-: Latihan mengenai pengaturan Linux untuk publikasi halaman web dengan menggunakan Apache/httpd dan Tomcat. Akan disampaikan juga mengenai penggunaan Virtual Host dan konsep proxy pada Apache untuk keperluan publikasi website</p>
-<p><span class="fa fa-check text-success mr-1"></span> <a class="reference internal" href="fossgis.html"><span class="doc std std-doc">Pengantar FOSS-GIS</span></a>
-: Mengenal jenis-jenis lisensi perangkat lunak serta beberapa perangkat FOSS-GIS yang populer.</p>
+  <div class="section" id="pengantar-basisdata-relational">
+<h1>Pengantar Basisdata Relational<a class="headerlink" href="#pengantar-basisdata-relational" title="Permalink to this headline">¶</a></h1>
+<p>Basisdata merupakan salah satu elemen penting pada aplikasi Enterprise GIS. Dengan basisdata, sebuah sistem dapat didesain untuk digunakan oleh multi-user, dengan hak akses untuk tiap pengguna yang berbeda-beda. Demikian pula, basisdata memungkinkan data dalam jumlah besar untuk disimpan pada satu lokasi penyimpanan yang aman, memungkinkan analisis data secara cepat serta menjamin keselamatan data apabila terjadi masalah pada data tersebut.</p>
+<p>Bagian ini membahas mengenai:</p>
+<p><span class="fa fa-check text-success mr-1"></span> <a class="reference internal" href="relationaldb.html"><span class="doc std std-doc">Pengantar mengenai Basisdata Relational</span></a>
+: Konsep basisdata relational serta instalasi basisdata PostgreSQL dan PostGIS dengan menggunakan Docker</p>
+<p><span class="fa fa-check text-success mr-1"></span> <a class="reference internal" href="dbmanagement.html"><span class="doc std std-doc">Administrasi pengguna pada Basisdata</span></a>
+: Penjelasan tentang pengaturan multi-user pada Basisdata PostgreSQL (User, Roles dan Priviledges)</p>
+<p><span class="fa fa-check text-success mr-1"></span> <a class="reference internal" href="postgisquery.html"><span class="doc std std-doc">Basisdata Spasial dengan PostGIS</span></a>
+: Bagaimana menggunakan ekstensi PostGIS untuk menginput data spasial, melakukan analisis serta visualisasi data spasial dan menghubungkan basisdata dengan QGIS</p>
+<p><span class="fa fa-check text-success mr-1"></span> <a class="reference internal" href="nosql.html"><span class="doc std std-doc">SQL dan NoSQL untuk Aplikasi Spasial</span></a>
+: Penjelasan mengenai perbandingan basisdata SQL dan NoSQL dalam aplikasi di bidang geospasial</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -254,7 +253,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./sesi1"
+            path: "./sesi2"
         },
         predefinedOutput: true
     }
@@ -269,8 +268,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">Tentang Panduan ini</a>
-    <a class='right-next' id="next-link" href="pengantarlinux.html" title="next page">Pengantar Linux dan Server</a>
+    <a class='left-prev' id="prev-link" href="../sesi1/fossgis.html" title="previous page">Free and Open Source Software-GIS</a>
+    <a class='right-next' id="next-link" href="relationaldb.html" title="next page">Basisdata Relational</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

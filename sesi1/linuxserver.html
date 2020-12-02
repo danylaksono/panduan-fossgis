@@ -129,23 +129,28 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../sesi2/intrordbms.html">
+   Pengantar Basisdata Relational
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../sesi2/relationaldb.html">
-   Tentang Panduan ini
+   Basisdata Relational
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sesi2/dbmanagement.html">
-   Tentang Panduan ini
+   Administrasi Pengguna pada Basisdata
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sesi2/postgisquery.html">
-   Tentang Panduan ini
+   Basisdata Spasial dengan PostGIS
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sesi2/nosql.html">
-   Tentang Panduan ini
+   Basisdata SQL dan NoSQL
   </a>
  </li>
 </ul>
@@ -479,11 +484,14 @@ sudo systemctl status tomcat
 </pre></div>
 </div>
 </li>
-<li><p>Izinkan Firewall untuk Tomcat
+<li><p>Izinkan Firewall untuk Tomcat.
 Sama seperti pada Apache, firewall perlu dibuka untuk mengizinkan Tomcat dapat diakses:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo ufw allow <span class="m">8080</span>/tcp
 </pre></div>
 </div>
+</li>
+<li><p>Buka localhost:8080 pada browser di Windows untuk memeriksa apakah Tomcat sudah berhasil dijalankan</p>
+<p><img alt="" src="../_images/2020-12-03-05-06-39.png" /></p>
 </li>
 </ol>
 <div class="admonition-catatan admonition">

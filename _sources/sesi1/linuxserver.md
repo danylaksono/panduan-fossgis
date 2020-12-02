@@ -216,11 +216,16 @@ Untuk melakukan instalasi Tomcat, lakukan langkah berikut:
    ```bash
    sudo systemctl enable tomcat
    ```
-9.  Izinkan Firewall untuk Tomcat
+9.  Izinkan Firewall untuk Tomcat.
     Sama seperti pada Apache, firewall perlu dibuka untuk mengizinkan Tomcat dapat diakses:
     ```bash
     sudo ufw allow 8080/tcp
     ```
+
+10. Buka localhost:8080 pada browser di Windows untuk memeriksa apakah Tomcat sudah berhasil dijalankan
+    
+    ![](img/2020-12-03-05-06-39.png)
+
 
 ```{admonition} Catatan
 Saat panduan ini ditulis, [WSL2 belum memiliki support untuk `systemd`](https://github.com/systemd/systemd/issues/8036), sehingga perintah `sudo systemctl daemon-reload` dan seterusnya di atas akan menghasilkan error.  
