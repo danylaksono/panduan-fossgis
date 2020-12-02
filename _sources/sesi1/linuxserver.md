@@ -1,25 +1,38 @@
-# Linux untuk WebServer
+# Linux sebagai Sistem Operasi Server
 
-Linux merupakan salah satu sistem operasi yang paling banyak digunakan untuk server, karena kemampuan enterprise dan biaya yang murah (bahkan gratis). Atas alasan itulah, Linux banyak dijumpai pada berbagai server, baik dalam skala besar maupun kecil.  Pada bagian ini akan dilakukan pengaturan Linux untuk webserver 
+Linux merupakan salah satu sistem operasi yang paling banyak digunakan untuk server, karena kemampuan enterprise dan biaya yang murah (bahkan gratis). Atas alasan itulah, Linux banyak dijumpai pada berbagai server, baik dalam skala besar maupun kecil.  Pada bagian ini akan dilakukan pengaturan Linux untuk sebagai server dengan menggunakan beberapa perangkat webserver dan application server. 
 
 
-## Aplikasi Web Server
-Sebuah aplikasi webserver berguna untuk mempublikasi file lokal agar dapat diakses melalui jaringan. Sebagai contoh, halaman HTML yang dibuat di komputer belum akan dapat diakses secara luas apabila tidak dipasang pada aplikasi webserver yang dapat mempublikasi data ini. 
-Terdapat banyak aplikasi webserver yang tersedia dengan masing-masing bahasa yang melandasinya. berikut beberapa diantaranya:
-* Apache 
-* Tomcat
-* Flask
-* Django
-* NodeJS
+## Perangkat Lunak untuk Web Server dan Application Server
+Sebuah aplikasi **webserver** berguna untuk mempublikasi file lokal agar dapat diakses melalui jaringan. Sebagai contoh, halaman HTML yang dibuat di komputer belum akan dapat diakses secara luas apabila tidak dipasang pada aplikasi webserver yang dapat mempublikasi data ini. Beberapa contoh perangkat Webserver adalah sebagai berikut:
+* Apache HTTP Server
 * Nginx
+* LightHTTPd
+* Microsoft IIS
+* NodeJS
+* Flask
   
-Apache adalah salah satu webserver berbasis PHP yang paling sering digunakan. Cara kerja Apache adalah seperti berikut:
+Apache adalah salah satu webserver berbasis PHP yang paling sering digunakan. Dengan Apache, maka berkas yang tersimpan pada komputer akan dapat dionlinekan dengan pengaturan tertentu. Pengaturan yang dimaksud meliputi pengaturan keamanan, *virtual host*, *proxy*, dan lain sebagainya.
 
-![](img/2020-12-02-10-44-11.png)
+**Application Server** merupakan sebuah kelompok *framework* perangkat lunak yang memungkinkan sebuah *web application* untuk disajikan melalui internet. Contoh application server adalah *Java Servlet Container*, yaitu perangkat yang berfungsi untuk menyajikan aplikasi yang dibuat dengan bahasa Java pada internet. Beberapa Contoh Application Server adalah sebagai berikut:
+* Apache Tomcat
+* Eclipse Jetty 
+* ASP.Net
+* ZendServer
+* JBoss EAP
 
-Dengan Apache, maka berkas yang tersimpan pada komputer akan dapat dionlinekan dengan pengaturan tertentu. Pengaturan yang dimaksud meliputi pengaturan keamanan, virtual host, proxy, dan lain sebagainya.
+Jika sebuah *webserver* umumnya menyajikan *static content*(seperti HTML, CSS, Javascript, gambar, video, dst) maka sebuah *application server* menyajikan *bussiness logic* yang memungkinkan aplikasi yang disajikan bersifat dinamis.
 
-Untuk sekedar menguji kemampuan *port forwarding* dari WSL2 dan demonstrasi webserver, kita coba buat sebuah webserver sederhana. Python menyediakan sebuah webserver sederhana dengan perintah singkat:
+```{figure} img/2020-12-03-03-02-24.png
+---
+name: appserver
+---
+Perbandingan App Server dan Web Server
+```
+
+### Latihan: Menjalankan sebuah Web Server Sederhana
+
+Untuk sekedar menguji kemampuan *port forwarding* dari WSL2 dan demonstrasi webserver, kita akan coba untuk membuat sebuah webserver sederhana. Python menyediakan sebuah webserver sederhana dengan perintah singkat:
 
 ```bash
 python3 -m http.server  
@@ -29,14 +42,12 @@ maka folder tempat perintah tersebut dijalankan akan dapat diakses pada browser 
 
 ![](img/2020-12-02-12-12-30.png)
 
+Apabila kita membuat sebuah file HTML pada folder tersebut, maka berkas tersebut dapat dibuka pada browser sebagai sebuah halaman web.
 
 
-## Menggunakan Apache
-
-Server web Apache adalah perangkat paling populer saat ini untuk menyajikan konten web di internet. Apache menyumbang lebih dari setengah dari selurh situs web aktif di internet dengan berbagai fungsi dan kelebihan yang dimilikinya.
+### Instalasi Apache HTTP Server
+Server web **Apache HTTP Server **adalah perangkat paling populer saat ini untuk menyajikan konten web di internet. Apache menyumbang lebih dari setengah dari selurh situs web aktif di internet dengan berbagai fungsi dan kelebihan yang dimilikinya.
 Pada latihan ini akan dilakukan instalasi dan konfigurasi Apache untuk publikasi data dalam bentuk HTML sederhana.
-
-### Instalasi Apache 
 
 Lakukan langkah berikut untuk melakukan instalasi Apache pada sistem Ubuntu WSL:
 
@@ -89,13 +100,12 @@ Lakukan langkah berikut untuk melakukan instalasi Apache pada sistem Ubuntu WSL:
     Apabila status menunjukkan 'running', artinya webserver Apache sudah berhasil dijalankan
     ![](img/2020-12-02-10-56-11.png)
 
-5. Buka Apache pada browser pada port 80
+5. Buka localhost melalui browser pada Windows
 
    ![](img/2020-12-02-10-57-55.png)
 
    Apabila halaman Apache Ubuntu sudah terbuka, artinya instalasi Apache berhasil dengan baik    
 
-//### Konfigurasi Apache
 
 ### Membuat Website sederhana
 Setelah webserver selesai dipasang, selanjutnya adalah menggunakan webserver ini untuk mempublikasi halaman web dalam bentuk HTML. Apache memiliki direktori default dalam publikasi webnya di folder:
@@ -131,7 +141,7 @@ Untuk menguji webserver ini, kita akan lakukan latihan sebagai berikut:
    File html yang dibuat pada folder berhasil dipanggil pada webserver
 
 ## Tomcat sebagai Servlet Aplikasi berbasis Java
-Apache Tomcat adalah implementasi open-source dari Java Servlet, JavaServer Pages, Java Expression Language, dan teknologi Java WebSocket. Ini adalah salah satu aplikasi dan server web yang paling banyak diadopsi di dunia saat ini. Tomcat mudah digunakan dan memiliki ekosistem add-on yang kuat. Apache Tomcat digunakan untuk publikasi berbagai aplikasi geospasial, seperti misalnya Geoserver dan Mapstore.
+Apache Tomcat adalah implementasi open-source dari Java Servlet, JavaServer Pages, Java Expression Language, dan teknologi Java WebSocket. Tomcat merupakan salah satu web Application yang paling banyak diadopsi di dunia saat ini. Tomcat mudah digunakan dan memiliki ekosistem add-on yang kuat. Apache Tomcat digunakan untuk publikasi berbagai aplikasi geospasial, seperti misalnya Geoserver dan Mapstore.
 
 ### Instalasi Tomcat
 Untuk melakukan instalasi Tomcat, lakukan langkah berikut:
@@ -212,7 +222,32 @@ Untuk melakukan instalasi Tomcat, lakukan langkah berikut:
     sudo ufw allow 8080/tcp
     ```
 
-Pada WSL, terdapat beberapa bug yang mempengaruhi layanan service  untuk Tomcat, sehingga penggunaannya memerlukan pengaturan lebih lanjut yang akan dibahas kemudian.
+```{admonition} Catatan
+Saat panduan ini ditulis, [WSL2 belum memiliki support untuk `systemd`](https://github.com/systemd/systemd/issues/8036), sehingga perintah `sudo systemctl daemon-reload` dan seterusnya di atas akan menghasilkan error.  
 
+Untuk saat ini, berikut adalah cara yang dapat digunakan sebagai *workaround*. Metode ini diambil dari [repository github berikut](https://github.com/DamionGans/ubuntu-wsl2-systemd-script):
 
+1. Install Git. Git akan digunakan untuk melakukan clone pada repository yang dimaksud:
 
+    ```bash
+    sudo apt install git
+    ```
+
+2. Lakukan clone pada repository di atas. Sebelum menjalankan perintah ini, pastikan pengguna aktif memiliki izin akses pada folder di dalamnya:
+    ```bash
+    git clone https://github.com/DamionGans/ubuntu-wsl2-systemd-script.git
+    ```
+
+3. Masuk ke dalam folder hasil clone, kemudian lakukan eksekusi pada script di dalamnya:
+
+    ```bash
+    cd ubuntu-wsl2-systemd-script/
+    bash ubuntu-wsl2-systemd-script.sh
+    ```
+4. Tunggu sampai script selesai di eksekusi, kemudian lakukan restart pada konsol WSL (tutup jendela konsol, kemudian buka kembali)
+5. Untuk menguji apakah workaround sudah berjalan, ketikkan perintah: 
+    ```bash
+    systemctl
+    ```
+apabila tidak muncul error, maka perbaikan sistem berhasil dilakukan, dan `systemctl` sudah bisa digunakan
+```
