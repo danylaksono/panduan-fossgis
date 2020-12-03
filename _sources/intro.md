@@ -13,20 +13,6 @@ Panduan ini dapat diberikan sebagai pegangan pada pelatihan maupun sebagai bahan
 Apabila diberikan pada sesi pelatihan tentang Free and OpenSource GIS, pembagian jadwal dari materi ini dapat dilakukan sebagai berikut:
 
 
-
-**Hari 1: Linux Server dan FOSS4G**
-
-|     Waktu     | Materi Pelatihan                                           |
-| :-----------: | :-------------------------------------------------------- |
-| 09.00 - 10.00 | Pendahuluan, Instalasi Linux VM                            |
-| 10.00 - 10.15 | *Break*                                                    |
-| 10.15 - 12.00 | Arsitektur dan Administrasi Sistem Ubuntu Linux            |
-| 12.00 - 13.00 | *ISHOMA*                                                   |
-| 13.00 - 15.00 | Linux untuk Server Web                                     |
-| 15.00 - 15.15 | *Break*                                                    |
-| 15.15 - 16.00 | Pengantar Free and OpenSource GIS (FOSS-GIS)               |
-|<img width=200/>|<img width=500/>|
-
 <br/>
 
 
@@ -56,6 +42,22 @@ Apabila diberikan pada sesi pelatihan tentang Free and OpenSource GIS, pembagian
 | 13.00 - 15.00 | Geoserver dan MongoDB                                        |
 | 15.00 - 15.15 | *Break*                                                      |
 | 15.15 - 16.00 | Arsitektur Enterprise GIS dengan FOSS4G                      |
+|<img width=200/>|<img width=500/>|
+
+
+
+
+**Hari 1: Linux Server dan FOSS4G**
+
+|     Waktu     | Materi Pelatihan                                           |
+| :-----------: | :-------------------------------------------------------- |
+| 09.00 - 10.00 | Pendahuluan, Instalasi Linux VM                            |
+| 10.00 - 10.15 | *Break*                                                    |
+| 10.15 - 12.00 | Arsitektur dan Administrasi Sistem Ubuntu Linux            |
+| 12.00 - 13.00 | *ISHOMA*                                                   |
+| 13.00 - 15.00 | Linux untuk Server Web                                     |
+| 15.00 - 15.15 | *Break*                                                    |
+| 15.15 - 16.00 | Pengantar Free and OpenSource GIS (FOSS-GIS)               |
 |<img width=200/>|<img width=500/>|
 
 
