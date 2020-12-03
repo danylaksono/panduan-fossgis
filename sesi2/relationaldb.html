@@ -225,15 +225,15 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pemodelan-data-pada-basisdata-relasional">
+   Pemodelan data pada Basisdata Relasional
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pengantar-basisdata-relational">
    Pengantar Basisdata Relational
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pemodelan-data-pada-basisdata-relasional">
-     Pemodelan data pada basisdata Relasional
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#beberapa-istilah-pada-basisdata-relasional">
      Beberapa istilah pada basisdata relasional
@@ -274,8 +274,18 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#review-sql">
-     Review SQL
+    <a class="reference internal nav-link" href="#review-structured-query-language-sql">
+     Review Structured Query Language (SQL)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bahasa-sql">
+     Bahasa SQL
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#latihan-membuat-query-sederhana">
+     Latihan: Membuat Query Sederhana
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -310,6 +320,16 @@
   <div class="section" id="basisdata-relational">
 <h1>Basisdata Relational<a class="headerlink" href="#basisdata-relational" title="Permalink to this headline">¶</a></h1>
 <p>Basisdata relational merupakan salah satu model basisdata pada DBMS (Database Management System). Model Relasional banyak digunakan sejak tahun 90an hingga saat ini karena berbagai kelebihannya dalam memanajemen data dalam jumlah besar. Pada bagian ini akan dibahas mengenai basisdata relasional, khususnya PostgreSQL.</p>
+<div class="section" id="pemodelan-data-pada-basisdata-relasional">
+<h2>Pemodelan data pada Basisdata Relasional<a class="headerlink" href="#pemodelan-data-pada-basisdata-relasional" title="Permalink to this headline">¶</a></h2>
+<p>Kita ambil sebuah contoh untuk kasus penanggulangan kebencanaan: anda ditugaskan oleh pimpinan anda untuk melakukan inventarisasi data yang diperoleh dari hasil pemetaan akibat bencana banjir di suatu daerah. Anda misalnya berurusan dengan data-data jumlah pengungsi dari masing-masing desa, kerusakan pada tiap desa, lokasi kantung-kantung pengungsian, kebutuhan tiap kepala, dan lain sebagainya. Apabila dinyatakan dalam bentuk tabel, data-data tersebut mungkin tampak seperti berikut:</p>
+<p><img alt="" src="../_images/2020-12-03-08-07-09.png" /></p>
+<p><img alt="" src="../_images/2020-12-03-08-07-21.png" /></p>
+<p>Apabila suatu ketika Anda ditanya, ‘<em>Dari mana saja asal pengungsi di Posko A</em>?’, apa jawaban yang akan anda berikan? Apa yang akan anda lakukan untuk memperoleh jawaban yang diinginkan?	
+Pertama-tama, Anda mungkin akan melihat pada masing-masing tabel, kemudian mencari informasi yang sesuai pada tiap tabel tersebut. Tentunya hal ini mudah dilakukan apabila data yang disediakan cukup sedikit. Bagaimana jika data yang ada berjumlah ratusan atau bahkan mungkin ribuan data?</p>
+<p>Di sinilah peranan <strong>Basisdata</strong>. Sebuah sistem basisdata menghubungkan kumpulan data menjadi sebuah  sistem yang terintegrasi. Dapat dikatakan, basisdata merupakan kumpulan dari tabel-tabel yang saling terhubung. Dengan menggunakan basisdata, Anda dapat mengambil data dari suatu tabel berdasarkan data dari tabel yang lain.</p>
+<p>Gambaran umum sebuah basisdata adalah <em>sekumpulan tabel yang saling terhubung</em>. Hubungan antar tabel ini dapat dilakukan dengan berbagai macam cara. Salah satunya adalah dengan menggunakan cara yang Anda lihat pada contoh tabel-tabel di atas.</p>
+</div>
 <div class="section" id="pengantar-basisdata-relational">
 <h2>Pengantar Basisdata Relational<a class="headerlink" href="#pengantar-basisdata-relational" title="Permalink to this headline">¶</a></h2>
 <p><strong>Sistem Manajemen Basis Data Relasional</strong> adalah kumpulan program dan fungsi berbasis tabel yang menyediakan antarmuka antara pengguna dan aplikasi dan basis data, memberikan cara sistematis untuk membuat, memperbarui, menghapus, mengelola, dan mengambil data. Sebagian besar sistem manajemen database relasional menggunakan bahasa pemrograman SQL untuk mengakses database dan banyak yang mengikuti properti <em>ACID (Atomicity, Consistency, Isolation, Durability)</em> dari database:</p>
@@ -321,11 +341,6 @@
 </ul>
 <p>Basisdata relasional menyimpan data dalam bentuk tabel serta menyediakan cara yang efisien, intuitif, dan fleksibel untuk menyimpan dan mengakses informasi pada tabel tersebut secara terstruktur. Tabel pada basisdata relasional juga dikenal sebagai <strong>relasi</strong>, terdiri dari kolom yang berisi satu atau lebih kategori data, dan baris, juga dikenal sebagai rekaman tabel, berisi sekumpulan data yang ditentukan oleh kategori.</p>
 <p>Aplikasi DBMS (seperti PostgreSQL) mengakses data dengan menentukan <strong>kueri</strong>, yang menggunakan operasi seperti proyek untuk mengidentifikasi atribut, memilih <em>tuples</em>, dan menentukan relasi pada data. Model relasional untuk manajemen basis data dikembangkan oleh ilmuwan komputer IBM Edgar F. Codd pada tahun 1970.</p>
-<p><img alt="" src="../_images/2020-12-03-06-57-27.png" /></p>
-<div class="section" id="pemodelan-data-pada-basisdata-relasional">
-<h3>Pemodelan data pada basisdata Relasional<a class="headerlink" href="#pemodelan-data-pada-basisdata-relasional" title="Permalink to this headline">¶</a></h3>
-<p>kita ambil sebuah contoh: anda ditugaskan oleh pimpinan anda untuk melakukan inventarisasi data yang diperoleh dari hasil pemetaan akibat bencana banjir di suatu daerah. Anda misalnya berurusan dengan data-data jumlah pengungsi dari masing-masing desa, kerusakan pada tiap desa, lokasi kantung-kantung pengungsian, kebutuhan tiap kepala, dan lain sebagainya. Apabila dinyatakan dalam bentuk tabel, data-data tersebut mungkin tampak seperti berikut:</p>
-</div>
 <div class="section" id="beberapa-istilah-pada-basisdata-relasional">
 <h3>Beberapa istilah pada basisdata relasional<a class="headerlink" href="#beberapa-istilah-pada-basisdata-relasional" title="Permalink to this headline">¶</a></h3>
 <p>Sebagai review, berikut adalah beberapa istilah yang dikenal pada basisdata relasional:</p>
@@ -338,23 +353,34 @@
 <li><p><strong>Foreign key</strong>: Foreign key atau kunci tamu merupakan kolom atau kumpulan kolom yang mengacu ke primary key pada tabel yang sama atau tabel lain. Foreign key ini dibuat untuk memaksakan aturan-aturan relasi pada basis data. Nilai data dari foreign key harus sesuai dengan nilai data pada kolom dari tabel yang diacunya atau bernilai “null”.</p></li>
 <li><p><strong>Relasi</strong> merupakan interaksi antara tabel yang menunjukkan hubungan antara objek-objek yang ada di dunia nyata. Relasi menyatakan hubungan antar tabel sebagai model dari dunia nyata.</p></li>
 </ul>
+<p><img alt="" src="../_images/2020-12-03-06-57-27.png" /></p>
 </div>
 <div class="section" id="relasi-pada-basisdata-relasional">
 <h3>Relasi pada basisdata relasional<a class="headerlink" href="#relasi-pada-basisdata-relasional" title="Permalink to this headline">¶</a></h3>
 <p>Berikut adalah model relasi pada sebuah basisdata relasional:</p>
-<ol class="simple">
+<ol>
 <li><p><strong>One to One (1 to 1)</strong>
-Relasi database model ini terjadi apalabila sebuah data terdapat pada 2 buah tabel, dan hanya diperbolehkan satu data saja pada masing masing tabel (unique record), sama halnya seperti primary key, record yang ada pada model ini tidak boleh ada yang sama.</p></li>
+Relasi database model ini terjadi apalabila sebuah data terdapat pada 2 buah tabel, dan hanya diperbolehkan satu data saja pada masing masing tabel (unique record), sama halnya seperti primary key, record yang ada pada model ini tidak boleh ada yang sama.</p>
+<p><img alt="" src="../_images/2020-12-03-08-08-58.png" /></p>
+<p>Dalam bentuk tabel relasional, hasilnya adalah seperti ini:</p>
+</li>
 <li><p><strong>One to Many (1 to n)</strong>
-Relasi database model  ini membolehkan data yang sama pada tabel kedua, tapi hanya membolehkan data yang bersifat unique (unik) pada tabel pertama. Jadi pada model tabel kedua boleh memiliki beberapa data yang sama.</p></li>
+Relasi database model  ini membolehkan data yang sama pada tabel kedua, tapi hanya membolehkan data yang bersifat unique (unik) pada tabel pertama. Jadi pada model tabel kedua boleh memiliki beberapa data yang sama.
+<img alt="" src="../_images/2020-12-03-08-10-30.png" /></p>
+<p>Dalam bentuk tabel:
+<img alt="" src="../_images/2020-12-03-08-09-58.png" /></p>
+</li>
 <li><p><strong>Many to many (n to m)</strong>
-Berbeda dengan kedua model diatas, relasi database model ini membolehkan beberapa data yang sama baik pada tabel pertama maupun tabel kedua. Dengan demikian tidak ada unique record di kedua tabel tersebut.</p></li>
+Berbeda dengan kedua model diatas, relasi database model ini membolehkan beberapa data yang sama baik pada tabel pertama maupun tabel kedua. Dengan demikian tidak ada unique record di kedua tabel tersebut.
+<img alt="" src="../_images/2020-12-03-08-11-05.png" /></p>
+<p>Dalam bentuk tabel:
+<img alt="" src="../_images/2020-12-03-08-11-15.png" /></p>
+</li>
 </ol>
 </div>
 <div class="section" id="operasi-pada-basisdata-relasional">
 <h3>Operasi pada basisdata relasional<a class="headerlink" href="#operasi-pada-basisdata-relasional" title="Permalink to this headline">¶</a></h3>
-<p>Pada basisdata relasional, operasi yang dilakukan ke sebuah tabel dapat dikelompokkan menjadi empat kelompok besar. Empat operasi pembaruan dasar yang dilakukan pada model database relasional adalah <strong>Insert, Update, Delete</strong> dan <strong>Select</strong> [^footnote5]:
-[^footnote5]:</p>
+<p>Pada basisdata relasional, operasi yang dilakukan ke sebuah tabel dapat dikelompokkan menjadi empat kelompok besar. Empat operasi pembaruan dasar yang dilakukan pada model database relasional adalah <strong>Insert, Update, Delete</strong> dan <strong>Select</strong> :</p>
 <ul class="simple">
 <li><p><strong>Insert</strong> digunakan untuk memasukkan data ke dalam relasi</p></li>
 <li><p><strong>Delete</strong> digunakan untuk menghapus tupel dari tabel.</p></li>
@@ -379,25 +405,217 @@ Pada operasi penghapusan, suatu kriteria diberikan melalui Query untuk
 </div>
 <div class="section" id="instalasi-dan-pengaturan-basisdata-postgresql">
 <h2>Instalasi dan Pengaturan Basisdata PostgreSQL<a class="headerlink" href="#instalasi-dan-pengaturan-basisdata-postgresql" title="Permalink to this headline">¶</a></h2>
-<p>PostgreSQL/PostGIS merupakan salah satu perangkat lunak untuk membuat basisdata yang bersifat open source. PostgreSQL/PostGIS memiliki kelebihan mampu menyimpan data spasial dalam basisdatanya. Pada bagian ini diuraikan cara membuat basisdata dengan menggunakan
-PostgreSQL/PostGIS, dengan lebih dahulu membahas mengenai instalasi PostgreSQL dan PostGIS menggunakan Docker.</p>
+<p>PostgreSQL merupakan perangkat lunak yang digunakan untuk melakukan manajemen basisdata, sedangkan PostGIS merupakan perangkat lunak tambahan (‘Plugin’) pada PostgreSQL yang digunakan untuk menambahkan fungsi keruangan (spasial) pada PostgreSQL. Pada bagian ini diuraikan cara membuat basisdata dengan menggunakan PostgreSQL/PostGIS, dengan lebih dahulu membahas mengenai instalasi PostgreSQL dan PostGIS menggunakan Docker.</p>
 <div class="section" id="latihan-instalasi-dan-pengaturan-docker">
 <h3>Latihan: Instalasi dan Pengaturan Docker<a class="headerlink" href="#latihan-instalasi-dan-pengaturan-docker" title="Permalink to this headline">¶</a></h3>
+<p>Pada latihan ini akan dibahas mengenai instalasi Docker. Docker nantinya akan kita gunakan sebagai Container untuk mempermudah instalasi PostgreSQL dan PostGIS. Arsitektur Docker adalah sebagai berikut:</p>
+<p><img alt="" src="../_images/2020-12-03-08-27-49.png" /></p>
+<p>Langkah berikut merujuk pada <a class="reference external" href="https://docs.docker.com/engine/install/ubuntu/">Panduan Resmi Instalasi Docker</a>:</p>
+<ol>
+<li><p>Lakukan update, kemudian lakukan instalasi beberapa dependencies untuk Docker</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install <span class="se">\</span>
+ apt-transport-https <span class="se">\</span>
+ ca-certificates <span class="se">\</span>
+ curl <span class="se">\</span>
+ gnupg-agent <span class="se">\</span>
+ software-properties-common
+</pre></div>
+</div>
+</li>
+<li><p>Tambahkan GPG official untuk Docker:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -fsSL https://download.docker.com/linux/ubuntu/gpg <span class="p">|</span> sudo apt-key add -
+</pre></div>
+</div>
+</li>
+<li><p>Periksa  fingerprint untuk GPG yang telah ditambahkan ke Ubuntu</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-key fingerprint 0EBFCD88
+</pre></div>
+</div>
+</li>
+<li><p>Tambahkan repository baru. Docker memiliki repository tersendiri sehingga perlu memberi tahu apt untuk mengambil instalasi dari repository ini:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo add-apt-repository <span class="se">\</span>
+ <span class="s2">&quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \</span>
+<span class="s2"> </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> \</span>
+<span class="s2"> stable&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Update kembali apt:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+</pre></div>
+</div>
+</li>
+<li><p>Uji apakah docker sudah berhasil diinstall</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo docker run hello-world
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Setelah instalasi Docker berhasil, selanjutnya adalah menggunakan Docker untuk melakukan instalasi Image untuk PostGIS. Image adalah paket aplikasi yang dibuat oleh developer untuk memuat serangkaian perintah dan dapat diduplikasi oleh siapapun yang menghendaki. Image pada Docker tersimpan pada Docker Hub sebagai satu repository tempat Image dibagikan:</p>
+<p><img alt="" src="../_images/2020-12-03-08-36-24.png" /></p>
 </div>
 <div class="section" id="latihan-memulai-docker-untuk-postgis">
 <h3>Latihan: Memulai Docker untuk PostGIS<a class="headerlink" href="#latihan-memulai-docker-untuk-postgis" title="Permalink to this headline">¶</a></h3>
+<p>Untuk keperluan latihan ini kita akan menggunakan Image PostGIS yang dibuat oleh <a class="reference external" href="https://github.com/kartoza/docker-postgis">Kartoza</a>. Sebenarnya, terdapat banyak Image yang sudah dibuat oleh banyak developer. Kita dapat mencari Image terkait PostGIS menggunakan perintah ‘search’ pada Docker:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker search postgis
+</pre></div>
+</div>
+<p>hasilnya:</p>
+<p><img alt="" src="../_images/2020-12-03-08-39-33.png" /></p>
+<p>Image PostGIS yang dibuat oleh tim Kartoza dapat dijumpai pada Docker Hub sebagai berikut:
+https://hub.docker.com/r/kartoza/postgis/</p>
+<p>Berikut adalah langkah instalasi Image PostGIS dengan Docker <a class="footnote-reference brackets" href="#footnote6" id="id1">1</a>:</p>
+<ol>
+<li><p>Membuat Persistance Volume.
+Persistance Volume digunakan agar Docker menyimpan berkas pada lokasi yang dapat diakses, yaitu pada mesin WSL. Berikut perintahnya:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker volume create pg_data
+</pre></div>
+</div>
+</li>
+<li><p>Untuk menginstall PostGIS kita gunakan perintah berikut:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run --name<span class="o">=</span>postgis -d -e <span class="nv">POSTGRES_USER</span><span class="o">=</span>postgres -e <span class="nv">POSTGRES_PASS</span><span class="o">=</span>postgres -e <span class="nv">POSTGRES_DBNAME</span><span class="o">=</span>gis -e <span class="nv">ALLOW_IP_RANGE</span><span class="o">=</span><span class="m">0</span>.0.0.0/0 -p <span class="m">5432</span>:5432 -v pg_data:/var/lib/postgresql --restart<span class="o">=</span>always kartoza/postgis:13.0
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>docker run –name = postgis memberi tahu Docker bahwa container baru kami akan diberi nama postgis</p></li>
+<li><p>-d menjalankan kontainer di latar belakang (mode terpisah)</p></li>
+<li><p>-e POSTGRES_USER = postgres the -eflag menyetel variabel lingkungan di dalam penampung. Yang ini digunakan untuk mengonfigurasi nama peran login di PostgreSQL yang akan memiliki hak superuser (admin) di database. Anda dapat mengubah nama ini menjadi apa pun yang Anda inginkan.</p></li>
+<li><p>-e POSTGRES_PASS = postgres menyetel variabel lingkungan yang akan menyetel kata sandi peran login menjadi `kata sandi. Anda dapat mengatur ini menjadi apa pun yang Anda inginkan.</p></li>
+<li><p>-e POSTGRES_DBNAME = gis seperti yang bisa Anda tebak, variabel lingkungan memberi tahu container untuk membuat database baru di server dengan nama gis. Setelah database dibuat maka extension PostGIS akan diaktifkan di dalamnya.</p></li>
+<li><p>-e ALLOW_IP_RANGE = 0.0.0.0 / 0 memberi tahu container untuk mengkonfigurasi PostgreSQL untuk menerima koneksi dari siapa pun. Jika Anda tidak mengatur ini maka database hanya akan menerima koneksi dari alamat menggunakan subnet jaringan Docker.</p></li>
+<li><p>-p 5432: 5432 memetakan port 5432 pada VM host ke port 5432 pada container. Ini diperlukan karena server database mendengarkan koneksi pada port 5432 secara default.</p></li>
+<li><p>-v pg_data: / var / lib / postgresql memberi tahu sistem file container untuk memasang volume pg_data yang baru saja kita buat ke jalur / var / lib / postgresql. Ini berarti bahwa data apa pun yang disimpan atau dibuat container di direktori itu akan disimpan dalam volume pg_data.</p></li>
+<li><p>–restart = selalu membuat kebijakan restart untuk penampung Anda. Sekarang penampung Anda akan mulai setiap kali mesin virtual Docker dimulai. Jika ini tidak disetel, Anda harus memulai penampung secara manual setiap kali VM di-boot dengan docker start postgis</p></li>
+<li><p>kartoza / postgis: 13.0 memberitahu Docker untuk menarik repositori kartoza / postgis dari Docker Hub, menggunakan PostgreSQL versi 9.6 dan PostGIS versi 2.4. Anda dapat melihat versi lain yang tersedia di <a class="reference external" href="https://hub.docker.com/r/kartoza/postgis/tags/?page=1&amp;ordering=last_updated">sini</a></p></li>
+</ul>
+</li>
+<li><p>Tunggu sampai instalasi selesai. Periksa apakah mesin yang digunakan sudah menyala menggunakan perintah:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker ps
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Selanjutnya, PostGIS dan PostgreSQL siap untuk digunakan.</p>
+<p><img alt="" src="../_images/2020-12-03-08-54-59.png" /></p>
 </div>
 </div>
 <div class="section" id="menggunakan-query-sql-pada-basisdata">
 <h2>Menggunakan Query SQL pada Basisdata<a class="headerlink" href="#menggunakan-query-sql-pada-basisdata" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="review-sql">
-<h3>Review SQL<a class="headerlink" href="#review-sql" title="Permalink to this headline">¶</a></h3>
+<p>Untuk berkomunikasi dengan basidata, diperlukan satu bahasa yang disebut dengan SQL (structured query language). SQL dapat digunakan untuk melakukan Operasi-operasi pada basisdata seperti yang telah disebutkan. Berikut penjelasannya:</p>
+<div class="section" id="review-structured-query-language-sql">
+<h3>Review Structured Query Language (SQL)<a class="headerlink" href="#review-structured-query-language-sql" title="Permalink to this headline">¶</a></h3>
+<p>Apabila Anda menggunakan komputer untuk membuat basisdata pada contoh di awal bab ini, Anda akan dengan cepat menjawab pertanyaan yang diajukan sebelumnya. Apabila Anda mencari: ‘<em>Darimana saja asal pengungsi di posko A</em>?’, maka komputer akan langsung melihat tabel <strong>Posko Pengungsi</strong> untuk melihat nomor identifikasi masing-masing posko pengungsian, kemudian mencocokkannya dengan tabel **Asal Pengungsi **untuk melihat Desa apa saja yang ada di sana. Sekarang, bagaimana kita menanyakan pertanyaan seperti ini kepada komputer?</p>
+<p>Bagaimana kita membuat suatu sistem basisdata dan mengajukan pertanyaan (pertanyaan=‘QUERY’) kepada komputer agar kita memperoleh data yang kita inginkan? Untuk itulah kita akan mempelajari mengenai bahasa** SQL (Structured Query Language)**. Bahasa inilah yang akan kita gunakan untuk ‘bertanya’ atau mengajukan ‘query’ kepada komputer.</p>
+</div>
+<div class="section" id="bahasa-sql">
+<h3>Bahasa SQL<a class="headerlink" href="#bahasa-sql" title="Permalink to this headline">¶</a></h3>
+<p><strong>SQL</strong> merupakan serangkaian perintah yang kita gunakan untuk membuat dan melakukan manajemen terhadap suatu basisdata di komputer. Misalnya, untuk membuat sebuah tabel seperti ini:</p>
+<p><img alt="" src="../_images/2020-12-03-08-18-49.png" /></p>
+<p>Dalam bahasa SQL akan tertulis seperti ini:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Anggota</span> 
+	<span class="p">(</span>
+	<span class="n">No_id</span> <span class="nb">INTEGER</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+	<span class="n">nama</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span>
+	<span class="n">jenis_kelamin</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+	<span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">anggota</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;21451&#39;</span><span class="p">,</span> <span class="s1">&#39;Budi Darmawan&#39;</span><span class="p">,</span> <span class="s1">&#39;L&#39;</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">anggota</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;21569&#39;</span><span class="p">,</span> <span class="s1">&#39;Anggi Lestari&#39;</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">anggota</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;21584&#39;</span><span class="p">,</span> <span class="s1">&#39;Joko Anantoko&#39;</span><span class="p">,</span> <span class="s1">&#39;L&#39;</span><span class="p">);</span>
+<span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">no_id</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Berikut adalah penjelasan beberapa perintah dasar di atas:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Anggota</span> <span class="p">(</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>CREATE TABLE</strong></p></li>
+</ul>
+<p>Fungsi dari perintah ini adalah untuk membuat sebuah tabel baru, yang tentu saja isinya masih kosong. Untuk mengisi tabel yang baru dibuat ini kita gunakan perintah INSERT INTO dan VALUES seperti yang akan dijelaskan di bawah.</p>
+<ul>
+<li><p><strong>Anggota</strong>
+Adalah nama/judul dari tabel pertama yang akan kita buat pada basisdata ini. Judul tabel ini merupakan variable, artinya, Anda dapat menggunakan nama apapun yang Anda inginkan, asalkan merupakan satu buah kata (Anda lihat, tanda spasi pada kata-kata ‘bidang tanah’ diganti dengan tanda underscore/garis bawah. Ini untuk menjaga variable tersebut hanya merupakan satu kata)</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span> <span class="n">No_id</span> <span class="nb">INTEGER</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+ <span class="n">nama</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span>
+ <span class="n">jenis_kelamin</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>No_id, Nama dan Jenis_kelamin</strong>
+No_id merupakan nama kolom pertama yang kita isikan (lihat tabel pada contoh di atas agar lebih jelas). No_id ini adalah kolom yang akan kita fungsikan untuk memuat identitas unik masing-masing orang. Demikian pula, Nama dan Jenis_kelamin merupakan nama-nama kolom yang kita buat pada tabel anggota yang akan kita isi dengan keterangan-keterangan yang kita inginkan.</p></li>
+<li><p><strong>Tipe Data</strong>
+INTEGER dan VARCHAR yang anda gunakan pada baris-baris perintah tadi berfungsi untuk menjelaskan tipe data dari kolom yang Anda buat. Berikut beberapa tipe data yang dapat anda gunakan:</p></li>
+</ul>
+<ul class="simple">
+<li><p>INTEGER		: Menyatakan data berupa bilangan bulat. Panjang data yang dapat dimuat adalah antara -2147483648 sampai 2147483647.</p></li>
+<li><p>FLOAT		: Menyatakan data berupa bilangan desimal</p></li>
+<li><p>VARCHAR	: Menyatakan sembarang karakter (huruf, angka, atau karakter yang lain). Apabila anda menambahkan bilangan dalam tanda kurung di belakangnya, misalnya VARCHAR(2), artinya anda membatasi maksimal hanya 2 karakter yang akan ditampilkan, tidak boleh lebih.</p></li>
+<li><p>TEXT		: Menampilkan baris teks. Bedanya dengan tipe data character adalah panjang data yang bisa ditampung. Anda bisa memasukkan beberapa baris kalimat pada tipe data ini.</p></li>
+<li><p>DATE		: Memasukkan tanggal ke dalam kolom</p></li>
+<li><p>BOOLEAN	: Apabila anda memilih tipe data ini untuk sebuah kolom, artinya kolom tersebut hanya bisa memliki dua macam nilai: ‘TRUE’ atau ‘FALSE’. Biasanya tipe data ini digunakan untuk menyatakan pilihan.</p></li>
+</ul>
+<p>Perhatikan bahwa tiap kali anda membuat sebuah kolom, anda harus memisahkannya dengan baris perintah selanjutnya menggunakan tanda koma (,). Ini adalah salah satu aturan penulisan pada bahasa SQL.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">no_id</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>• **PRIMARY KEY **
+Pada baris perintah ini, kita memberi tahu komputer bahwa kolom No_id akan kita jadikan sebagai PRIMARY KEY. Primary key adalah kolom yang akan kita gunakan sebagai penghubung dengan tabel lain. Dalam hal ini, data yang berada pada kolom no_id haruslah bersifat unik. Artinya, data-data pada kolom ini harus berbeda antara satu dengan yang lainnya.</p>
+</div>
+<div class="section" id="latihan-membuat-query-sederhana">
+<h3>Latihan: Membuat Query Sederhana<a class="headerlink" href="#latihan-membuat-query-sederhana" title="Permalink to this headline">¶</a></h3>
+<p>Sebuah perintah <strong>Query (pertanyaan)</strong> dalam bahasa SQL berbentuk seperti ini:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">anggota</span>
+</pre></div>
+</div>
+<p>• SELECT dan FROM pada baris perintah di atas digunakan untuk menampilkan isi dari tabel yang dipanggil (pada contoh adalah tabel anggota). Tanda asterisk (*) di atas digunakan untuk menampilkan keseluruhan data pada semua kolom di tabel tersebut. Apabila anda memanggil perintah tersebut pada sebuah perangkat lunak basisdata (seperti PostgreSQL yang akan kita pelajari nanti), maka perintah tersebut akan menampilkan seluruh isi tabel anggota.</p>
+<p>Perintah tersebut akan menampilkan semua isi kolom nama pada tabel anggota, seperti berikut:</p>
+<p><img alt="" src="../_images/2020-12-03-08-22-22.png" /></p>
+<p>Apabila anda hanya ingin menampilkan satu baris tertentu, anda dapat menggunakan perintah WHERE:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">anggota</span> <span class="k">WHERE</span> <span class="n">No_id</span> <span class="o">=</span> <span class="mi">21451</span>
+</pre></div>
+</div>
+<p>hasilnya:</p>
+<p><img alt="" src="../_images/2020-12-03-08-23-12.png" /></p>
+<p>Apa keluaran dari bahasa SQL berikut?</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>SELECT nama FROM anggota WHERE jenis_kelamin = ‘L’
+</pre></div>
+</div>
 </div>
 <div class="section" id="latihan-menggunakan-psql-untuk-melakukan-query-sederhana">
 <h3>Latihan: Menggunakan <code class="docutils literal notranslate"><span class="pre">psql</span></code> untuk melakukan query sederhana<a class="headerlink" href="#latihan-menggunakan-psql-untuk-melakukan-query-sederhana" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">psql</span></code> merupakan aplikasi untuk manajemen client postgresql. Untuk menginstall <code class="docutils literal notranslate"><span class="pre">psql</span></code>,  gunakan perintah berikut:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install postgresql-client-common
+</pre></div>
+</div>
+<p>koneksi pada basisdata dapat dilakukan sebagai berikut:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>psql -d database -h host -U  user -W
+</pre></div>
+</div>
+<p>dimana alamat host adalah ip address yang digunakan oleh mesin Docker.</p>
+<p><img alt="" src="../_images/2020-12-03-09-00-55.png" /></p>
+<p>untuk mendapatkan alamat tersebut, gunakan perintah:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker <span class="nb">exec</span> namaimage cat /etc/hosts
+</pre></div>
+</div>
+<p>Daftar <a class="reference external" href="https://gist.github.com/Kartones/dd3ff5ec5ea238d4c546">perintah</a> untuk psql dapat dilihat pada:
+https://www.postgresqltutorial.com/postgresql-cheat-sheet/</p>
 </div>
 <div class="section" id="latihan-menggunakan-pgadmin-sebagai-gui-basisdata-postgresql">
 <h3>Latihan: Menggunakan pgAdmin sebagai GUI Basisdata PostgreSQL<a class="headerlink" href="#latihan-menggunakan-pgadmin-sebagai-gui-basisdata-postgresql" title="Permalink to this headline">¶</a></h3>
+<p>Pada bagian ini, diperlukan pgAdmin4 sebagai antarmuka untuk PostgreSQL. Terlebih dahulu unduh pgAdmin4 dari alamat berikut:
+https://www.pgadmin.org/download/</p>
+<p>Selanjutnya, lakukan instalasi pada sistem operasi Windows. Tampilan pgAdmin setelah instalasi adalah sebagai berikut:</p>
+<p><img alt="" src="../_images/2020-12-03-08-55-40.png" /></p>
+<p>Selanjutnya, koneksi dapat dilakukan pada basisdata:</p>
+<p><img alt="" src="../_images/2020-12-03-08-57-17.png" /></p>
+<p>untuk memperoleh alamat host pada koneksi di atas, gunakan perintah seperti ada psql sebelumnya</p>
+<hr class="docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="footnote6"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>https://alexurquhart.com/post/set-up-postgis-with-docker/</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
