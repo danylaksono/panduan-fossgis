@@ -336,6 +336,7 @@ Aplikasi ini tersedia bersama dengan instalasi PostgreSQL dan PostGIS. Dalam hal
    ![](img/2020-12-03-12-40-15.png)  
 5. Keluar dari mesin dan lakukan restart untuk kontainer PostGIS
    ```bash
+   docker restart postgis
    ```
 6. Gunakan `psql` seperti berikut:
    ```bash
@@ -368,8 +369,10 @@ dimana alamat host adalah ip address yang digunakan oleh mesin Docker.
 untuk mendapatkan alamat tersebut, gunakan perintah:
 
 ```bash
-docker exec postgis cat /etc/hosts
+ip addr
 ```
+
+kemudian lihat ip address untuk `eth0`.
 
 
 

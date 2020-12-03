@@ -618,7 +618,7 @@ Pada baris perintah ini, kita memberi tahu komputer bahwa kolom No_id akan kita 
 <li><p>Dengan menggunakan nano, lakukan editing pada file <code class="docutils literal notranslate"><span class="pre">pg_hba.conf</span></code>. Ubah <code class="docutils literal notranslate"><span class="pre">peer</span></code> menjadi <code class="docutils literal notranslate"><span class="pre">trust</span></code> pada <strong>Database administrative login by Unix domain socket</strong> seperti berikut:
 <img alt="" src="../_images/2020-12-03-12-40-15.png" /></p></li>
 <li><p>Keluar dari mesin dan lakukan restart untuk kontainer PostGIS</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker restart postgis
 </pre></div>
 </div>
 </li>
@@ -644,9 +644,10 @@ https://www.pgadmin.org/download/</p>
 <p>dimana alamat host adalah ip address yang digunakan oleh mesin Docker.</p>
 <p><img alt="" src="../_images/2020-12-03-09-00-55.png" /></p>
 <p>untuk mendapatkan alamat tersebut, gunakan perintah:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker <span class="nb">exec</span> postgis cat /etc/hosts
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ip addr
 </pre></div>
 </div>
+<p>kemudian lihat ip address untuk <code class="docutils literal notranslate"><span class="pre">eth0</span></code>.</p>
 <hr class="docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="footnote6"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
