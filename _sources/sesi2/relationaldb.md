@@ -145,6 +145,16 @@ Langkah berikut merujuk pada [Panduan Resmi Instalasi Docker](https://docs.docke
    ```bash
    sudo docker run hello-world
    ```
+7. Memasukkan user ke dalam grup `docker`. [Langkah ini](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user) perlu untuk menghilangkan `sudo` pada perintah untuk memanggil docker.
+   ```bash
+   sudo usermod -aG docker $USER
+   newgrp docker 
+   ```
+
+
+```{admonition} Catatan
+Docker memerlukan Systemd untuk menjalankan servicenya, sama seperti Tomcat pada materi sebelumnya. Untuk itu, apabila muncul pesan kesalahan terkait `systemd` atau `systemctl` pada WSL, coba kembali langkah-langkah untuk mengkoreksi system seperti yang telah disebutkan sebelumnya.
+```
 
 Setelah instalasi Docker berhasil, selanjutnya adalah menggunakan Docker untuk melakukan instalasi Image untuk PostGIS. Image adalah paket aplikasi yang dibuat oleh developer untuk memuat serangkaian perintah dan dapat diduplikasi oleh siapapun yang menghendaki. Image pada Docker tersimpan pada Docker Hub sebagai satu repository tempat Image dibagikan:
 
@@ -267,8 +277,9 @@ PRIMARY KEY no_id;
 ```
 
 
-• **PRIMARY KEY **
+• **PRIMARY KEY**
 Pada baris perintah ini, kita memberi tahu komputer bahwa kolom No_id akan kita jadikan sebagai PRIMARY KEY. Primary key adalah kolom yang akan kita gunakan sebagai penghubung dengan tabel lain. Dalam hal ini, data yang berada pada kolom no_id haruslah bersifat unik. Artinya, data-data pada kolom ini harus berbeda antara satu dengan yang lainnya.
+
 
 ### Latihan: Membuat Query Sederhana
 
@@ -301,27 +312,37 @@ SELECT nama FROM anggota WHERE jenis_kelamin = ‘L’
 ```
 
 ### Latihan: Menggunakan `psql` untuk melakukan query sederhana
-`psql` merupakan aplikasi untuk manajemen client postgresql. Untuk menginstall `psql`,  gunakan perintah berikut:
-
-```bash
-sudo apt install postgresql-client-common
-```
-
-koneksi pada basisdata dapat dilakukan sebagai berikut:
+`psql` merupakan aplikasi untuk manajemen client postgreSQL. Dengan aplikasi ini, script PostGIS dapat dibuat melalui command prompt. Contohnya, koneksi pada basisdata dapat dilakukan sebagai berikut:
 
 ```bash
 psql -d database -h host -U  user -W
 ```
 
-dimana alamat host adalah ip address yang digunakan oleh mesin Docker.
+Aplikasi ini tersedia bersama dengan instalasi PostgreSQL dan PostGIS. Dalam hal ini, aplikasi ini sekarang tersimpan di dalam mesin Docker, dan bukan pada WSL, sehingga kita perlu melakukan [langkah tambahan](https://github.com/gis-ops/tutorials/blob/postgrest-elevation-api/postgres/postgres_postgis_postgrest_installation.md) untuk melakukan akses tersebut:
 
-![](img/2020-12-03-09-00-55.png)
-
-untuk mendapatkan alamat tersebut, gunakan perintah:
-
-```bash
-docker exec namaimage cat /etc/hosts
-```
+1. Masuk ke dalam docker menggunakan perintah `docker exec`
+   ```bash
+   docker exec -it postgis bash
+   ```
+2. Install text editor, misalnya **nano**:
+   ```bash
+   apt-get update && apt-get install nano
+   ```
+3. Masuk ke folder instalasi PostgreSQL
+   ```bash
+   cd /etc/postgresql/13/main/
+   ```
+4. Dengan menggunakan nano, lakukan editing pada file `pg_hba.conf`. Ubah `peer` menjadi `trust` pada **Database administrative login by Unix domain socket** seperti berikut: 
+   ![](img/2020-12-03-12-40-15.png)  
+5. Keluar dari mesin dan lakukan restart untuk kontainer PostGIS
+   ```bash
+   ```
+6. Gunakan `psql` seperti berikut:
+   ```bash
+   docker exec -it postgis psql -U postgres
+   ```
+   maka kita akan masuk ke shell untuk `psql`:
+   ![](img/2020-12-03-12-43-10.png)
 
 Daftar [perintah](https://gist.github.com/Kartones/dd3ff5ec5ea238d4c546) untuk psql dapat dilihat pada:
 https://www.postgresqltutorial.com/postgresql-cheat-sheet/
@@ -340,7 +361,16 @@ Selanjutnya, koneksi dapat dilakukan pada basisdata:
 
 ![](img/2020-12-03-08-57-17.png)
 
-untuk memperoleh alamat host pada koneksi di atas, gunakan perintah seperti ada psql sebelumnya
+dimana alamat host adalah ip address yang digunakan oleh mesin Docker.
+
+![](img/2020-12-03-09-00-55.png)
+
+untuk mendapatkan alamat tersebut, gunakan perintah:
+
+```bash
+docker exec postgis cat /etc/hosts
+```
+
 
 
 

@@ -451,7 +451,17 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 </pre></div>
 </div>
 </li>
+<li><p>Memasukkan user ke dalam grup <code class="docutils literal notranslate"><span class="pre">docker</span></code>. <a class="reference external" href="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user">Langkah ini</a> perlu untuk menghilangkan <code class="docutils literal notranslate"><span class="pre">sudo</span></code> pada perintah untuk memanggil docker.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo usermod -aG docker <span class="nv">$USER</span>
+newgrp docker 
+</pre></div>
+</div>
+</li>
 </ol>
+<div class="admonition-catatan admonition">
+<p class="admonition-title">Catatan</p>
+<p>Docker memerlukan Systemd untuk menjalankan servicenya, sama seperti Tomcat pada materi sebelumnya. Untuk itu, apabila muncul pesan kesalahan terkait <code class="docutils literal notranslate"><span class="pre">systemd</span></code> atau <code class="docutils literal notranslate"><span class="pre">systemctl</span></code> pada WSL, coba kembali langkah-langkah untuk mengkoreksi system seperti yang telah disebutkan sebelumnya.</p>
+</div>
 <p>Setelah instalasi Docker berhasil, selanjutnya adalah menggunakan Docker untuk melakukan instalasi Image untuk PostGIS. Image adalah paket aplikasi yang dibuat oleh developer untuk memuat serangkaian perintah dan dapat diduplikasi oleh siapapun yang menghendaki. Image pada Docker tersimpan pada Docker Hub sebagai satu repository tempat Image dibagikan:</p>
 <p><img alt="" src="../_images/2020-12-03-08-36-24.png" /></p>
 </div>
@@ -559,7 +569,7 @@ INTEGER dan VARCHAR yang anda gunakan pada baris-baris perintah tadi berfungsi u
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">no_id</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>• **PRIMARY KEY **
+<p>• <strong>PRIMARY KEY</strong>
 Pada baris perintah ini, kita memberi tahu komputer bahwa kolom No_id akan kita jadikan sebagai PRIMARY KEY. Primary key adalah kolom yang akan kita gunakan sebagai penghubung dengan tabel lain. Dalam hal ini, data yang berada pada kolom no_id haruslah bersifat unik. Artinya, data-data pada kolom ini harus berbeda antara satu dengan yang lainnya.</p>
 </div>
 <div class="section" id="latihan-membuat-query-sederhana">
@@ -584,20 +594,42 @@ Pada baris perintah ini, kita memberi tahu komputer bahwa kolom No_id akan kita 
 </div>
 <div class="section" id="latihan-menggunakan-psql-untuk-melakukan-query-sederhana">
 <h3>Latihan: Menggunakan <code class="docutils literal notranslate"><span class="pre">psql</span></code> untuk melakukan query sederhana<a class="headerlink" href="#latihan-menggunakan-psql-untuk-melakukan-query-sederhana" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">psql</span></code> merupakan aplikasi untuk manajemen client postgresql. Untuk menginstall <code class="docutils literal notranslate"><span class="pre">psql</span></code>,  gunakan perintah berikut:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install postgresql-client-common
-</pre></div>
-</div>
-<p>koneksi pada basisdata dapat dilakukan sebagai berikut:</p>
+<p><code class="docutils literal notranslate"><span class="pre">psql</span></code> merupakan aplikasi untuk manajemen client postgreSQL. Dengan aplikasi ini, script PostGIS dapat dibuat melalui command prompt. Contohnya, koneksi pada basisdata dapat dilakukan sebagai berikut:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>psql -d database -h host -U  user -W
 </pre></div>
 </div>
-<p>dimana alamat host adalah ip address yang digunakan oleh mesin Docker.</p>
-<p><img alt="" src="../_images/2020-12-03-09-00-55.png" /></p>
-<p>untuk mendapatkan alamat tersebut, gunakan perintah:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker <span class="nb">exec</span> namaimage cat /etc/hosts
+<p>Aplikasi ini tersedia bersama dengan instalasi PostgreSQL dan PostGIS. Dalam hal ini, aplikasi ini sekarang tersimpan di dalam mesin Docker, dan bukan pada WSL, sehingga kita perlu melakukan <a class="reference external" href="https://github.com/gis-ops/tutorials/blob/postgrest-elevation-api/postgres/postgres_postgis_postgrest_installation.md">langkah tambahan</a> untuk melakukan akses tersebut:</p>
+<ol>
+<li><p>Masuk ke dalam docker menggunakan perintah <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker <span class="nb">exec</span> -it postgis bash
 </pre></div>
 </div>
+</li>
+<li><p>Install text editor, misalnya <strong>nano</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt-get update <span class="o">&amp;&amp;</span> apt-get install nano
+</pre></div>
+</div>
+</li>
+<li><p>Masuk ke folder instalasi PostgreSQL</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /etc/postgresql/13/main/
+</pre></div>
+</div>
+</li>
+<li><p>Dengan menggunakan nano, lakukan editing pada file <code class="docutils literal notranslate"><span class="pre">pg_hba.conf</span></code>. Ubah <code class="docutils literal notranslate"><span class="pre">peer</span></code> menjadi <code class="docutils literal notranslate"><span class="pre">trust</span></code> pada <strong>Database administrative login by Unix domain socket</strong> seperti berikut:
+<img alt="" src="../_images/2020-12-03-12-40-15.png" /></p></li>
+<li><p>Keluar dari mesin dan lakukan restart untuk kontainer PostGIS</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</li>
+<li><p>Gunakan <code class="docutils literal notranslate"><span class="pre">psql</span></code> seperti berikut:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker <span class="nb">exec</span> -it postgis psql -U postgres
+</pre></div>
+</div>
+<p>maka kita akan masuk ke shell untuk <code class="docutils literal notranslate"><span class="pre">psql</span></code>:
+<img alt="" src="../_images/2020-12-03-12-43-10.png" /></p>
+</li>
+</ol>
 <p>Daftar <a class="reference external" href="https://gist.github.com/Kartones/dd3ff5ec5ea238d4c546">perintah</a> untuk psql dapat dilihat pada:
 https://www.postgresqltutorial.com/postgresql-cheat-sheet/</p>
 </div>
@@ -609,7 +641,12 @@ https://www.pgadmin.org/download/</p>
 <p><img alt="" src="../_images/2020-12-03-08-55-40.png" /></p>
 <p>Selanjutnya, koneksi dapat dilakukan pada basisdata:</p>
 <p><img alt="" src="../_images/2020-12-03-08-57-17.png" /></p>
-<p>untuk memperoleh alamat host pada koneksi di atas, gunakan perintah seperti ada psql sebelumnya</p>
+<p>dimana alamat host adalah ip address yang digunakan oleh mesin Docker.</p>
+<p><img alt="" src="../_images/2020-12-03-09-00-55.png" /></p>
+<p>untuk mendapatkan alamat tersebut, gunakan perintah:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker <span class="nb">exec</span> postgis cat /etc/hosts
+</pre></div>
+</div>
 <hr class="docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="footnote6"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>

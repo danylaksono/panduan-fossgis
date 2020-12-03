@@ -228,24 +228,22 @@
   <a class="reference internal nav-link" href="#pengantar-postgis">
    Pengantar PostGIS
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#latihan-memasukkan-data-spasial">
-     Latihan: Memasukkan data spasial
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#latihan-query-spasial-sederhana">
-     Latihan: Query Spasial sederhana
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#menggunakan-qgis-sebagai-antarmuka-postgis">
    Menggunakan QGIS sebagai antarmuka PostGIS
   </a>
   <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#menghubungkan-qgis-ke-basisdata">
+     Menghubungkan QGIS ke Basisdata
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#memasukkan-data-pada-postgis">
+     Memasukkan Data pada PostGIS
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#latihan-query-spasial-pada-data-vektor">
      Latihan: Query Spasial pada data vektor
@@ -271,24 +269,216 @@
                 
   <div class="section" id="basisdata-spasial-dengan-postgis">
 <h1>Basisdata Spasial dengan PostGIS<a class="headerlink" href="#basisdata-spasial-dengan-postgis" title="Permalink to this headline">¶</a></h1>
+<p>Pada bagian ini akan dibahas mengenai bagaimana menggunakan PostGIS untuk melakukan analisis spasial sederhana. QGIS akan digunakan sebagai antarmuka utama untuk melakukan koneksi pada PostGIS dan menampilkan hasil analisis.</p>
+<div class="admonition-catatan admonition">
+<p class="admonition-title">Catatan</p>
+<p>Latihan ini akan menggunakan QGIS, sehingga terlebih dahulu lakukan instalasi QGIS.
+Data latihan dapat diperoleh dari link berikut:</p>
+<p>https://github.com/danylaksono/sleman-dataset/</p>
+<p>Gunakan Github untuk melakukan clone atau unduh seluruh data sebagai zip</p>
+</div>
 <div class="section" id="pengantar-postgis">
-<h2>Pengantar PostGIS<a class="headerlink" href="#pengantar-postgis" title="Permalink to this headline">¶</a></h2>
-<p>https://postgis.net/workshops/postgis-intro/introduction.html</p>
+<h2><a class="reference external" href="https://postgis.net/workshops/postgis-intro/introduction.html">Pengantar PostGIS</a><a class="headerlink" href="#pengantar-postgis" title="Permalink to this headline">¶</a></h2>
+<p>Dalam implementasi GIS <strong>generasi pertama</strong>, semua data spasial disimpan dalam file datar dan perangkat lunak GIS khusus diperlukan untuk menafsirkan dan memanipulasi data. Sistem pengelolaan generasi pertama ini dirancang untuk memenuhi kebutuhan pengguna yang semua data yang diperlukan berada dalam domain organisasi pengguna. Mereka adalah sistem berpemilik dan mandiri yang secara khusus dibangun untuk menangani data spasial.</p>
+<p>Sistem spasial <strong>generasi kedua</strong> menyimpan beberapa data dalam database relasional (biasanya “atribut” atau bagian non-spasial) tetapi masih kekurangan fleksibilitas yang diberikan dengan integrasi langsung.</p>
+<p><em>“Database spasial sejati lahir ketika orang mulai memperlakukan fitur spasial sebagai objek database kelas satu.”</em></p>
+<p>Database spasial sepenuhnya mengintegrasikan data spasial dengan database relasional objek. Orientasi berubah dari GIS-centric menjadi database-centric.</p>
 <p><img alt="" src="../_images/2020-12-03-07-15-37.png" /></p>
-<div class="section" id="latihan-memasukkan-data-spasial">
-<h3>Latihan: Memasukkan data spasial<a class="headerlink" href="#latihan-memasukkan-data-spasial" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="latihan-query-spasial-sederhana">
-<h3>Latihan: Query Spasial sederhana<a class="headerlink" href="#latihan-query-spasial-sederhana" title="Permalink to this headline">¶</a></h3>
-</div>
+<p>Untuk memanipulasi data selama kueri, database biasa menyediakan fungsi seperti menggabungkan string, melakukan operasi hash pada string, melakukan matematika pada angka, dan mengekstraksi informasi dari tanggal. Database spasial menyediakan satu set lengkap fungsi untuk menganalisis komponen geometris, menentukan hubungan spasial, dan memanipulasi geometri. Fungsi spasial ini berfungsi sebagai blok bangunan untuk setiap proyek tata ruang.</p>
+<p>Mayoritas dari semua fungsi spasial dapat dikelompokkan ke dalam salah satu dari lima kategori berikut:</p>
+<ul class="simple">
+<li><p><strong>Konversi</strong>: Fungsi yang mengonversi antara geometri dan format data eksternal.</p></li>
+<li><p><strong>Manajemen</strong>: Fungsi yang mengatur informasi tentang tabel spasial dan administrasi PostGIS.</p></li>
+<li><p><strong>Retrieval</strong>: F  ungsi yang mengambil properti dan pengukuran Geometri.</p></li>
+<li><p><strong>Perbandingan</strong>: Fungsi yang membandingkan dua geometri sehubungan dengan hubungan spasialnya.</p></li>
+<li><p><strong>Pembuatan data</strong>: Fungsi yang menghasilkan geometri baru dari orang lain.
+Daftar fungsi yang mungkin sangat besar, tetapi sekumpulan fungsi umum ditentukan oleh OGC SFSQL dan diimplementasikan (bersama dengan fungsi tambahan yang berguna) oleh PostGIS.</p></li>
+</ul>
 </div>
 <div class="section" id="menggunakan-qgis-sebagai-antarmuka-postgis">
 <h2>Menggunakan QGIS sebagai antarmuka PostGIS<a class="headerlink" href="#menggunakan-qgis-sebagai-antarmuka-postgis" title="Permalink to this headline">¶</a></h2>
+<p>QGIS barangkali merupakan perangkat lunak GIS OpenSource yang paling terkenal. QGIS memiliki berbagai dukungan format data spasial, termasuk untuk koneksi terhadap basisdata PostGIS. Pada latihan ini akan digunakan QGIS untuk melakukan koneksi pada basisdata.</p>
+<div class="section" id="menghubungkan-qgis-ke-basisdata">
+<h3>Menghubungkan QGIS ke Basisdata<a class="headerlink" href="#menghubungkan-qgis-ke-basisdata" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="memasukkan-data-pada-postgis">
+<h3>Memasukkan Data pada PostGIS<a class="headerlink" href="#memasukkan-data-pada-postgis" title="Permalink to this headline">¶</a></h3>
+<p>Berikut adalah data yang tersedia pada link yang disebutkan di atas:
+Data vector yang digunakan berupa data di daerah Kabupaten Sleman, antara lain:
+o	Data jaringan jalan (line)
+o	Data jaringan sungai (line)
+o	Data bangunan (polygon)
+o	Data titik-titik penting (point)
+o	Data batas administrasi (polygon)
+o	Data penggunaan lahan (multipolygon)
+o	Data Kawasan Rawan Bencana (KRB) BNPB 2010 (polygon)
+Data berupa raster terdiri atas:
+o	Raster populasi penduduk Indonesia dengan resolusi 100 meter yang diambil dari www.worldpop.org.uk
+o	Raster SRTM dengan resolusi 30 meter.</p>
+<p>Untuk data vektor, kita akan gunakan QGIS untuk memasukkan data pada PostGIS:
+<img alt="" src="../_images/2020-12-03-12-57-00.png" /></p>
+<p>Adapun untuk data raster, terlebih dahulu perlu mengakses mesin Docker dengan mengcopikan data pada root mesin tersebut, sebagai berikut:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker <span class="nb">exec</span> -it postgrest_tut bash -c <span class="s2">&quot;apt-get update &amp;&amp; apt-get install postgis&quot;</span>
+docker cp dem.tif postgis:/
+</pre></div>
+</div>
+<p>kemudian, gunakan raster2pgsql untuk mengkonversi raster menjadi sql:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker <span class="nb">exec</span> -it postgrest_tut bash -c <span class="s1">&#39;raster2pgsql -s 32749 -I -C -M dem.tif -F -t 100x100 public.rstdem  | psql -U postgres -d postgres&#39;</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="latihan-query-spasial-pada-data-vektor">
 <h3>Latihan: Query Spasial pada data vektor<a class="headerlink" href="#latihan-query-spasial-pada-data-vektor" title="Permalink to this headline">¶</a></h3>
+<p>Berikut adalah beberapa latihan yang dapat dilakukan menggunakan QGIS dan PostGIS:</p>
+<ul>
+<li><p>Mencari titik-titik penting (POI) yang berada pada kawasan rawan bencana:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="n">poi</span><span class="p">.</span><span class="n">id_0</span><span class="p">,</span> <span class="n">poi</span><span class="p">.</span><span class="n">geom</span>
+<span class="k">from</span> <span class="n">poi</span><span class="p">,</span> <span class="n">krb</span>
+<span class="k">where</span>  <span class="n">st_within</span><span class="p">(</span><span class="n">poi</span><span class="p">.</span><span class="n">geom</span><span class="p">,</span><span class="n">krb</span><span class="p">.</span><span class="n">geom</span><span class="p">)</span> <span class="o">=</span> <span class="k">True</span>
+</pre></div>
+</div>
+<p>hasilnya,</p>
+<p><img alt="" src="../_images/2020-12-03-13-06-55.png" /></p>
+</li>
+<li><p>Buffer jalan utama sejauh 100 meter</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">st_buffer</span><span class="p">(</span><span class="n">geom</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="k">from</span> <span class="n">jalan</span>
+<span class="k">where</span> <span class="k">type</span> <span class="o">=</span> <span class="s1">&#39;primary&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Menampilkan jumlah bangunan pendidikan di berbah</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="k">count</span><span class="p">(</span><span class="n">id_0</span><span class="p">)</span> <span class="k">as</span> <span class="n">jumlah</span>
+<span class="k">from</span> <span class="n">poi</span>
+<span class="k">where</span> <span class="n">st_within</span><span class="p">(</span><span class="n">poi</span><span class="p">.</span><span class="n">geom</span><span class="p">,</span> <span class="p">(</span>
+<span class="k">select</span> <span class="n">geom</span>
+<span class="k">from</span> <span class="n">kecamatan</span>
+<span class="k">where</span> <span class="n">kec</span> <span class="o">=</span> <span class="s1">&#39;Berbah&#39;</span><span class="p">))</span> <span class="k">and</span> <span class="n">fungsi</span> <span class="o">=</span> <span class="s1">&#39;Pendidikan&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Total Panjang Jalan utama di Kecamatan Berbah</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="k">sum</span><span class="p">(</span><span class="n">st_length</span><span class="p">(</span><span class="n">jalan</span><span class="p">.</span><span class="n">geom</span><span class="p">))</span> <span class="k">as</span> <span class="n">total</span>
+<span class="k">from</span> <span class="n">jalan</span><span class="p">,</span> <span class="n">kecamatan</span>
+<span class="k">where</span> <span class="n">jalan</span><span class="p">.</span><span class="k">type</span> <span class="o">=</span> <span class="s1">&#39;primary&#39;</span> <span class="k">and</span> <span class="n">st_intersects</span><span class="p">(</span><span class="n">jalan</span><span class="p">.</span><span class="n">geom</span><span class="p">,</span>
+<span class="p">(</span><span class="k">select</span> <span class="n">geom</span> <span class="k">from</span> <span class="n">kecamatan</span> <span class="k">where</span> <span class="n">kec</span> <span class="o">=</span> <span class="s1">&#39;Berbah&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p>Mencari jalan yang berjarak 5 kilometer dari STIE YKPN</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="n">jalan</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="n">jalan</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">jalan</span><span class="p">.</span><span class="k">type</span> 
+<span class="k">from</span> <span class="n">jalan</span><span class="p">,</span> <span class="n">poi</span> 
+<span class="k">where</span> <span class="n">ST_DWithin</span><span class="p">(</span><span class="n">poi</span><span class="p">.</span><span class="n">geom</span><span class="p">,</span> <span class="n">jalan</span><span class="p">.</span><span class="n">geom</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+<span class="k">and</span> <span class="n">poi</span><span class="p">.</span><span class="n">nama</span> <span class="o">=</span> <span class="s1">&#39;STIE YKPN&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Mencari kecamatan paling luas di Kabupaten Sleman</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="n">kec</span><span class="p">,</span> <span class="n">st_area</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span> <span class="k">as</span> <span class="n">luas</span>
+<span class="k">from</span> <span class="n">kecamatan</span> 
+<span class="k">where</span> <span class="n">st_area</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span> <span class="k">in</span> 
+<span class="p">(</span>
+<span class="k">select</span> <span class="k">max</span><span class="p">(</span><span class="n">st_area</span><span class="p">(</span><span class="n">geom</span><span class="p">))</span> 
+<span class="k">from</span> <span class="n">kecamatan</span> 
+<span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Menampilkan ruas jalan terpanjang di Kecamatan Berbah</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="n">name</span><span class="p">,</span> <span class="n">st_length</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span> <span class="k">as</span> <span class="n">panjang</span>
+<span class="k">from</span> <span class="n">jalan</span> 
+<span class="k">where</span> <span class="n">st_length</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span> <span class="k">in</span> 
+<span class="p">(</span>
+<span class="k">select</span> <span class="k">max</span><span class="p">(</span><span class="n">st_length</span><span class="p">(</span><span class="n">jalan</span><span class="p">.</span><span class="n">geom</span><span class="p">))</span> 
+<span class="k">from</span> <span class="n">jalan</span><span class="p">,</span> <span class="n">kecamatan</span> 
+<span class="k">where</span> <span class="n">st_intersects</span><span class="p">(</span><span class="n">jalan</span><span class="p">.</span><span class="n">geom</span><span class="p">,</span> <span class="n">kecamatan</span><span class="p">.</span><span class="n">geom</span><span class="p">)</span> <span class="k">and</span> <span class="n">kec</span><span class="o">=</span><span class="s1">&#39;Berbah&#39;</span> 
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="" src="../_images/2020-12-03-13-04-59.png" /></p>
+</li>
+<li><p>Mencari kecamatan yang dilewati oleh Jalan Kabupaten</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="n">kec</span> 
+<span class="k">from</span> <span class="n">kecamatan</span><span class="p">,</span> <span class="n">jalan</span> 
+<span class="k">where</span> <span class="n">st_intersects</span><span class="p">(</span><span class="n">jalan</span><span class="p">.</span><span class="n">geom</span><span class="p">,</span><span class="n">kecamatan</span><span class="p">.</span><span class="n">geom</span><span class="p">)</span>
+<span class="k">and</span> <span class="n">jalan</span><span class="p">.</span><span class="n">geom</span> <span class="k">in</span> <span class="p">(</span><span class="k">select</span> <span class="n">geom</span> 
+<span class="k">from</span> <span class="n">jalan</span> 
+<span class="k">where</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Jln. Kabupaten&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="" src="../_images/2020-12-03-13-04-38.png" /></p>
+</li>
+<li><p>Mencari luas Hutan</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="n">st_area</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span> <span class="k">as</span> <span class="n">luas</span> <span class="k">from</span> <span class="n">gunalahan</span> 
+<span class="k">where</span> <span class="n">guna_lahan</span><span class="o">=</span><span class="s1">&#39;HUTAN&#39;</span>
+</pre></div>
+</div>
+<p><img alt="" src="../_images/2020-12-03-13-04-23.png" /></p>
+</li>
+<li><p>Mencari jumlah bangunan di area KRB III</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="n">st_area</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span> <span class="k">as</span> <span class="n">luas</span> <span class="k">from</span> <span class="n">krb</span> 
+<span class="k">where</span> <span class="n">id</span> <span class="o">=</span> <span class="s1">&#39;3&#39;</span>
+</pre></div>
+</div>
+<p><img alt="" src="../_images/2020-12-03-13-04-11.png" /></p>
+</li>
+</ul>
+<p>Untuk latihan lanjutan, coba lakukan Query berikut:</p>
+<ul class="simple">
+<li><p>Menampilkan jumlah titik penting yang berada di kecamatan Berbah</p></li>
+<li><p>Menampilkan Bangunan dengan luas lebih dari 1500 m2</p></li>
+<li><p>Menampilkan keliling Kecamatan Cangkringan</p></li>
+<li><p>Menampilkan panjang jalan kaliurang</p></li>
+<li><p>Menampilkan panjang total semua sungai</p></li>
+</ul>
 </div>
 <div class="section" id="latihan-query-spasial-pada-raster">
 <h3>Latihan: Query Spasial pada Raster<a class="headerlink" href="#latihan-query-spasial-pada-raster" title="Permalink to this headline">¶</a></h3>
+<p>Berikut contoh analisis raster dengan PostGIS:</p>
+<ul class="simple">
+<li><p>Membuat tingkat kepadatan penduduk pada kecamatan Berbah</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">klasifikasi</span> <span class="p">(</span><span class="n">rid</span> <span class="nb">SERIAL</span> <span class="k">primary</span> <span class="k">key</span><span class="p">,</span> <span class="n">rast</span> <span class="n">raster</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">klasifikasi</span> <span class="p">(</span><span class="n">rast</span><span class="p">)</span> 
+<span class="k">with</span> <span class="n">Berbah</span> <span class="k">as</span>
+	 <span class="p">(</span><span class="k">Select</span> <span class="n">geom</span> <span class="k">from</span> <span class="n">kecamatan</span> <span class="k">where</span> <span class="n">kec</span><span class="o">=</span><span class="s1">&#39;Berbah&#39;</span><span class="p">),</span>
+         <span class="n">klip</span> <span class="k">as</span>
+	 <span class="p">(</span><span class="k">Select</span> <span class="n">ST_Clip</span><span class="p">(</span><span class="n">rast</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">geom</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span> <span class="k">as</span> <span class="n">rast</span> <span class="k">from</span> <span class="n">rstdem</span><span class="p">,</span> <span class="n">berbah</span> <span class="k">where</span> <span class="n">st_intersects</span><span class="p">(</span><span class="n">geom</span><span class="p">,</span><span class="n">rast</span><span class="p">))</span>
+<span class="k">select</span> <span class="n">st_reclass</span><span class="p">(</span><span class="n">rast</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;0-50:1, 51-100:2, 101-150:3, 151-200:4&#39;</span><span class="p">,</span> <span class="s1">&#39;4BUI&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">from</span> <span class="n">klip</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="n">AddRasterConstraints</span><span class="p">(</span><span class="s1">&#39;klasifikasi&#39;</span><span class="p">::</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;rast&#39;</span><span class="p">::</span><span class="n">name</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><img alt="" src="../_images/2020-12-03-13-11-23.png" /></p>
+<ul class="simple">
+<li><p>Rencana Lokasi perumahan di Kecamatan Kalasan
+Dibuat kondisi sebagai berikut:</p></li>
+</ul>
+<ul class="simple">
+<li><p>Penggunaan lahan berupa sawah irigasi atau tegalan</p></li>
+<li><p>Berada pada daerah Kecamatan Kalasan</p></li>
+<li><p>Kemiringan lereng tidak lebih dari 0.1 radian
+Dibuat query sebagai berikut:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">perumahan</span> <span class="p">(</span><span class="n">rid</span> <span class="nb">SERIAL</span> <span class="k">primary</span> <span class="k">key</span><span class="p">,</span> <span class="n">rast</span> <span class="n">raster</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">perumahan</span><span class="p">(</span><span class="n">rast</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">kalasan</span> <span class="k">as</span>
+		<span class="p">(</span><span class="k">select</span> <span class="n">geom</span> <span class="k">from</span> <span class="n">kecamatan</span> <span class="k">where</span> <span class="n">kec</span><span class="o">=</span><span class="s1">&#39;Kalasan&#39;</span><span class="p">),</span>
+	<span class="n">sawah</span> <span class="k">as</span>
+		<span class="p">(</span><span class="k">select</span> <span class="n">geom</span> <span class="k">from</span> <span class="n">gunalahan</span> <span class="k">where</span> <span class="n">guna_lahan</span><span class="o">=</span><span class="s1">&#39;SAWAH IRIGASI&#39;</span> <span class="k">or</span> <span class="n">guna_lahan</span><span class="o">=</span><span class="s1">&#39;TEGALAN&#39;</span><span class="p">),</span>
+	<span class="n">potong1</span> <span class="k">as</span>
+		<span class="p">(</span><span class="k">select</span>  <span class="n">ST_Clip</span><span class="p">(</span><span class="n">rast</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">geom</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span> <span class="k">as</span> <span class="n">rast</span> <span class="k">from</span> <span class="n">rstdem</span><span class="p">,</span> <span class="n">kalasan</span> <span class="k">where</span> <span class="n">st_intersects</span><span class="p">(</span><span class="n">geom</span><span class="p">,</span><span class="n">rast</span><span class="p">)),</span>
+	<span class="n">lereng</span> <span class="k">as</span>
+		<span class="p">(</span><span class="k">select</span> <span class="n">ST_Slope</span><span class="p">(</span><span class="n">rast</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;32BF&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">rast</span> <span class="k">from</span> <span class="n">potong1</span><span class="p">),</span>
+	<span class="n">kelas_lereng</span> <span class="k">as</span>
+		<span class="p">(</span><span class="k">select</span> <span class="n">st_reclass</span><span class="p">(</span><span class="n">rast</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;0-0.09:1&#39;</span><span class="p">,</span> <span class="s1">&#39;4BUI&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">as</span> <span class="n">rast</span> <span class="k">from</span> <span class="n">lereng</span><span class="p">)</span>
+	
+<span class="k">SELECT</span>  <span class="n">ST_Clip</span><span class="p">(</span><span class="n">rast</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">geom</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span> <span class="k">from</span> <span class="n">kelas_lereng</span><span class="p">,</span> <span class="n">sawah</span> <span class="k">where</span> <span class="n">st_intersects</span><span class="p">(</span><span class="n">geom</span><span class="p">,</span><span class="n">rast</span><span class="p">);</span>
+	
+<span class="k">SELECT</span> <span class="n">AddRasterConstraints</span><span class="p">(</span><span class="s1">&#39;perumahan&#39;</span><span class="p">::</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;rast&#39;</span><span class="p">::</span><span class="n">name</span><span class="p">);</span>	
+</pre></div>
+</div>
+<p>hasilnya:</p>
+<p><img alt="" src="../_images/2020-12-03-13-12-33.png" /></p>
 </div>
 </div>
 </div>
