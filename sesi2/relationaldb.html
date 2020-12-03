@@ -228,17 +228,34 @@
   <a class="reference internal nav-link" href="#pengantar-basisdata-relational">
    Pengantar Basisdata Relational
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pemodelan-data-pada-basisdata-relasional">
+     Pemodelan data pada basisdata Relasional
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#beberapa-istilah-pada-basisdata-relasional">
+     Beberapa istilah pada basisdata relasional
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#relasi-pada-basisdata-relasional">
+     Relasi pada basisdata relasional
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#operasi-pada-basisdata-relasional">
+     Operasi pada basisdata relasional
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#instalasi-dan-pengaturan-basisdata-postgresql">
    Instalasi dan Pengaturan Basisdata PostgreSQL
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#basisdata-postgresql-dan-ekstensi-spasial-postgis">
-     Basisdata PostgreSQL dan Ekstensi Spasial PostGIS
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#latihan-instalasi-dan-pengaturan-docker">
      Latihan: Instalasi dan Pengaturan Docker
@@ -292,14 +309,78 @@
                 
   <div class="section" id="basisdata-relational">
 <h1>Basisdata Relational<a class="headerlink" href="#basisdata-relational" title="Permalink to this headline">¶</a></h1>
+<p>Basisdata relational merupakan salah satu model basisdata pada DBMS (Database Management System). Model Relasional banyak digunakan sejak tahun 90an hingga saat ini karena berbagai kelebihannya dalam memanajemen data dalam jumlah besar. Pada bagian ini akan dibahas mengenai basisdata relasional, khususnya PostgreSQL.</p>
 <div class="section" id="pengantar-basisdata-relational">
 <h2>Pengantar Basisdata Relational<a class="headerlink" href="#pengantar-basisdata-relational" title="Permalink to this headline">¶</a></h2>
+<p><strong>Sistem Manajemen Basis Data Relasional</strong> adalah kumpulan program dan fungsi berbasis tabel yang menyediakan antarmuka antara pengguna dan aplikasi dan basis data, memberikan cara sistematis untuk membuat, memperbarui, menghapus, mengelola, dan mengambil data. Sebagian besar sistem manajemen database relasional menggunakan bahasa pemrograman SQL untuk mengakses database dan banyak yang mengikuti properti <em>ACID (Atomicity, Consistency, Isolation, Durability)</em> dari database:</p>
+<ul class="simple">
+<li><p><strong>Atomicity</strong>: Jika ada pernyataan dalam transaksi yang gagal, seluruh transaksi gagal dan database dibiarkan tidak berubah.</p></li>
+<li><p><strong>Consistency</strong>: Transaksi harus memenuhi semua protokol yang ditentukan oleh sistem - tidak ada transaksi yang diselesaikan sebagian.</p></li>
+<li><p><strong>Isolation</strong>: Tidak ada transaksi yang memiliki akses ke transaksi lain yang belum selesai. Setiap transaksi bersifat independen.</p></li>
+<li><p><strong>Durability</strong>: Setelah transaksi dilakukan, transaksi akan tetap dilakukan melalui penggunaan log transaksi dan cadangan.</p></li>
+</ul>
+<p>Basisdata relasional menyimpan data dalam bentuk tabel serta menyediakan cara yang efisien, intuitif, dan fleksibel untuk menyimpan dan mengakses informasi pada tabel tersebut secara terstruktur. Tabel pada basisdata relasional juga dikenal sebagai <strong>relasi</strong>, terdiri dari kolom yang berisi satu atau lebih kategori data, dan baris, juga dikenal sebagai rekaman tabel, berisi sekumpulan data yang ditentukan oleh kategori.</p>
+<p>Aplikasi DBMS (seperti PostgreSQL) mengakses data dengan menentukan <strong>kueri</strong>, yang menggunakan operasi seperti proyek untuk mengidentifikasi atribut, memilih <em>tuples</em>, dan menentukan relasi pada data. Model relasional untuk manajemen basis data dikembangkan oleh ilmuwan komputer IBM Edgar F. Codd pada tahun 1970.</p>
+<p><img alt="" src="../_images/2020-12-03-06-57-27.png" /></p>
+<div class="section" id="pemodelan-data-pada-basisdata-relasional">
+<h3>Pemodelan data pada basisdata Relasional<a class="headerlink" href="#pemodelan-data-pada-basisdata-relasional" title="Permalink to this headline">¶</a></h3>
+<p>kita ambil sebuah contoh: anda ditugaskan oleh pimpinan anda untuk melakukan inventarisasi data yang diperoleh dari hasil pemetaan akibat bencana banjir di suatu daerah. Anda misalnya berurusan dengan data-data jumlah pengungsi dari masing-masing desa, kerusakan pada tiap desa, lokasi kantung-kantung pengungsian, kebutuhan tiap kepala, dan lain sebagainya. Apabila dinyatakan dalam bentuk tabel, data-data tersebut mungkin tampak seperti berikut:</p>
+</div>
+<div class="section" id="beberapa-istilah-pada-basisdata-relasional">
+<h3>Beberapa istilah pada basisdata relasional<a class="headerlink" href="#beberapa-istilah-pada-basisdata-relasional" title="Permalink to this headline">¶</a></h3>
+<p>Sebagai review, berikut adalah beberapa istilah yang dikenal pada basisdata relasional:</p>
+<ul class="simple">
+<li><p><strong>Tabel</strong>: Merupakan struktur penyimpanan dasar dari basis data objek relasional, terdiri dari satu atau lebih kolom (column) dan nol atau lebih baris (row).</p></li>
+<li><p><strong>Row (baris)</strong>: Baris merupakan kombinasi dari nilai-nilai kolom dalam tabel; sebagai contoh, informasi tentang suatu departemen pada tabel Departmen. Baris seringkali disebut dengan record atau tuple.</p></li>
+<li><p><strong>Column (kolom)</strong>: Kolom menggambarkan jenis data pada tabel; Kolom di definisikan dengan nama kolom dan tipe data beserta panjang data tertentu.</p></li>
+<li><p><strong>Field</strong>: Field merupakan pertemuan antara baris dan kolom. Sebuah field menggambarkan satu keterangan mengenai data. Jika pada suatu field tidak terdapat data, maka field tersebut dikatakan memiliki nilai “null” atau kosong.</p></li>
+<li><p><strong>Primary key</strong>: Primary key atau kunci utama merupakan kolom atau kumpulan kolom yang secara unik membedakan antara baris yang satu dengan lainnya; Kolom yang merupakan primary key ini tidak boleh mengandung nilai “null”, dan nilainya harus unik (berbeda antara baris satu dengan lainnya).</p></li>
+<li><p><strong>Foreign key</strong>: Foreign key atau kunci tamu merupakan kolom atau kumpulan kolom yang mengacu ke primary key pada tabel yang sama atau tabel lain. Foreign key ini dibuat untuk memaksakan aturan-aturan relasi pada basis data. Nilai data dari foreign key harus sesuai dengan nilai data pada kolom dari tabel yang diacunya atau bernilai “null”.</p></li>
+<li><p><strong>Relasi</strong> merupakan interaksi antara tabel yang menunjukkan hubungan antara objek-objek yang ada di dunia nyata. Relasi menyatakan hubungan antar tabel sebagai model dari dunia nyata.</p></li>
+</ul>
+</div>
+<div class="section" id="relasi-pada-basisdata-relasional">
+<h3>Relasi pada basisdata relasional<a class="headerlink" href="#relasi-pada-basisdata-relasional" title="Permalink to this headline">¶</a></h3>
+<p>Berikut adalah model relasi pada sebuah basisdata relasional:</p>
+<ol class="simple">
+<li><p><strong>One to One (1 to 1)</strong>
+Relasi database model ini terjadi apalabila sebuah data terdapat pada 2 buah tabel, dan hanya diperbolehkan satu data saja pada masing masing tabel (unique record), sama halnya seperti primary key, record yang ada pada model ini tidak boleh ada yang sama.</p></li>
+<li><p><strong>One to Many (1 to n)</strong>
+Relasi database model  ini membolehkan data yang sama pada tabel kedua, tapi hanya membolehkan data yang bersifat unique (unik) pada tabel pertama. Jadi pada model tabel kedua boleh memiliki beberapa data yang sama.</p></li>
+<li><p><strong>Many to many (n to m)</strong>
+Berbeda dengan kedua model diatas, relasi database model ini membolehkan beberapa data yang sama baik pada tabel pertama maupun tabel kedua. Dengan demikian tidak ada unique record di kedua tabel tersebut.</p></li>
+</ol>
+</div>
+<div class="section" id="operasi-pada-basisdata-relasional">
+<h3>Operasi pada basisdata relasional<a class="headerlink" href="#operasi-pada-basisdata-relasional" title="Permalink to this headline">¶</a></h3>
+<p>Pada basisdata relasional, operasi yang dilakukan ke sebuah tabel dapat dikelompokkan menjadi empat kelompok besar. Empat operasi pembaruan dasar yang dilakukan pada model database relasional adalah <strong>Insert, Update, Delete</strong> dan <strong>Select</strong> [^footnote5]:
+[^footnote5]:</p>
+<ul class="simple">
+<li><p><strong>Insert</strong> digunakan untuk memasukkan data ke dalam relasi</p></li>
+<li><p><strong>Delete</strong> digunakan untuk menghapus tupel dari tabel.</p></li>
+<li><p><strong>Modify</strong> memungkinkan Anda untuk mengubah nilai dari beberapa atribut dalam tupel yang ada.</p></li>
+<li><p><strong>Select</strong> memungkinkan Anda untuk memilih rentang data tertentu.
+Setiap kali salah satu operasi ini diterapkan, batasan integritas yang ditentukan pada skema database relasional tidak boleh dilanggar.</p></li>
+</ul>
+<p>Berikut adalah contoh dari operasi ini:</p>
+<p><strong>Insert Operation</strong></p>
+<p>Operasi Insert menambahkan data baru pada sebuah tabel sesuai dengan kolom yang tersedia</p>
+<p><img alt="" src="../_images/2020-12-03-07-21-13.png" /></p>
+<p><strong>Update Operation</strong></p>
+<p>Pada tabel di bawah, status <code class="docutils literal notranslate"><span class="pre">CustomerName=Apple</span></code> berubah dari <code class="docutils literal notranslate"><span class="pre">inactive</span></code> menjadi <code class="docutils literal notranslate"><span class="pre">active</span></code></p>
+<p><img alt="" src="../_images/2020-12-03-07-21-29.png" /></p>
+<p><strong>Delete Operation</strong>
+Pada operasi penghapusan, suatu kriteria diberikan melalui Query untuk
+<img alt="" src="../_images/2020-12-03-07-21-44.png" /></p>
+<p><strong>Select Operation</strong></p>
+<p>Operasi berikut memilih Customer dengan nama “Amazon”
+<img alt="" src="../_images/2020-12-03-07-22-43.png" /></p>
+</div>
 </div>
 <div class="section" id="instalasi-dan-pengaturan-basisdata-postgresql">
 <h2>Instalasi dan Pengaturan Basisdata PostgreSQL<a class="headerlink" href="#instalasi-dan-pengaturan-basisdata-postgresql" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="basisdata-postgresql-dan-ekstensi-spasial-postgis">
-<h3>Basisdata PostgreSQL dan Ekstensi Spasial PostGIS<a class="headerlink" href="#basisdata-postgresql-dan-ekstensi-spasial-postgis" title="Permalink to this headline">¶</a></h3>
-</div>
+<p>PostgreSQL/PostGIS merupakan salah satu perangkat lunak untuk membuat basisdata yang bersifat open source. PostgreSQL/PostGIS memiliki kelebihan mampu menyimpan data spasial dalam basisdatanya. Pada bagian ini diuraikan cara membuat basisdata dengan menggunakan
+PostgreSQL/PostGIS, dengan lebih dahulu membahas mengenai instalasi PostgreSQL dan PostGIS menggunakan Docker.</p>
 <div class="section" id="latihan-instalasi-dan-pengaturan-docker">
 <h3>Latihan: Instalasi dan Pengaturan Docker<a class="headerlink" href="#latihan-instalasi-dan-pengaturan-docker" title="Permalink to this headline">¶</a></h3>
 </div>
