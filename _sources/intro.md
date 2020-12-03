@@ -1,10 +1,10 @@
-# Enterprise GIS dengan Perangkat Lunak FOSS
+# Enterprise GIS dengan Perangkat Lunak Free and OpenSource (FOSS)
 
 ## Pengantar
 
 ### Tentang Panduan ini
 
-Panduan ini dibuat untuk memberikan pengantar dalam penggunaan perangkat lunak Open Source untuk Enterprise GIS. Panduan ini memberikan dasar yang diperlukan untuk mengenal dan menggunakan beberapa aplikasi GIS yang bersifat bebas dan terbuka, dengan Linux sebagai sistem operasi utamanya.
+Panduan ini dibuat untuk memberikan pengantar dalam penggunaan perangkat lunak OpenSource untuk Enterprise GIS. Panduan ini memberikan dasar yang diperlukan untuk mengenal dan menggunakan beberapa aplikasi GIS yang bersifat bebas dan terbuka, dengan Linux sebagai sistem operasi utamanya.
 
 Panduan ini dapat diberikan sebagai pegangan pada pelatihan maupun sebagai bahan untuk *self-paced learning*. Modul ini dilengkapi berbagai latihan yang diberikan untuk mendukung pemahaman tiap materi yang disampaikan.
 
@@ -12,7 +12,7 @@ Panduan ini dapat diberikan sebagai pegangan pada pelatihan maupun sebagai bahan
 
 Apabila diberikan pada sesi pelatihan tentang Free and OpenSource GIS, pembagian jadwal dari materi ini dapat dilakukan sebagai berikut:
 
-<br/>
+
 
 **Hari 1: Linux Server dan FOSS4G**
 
