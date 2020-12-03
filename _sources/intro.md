@@ -1,4 +1,4 @@
-# Tentang Panduan ini
+# Enterprise GIS dengan Perangkat Lunak FOSS
 
 ## Pengantar
 
@@ -17,7 +17,7 @@ Apabila diberikan pada sesi pelatihan tentang Free and OpenSource GIS, pembagian
 **Hari 1: Linux Server dan FOSS4G**
 
 |     Waktu     | Materi Pelatihan                                           |
-| :-----------: | :---------------------------------------------------------- |
+| :-----------: | :-------------------------------------------------------- |
 | 09.00 - 10.00 | Pendahuluan, Instalasi Linux VM                            |
 | 10.00 - 10.15 | *Break*                                                    |
 | 10.15 - 12.00 | Arsitektur dan Administrasi Sistem Ubuntu Linux            |
@@ -25,7 +25,7 @@ Apabila diberikan pada sesi pelatihan tentang Free and OpenSource GIS, pembagian
 | 13.00 - 15.00 | Linux untuk Server Web                                     |
 | 15.00 - 15.15 | *Break*                                                    |
 | 15.15 - 16.00 | Pengantar Free and OpenSource GIS (FOSS-GIS)               |
-| | |
+|<img width=200/>|<img width=500/>|
 
 <br/>
 
@@ -41,7 +41,8 @@ Apabila diberikan pada sesi pelatihan tentang Free and OpenSource GIS, pembagian
 | 13.00 - 15.00 | Bekerja dengan PostGIS                                       |
 | 15.00 - 15.15 | *Break*                                                      |
 | 15.15 - 16.00 | SQL vs NoSQL Database                                        |
-| | |
+|<img width=200/>|<img width=500/>|
+
 <br/>
 
 **Hari 3: Standar OGC untuk Interoperabilitas Data Spasial**
@@ -55,7 +56,7 @@ Apabila diberikan pada sesi pelatihan tentang Free and OpenSource GIS, pembagian
 | 13.00 - 15.00 | Geoserver dan MongoDB                                        |
 | 15.00 - 15.15 | *Break*                                                      |
 | 15.15 - 16.00 | Arsitektur Enterprise GIS dengan FOSS4G                      |
-| | |
+|<img width=200/>|<img width=500/>|
 
 
 ### Lisensi Dokumen 

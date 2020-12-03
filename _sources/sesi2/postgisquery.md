@@ -18,14 +18,14 @@ Sistem spasial **generasi kedua** menyimpan beberapa data dalam database relasio
 
 *"Database spasial sejati lahir ketika orang mulai memperlakukan fitur spasial sebagai objek database kelas satu."*
 
-Database spasial sepenuhnya mengintegrasikan data spasial dengan database relasional objek. Orientasi berubah dari GIS-centric menjadi database-centric.
+Database spasial sepenuhnya mengintegrasikan data spasial dengan database relasional objek. Orientasi berubah dari *GIS-centric* menjadi *database-centric*.
 
 
 ![](img/2020-12-03-07-15-37.png)
 
 Untuk memanipulasi data selama kueri, database biasa menyediakan fungsi seperti menggabungkan string, melakukan operasi hash pada string, melakukan matematika pada angka, dan mengekstraksi informasi dari tanggal. Database spasial menyediakan satu set lengkap fungsi untuk menganalisis komponen geometris, menentukan hubungan spasial, dan memanipulasi geometri. Fungsi spasial ini berfungsi sebagai blok bangunan untuk setiap proyek tata ruang.
 
-Mayoritas dari semua fungsi spasial dapat dikelompokkan ke dalam salah satu dari lima kategori berikut:
+Mayoritas dari semua fungsi spasial pada PostGIS dapat dikelompokkan ke dalam salah satu dari lima kategori berikut:
 
 * **Konversi**: Fungsi yang mengonversi antara geometri dan format data eksternal.
 * **Manajemen**: Fungsi yang mengatur informasi tentang tabel spasial dan administrasi PostGIS.
@@ -171,6 +171,7 @@ Berikut adalah beberapa latihan yang dapat dilakukan menggunakan QGIS dan PostGI
     where id = '3'
     ```
     ![](img/2020-12-03-13-04-11.png)
+
  
 Untuk latihan lanjutan, coba lakukan Query berikut:
 * Menampilkan jumlah titik penting yang berada di kecamatan Berbah
