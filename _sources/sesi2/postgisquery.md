@@ -38,10 +38,6 @@ Daftar fungsi yang mungkin sangat besar, tetapi sekumpulan fungsi umum ditentuka
 QGIS barangkali merupakan perangkat lunak GIS OpenSource yang paling terkenal. QGIS memiliki berbagai dukungan format data spasial, termasuk untuk koneksi terhadap basisdata PostGIS. Pada latihan ini akan digunakan QGIS untuk melakukan koneksi pada basisdata.
 
 
-### Menghubungkan QGIS ke Basisdata
-
-
-
 ### Memasukkan Data pada PostGIS
 Berikut adalah data yang tersedia pada link yang disebutkan di atas:
 Data vector yang digunakan berupa data di daerah Kabupaten Sleman, antara lain:
