@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tentang Panduan ini &#8212; fossgis-enterprise</title>
+    <title>Basisdata SQL dan NoSQL &#8212; fossgis-enterprise</title>
     
   <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
 
@@ -56,7 +56,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Tentang Panduan ini" href="postgisquery.html" />
+    <link rel="prev" title="Basisdata Spasial dengan PostGIS" href="postgisquery.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -128,23 +128,28 @@
 </p>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="intrordbms.html">
+   Pengantar Basisdata Relational
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="relationaldb.html">
-   Tentang Panduan ini
+   Basisdata Relational
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="dbmanagement.html">
-   Tentang Panduan ini
+   Administrasi Pengguna pada Basisdata
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="postgisquery.html">
-   Tentang Panduan ini
+   Basisdata Spasial dengan PostGIS
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Tentang Panduan ini
+   Basisdata SQL dan NoSQL
   </a>
  </li>
 </ul>
@@ -219,28 +224,30 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pengantar">
-   Pengantar
+  <a class="reference internal nav-link" href="#apa-itu-basisdata-nosql">
+   Apa itu Basisdata NoSQL
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Tentang Panduan ini
+    <a class="reference internal nav-link" href="#kapan-menggunakan-nosql">
+     Kapan menggunakan NoSQL?
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jadwal-pelatihan">
-     Jadwal Pelatihan
+    <a class="reference internal nav-link" href="#nosql-vs-sql">
+     NoSQL vs SQL
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mongodb-untuk-basisdata-nosql">
+   MongoDB untuk Basisdata NoSQL
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lisensi-dokumen">
-     Lisensi Dokumen
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lisensi-perangkat-lunak">
-     Lisensi Perangkat Lunak
+    <a class="reference internal nav-link" href="#contoh-kasus">
+     Contoh kasus
     </a>
    </li>
   </ul>
@@ -256,132 +263,21 @@
         
               <div>
                 
-  <div class="section" id="tentang-panduan-ini">
-<h1>Tentang Panduan ini<a class="headerlink" href="#tentang-panduan-ini" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="pengantar">
-<h2>Pengantar<a class="headerlink" href="#pengantar" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
-<h3>Tentang Panduan ini<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>Panduan ini dibuat untuk memberikan pengantar dalam penggunaan perangkat lunak Open Source untuk Enterprise GIS. Panduan ini memberikan dasar yang diperlukan untuk mengenal dan menggunakan beberapa aplikasi GIS yang bersifat bebas dan terbuka, dengan Linux sebagai sistem operasi utamanya.</p>
-<p>Panduan ini dapat diberikan sebagai pegangan pada pelatihan maupun sebagai bahan untuk <em>self-paced learning</em>. Modul ini dilengkapi berbagai latihan yang diberikan untuk mendukung pemahaman tiap materi yang disampaikan.</p>
+  <div class="section" id="basisdata-sql-dan-nosql">
+<h1>Basisdata SQL dan NoSQL<a class="headerlink" href="#basisdata-sql-dan-nosql" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="apa-itu-basisdata-nosql">
+<h2>Apa itu Basisdata NoSQL<a class="headerlink" href="#apa-itu-basisdata-nosql" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="kapan-menggunakan-nosql">
+<h3>Kapan menggunakan NoSQL?<a class="headerlink" href="#kapan-menggunakan-nosql" title="Permalink to this headline">¶</a></h3>
 </div>
-<div class="section" id="jadwal-pelatihan">
-<h3>Jadwal Pelatihan<a class="headerlink" href="#jadwal-pelatihan" title="Permalink to this headline">¶</a></h3>
-<p>Apabila diberikan pada sesi pelatihan tentang Free and OpenSource GIS, pembagian jadwal dari materi ini dapat dilakukan sebagai berikut:</p>
-<br/>
-<p><strong>Hari 1: Linux Server dan FOSS4G</strong></p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-align:center head"><p>Waktu</p></th>
-<th class="text-align:left head"><p>Materi Pelatihan</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-align:center"><p>09.00 - 10.00</p></td>
-<td class="text-align:left"><p>Pendahuluan, Instalasi Linux VM</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p>10.00 - 10.15</p></td>
-<td class="text-align:left"><p><em>Break</em></p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p>10.15 - 12.00</p></td>
-<td class="text-align:left"><p>Arsitektur dan Administrasi Sistem Ubuntu Linux</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p>12.00 - 13.00</p></td>
-<td class="text-align:left"><p><em>ISHOMA</em></p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p>13.00 - 15.00</p></td>
-<td class="text-align:left"><p>Linux untuk Server Web</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p>15.00 - 15.15</p></td>
-<td class="text-align:left"><p><em>Break</em></p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p>15.15 - 16.00</p></td>
-<td class="text-align:left"><p>Pengantar Free and OpenSource GIS (FOSS-GIS)</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p></p></td>
-<td class="text-align:left"><p></p></td>
-</tr>
-</tbody>
-</table>
-<br/>
-<p><strong>Hari 2: Relational Spatial Database</strong></p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-align:center head"><p>Waktu</p></th>
-<th class="text-align:left head"><p>Materi Pelatihan</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-align:center"><p>09.00 - 10.00</p></td>
-<td class="text-align:left"><p>Konsep Relational Database<br/>Pengaturan dan Instalasi Basisdata</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p>10.00 - 10.15</p></td>
-<td class="text-align:left"><p><em>Break</em></p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p>10.15 - 12.00</p></td>
-<td class="text-align:left"><p>Adminsitrasi Enterprise GIS dengan PostGIS: User, Roles, Priviledges</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p>12.00 - 13.00</p></td>
-<td class="text-align:left"><p><em>ISHOMA</em></p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p>13.00 - 15.00</p></td>
-<td class="text-align:left"><p>Bekerja dengan PostGIS</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p>15.00 - 15.15</p></td>
-<td class="text-align:left"><p><em>Break</em></p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p>15.15 - 16.00</p></td>
-<td class="text-align:left"><p>SQL vs NoSQL Database</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p></p></td>
-<td class="text-align:left"><p></p></td>
-</tr>
-</tbody>
-</table>
-<br/>
-<p><strong>Hari 3: Standar OGC untuk Interoperabilitas Data Spasial</strong></p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-align:center head"><p>Waktu</p></th>
-<th class="text-align:left head"><p>Materi Pelatihan</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-align:center"><p>09.00 - 10.00</p></td>
-<td class="text-align:left"><p>Interoperabilitas dan Standar OGC, Instalasi dan Pengaturan Geoserver</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p>10.00 - 10.15</p></td>
-<td class="text-align:left"><p><em>Break</em></p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p>10.15 - 12.00</p></td>
-<td class="text-align:left"><p>Publikasi data dengan standar OGC pada Geoserver<br/>Pengaturan dan konsumsi data melalui layanan OGC</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p>12.00 - 13.00</p></td>
-<td class="text-align:left"><p><em>ISHOMA</em></p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p>13.00 - 15.00</p></td>
-<td class="text-align:left"><p>Geoserver dan MongoDB</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p>15.00 - 15.15</p></td>
-<td class="text-align:left"><p><em>Break</em></p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p>15.15 - 16.00</p></td>
-<td class="text-align:left"><p>Arsitektur Enterprise GIS dengan FOSS4G</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p></p></td>
-<td class="text-align:left"><p></p></td>
-</tr>
-</tbody>
-</table>
+<div class="section" id="nosql-vs-sql">
+<h3>NoSQL vs SQL<a class="headerlink" href="#nosql-vs-sql" title="Permalink to this headline">¶</a></h3>
 </div>
-<div class="section" id="lisensi-dokumen">
-<h3>Lisensi Dokumen<a class="headerlink" href="#lisensi-dokumen" title="Permalink to this headline">¶</a></h3>
-<p>Dokumen ini dan latihan yang ada di dalamnya disusun di bawah panduan <a class="reference external" href="https://opensource.org/licenses/MIT">Lisensi MIT</a>.</p>
-<p>Dokumen ini ditulis oleh <a class="reference external" href="https://www.danylaksono.com/">Dany Laksono</a> untuk Pusat Data dan Teknologi Informasi (Pusdatin) Kementerian PUPR tahun 2020</p>
 </div>
-<div class="section" id="lisensi-perangkat-lunak">
-<h3>Lisensi Perangkat Lunak<a class="headerlink" href="#lisensi-perangkat-lunak" title="Permalink to this headline">¶</a></h3>
-<p>Seluruh perangkat lunak yang digunakan maupun diacu pada modul ini memiliki lisensi bebas dan terbuka (Free and Open Source). Lisensi masing-masing perangkat lunak dapat dilihat pada penjelasan lebih rinci mengenai software tersebut</p>
+<div class="section" id="mongodb-untuk-basisdata-nosql">
+<h2>MongoDB untuk Basisdata NoSQL<a class="headerlink" href="#mongodb-untuk-basisdata-nosql" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="contoh-kasus">
+<h3>Contoh kasus<a class="headerlink" href="#contoh-kasus" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 </div>
@@ -414,7 +310,7 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="postgisquery.html" title="previous page">Tentang Panduan ini</a>
+    <a class='left-prev' id="prev-link" href="postgisquery.html" title="previous page">Basisdata Spasial dengan PostGIS</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

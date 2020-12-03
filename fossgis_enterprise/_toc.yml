@@ -19,6 +19,7 @@
 - part: Bagian II - Relational Spatial Database
   expand_sections: true
   sections:
+  - file: sesi2/intrordbms
   - file: sesi2/relationaldb
   - file: sesi2/dbmanagement
   - file: sesi2/postgisquery
