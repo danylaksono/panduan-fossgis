@@ -1,0 +1,535 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interoperabilitas dan Standar OGC &#8212; fossgis-enterprise</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.30270b6e4c972e43c488.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Publikasi Data Spasial dengan Geoserver" href="publikasi.html" />
+    <link rel="prev" title="Pengantar Interoperabilitas Data Spasial" href="introogc.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">fossgis-enterprise</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  Bagian I - Linux Server dan FOSS-GIS
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi1/introlinux.html">
+   Pengantar Linux Server, FOSS-GIS dan Web Server
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi1/pengantarlinux.html">
+   Pengantar Linux dan Server
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi1/arsitektur.html">
+   Pengaturan dan Administrasi Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi1/linuxserver.html">
+   Linux sebagai Sistem Operasi Server
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi1/fossgis.html">
+   Free and Open Source Software-GIS
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Bagian II - Relational Spatial Database
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi2/intrordbms.html">
+   Pengantar Basisdata Relational
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi2/relationaldb.html">
+   Basisdata Relational
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi2/dbmanagement.html">
+   Administrasi Pengguna pada Basisdata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi2/postgisquery.html">
+   Basisdata Spasial dengan PostGIS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi2/nosql.html">
+   Basisdata SQL dan NoSQL
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Bagian III - Standar OGC untuk Interoperabilitas
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introogc.html">
+   Pengantar Interoperabilitas Data Spasial
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Interoperabilitas dan Standar OGC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="publikasi.html">
+   Publikasi Data Spasial dengan Geoserver
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="konsumsiogc.html">
+   Konsumsi Data dengan Standar OGC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="arsitektur.html">
+   Arsitektur Enterprise GIS dengan Perangkat Lunak (FOSS)
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/sesi3/interoperabilitas.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kebijakan-satu-peta-dan-interoperabilitas-data-spasial">
+   Kebijakan Satu Peta dan Interoperabilitas Data Spasial
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interoperabilitas-data-spasial">
+     Interoperabilitas Data Spasial
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#standar-ogc">
+   Standar OGC
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ogc-untuk-interoperabilitas">
+     OGC untuk interoperabilitas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wms-wfs-dan-wcs">
+     WMS WFS dan WCS
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#moving-forward">
+   Moving Forward
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cog">
+     COG
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stac">
+     STAC
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ogc-api">
+     OGC API
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#server-data-spasial-geoserver">
+   Server Data Spasial: Geoserver
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#latihan-instalasi-geoserver">
+     Latihan: Instalasi Geoserver
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="interoperabilitas-dan-standar-ogc">
+<h1>Interoperabilitas dan Standar OGC<a class="headerlink" href="#interoperabilitas-dan-standar-ogc" title="Permalink to this headline">¶</a></h1>
+<p>Kebutuhan untuk berbagi pakai data spasial semakin meningkat seiring dengan <a class="reference external" href="https://www.gislounge.com/80-percent-data-is-geographic/">berkembangnya kebutuhan akan data dan informasi geospasial</a> itu sendiri. Dengan beragamnya format data dan vendor aplikasi yang digunakan di berbagai instansi, perlu adanya suatu standar yang dapat digunakan untuk menjamin agar data spasial yang dibagikan antar instansi dapat digunakan secara optimal. Pada bagian ini akan dibahas mengenai standar pertukaran data spasial untuk menjamin interoperabilitas data spasial</p>
+<div class="section" id="kebijakan-satu-peta-dan-interoperabilitas-data-spasial">
+<h2>Kebijakan Satu Peta dan Interoperabilitas Data Spasial<a class="headerlink" href="#kebijakan-satu-peta-dan-interoperabilitas-data-spasial" title="Permalink to this headline">¶</a></h2>
+<p>Wacana mengenai kebijakan satu peta telah dimulai sejak tahun 2010 di Indonesia. Meskipun Indonesia merupakan salah satu negara <em>early-adopters</em> untuk inrastruktur data spasial, baru pada tahun 2011 melalui Undang-Undang Informasi Geospasial (UUIG) wujud Infrastruktur Data Spasial yang digunakan untuk berbagi pakai data antar instansi ini mulai terlihat.</p>
+<div class="section" id="interoperabilitas-data-spasial">
+<h3>Interoperabilitas Data Spasial<a class="headerlink" href="#interoperabilitas-data-spasial" title="Permalink to this headline">¶</a></h3>
+<p>Berbagai instansi di Indonesia menggunakan data spasial pada berbagai level. Sebagai produser atau pemilik data spasial pada domain masing-masing, tiap instansi menggunakan format data dan perangkat lunak yang berbeda. Hal ini berakibat pada sulitnya berbagi pakai data antar instansi. Terlebih lagi, data spasial memiliki karakteristik yang berbeda dibandingkan dengan data biasa, seperti adanya sistem proyeksi, geometri, topologi yang mendefinisikan data tersebut. Pertukaran data pada berbagai vendor yang berbeda dengan format data masing-masing berpotensi mengakibatkan <em>loss of information</em>, dan dalam kasus data spasial, dapat menyebabkan pengambilan keputusan yang salah.</p>
+<p><em>Fair Principle</em> (<em>Findable, Accessible, Interoperable</em> dan <em>Reuseable</em>) digunakan untuk menjamin agar data spasial dapat digunakan oleh berbagai aktor yang berbeda. Prinsip FAIR memungkinan format data dari berbagai instansi yang berbeda untuk dapat digunakan tanpa hilangnya informasi penting terkait data tersebut. Pada data spasial, implementasi FAIR principle merupakan kebutuhan utama pada Infrastruktur Data Spasial, dimana data geospasial antar wali data yang berbeda dapat saling digunakan satu dengan yang lain.
+<img alt="" src="../_images/2020-12-04-03-46-57.png" /></p>
+</div>
+</div>
+<div class="section" id="standar-ogc">
+<h2>Standar OGC<a class="headerlink" href="#standar-ogc" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.ogc.org/standards">Standar OGC</a> dikembangkan oleh para anggota untuk membuat informasi dan layanan geospasial memenuhi prinsip FAIR - Findable, Accessible, Interoperable, dan Reuseable. Standar digunakan oleh pengembang perangkat lunak untuk membangun antarmuka terbuka dan pengkodean ke dalam produk dan layanan masing-masing vendor. Standar adalah “produk” utama OGC dan telah dikembangkan oleh member OGC untuk mengatasi tantangan interoperabilitas tertentu, seperti menerbitkan konten peta di Web, bertukar data lokasi penting selama tanggap bencana &amp; pemulihan, dan memungkinkan penggabungan informasi dari beragam konten Internet of Things (IoT).</p>
+<div class="section" id="ogc-untuk-interoperabilitas">
+<h3>OGC untuk interoperabilitas<a class="headerlink" href="#ogc-untuk-interoperabilitas" title="Permalink to this headline">¶</a></h3>
+<p>OGC mengikuti Spesifikasi OpenGIS yang mendefinisikan bagaimana data spasial disimpan dan direpresentasikan. Standar Simple Feature Spesification ini menjadi acuan bagi OGC dan berbagai perangkat lunak yang mendefinisikan data spasial sehingga memungkinkan satu interpretasi yang sama pada fitur yang direpresentasikan oleh data spasial yang dimaksud. Simple Feature didefinisikan sebagai berikut:</p>
+<div class="figure align-default" id="sfs">
+<a class="reference internal image-reference" href="../_images/2020-12-04-03-48-23.png"><img alt="../_images/2020-12-04-03-48-23.png" src="../_images/2020-12-04-03-48-23.png" style="height: 700px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Simple Feature Specification</span><a class="headerlink" href="#sfs" title="Permalink to this image">¶</a></p>
+</div>
+<p>Berbagai standar OGC dibuat untuk memungkinkan data-data spasial yang beragam dari berbagai domain untuk dapat digunakan mengikuti prinsip FAIR sesuai dengan format yang juga didefinisikan oleh OGC. Dengan tujuan untuk memungkinkan data spasial dapat disajikan melalui internet, standar ini juga menjamin prinsip FAIR melalui penggunaan metadata dan data dalam bentuk layanan (<em>services</em>). Layanan inilah yang digunakan untuk meng-onlinekan data spasial agar dapat digunakan oleh aktor yang berbeda agar dapat menggunakan data spasial dengan semua karakteristiknya.</p>
+<div class="figure align-default" id="ogcservice">
+<a class="reference internal image-reference" href="../_images/2020-12-04-03-49-43.png"><img alt="../_images/2020-12-04-03-49-43.png" src="../_images/2020-12-04-03-49-43.png" style="height: 700px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">OGC Data &amp; Metadata Services</span><a class="headerlink" href="#ogcservice" title="Permalink to this image">¶</a></p>
+</div>
+<p>Terdapat puluhan standar OGC berbeda yang digunakan untuk berbagai keperluan. Standar untuk layanan dan format data diatur tersendiri. Demikian pula standar untuk memungkinkan Discovery atau pencarian data spasial pada portal untuk menjamin prinsip Findable dan Accessible. Berikut adalah standar terkait dengan Discovery, Container, serta layanan dan API.
+<img alt="" src="../_images/2020-12-04-06-07-31.png" /></p>
+<p>Berikut standar OGC untuk Model data dan Sensor:</p>
+<p><img alt="" src="../_images/2020-12-04-06-09-08.png" /></p>
+</div>
+<div class="section" id="wms-wfs-dan-wcs">
+<h3>WMS WFS dan WCS<a class="headerlink" href="#wms-wfs-dan-wcs" title="Permalink to this headline">¶</a></h3>
+<p>Dari ratusan standar yang berbeda, beberapa standar digunakan lebih sering dibandingkan yang lain karena kebutuhan untuk representasi data menggunakan standar ini cukup besar. WMS digunakan untuk pertukaran data vektor dan raster, WFS untuk data vektor dan WCS untuk data raster. Ketiga standar ini memiliki spesifikasi yang berbeda untuk digunakan pada kebutuhan yang berbeda pula.</p>
+<ul>
+<li><p><strong>Web Map Service (WMS)</strong>
+WMS merupakan standar yang dibuat untuk memungkinkan akses data spasial baik dalam format raster maupun vektor untuk disajikan sebagai Image. Pada data masukan berupa raster, WMS mengkonversi nilai pixel dan format data masukan menjadi format data yang lebih ringkas untuk digunakan melalui web (misalnya png atau jpg) sehingga nilai pixel aslinya hilang.</p>
+<p><img alt="" src="../_images/2020-12-04-06-29-02.png" /></p>
+<p>Untuk data vector, WMS mengkonversi data tersebut menjadi raster untuk keperluan tampilan, dimana simbologi pada layer tampilan tersebut diperoleh berdasarkan styling yang dilakukan di sisi server.</p>
+<p><img alt="" src="../_images/2020-12-04-06-29-27.png" /></p>
+</li>
+<li><p><strong>Web Feature Service (WFS)</strong>
+WFS digunakan untuk menyajikan data vector lengkap dengan semua propertinya (atribut, geometri, sistem proyeksi, dst). WFS digunakan apabila client menginginkan untuk mendapatkan data vector secara penuh, misalnya untuk keperluan analisis spasial. Berbeda dengan WMS yang melakukan styling pada sisi server, WFS menyajikan data biner dalam bentuk vector kepada client, sehingga kebutuhan untuk melakukan simbologi diserahkan pada pengaturan client</p>
+<p><img alt="" src="../_images/2020-12-04-06-30-34.png" /></p>
+</li>
+<li><p><strong>Web Coverage Service (WCS)</strong>
+WCS berbeda dengan WMS dalam hal penyajian informasi detil dari sebuah citra. Jika WMS menyederhanakan nilai pixel pada raster menjadi nilai RGB sesuai dengan tampilannya, maka WCS menjaga nilai pixel dan band dari raster masukan sehingga client dapat menggunakan data tersebut untuk analisis raster. Contoh penggunaan WCS adalah untuk menampilkan raster elevasi yang memungkinkan pengguna untuk melakukan analisis seperti slope atau aspect.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="moving-forward">
+<h2>Moving Forward<a class="headerlink" href="#moving-forward" title="Permalink to this headline">¶</a></h2>
+<p>Standar OGC mengatur pertukaran data spasial pada domain utama, khususnya terkait dengan berbagai format data baik raster maupun vektor.</p>
+<div class="section" id="cog">
+<h3>COG<a class="headerlink" href="#cog" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="../_images/2020-12-04-04-22-28.png" /></p>
+<p>Cloud Optimized GeoTIFF (COG) mirip dengan file GeoTIFF biasa tetapi dengan organisasi internal yang memungkinkan akses baca yang lebih efisien ke sebagian gambar, alur kerja yang paling umum untuk mengakses citra yang disimpan di infrastruktur cloud. Hal ini dilakukan dengan memanfaatkan kemampuan klien yang mengeluarkan permintaan rentang HTTP GET untuk meminta hanya bagian dari file yang mereka butuhkan. Teknologi yang sangat mirip yang memungkinkan Anda untuk langsung mulai menonton video streaming memungkinkan analisis pada GeoTIFF besar tanpa perlu mengunduh seluruh file.
+Sementara beberapa standar berbeda telah mengatasi masalah ini, COG berada pada posisi yang baik untuk menjadi standar komunitas dan industri. Dukungan untuk standar baru dengan cepat diintegrasikan ke dalam pustaka perangkat lunak sumber terbuka dan mempertahankan kompatibilitas ke belakang; sistem yang dapat melihat file TIFF biasa juga dapat melihat COG, meskipun sistem tersebut tidak memanfaatkan pembacaan rentang byte HTTP atau komponen geospasial. COG adalah GeoTIFFS adalah TIFF. Dalam waktu singkat sejak dikembangkan, format COG dengan cepat diadopsi oleh penyedia citra observasi Bumi karena ini merupakan cara untuk dengan mudah mengurangi biaya transfer jaringan dalam infrastruktur terdistribusi.</p>
+</div>
+<div class="section" id="stac">
+<h3>STAC<a class="headerlink" href="#stac" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="../_images/2020-12-04-04-27-12.png" /></p>
+<p>Spesifikasi SpatioTemporal Asset Catalog (STAC) bertujuan untuk menstandarkan bagaimana data geospasial diekspos secara online dan di<em>query</em>. ‘Aset spasiotemporal’ adalah file apa pun yang mewakili informasi tentang bumi yang ditangkap dalam ruang dan waktu tertentu. Fokus awal utamanya adalah citra penginderaan jarak jauh (dari satelit, tetapi juga pesawat, drone, balon, dll.), tetapi intinya dirancang agar dapat diperluas ke SAR, FMV, Point-cloud, hiperspektral, LiDAR, dan data turunan seperti NDVI , Model Elevasi Digital, mozaik, dll.</p>
+<p>Tujuan STAC adalah agar semua penyedia utama citra dan data observasi bumi lainnya mengekspos data mereka sebagai Katalog Aset SpatioTemporal, sehingga kode baru tidak perlu ditulis setiap kali REST API berbasis JSON baru keluar yang membuat datanya tersedia di dengan cara yang sedikit berbeda. Ini akan mengaktifkan komponen pustaka standar dalam banyak bahasa. STAC juga dapat diimplementasikan dengan cara yang sepenuhnya ‘statis’, memungkinkan penerbit data mengekspos data mereka hanya dengan menerbitkan file JSON yang ditautkan secara online.</p>
+<p>Kedua standar tersebut mendukung penggunaan citra dan analisis citra pada cloud, tanpa perlu mengunduh satupun data pada komputer lokal. Rilis terbaru Landsat Collection 2 telah menggunakan <a class="reference external" href="https://prd-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/atoms/files/LSDS-1388-Landsat-Cloud-Optimized-GeoTIFF_DFCB-v2.0.pdf">standar COG dan STAC</a>, dan menunjukkan <a class="reference external" href="https://www.usgs.gov/core-science-systems/nli/landsat/landsat-data-access?qt-science_support_page_related_con=0#qt-science_support_page_related_con">arah penggunaan format data yang lebih terbuka</a> untuk mendukung interoperabilitas data spasial.
+<img alt="" src="../_images/2020-12-04-04-33-50.png" /></p>
+</div>
+<div class="section" id="ogc-api">
+<h3>OGC API<a class="headerlink" href="#ogc-api" title="Permalink to this headline">¶</a></h3>
+<p>Standar seperti WMS, WFS dan WCS dibuat berdasarkan standar dan teknologi internet yang berlaku pada awal tahun 2000an. Dengan perkembangan teknologi saat ini serta perubahan paradigma data spasial pada web, OGC mengusulkan serangkaian standar baru untuk menggantikan standar WMS, WFS, dst yang digunakan saat ini.</p>
+<p>Berikut adalah beberapa standar OGC-API yang sedang diusulkan:</p>
+<ul class="simple">
+<li><p>OGC API - Common (OWS Common)</p></li>
+<li><p>OGC API - Features (former WFS)</p></li>
+<li><p>OGC API - Coverages (former WCS)</p></li>
+<li><p>OGC API - Maps (former WMS)</p></li>
+<li><p>OGC API - Tiles (former WMTS)</p></li>
+<li><p>OGC API - Processing (former WPS)</p></li>
+<li><p>OGC API - Records (former CSW)</p></li>
+</ul>
+<p>OGC-API saat ini sedang dalam <a class="reference external" href="https://ogcapi.ogc.org/apiroadmap.html">tahap pengembangan aktif</a>, dan prosedur migrasi dari standar lama (WMS, WFS, WCS, dst) sedang disiapkan. Beberapa aplikasi, seperti PyGeoAPI dikembangkan untuk keperluan ini. PyGeoAPI merupakan salah satu prototip aplikasi yang dikembangkan untuk mendukung Standar OGC API yang baru. Saat ini, PyGeoAPI telah diujicobakan dan berhasil digunakan untuk mendukung infrastruktur data spasial di beberapa negara.
+<img alt="" src="../_images/2020-12-04-03-55-05.png" /></p>
+</div>
+</div>
+<div class="section" id="server-data-spasial-geoserver">
+<h2>Server Data Spasial: Geoserver<a class="headerlink" href="#server-data-spasial-geoserver" title="Permalink to this headline">¶</a></h2>
+<p>Geoserver merupakan aplikasi Server Data Spasial yang mendukung publikasi berbagai macam jenis data spasial menjadi format yang didukung oleh OGC. Geoserver seringkali digunakan bersamaan dengan aplikasi lain sebagai bagian dari sebuah sistem informasi spasial, web GIS atau infrastruktur data spasial untuk memastikan data spasial dapat digunakan pada berbagai sistem yang berbeda dan menjamin interoperabilitas.</p>
+<div class="section" id="latihan-instalasi-geoserver">
+<h3>Latihan: Instalasi Geoserver<a class="headerlink" href="#latihan-instalasi-geoserver" title="Permalink to this headline">¶</a></h3>
+<p>Pada bagian ini akan dibahas mengenai cara instalasi Geoserver: melalui aplikasi servlet seperti Tomcat, serta menggunakan paket aplikasi yang tersedia pada Docker.</p>
+<ul class="simple">
+<li><p><strong>Cara 1: menggunakan Docker</strong>
+Pada bagian ini, akan digunakan Docker sebagai media instalasi Geoserver. Sebelumnya telah dibahas bagaimana Docker dapat mempermudah instalasi berbagai aplikasi. Berikut adalah panduannya:</p></li>
+</ul>
+<ol>
+<li><p>Dengan cara pertama ini, dapat digunakan berbagai Image Geoserver yang tersedia pada Docker Hub. Untuk latihan ini akan digunakan image yang dibuat oleh <a class="reference external" href="https://github.com/kartoza/docker-geoserver">Kartoza</a>, sama seperti PostGIS pada materi sebelumnya.</p></li>
+<li><p>Jalankan perintah berikut untuk menginstall Geoserver pada port 8080 menggunakan Docker:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run -d -p <span class="m">8800</span>:8080 --name geoserver kartoza/geoserver:latest 
+</pre></div>
+</div>
+<p>Maka Geoserver akan diunduh dan dijalankan pada Localhost:8080.</p>
+<p>Cara ini akan mengunduh Geoserver berikut seluruh kelengkapannya (extensi standar maupun community, dokumentasi dan sampel data), sehingga ukuran unduhan akan cukup besar. Untuk instalasi Geoserver dengan ukuran yang lebih kecil untuk keperluan latihan ini, gunakan Cara Kedua di bawah ini.</p>
+</li>
+</ol>
+<ul class="simple">
+<li><p><strong>Cara 2: Melalui Tomcat</strong>
+Pada latihan ini, akan dibuat instalasi baru Geoserver dengan menggunakan Tomcat yang telah diinstall pada latihan berikutnya, sehingga terlebih dahulu perlu dipastikan bahwa instalasi Tomcat telah berhasil dan Tomcat berhasil dijalankan.</p></li>
+</ul>
+<ol>
+<li><p>Unduh Geoserver dari website resminya: <a class="reference external" href="http://geoserver.org/release/stable/">http://geoserver.org/release/stable/</a>
+Untuk latihan ini, yang diunduh adalah build Geoserver dengan format Web Archive (WAR). Karena unduhan akan dilakukan pada mesin WSL, maka cukup copykan link yang mengarah pada Web Archive tersebut:</p>
+<p><img alt="" src="../_images/2020-12-04-06-51-38.png" /></p>
+<p>dalam hal ini, linknya adalah: http://sourceforge.net/projects/geoserver/files/GeoServer/2.18.1/geoserver-2.18.1-war.zip</p>
+</li>
+<li><p>Buka WSL, kemudian pada folder dimana kita memiliki akses untuk menulis, jalankan perintah berikut</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget http://sourceforge.net/projects/geoserver/files/GeoServer/2.18.1/geoserver-2.18.1-war.zip
+</pre></div>
+</div>
+<p><img alt="" src="../_images/2020-12-04-06-53-48.png" /></p>
+<p>perintah tersebut akan mengunduh file zip dengan nama: <code class="docutils literal notranslate"><span class="pre">geoserver-2.18.1-war.zip</span></code> (sesuaikan nama berkas jika menggunakan versi yang berbeda)</p>
+</li>
+<li><p>Lakukan ekstraksi file zip hasil unduhan pada folder aktif Tomcat.
+Pada Ubuntu, Tomcat menggunakan folder <code class="docutils literal notranslate"><span class="pre">/opt/tomcat/latest/webapps</span></code> (sebagaimana pengaturan softlink yang telah dibuat pada saat instalasi) untuk mempublikasikan aplikasi WAR. Gunakan perintah berikut untuk mengextract zip ke dalam folder tersebut:</p>
+<p>Install <code class="docutils literal notranslate"><span class="pre">unzip</span></code> terlebih dahulu:
+<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">unzip</span></code>, kemudian:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> sudo unzip -o geoserver-2.18.1-war.zip -d <span class="s2">&quot;/opt/tomcat/latest/webapps/&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Jika belum, aktifkan Tomcat menggunakan perintah:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo systemctl start tomcat
+</pre></div>
+</div>
+<p>Tunggu sampai beberapa saat pada saat Tomcat melakukan ekstraksi file WAR tersebut.</p>
+</li>
+<li><p>Buka browser pada Windows di alamat: <code class="docutils literal notranslate"><span class="pre">localhost:8080/geoserver</span></code>
+<img alt="" src="../_images/2020-12-04-07-15-07.png" /></p></li>
+</ol>
+<p>Cara yang sama dapat digunakan untuk aplikasi berbasis web archive lain, seperti Mapstore, Geonetwork atau GeoTools. Instalasi melalui WAR ini akan memberikan kita kontrol penuh pada aplikasi, seperti pengaturan SSL, CORS, dan lain sebagainya. Demikian pula, deployment pada Tomcat memungkinkan beberapa aplikasi sekaligus untuk dapat diinstall pada port yang sama (Port 8080), sehingga cara inilah yang akan digunakan dalam latihan ini.</p>
+<p>Selanjutnya, Geoserver siap digunakan untuk mengunggah data. Berikut adalah antarmuka Geoserver dengan menggunakan username: <code class="docutils literal notranslate"><span class="pre">admin</span></code> dan password <code class="docutils literal notranslate"><span class="pre">geoserver</span></code>.</p>
+<p><img alt="" src="../_images/2020-12-04-09-00-34.png" /></p>
+<p>Pada bagian kanan adalah daftar layanan yang didukung oleh Geoserver. Semua data yang diunggah pada Geoserver akan menggunakan layanan tersebut agar dapat diakses dari berbagai client, seperti QGIS.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./sesi3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="introogc.html" title="previous page">Pengantar Interoperabilitas Data Spasial</a>
+    <a class='right-next' id="next-link" href="publikasi.html" title="next page">Publikasi Data Spasial dengan Geoserver</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Dany Laksono<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.30270b6e4c972e43c488.js"></script>
+
+
+    
+  </body>
+</html>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pengantar Linux Server, FOSS-GIS dan Web Server &#8212; fossgis-enterprise</title>
+    <title>Publikasi Data Spasial dengan Geoserver &#8212; fossgis-enterprise</title>
     
   <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
 
@@ -56,8 +56,8 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Pengantar Linux dan Server" href="pengantarlinux.html" />
-    <link rel="prev" title="Enterprise GIS dengan Perangkat Lunak Free and OpenSource (FOSS)" href="../intro.html" />
+    <link rel="next" title="Konsumsi Data dengan Standar OGC" href="konsumsiogc.html" />
+    <link rel="prev" title="Interoperabilitas dan Standar OGC" href="interoperabilitas.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -95,29 +95,29 @@
   Bagian I - Linux Server dan FOSS-GIS
  </span>
 </p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi1/introlinux.html">
    Pengantar Linux Server, FOSS-GIS dan Web Server
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="pengantarlinux.html">
+  <a class="reference internal" href="../sesi1/pengantarlinux.html">
    Pengantar Linux dan Server
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="arsitektur.html">
+  <a class="reference internal" href="../sesi1/arsitektur.html">
    Pengaturan dan Administrasi Linux
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="linuxserver.html">
+  <a class="reference internal" href="../sesi1/linuxserver.html">
    Linux sebagai Sistem Operasi Server
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="fossgis.html">
+  <a class="reference internal" href="../sesi1/fossgis.html">
    Free and Open Source Software-GIS
   </a>
  </li>
@@ -159,29 +159,29 @@
   Bagian III - Standar OGC untuk Interoperabilitas
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../sesi3/introogc.html">
+  <a class="reference internal" href="introogc.html">
    Pengantar Interoperabilitas Data Spasial
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../sesi3/interoperabilitas.html">
+  <a class="reference internal" href="interoperabilitas.html">
    Interoperabilitas dan Standar OGC
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../sesi3/publikasi.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Publikasi Data Spasial dengan Geoserver
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../sesi3/konsumsiogc.html">
+  <a class="reference internal" href="konsumsiogc.html">
    Konsumsi Data dengan Standar OGC
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../sesi3/arsitektur.html">
+  <a class="reference internal" href="arsitektur.html">
    Arsitektur Enterprise GIS dengan Perangkat Lunak (FOSS)
   </a>
  </li>
@@ -227,7 +227,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/sesi1/introlinux.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/sesi3/publikasi.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -251,6 +251,42 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#menghubungkan-geoserver-dengan-data">
+   Menghubungkan Geoserver dengan Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mengunggah-shapefile">
+     Mengunggah Shapefile
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basisdata-postgis">
+     Basisdata PostGIS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#publikasi-data-melalui-rest-api-geoserver">
+     Publikasi Data melalui REST-API Geoserver
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#styling-dengan-sld">
+   Styling dengan SLD
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -258,19 +294,60 @@
         
               <div>
                 
-  <div class="section" id="pengantar-linux-server-foss-gis-dan-web-server">
-<h1>Pengantar Linux Server, FOSS-GIS dan Web Server<a class="headerlink" href="#pengantar-linux-server-foss-gis-dan-web-server" title="Permalink to this headline">¶</a></h1>
-<p>Linux, atau GNU/Linux, mengacu pada sistem operasi komputer Unix-like yang menggunakan kernel Linux. Linux merupakan contoh paling menonjol dari pengembangan open source dan perangkat lunak bebas serta perangkat lunak yang dibuat pengguna; kode sumber yang mendasarinya tersedia bagi siapa saja untuk digunakan, dimodifikasi, dan didistribusikan kembali secara bebas.</p>
-<p>Bagian ini merupakan bagian pertama dari panduan ini. Sesi ini membahas mengenai Linux dan cara kerjanya, serta bagaimana Linux digunakan sebagai sistem operasi untuk menunjang penggunaan <em>Free and Open Source Software (FOSS)</em>, khususnya untuk menunjang analisis dan manajemen data Geospasial.</p>
-<p>Berikut adalah materi yang dibahas pada bagian ini:</p>
-<p><span class="fa fa-check text-success mr-1"></span> <a class="reference internal" href="pengantarlinux.html"><span class="doc std std-doc">Pengantar mengenai Linux</span></a>
-: Sejarah dan perkembangan Linux, beberapa Distro Linux yang terkenal, serta instalasi dan penggunaan Ubuntu Linux, yang akan digunakan pada seluruh dokumen latihan ini.</p>
-<p><span class="fa fa-check text-success mr-1"></span> <a class="reference internal" href="arsitektur.html"><span class="doc std std-doc">Arsitektur dan Administrasi sistem Linux</span></a>
-: Beberapa konsep tentang arsitektur Linux sebagai sebuah sistem operasi, serta bagaimana pengaturan Linux pada sebuah lingkungan server</p>
-<p><span class="fa fa-check text-success mr-1"></span> <a class="reference internal" href="linuxserver.html"><span class="doc std std-doc">Linux untuk Webserver</span></a>
-: Latihan mengenai pengaturan Linux untuk publikasi halaman web dengan menggunakan Apache/httpd dan Tomcat. Akan disampaikan juga mengenai penggunaan Virtual Host dan konsep proxy pada Apache untuk keperluan publikasi website</p>
-<p><span class="fa fa-check text-success mr-1"></span> <a class="reference internal" href="fossgis.html"><span class="doc std std-doc">Pengantar FOSS-GIS</span></a>
-: Mengenal jenis-jenis lisensi perangkat lunak serta beberapa perangkat FOSS-GIS yang populer.</p>
+  <div class="section" id="publikasi-data-spasial-dengan-geoserver">
+<h1>Publikasi Data Spasial dengan Geoserver<a class="headerlink" href="#publikasi-data-spasial-dengan-geoserver" title="Permalink to this headline">¶</a></h1>
+<p>Web Map Server merupakan program komputer yang menghasilkan peta data yang direferensikan secara spasial dari
+data dan informasi geografis. Aplikasi ini, sebagaimana dibahas sebelumnya, adalah antarmuka sederhana yang menyajikan data dalam format standar untuk ditampilkan pada aplikasi berbasis web. Berbagai protokol melibatkan sintaks kueri untuk memposting meminta layer yang diinginkan dan memperbesar jendela ke server, yang menghasilkan peta sebagai image dalam format standar (GIF, PNG atau format lain) atau sebagai format vektor (misalnya KML, GML). Data ini kemudian dapat dikonsumsi oleh berbagai client. Pada bagian ini akan dibahas mengenai bagaimana melakukan publikasi data spasial dengan Geoserver.</p>
+<div class="section" id="menghubungkan-geoserver-dengan-data">
+<h2>Menghubungkan Geoserver dengan Data<a class="headerlink" href="#menghubungkan-geoserver-dengan-data" title="Permalink to this headline">¶</a></h2>
+<p>Geoserver mengenali berbagai jenis data spasial. Adapun urutan untuk melakukan publikasi data pada Geoserver adalah sebagai berikut:</p>
+<ol class="simple">
+<li><p>Membuat Workspace</p></li>
+<li><p>Menambahkan Data Store</p></li>
+<li><p>Menambahkan Layer pada Data Store</p></li>
+<li><p>Mengatur Simbologi (opsional)</p></li>
+<li><p>Mengatur Publikasi</p></li>
+</ol>
+<p>Langkah tersebut dapat diikuti pada antarmuka Geoserver berikut:
+<img alt="" src="../_images/2020-12-04-08-57-51.png" /></p>
+<p>Berikut adalah daftar datastore yang didukung oleh Geoserver:
+<img alt="" src="../_images/2020-12-04-08-55-02.png" /></p>
+<div class="section" id="mengunggah-shapefile">
+<h3>Mengunggah Shapefile<a class="headerlink" href="#mengunggah-shapefile" title="Permalink to this headline">¶</a></h3>
+<p>Geoserver membaca data yang disimpan pada Environment variable <code class="docutils literal notranslate"><span class="pre">GEOSERVER_DATA_DIR</span></code>, sehingga untuk melakukan ini, kita perlu mengcopy shapefile yang akan diunggah ke dalam folder tersebut. Lokasi folder ini dapat dilihat pada bagian data directory di server status:</p>
+<p><img alt="" src="../_images/2020-12-04-08-53-02.png" /></p>
+<p>Pada gambar di atas, folder Data Directory adalah <code class="docutils literal notranslate"><span class="pre">/opt/tomcat/apache-tomcat-9.0.40/webapps/geoserver/data</span></code>.</p>
+</div>
+<div class="section" id="basisdata-postgis">
+<h3>Basisdata PostGIS<a class="headerlink" href="#basisdata-postgis" title="Permalink to this headline">¶</a></h3>
+<p>PostGIS dapat dihubungkan melalui antarmuka Geoserver. Berikut adalah tampilan antarmuka dan parameter koneksinya:</p>
+<p><img alt="" src="../_images/2020-12-04-08-55-41.png" /></p>
+<p>Sama seperti pada QGIS, koneksi ke PostGIS dari Geoserver juga menggunakan parameter seperti Host, Username, Basisdata dan Password.</p>
+</div>
+<div class="section" id="publikasi-data-melalui-rest-api-geoserver">
+<h3>Publikasi Data melalui REST-API Geoserver<a class="headerlink" href="#publikasi-data-melalui-rest-api-geoserver" title="Permalink to this headline">¶</a></h3>
+<p>Pada remote server, seringkali kita tidak dapat menggunakan antarmuka yang memungkinkan untuk publikasi data secara langsung. Dengan demikian, interaksi pada Geoserver juga menjadi terbatas. Untuk itu, Geoserver menyediakan REST API yang dapat digunakan untuk berinteraksi dengan fungsi-fungsi Geoserver melalui antar muka API standard. API ini dapat diakses melalui http://alamatgeoserver:8080/geoserver/rest/workspaces.</p>
+<p>Berikut adalah langkah untuk mengunggah file pada server:</p>
+<ol class="simple">
+<li><p>Membuat Workspace baru dengan nama <code class="docutils literal notranslate"><span class="pre">latihan</span></code> (lewati jika Workspace sudah tersedia)</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -v -u admin:password -XPOST -H <span class="s2">&quot;Content-type: text/xml&quot;</span>  -d <span class="s2">&quot;&lt;workspace&gt;&lt;name&gt;latihan&lt;/name&gt;&lt;/workspace&gt;&quot;</span> http://alamatgeoserver:8080/geoserver/rest/workspaces
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Mengunggah file <code class="docutils literal notranslate"><span class="pre">jalan.zip</span></code> sebagai layer baru pada workspace <code class="docutils literal notranslate"><span class="pre">latihan</span></code> dengan nama datastore <code class="docutils literal notranslate"><span class="pre">jalan</span></code></p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -v -u admin:geoserver -XPUT -H <span class="s2">&quot;Content-type: application/zip&quot;</span> --data-binary @jalan.zip http://54.254.9.31:8080/geoserver/rest/workspaces/latihan/datastores/jalan/file.shp
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="styling-dengan-sld">
+<h2>Styling dengan SLD<a class="headerlink" href="#styling-dengan-sld" title="Permalink to this headline">¶</a></h2>
+<p>Protokol WMS yang digunakan pada Geoserver memerlukan styling sebelum disajikan pada client. Format yang digunakan oleh Geoserver adalah SLD (<em>Style Layer Descriptor</em>). Antarmuka untuk pengaturan SLD adalah sebagai berikut:</p>
+<p><img alt="" src="../_images/2020-12-04-08-58-42.png" /></p>
+<p>SLD menggunakan format XML untuk menyimpan style. Untuk memudahkan styling, dapat digunakan QGIS untuk menyimpan simbolosasi yang diinginkan.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -286,7 +363,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./sesi1"
+            path: "./sesi3"
         },
         predefinedOutput: true
     }
@@ -301,8 +378,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">Enterprise GIS dengan Perangkat Lunak Free and OpenSource (FOSS)</a>
-    <a class='right-next' id="next-link" href="pengantarlinux.html" title="next page">Pengantar Linux dan Server</a>
+    <a class='left-prev' id="prev-link" href="interoperabilitas.html" title="previous page">Interoperabilitas dan Standar OGC</a>
+    <a class='right-next' id="next-link" href="konsumsiogc.html" title="next page">Konsumsi Data dengan Standar OGC</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

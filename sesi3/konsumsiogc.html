@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pengantar Linux Server, FOSS-GIS dan Web Server &#8212; fossgis-enterprise</title>
+    <title>Konsumsi Data dengan Standar OGC &#8212; fossgis-enterprise</title>
     
   <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
 
@@ -56,8 +56,8 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Pengantar Linux dan Server" href="pengantarlinux.html" />
-    <link rel="prev" title="Enterprise GIS dengan Perangkat Lunak Free and OpenSource (FOSS)" href="../intro.html" />
+    <link rel="next" title="Arsitektur Enterprise GIS dengan Perangkat Lunak (FOSS)" href="arsitektur.html" />
+    <link rel="prev" title="Publikasi Data Spasial dengan Geoserver" href="publikasi.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -95,29 +95,29 @@
   Bagian I - Linux Server dan FOSS-GIS
  </span>
 </p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi1/introlinux.html">
    Pengantar Linux Server, FOSS-GIS dan Web Server
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="pengantarlinux.html">
+  <a class="reference internal" href="../sesi1/pengantarlinux.html">
    Pengantar Linux dan Server
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="arsitektur.html">
+  <a class="reference internal" href="../sesi1/arsitektur.html">
    Pengaturan dan Administrasi Linux
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="linuxserver.html">
+  <a class="reference internal" href="../sesi1/linuxserver.html">
    Linux sebagai Sistem Operasi Server
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="fossgis.html">
+  <a class="reference internal" href="../sesi1/fossgis.html">
    Free and Open Source Software-GIS
   </a>
  </li>
@@ -159,29 +159,29 @@
   Bagian III - Standar OGC untuk Interoperabilitas
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../sesi3/introogc.html">
+  <a class="reference internal" href="introogc.html">
    Pengantar Interoperabilitas Data Spasial
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../sesi3/interoperabilitas.html">
+  <a class="reference internal" href="interoperabilitas.html">
    Interoperabilitas dan Standar OGC
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../sesi3/publikasi.html">
+  <a class="reference internal" href="publikasi.html">
    Publikasi Data Spasial dengan Geoserver
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../sesi3/konsumsiogc.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Konsumsi Data dengan Standar OGC
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../sesi3/arsitektur.html">
+  <a class="reference internal" href="arsitektur.html">
    Arsitektur Enterprise GIS dengan Perangkat Lunak (FOSS)
   </a>
  </li>
@@ -227,7 +227,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/sesi1/introlinux.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/sesi3/konsumsiogc.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -251,6 +251,32 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#menggunakan-perangkat-foss-untuk-mengakses-data-ogc">
+   Menggunakan Perangkat FOSS untuk mengakses data OGC
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#memanggil-wms-wfs-dan-wcs-dengan-qgis">
+     Memanggil WMS, WFS dan WCS dengan QGIS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#memanggil-data-publikasi-ogc-dengan-javascript-library-leafletjs">
+     Memanggil data publikasi OGC dengan Javascript Library (LeafletJS)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -258,19 +284,31 @@
         
               <div>
                 
-  <div class="section" id="pengantar-linux-server-foss-gis-dan-web-server">
-<h1>Pengantar Linux Server, FOSS-GIS dan Web Server<a class="headerlink" href="#pengantar-linux-server-foss-gis-dan-web-server" title="Permalink to this headline">¶</a></h1>
-<p>Linux, atau GNU/Linux, mengacu pada sistem operasi komputer Unix-like yang menggunakan kernel Linux. Linux merupakan contoh paling menonjol dari pengembangan open source dan perangkat lunak bebas serta perangkat lunak yang dibuat pengguna; kode sumber yang mendasarinya tersedia bagi siapa saja untuk digunakan, dimodifikasi, dan didistribusikan kembali secara bebas.</p>
-<p>Bagian ini merupakan bagian pertama dari panduan ini. Sesi ini membahas mengenai Linux dan cara kerjanya, serta bagaimana Linux digunakan sebagai sistem operasi untuk menunjang penggunaan <em>Free and Open Source Software (FOSS)</em>, khususnya untuk menunjang analisis dan manajemen data Geospasial.</p>
-<p>Berikut adalah materi yang dibahas pada bagian ini:</p>
-<p><span class="fa fa-check text-success mr-1"></span> <a class="reference internal" href="pengantarlinux.html"><span class="doc std std-doc">Pengantar mengenai Linux</span></a>
-: Sejarah dan perkembangan Linux, beberapa Distro Linux yang terkenal, serta instalasi dan penggunaan Ubuntu Linux, yang akan digunakan pada seluruh dokumen latihan ini.</p>
-<p><span class="fa fa-check text-success mr-1"></span> <a class="reference internal" href="arsitektur.html"><span class="doc std std-doc">Arsitektur dan Administrasi sistem Linux</span></a>
-: Beberapa konsep tentang arsitektur Linux sebagai sebuah sistem operasi, serta bagaimana pengaturan Linux pada sebuah lingkungan server</p>
-<p><span class="fa fa-check text-success mr-1"></span> <a class="reference internal" href="linuxserver.html"><span class="doc std std-doc">Linux untuk Webserver</span></a>
-: Latihan mengenai pengaturan Linux untuk publikasi halaman web dengan menggunakan Apache/httpd dan Tomcat. Akan disampaikan juga mengenai penggunaan Virtual Host dan konsep proxy pada Apache untuk keperluan publikasi website</p>
-<p><span class="fa fa-check text-success mr-1"></span> <a class="reference internal" href="fossgis.html"><span class="doc std std-doc">Pengantar FOSS-GIS</span></a>
-: Mengenal jenis-jenis lisensi perangkat lunak serta beberapa perangkat FOSS-GIS yang populer.</p>
+  <div class="section" id="konsumsi-data-dengan-standar-ogc">
+<h1>Konsumsi Data dengan Standar OGC<a class="headerlink" href="#konsumsi-data-dengan-standar-ogc" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="menggunakan-perangkat-foss-untuk-mengakses-data-ogc">
+<h2>Menggunakan Perangkat FOSS untuk mengakses data OGC<a class="headerlink" href="#menggunakan-perangkat-foss-untuk-mengakses-data-ogc" title="Permalink to this headline">¶</a></h2>
+<p>Berbagai perangkat FOSS dapat saling berkomunikasi dengan bantuan dukungan standar OGC. Untuk latihan ini, QGIS akan digunakan sebagai perangkat client untuk memanggil data dari Geoserver.</p>
+<p><img alt="" src="../_images/2020-12-04-05-23-55.png" /></p>
+<div class="section" id="memanggil-wms-wfs-dan-wcs-dengan-qgis">
+<h3>Memanggil WMS, WFS dan WCS dengan QGIS<a class="headerlink" href="#memanggil-wms-wfs-dan-wcs-dengan-qgis" title="Permalink to this headline">¶</a></h3>
+<p>QGIS telah menyediakan fungsi yang cukup lengkap untuk memanggil data dari Geoserver. Berikut caranya:</p>
+<p><img alt="" src="../_images/2020-12-04-08-47-22.png" /></p>
+<p>Tiap menu digunakan untuk memanggil layanan OGC dari jenis yang berbeda. Parameter yang digunakan antara lain adalah alamat host Geoserver, sedangkan QGIS akan memanggil daftar layer yang tersedia secara otomatis.</p>
+</div>
+<div class="section" id="memanggil-data-publikasi-ogc-dengan-javascript-library-leafletjs">
+<h3>Memanggil data publikasi OGC dengan Javascript Library (LeafletJS)<a class="headerlink" href="#memanggil-data-publikasi-ogc-dengan-javascript-library-leafletjs" title="Permalink to this headline">¶</a></h3>
+<p>Pada LeafletJS (dan library web map lain seperti OpenLayers, GMap API, Mapbox dst), layer secara umum terbagi menjadi dua macam, yaitu 1) Tilelayer (‘Slippy Map’) yang dapat diperoleh dalam bentuk layanan (service) dari penyedia tile, dan 2) Feature Layer yang dapat ditambahkan sendiri pada Leaflet. Tilelayer cenderung bersifat statis, tidak interaktif dan disajikan dalam bentuk ‘tile’. Tilelayer sering digunakan sebagai background atau basemap untuk peta yang akan dibuat pada sebuah webmap library seperti Leaflet. Pada Tilelayer ini tidak dapat diterapkan konsep interaktivitas, misalnya memunculkan popup berdasarkan atribut (dengan beberapa pengecualian, misalnya pada Vector Tile).</p>
+<p>Adapun Feature Layer merupakan layer yangdapat ditambahkan pada LeafletJS Map bersumber dari data yang kita miliki. Contoh Feature layer yang banyak dijumpai adalah Marker. Pada Marker kita dapat memberikan atribut dan menerapkan interaktivitas, misalnya dengan memunculkan popup, melakukan drag and drop, dan seterusnya. Selain marker, kita juga dapat menambahkan polygon dan polyline dengan cara yang hampir sama. Feature Layer yang lain adalah GeoJSON, yang memungkinkan kita untuk menambahkan layer data spasial lengkap dengan atribut dan fungsi interaktifnya. Pada bagian ini akan dibahas bagaimana menggunakan GeoJSON untuk menampilkan data spasial (shapefile) menjadi peta yang interaktif pada LeafletJS melalui Geoserver.</p>
+<p>Untuk memanggil data dari Geoserver menggunakan LeafletJS, dapat digunakan script seperti berikut:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span>    <span class="kd">var</span> <span class="nx">layerjalan</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="nx">tileLayer</span><span class="p">.</span><span class="nx">wms</span><span class="p">(</span><span class="s1">&#39;http://localhost:8080/geoserver/wms?&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">layers</span><span class="o">:</span> <span class="s1">&#39;latihan:jalan&#39;</span>
+    <span class="p">}).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Contoh script LeafletJS tersedia pada https://github.com/danylaksono/sample-leafletjs. Sebagai latihan, modifikasi script tersebut untuk memanggil layer KRB dari Server pada alamat http://54.254.9.31:8080/geoserver sebagai WMS.</p>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -286,7 +324,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./sesi1"
+            path: "./sesi3"
         },
         predefinedOutput: true
     }
@@ -301,8 +339,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">Enterprise GIS dengan Perangkat Lunak Free and OpenSource (FOSS)</a>
-    <a class='right-next' id="next-link" href="pengantarlinux.html" title="next page">Pengantar Linux dan Server</a>
+    <a class='left-prev' id="prev-link" href="publikasi.html" title="previous page">Publikasi Data Spasial dengan Geoserver</a>
+    <a class='right-next' id="next-link" href="arsitektur.html" title="next page">Arsitektur Enterprise GIS dengan Perangkat Lunak (FOSS)</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

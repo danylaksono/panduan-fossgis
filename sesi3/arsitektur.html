@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pengantar Linux Server, FOSS-GIS dan Web Server &#8212; fossgis-enterprise</title>
+    <title>Arsitektur Enterprise GIS dengan Perangkat Lunak (FOSS) &#8212; fossgis-enterprise</title>
     
   <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
 
@@ -56,8 +56,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Pengantar Linux dan Server" href="pengantarlinux.html" />
-    <link rel="prev" title="Enterprise GIS dengan Perangkat Lunak Free and OpenSource (FOSS)" href="../intro.html" />
+    <link rel="prev" title="Konsumsi Data dengan Standar OGC" href="konsumsiogc.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -95,29 +94,29 @@
   Bagian I - Linux Server dan FOSS-GIS
  </span>
 </p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi1/introlinux.html">
    Pengantar Linux Server, FOSS-GIS dan Web Server
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="pengantarlinux.html">
+  <a class="reference internal" href="../sesi1/pengantarlinux.html">
    Pengantar Linux dan Server
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="arsitektur.html">
+  <a class="reference internal" href="../sesi1/arsitektur.html">
    Pengaturan dan Administrasi Linux
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="linuxserver.html">
+  <a class="reference internal" href="../sesi1/linuxserver.html">
    Linux sebagai Sistem Operasi Server
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="fossgis.html">
+  <a class="reference internal" href="../sesi1/fossgis.html">
    Free and Open Source Software-GIS
   </a>
  </li>
@@ -159,29 +158,29 @@
   Bagian III - Standar OGC untuk Interoperabilitas
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../sesi3/introogc.html">
+  <a class="reference internal" href="introogc.html">
    Pengantar Interoperabilitas Data Spasial
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../sesi3/interoperabilitas.html">
+  <a class="reference internal" href="interoperabilitas.html">
    Interoperabilitas dan Standar OGC
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../sesi3/publikasi.html">
+  <a class="reference internal" href="publikasi.html">
    Publikasi Data Spasial dengan Geoserver
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../sesi3/konsumsiogc.html">
+  <a class="reference internal" href="konsumsiogc.html">
    Konsumsi Data dengan Standar OGC
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../sesi3/arsitektur.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Arsitektur Enterprise GIS dengan Perangkat Lunak (FOSS)
   </a>
  </li>
@@ -227,7 +226,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/sesi1/introlinux.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/sesi3/arsitektur.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -258,19 +257,10 @@
         
               <div>
                 
-  <div class="section" id="pengantar-linux-server-foss-gis-dan-web-server">
-<h1>Pengantar Linux Server, FOSS-GIS dan Web Server<a class="headerlink" href="#pengantar-linux-server-foss-gis-dan-web-server" title="Permalink to this headline">¶</a></h1>
-<p>Linux, atau GNU/Linux, mengacu pada sistem operasi komputer Unix-like yang menggunakan kernel Linux. Linux merupakan contoh paling menonjol dari pengembangan open source dan perangkat lunak bebas serta perangkat lunak yang dibuat pengguna; kode sumber yang mendasarinya tersedia bagi siapa saja untuk digunakan, dimodifikasi, dan didistribusikan kembali secara bebas.</p>
-<p>Bagian ini merupakan bagian pertama dari panduan ini. Sesi ini membahas mengenai Linux dan cara kerjanya, serta bagaimana Linux digunakan sebagai sistem operasi untuk menunjang penggunaan <em>Free and Open Source Software (FOSS)</em>, khususnya untuk menunjang analisis dan manajemen data Geospasial.</p>
-<p>Berikut adalah materi yang dibahas pada bagian ini:</p>
-<p><span class="fa fa-check text-success mr-1"></span> <a class="reference internal" href="pengantarlinux.html"><span class="doc std std-doc">Pengantar mengenai Linux</span></a>
-: Sejarah dan perkembangan Linux, beberapa Distro Linux yang terkenal, serta instalasi dan penggunaan Ubuntu Linux, yang akan digunakan pada seluruh dokumen latihan ini.</p>
-<p><span class="fa fa-check text-success mr-1"></span> <a class="reference internal" href="arsitektur.html"><span class="doc std std-doc">Arsitektur dan Administrasi sistem Linux</span></a>
-: Beberapa konsep tentang arsitektur Linux sebagai sebuah sistem operasi, serta bagaimana pengaturan Linux pada sebuah lingkungan server</p>
-<p><span class="fa fa-check text-success mr-1"></span> <a class="reference internal" href="linuxserver.html"><span class="doc std std-doc">Linux untuk Webserver</span></a>
-: Latihan mengenai pengaturan Linux untuk publikasi halaman web dengan menggunakan Apache/httpd dan Tomcat. Akan disampaikan juga mengenai penggunaan Virtual Host dan konsep proxy pada Apache untuk keperluan publikasi website</p>
-<p><span class="fa fa-check text-success mr-1"></span> <a class="reference internal" href="fossgis.html"><span class="doc std std-doc">Pengantar FOSS-GIS</span></a>
-: Mengenal jenis-jenis lisensi perangkat lunak serta beberapa perangkat FOSS-GIS yang populer.</p>
+  <div class="section" id="arsitektur-enterprise-gis-dengan-perangkat-lunak-foss">
+<h1>Arsitektur Enterprise GIS dengan Perangkat Lunak (FOSS)<a class="headerlink" href="#arsitektur-enterprise-gis-dengan-perangkat-lunak-foss" title="Permalink to this headline">¶</a></h1>
+<p>OGC+FOSS4G
+<img alt="" src="../_images/2020-12-04-03-54-28.png" /></p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -286,7 +276,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./sesi1"
+            path: "./sesi3"
         },
         predefinedOutput: true
     }
@@ -301,8 +291,7 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">Enterprise GIS dengan Perangkat Lunak Free and OpenSource (FOSS)</a>
-    <a class='right-next' id="next-link" href="pengantarlinux.html" title="next page">Pengantar Linux dan Server</a>
+    <a class='left-prev' id="prev-link" href="konsumsiogc.html" title="previous page">Konsumsi Data dengan Standar OGC</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

@@ -12,9 +12,17 @@ Panduan ini dapat diberikan sebagai pegangan pada pelatihan maupun sebagai bahan
 
 Apabila diberikan pada sesi pelatihan tentang Free and OpenSource GIS, pembagian jadwal dari materi ini dapat dilakukan sebagai berikut:
 
-
-<br/>
-
+**Hari 1: Linux Server dan FOSS4G**
+|     Waktu     | Materi Pelatihan                                           |
+| :-----------: | :-------------------------------------------------------- |
+| 09.00 - 10.00 | Pendahuluan, Instalasi Linux VM                            |
+| 10.00 - 10.15 | *Break*                                                    |
+| 10.15 - 12.00 | Arsitektur dan Administrasi Sistem Ubuntu Linux            |
+| 12.00 - 13.00 | *ISHOMA*                                                   |
+| 13.00 - 15.00 | Linux untuk Server Web                                     |
+| 15.00 - 15.15 | *Break*                                                    |
+| 15.15 - 16.00 | Pengantar Free and OpenSource GIS (FOSS-GIS)               |
+|<img width=200/>|<img width=500/>|
 
 **Hari 2: Relational Spatial Database**
 
@@ -29,35 +37,17 @@ Apabila diberikan pada sesi pelatihan tentang Free and OpenSource GIS, pembagian
 | 15.15 - 16.00 | SQL vs NoSQL Database                                        |
 |<img width=200/>|<img width=500/>|
 
-<br/>
-
 **Hari 3: Standar OGC untuk Interoperabilitas Data Spasial**
 
 |     Waktu     | Materi Pelatihan                                             |
 | :-----------: | :------------------------------------------------------------ |
-| 09.00 - 10.00 | Interoperabilitas dan Standar OGC, Instalasi dan Pengaturan Geoserver |
+| 09.00 - 10.00 | Interoperabilitas dan Standar OGC <br> Instalasi dan Pengaturan Geoserver |
 | 10.00 - 10.15 | *Break*                                                      |
-| 10.15 - 12.00 | Publikasi data dengan standar OGC pada Geoserver<br/>Pengaturan dan konsumsi data melalui layanan OGC |
+| 10.15 - 12.00 | Publikasi data dengan standar OGC pada Geoserver<br/> |
 | 12.00 - 13.00 | *ISHOMA*                                                     |
-| 13.00 - 15.00 | Geoserver dan MongoDB                                        |
+| 13.00 - 15.00 | Pengaturan dan konsumsi data melalui layanan OGC                                        |
 | 15.00 - 15.15 | *Break*                                                      |
 | 15.15 - 16.00 | Arsitektur Enterprise GIS dengan FOSS4G                      |
-|<img width=200/>|<img width=500/>|
-
-
-
-
-**Hari 1: Linux Server dan FOSS4G**
-
-|     Waktu     | Materi Pelatihan                                           |
-| :-----------: | :-------------------------------------------------------- |
-| 09.00 - 10.00 | Pendahuluan, Instalasi Linux VM                            |
-| 10.00 - 10.15 | *Break*                                                    |
-| 10.15 - 12.00 | Arsitektur dan Administrasi Sistem Ubuntu Linux            |
-| 12.00 - 13.00 | *ISHOMA*                                                   |
-| 13.00 - 15.00 | Linux untuk Server Web                                     |
-| 15.00 - 15.15 | *Break*                                                    |
-| 15.15 - 16.00 | Pengantar Free and OpenSource GIS (FOSS-GIS)               |
 |<img width=200/>|<img width=500/>|
 
 
