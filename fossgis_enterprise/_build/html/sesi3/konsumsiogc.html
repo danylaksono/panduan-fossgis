@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Konsumsi Data dengan Standar OGC &#8212; fossgis-enterprise</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.30270b6e4c972e43c488.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Arsitektur Enterprise GIS dengan Perangkat Lunak (FOSS)" href="arsitektur.html" />
+    <link rel="prev" title="Publikasi Data Spasial dengan Geoserver" href="publikasi.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">fossgis-enterprise</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  Bagian I - Linux Server dan FOSS-GIS
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi1/introlinux.html">
+   Pengantar Linux Server, FOSS-GIS dan Web Server
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi1/pengantarlinux.html">
+   Pengantar Linux dan Server
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi1/arsitektur.html">
+   Pengaturan dan Administrasi Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi1/linuxserver.html">
+   Linux sebagai Sistem Operasi Server
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi1/fossgis.html">
+   Free and Open Source Software-GIS
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Bagian II - Relational Spatial Database
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi2/intrordbms.html">
+   Pengantar Basisdata Relational
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi2/relationaldb.html">
+   Basisdata Relational
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi2/dbmanagement.html">
+   Administrasi Pengguna pada Basisdata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi2/postgisquery.html">
+   Basisdata Spasial dengan PostGIS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sesi2/nosql.html">
+   Basisdata SQL dan NoSQL
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Bagian III - Standar OGC untuk Interoperabilitas
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introogc.html">
+   Pengantar Interoperabilitas Data Spasial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="interoperabilitas.html">
+   Interoperabilitas dan Standar OGC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="publikasi.html">
+   Publikasi Data Spasial dengan Geoserver
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Konsumsi Data dengan Standar OGC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="arsitektur.html">
+   Arsitektur Enterprise GIS dengan Perangkat Lunak (FOSS)
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/sesi3/konsumsiogc.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#menggunakan-perangkat-foss-untuk-mengakses-data-ogc">
+   Menggunakan Perangkat FOSS untuk mengakses data OGC
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#memanggil-wms-wfs-dan-wcs-dengan-qgis">
+     Memanggil WMS, WFS dan WCS dengan QGIS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#memanggil-data-publikasi-ogc-dengan-javascript-library-leafletjs">
+     Memanggil data publikasi OGC dengan Javascript Library (LeafletJS)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="konsumsi-data-dengan-standar-ogc">
+<h1>Konsumsi Data dengan Standar OGC<a class="headerlink" href="#konsumsi-data-dengan-standar-ogc" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="menggunakan-perangkat-foss-untuk-mengakses-data-ogc">
+<h2>Menggunakan Perangkat FOSS untuk mengakses data OGC<a class="headerlink" href="#menggunakan-perangkat-foss-untuk-mengakses-data-ogc" title="Permalink to this headline">¶</a></h2>
+<p>Berbagai perangkat FOSS dapat saling berkomunikasi dengan bantuan dukungan standar OGC. Untuk latihan ini, QGIS akan digunakan sebagai perangkat client untuk memanggil data dari Geoserver.</p>
+<p><img alt="" src="../_images/2020-12-04-05-23-55.png" /></p>
+<div class="section" id="memanggil-wms-wfs-dan-wcs-dengan-qgis">
+<h3>Memanggil WMS, WFS dan WCS dengan QGIS<a class="headerlink" href="#memanggil-wms-wfs-dan-wcs-dengan-qgis" title="Permalink to this headline">¶</a></h3>
+<p>QGIS telah menyediakan fungsi yang cukup lengkap untuk memanggil data dari Geoserver. Berikut caranya:</p>
+<p><img alt="" src="../_images/2020-12-04-08-47-22.png" /></p>
+<p>Tiap menu digunakan untuk memanggil layanan OGC dari jenis yang berbeda. Parameter yang digunakan antara lain adalah alamat host Geoserver, sedangkan QGIS akan memanggil daftar layer yang tersedia secara otomatis.</p>
+</div>
+<div class="section" id="memanggil-data-publikasi-ogc-dengan-javascript-library-leafletjs">
+<h3>Memanggil data publikasi OGC dengan Javascript Library (LeafletJS)<a class="headerlink" href="#memanggil-data-publikasi-ogc-dengan-javascript-library-leafletjs" title="Permalink to this headline">¶</a></h3>
+<p>Pada LeafletJS (dan library web map lain seperti OpenLayers, GMap API, Mapbox dst), layer secara umum terbagi menjadi dua macam, yaitu 1) Tilelayer (‘Slippy Map’) yang dapat diperoleh dalam bentuk layanan (service) dari penyedia tile, dan 2) Feature Layer yang dapat ditambahkan sendiri pada Leaflet. Tilelayer cenderung bersifat statis, tidak interaktif dan disajikan dalam bentuk ‘tile’. Tilelayer sering digunakan sebagai background atau basemap untuk peta yang akan dibuat pada sebuah webmap library seperti Leaflet. Pada Tilelayer ini tidak dapat diterapkan konsep interaktivitas, misalnya memunculkan popup berdasarkan atribut (dengan beberapa pengecualian, misalnya pada Vector Tile).</p>
+<p>Adapun Feature Layer merupakan layer yangdapat ditambahkan pada LeafletJS Map bersumber dari data yang kita miliki. Contoh Feature layer yang banyak dijumpai adalah Marker. Pada Marker kita dapat memberikan atribut dan menerapkan interaktivitas, misalnya dengan memunculkan popup, melakukan drag and drop, dan seterusnya. Selain marker, kita juga dapat menambahkan polygon dan polyline dengan cara yang hampir sama. Feature Layer yang lain adalah GeoJSON, yang memungkinkan kita untuk menambahkan layer data spasial lengkap dengan atribut dan fungsi interaktifnya. Pada bagian ini akan dibahas bagaimana menggunakan GeoJSON untuk menampilkan data spasial (shapefile) menjadi peta yang interaktif pada LeafletJS melalui Geoserver.</p>
+<p>Untuk memanggil data dari Geoserver menggunakan LeafletJS, dapat digunakan script seperti berikut:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span>    <span class="kd">var</span> <span class="nx">layerjalan</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="nx">tileLayer</span><span class="p">.</span><span class="nx">wms</span><span class="p">(</span><span class="s1">&#39;http://localhost:8080/geoserver/wms?&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">layers</span><span class="o">:</span> <span class="s1">&#39;latihan:jalan&#39;</span>
+    <span class="p">}).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Contoh script LeafletJS tersedia pada https://github.com/danylaksono/sample-leafletjs. Sebagai latihan, modifikasi script tersebut untuk memanggil layer KRB dari Server pada alamat http://54.254.9.31:8080/geoserver sebagai WMS.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./sesi3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="publikasi.html" title="previous page">Publikasi Data Spasial dengan Geoserver</a>
+    <a class='right-next' id="next-link" href="arsitektur.html" title="next page">Arsitektur Enterprise GIS dengan Perangkat Lunak (FOSS)</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Dany Laksono<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.30270b6e4c972e43c488.js"></script>
+
+
+    
+  </body>
+</html>

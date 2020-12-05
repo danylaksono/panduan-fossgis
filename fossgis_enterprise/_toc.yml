@@ -24,3 +24,14 @@
   - file: sesi2/dbmanagement
   - file: sesi2/postgisquery
   - file: sesi2/nosql
+
+  
+
+- part: Bagian III - Standar OGC untuk Interoperabilitas
+  expand_sections: true
+  sections:
+  - file: sesi3/introogc
+  - file: sesi3/interoperabilitas
+  - file: sesi3/publikasi
+  - file: sesi3/konsumsiogc
+  - file: sesi3/arsitektur
