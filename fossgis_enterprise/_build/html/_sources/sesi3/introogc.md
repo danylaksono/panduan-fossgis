@@ -13,5 +13,5 @@ Bagian ini membahas mengenai:
 {fa}`check,text-success mr-1` [Pengaturan dan Konsumsi data spasial melalui OGC](konsumsiogc)
 : Setelah melakukan publikasi data pada OGC, beberapa client berbeda (QGIS, LeafletJS, OpenLayers, Mapstore) digunakan untuk memanggil data tersebut 
 
-{fa}`check,text-success mr-1` [Arsitektur Enterprise FOSS-GIS](arsitektur)
-: Penjelasan tentang *stack* aplikasi Free and OpenSource GIS yang dapat digunakan untuk menyusun sebuah Enterprise GIS
+<!-- {fa}`check,text-success mr-1` [Arsitektur Enterprise FOSS-GIS](arsitektur) -->
+<!-- : Penjelasan tentang *stack* aplikasi Free and OpenSource GIS yang dapat digunakan untuk menyusun sebuah Enterprise GIS -->

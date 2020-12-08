@@ -56,7 +56,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Basisdata SQL dan NoSQL" href="nosql.html" />
+    <link rel="next" title="Pengantar Interoperabilitas Data Spasial" href="../sesi3/introogc.html" />
     <link rel="prev" title="Administrasi Pengguna pada Basisdata" href="dbmanagement.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -148,11 +148,6 @@
    Basisdata Spasial dengan PostGIS
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nosql.html">
-   Basisdata SQL dan NoSQL
-  </a>
- </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -180,11 +175,6 @@
    Konsumsi Data dengan Standar OGC
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../sesi3/arsitektur.html">
-   Arsitektur Enterprise GIS dengan Perangkat Lunak (FOSS)
-  </a>
- </li>
 </ul>
 
 </nav>
@@ -192,7 +182,7 @@
  <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  Buku ini disusun menggunakan <a href="https://jupyterbook.org">Jupyter Book</a>
 </div>
 
 </div>
@@ -267,8 +257,8 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#memasukkan-data-pada-postgis">
-     Memasukkan Data pada PostGIS
+    <a class="reference internal nav-link" href="#latihan-memasukkan-data-pada-postgis">
+     Latihan: Memasukkan Data pada PostGIS
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -299,18 +289,23 @@
 <p>Pada bagian ini akan dibahas mengenai bagaimana menggunakan PostGIS untuk melakukan analisis spasial sederhana. QGIS akan digunakan sebagai antarmuka utama untuk melakukan koneksi pada PostGIS dan menampilkan hasil analisis.</p>
 <div class="admonition-catatan admonition">
 <p class="admonition-title">Catatan</p>
-<p>Latihan ini akan menggunakan QGIS, sehingga terlebih dahulu lakukan instalasi QGIS.
-Data latihan dapat diperoleh dari link berikut:</p>
-<p>https://github.com/danylaksono/sleman-dataset/</p>
+<p>Latihan ini akan menggunakan QGIS, sehingga terlebih dahulu lakukan instalasi QGIS.</p>
+<p>Adapun Data untuk latihan ini dapat diperoleh dari link berikut:</p>
+<p><a class="reference external" href="https://github.com/danylaksono/sleman-dataset/">https://github.com/danylaksono/sleman-dataset/</a></p>
 <p>Gunakan Github untuk melakukan clone atau unduh seluruh data sebagai zip</p>
 </div>
 <div class="section" id="pengantar-postgis">
 <h2><a class="reference external" href="https://postgis.net/workshops/postgis-intro/introduction.html">Pengantar PostGIS</a><a class="headerlink" href="#pengantar-postgis" title="Permalink to this headline">¶</a></h2>
 <p>Dalam implementasi GIS <strong>generasi pertama</strong>, semua data spasial disimpan dalam file datar dan perangkat lunak GIS khusus diperlukan untuk menafsirkan dan memanipulasi data. Sistem pengelolaan generasi pertama ini dirancang untuk memenuhi kebutuhan pengguna yang semua data yang diperlukan berada dalam domain organisasi pengguna. Mereka adalah sistem berpemilik dan mandiri yang secara khusus dibangun untuk menangani data spasial.</p>
 <p>Sistem spasial <strong>generasi kedua</strong> menyimpan beberapa data dalam database relasional (biasanya “atribut” atau bagian non-spasial) tetapi masih kekurangan fleksibilitas yang diberikan dengan integrasi langsung.</p>
-<p><em>“Database spasial sejati lahir ketika orang mulai memperlakukan fitur spasial sebagai objek database kelas satu.”</em></p>
+<blockquote>
+<div><p><em>“Database spasial sejati lahir ketika orang mulai memperlakukan fitur spasial sebagai objek database kelas satu.”</em></p>
+</div></blockquote>
 <p>Database spasial sepenuhnya mengintegrasikan data spasial dengan database relasional objek. Orientasi berubah dari <em>GIS-centric</em> menjadi <em>database-centric</em>.</p>
-<p><img alt="" src="../_images/2020-12-03-07-15-37.png" /></p>
+<div class="figure align-default" id="evolusi">
+<a class="reference internal image-reference" href="../_images/2020-12-03-07-15-37.png"><img alt="../_images/2020-12-03-07-15-37.png" src="../_images/2020-12-03-07-15-37.png" style="height: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">Evolusi Basisdata Spasial untuk GIS</span><a class="headerlink" href="#evolusi" title="Permalink to this image">¶</a></p>
+</div>
 <p>Untuk memanipulasi data selama kueri, database biasa menyediakan fungsi seperti menggabungkan string, melakukan operasi hash pada string, melakukan matematika pada angka, dan mengekstraksi informasi dari tanggal. Database spasial menyediakan satu set lengkap fungsi untuk menganalisis komponen geometris, menentukan hubungan spasial, dan memanipulasi geometri. Fungsi spasial ini berfungsi sebagai blok bangunan untuk setiap proyek tata ruang.</p>
 <p>Mayoritas dari semua fungsi spasial pada PostGIS dapat dikelompokkan ke dalam salah satu dari lima kategori berikut:</p>
 <ul class="simple">
@@ -325,35 +320,80 @@ Daftar fungsi yang mungkin sangat besar, tetapi sekumpulan fungsi umum ditentuka
 <div class="section" id="menggunakan-qgis-sebagai-antarmuka-postgis">
 <h2>Menggunakan QGIS sebagai antarmuka PostGIS<a class="headerlink" href="#menggunakan-qgis-sebagai-antarmuka-postgis" title="Permalink to this headline">¶</a></h2>
 <p>QGIS barangkali merupakan perangkat lunak GIS OpenSource yang paling terkenal. QGIS memiliki berbagai dukungan format data spasial, termasuk untuk koneksi terhadap basisdata PostGIS. Pada latihan ini akan digunakan QGIS untuk melakukan koneksi pada basisdata.</p>
-<div class="section" id="memasukkan-data-pada-postgis">
-<h3>Memasukkan Data pada PostGIS<a class="headerlink" href="#memasukkan-data-pada-postgis" title="Permalink to this headline">¶</a></h3>
-<p>Berikut adalah data yang tersedia pada link yang disebutkan di atas:
+<p>QGIS memiliki berbagai opsi untuk terhubung dengan beragam format data yang berbeda. Koneksi ke basisdata PostgreSQL (dan dengan demikian PostGIS), dapat dilakukan melalui menu Data Source Manager sebagai berikut:</p>
+<p><img alt="" src="../_images/2020-12-08-10-11-09.png" /></p>
+<p>Lakukan koneksi pada basisdata PostGIS yang tersimpan pada WSL. Gunakan menu connect untuk menyambungkan basisdata sesuai dengan parameter yang diperlukan. Untuk saat ini, basisdata ini masih kosong tanpa ada isi apapun. Kita akan gunakan data dari unduhan di atas untuk mengisi basisdata ini dengan menggunakan QGIS.</p>
+<div class="section" id="latihan-memasukkan-data-pada-postgis">
+<h3>Latihan: Memasukkan Data pada PostGIS<a class="headerlink" href="#latihan-memasukkan-data-pada-postgis" title="Permalink to this headline">¶</a></h3>
+<p>Berikut adalah data yang tersedia pada link unduhan yang disebutkan di atas:
 Data vector yang digunakan berupa data di daerah Kabupaten Sleman, antara lain:
-o	Data jaringan jalan (line)
-o	Data jaringan sungai (line)
-o	Data bangunan (polygon)
-o	Data titik-titik penting (point)
-o	Data batas administrasi (polygon)
-o	Data penggunaan lahan (multipolygon)
-o	Data Kawasan Rawan Bencana (KRB) BNPB 2010 (polygon)
+*	Data jaringan jalan (line)
+*	Data jaringan sungai (line)
+*	Data bangunan (polygon)
+*	Data titik-titik penting (point)
+*	Data batas administrasi (polygon)
+*	Data penggunaan lahan (multipolygon)
+*	Data Kawasan Rawan Bencana (KRB) BNPB 2010 (polygon)
 Data berupa raster terdiri atas:
-o	Raster populasi penduduk Indonesia dengan resolusi 100 meter yang diambil dari www.worldpop.org.uk
-o	Raster SRTM dengan resolusi 30 meter.</p>
-<p>Untuk data vektor, kita akan gunakan QGIS untuk memasukkan data pada PostGIS:
-<img alt="" src="../_images/2020-12-03-12-57-00.png" /></p>
-<p>Adapun untuk data raster, terlebih dahulu perlu mengakses mesin Docker dengan mengcopikan data pada root mesin tersebut, sebagai berikut:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker <span class="nb">exec</span> -it postgrest_tut bash -c <span class="s2">&quot;apt-get update &amp;&amp; apt-get install postgis&quot;</span>
+*	Raster populasi penduduk Indonesia dengan resolusi 100 meter yang diambil dari www.worldpop.org.uk
+*	Raster SRTM dengan resolusi 30 meter.</p>
+<p>Untuk latihan ini, terlebih dahulu kita masukkan data-data tersebut di atas ke dalam Basisdata PostGIS. Kita akan menggunakan basisdata <code class="docutils literal notranslate"><span class="pre">latihan</span></code> yang kita buat pada latihan sebelumnya. Akan tetapi, kita perlu untuk terlebih dulu mengaktifkan ekstensi PostGIS pada basisdata <code class="docutils literal notranslate"><span class="pre">latihan</span></code>. Gunakan <code class="docutils literal notranslate"><span class="pre">psql</span></code> atau <code class="docutils literal notranslate"><span class="pre">pgAdmin4</span></code> untuk menjalankan query berikut:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="n">EXTENSION</span> <span class="n">postgis</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Kita dapat memeriksa bahwa ekstensi postgis telah diaktifkan pada basisdata ini menggunakan pgAdmin:</p>
+<p><img alt="" src="../_images/2020-12-08-11-09-21.png" /></p>
+<p>Dengan demikian, basisdata <code class="docutils literal notranslate"><span class="pre">latihan</span></code> sudah dapat digunakan untuk menyimpan dan menganalisis data geospasial. Untuk itu kita akan masukkan data vektor dan data raster di atas ke dalam basisdata. QGIS memiliki menu yang praktis untuk keperluan ini.</p>
+<ol>
+<li><p>Untuk data vektor, kita akan gunakan QGIS untuk memasukkan data pada PostGIS. Pastikan bahwa basisdata telah terkoneksi melalui menu <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">Source</span> <span class="pre">Manager</span></code> pada langkah sebelumnya.</p>
+<p><img alt="" src="../_images/2020-12-08-11-14-45.png" /></p>
+<p>Centang <code class="docutils literal notranslate"><span class="pre">also</span> <span class="pre">list</span> <span class="pre">tables</span> <span class="pre">with</span> <span class="pre">no</span> <span class="pre">geometry</span></code> akan memunculkan tabel <code class="docutils literal notranslate"><span class="pre">anggota</span></code> yang kita gunakan pada latihan sebelumnya.    Parameter koneksi pada antarmuka tersebut sama dengan parameter koneksi yang diperlukan untuk menghubungkan pgAdmin dan PostgreSQL pada latihan sebelumnya.</p>
+</li>
+<li><p>Selanjutnya, tambahkan tiap layer <strong>shapefile</strong> pada data unduhan ke dalam QGIS, seperti berikut:</p>
+<p><img alt="" src="../_images/2020-12-08-13-01-57.png" /></p>
+</li>
+<li><p>Buka menu <strong>DBManager</strong>, kemudian lakukan koneksi ke basisdata (cukup dengan membuka/expand koneksi basisdata yang dimaksud)</p>
+<p><img alt="" src="../_images/2020-12-08-13-05-18.png" /></p>
+</li>
+<li><p>Gunakan menu <code class="docutils literal notranslate"><span class="pre">Import</span> <span class="pre">Layer/File...</span></code> untuk mengkonversi layer pada QGIS menjadi tabel pada PostGIS, seperti berikut.</p>
+<p><img alt="" src="../_images/2020-12-08-13-07-12.png" /></p>
+<p>Penggunaan Spatial Index akan sangat membantu apabila data yang digunakan cukup besar.</p>
+<div class="admonition-catatan admonition">
+<p class="admonition-title">Catatan</p>
+<p>Karena suatu alasan, QGIS sepertinya tidak mendukung penggunaan huruf besar pada nama tabel maupun kolom. Gunakan huruf kecil pada nama <strong>Table</strong> dan centang <code class="docutils literal notranslate"><span class="pre">Convert</span> <span class="pre">field</span> <span class="pre">names</span> <span class="pre">to</span> <span class="pre">lowercase</span></code> untuk memastikan tidak ada masalah pada saat menjalankan SQL nantinya.</p>
+</div>
+</li>
+<li><p>Gunakan menu SQL Window untuk memasukkan Query:</p>
+<p><img alt="" src="../_images/2020-12-08-13-14-28.png" /></p>
+</li>
+<li><p>Hasil Query dapat disimpan dalam bentuk View (tabel baru) maupun layer pada QGIS. Klik pada centang <code class="docutils literal notranslate"><span class="pre">Load</span> <span class="pre">as</span> <span class="pre">New</span> <span class="pre">Layer</span></code>
+<img alt="" src="../_images/2020-12-08-13-15-59.png" /></p>
+<p>Klik Load untuk memuat layer tersebut pada QGIS</p>
+</li>
+</ol>
+<p>Pada pembahasan di bawah ini terdapat contoh-contoh penggunaan SQL pada PostGIS untuk menyelesaikan berbagai permasalahan. Sebelum itu, kita perlu memasukkan terlebih dahulu data raster ke dalam basisdata PostGIS. Untuk menambahkan raster ke PostGIS kita dapat menggunakan fungsi <code class="docutils literal notranslate"><span class="pre">raster2pgsql</span></code>.</p>
+<ol>
+<li><p>Untuk data raster, terlebih dahulu kita perlu mengakses mesin Docker dengan mengcopikan data pada root mesin tersebut, sebagai berikut:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker <span class="nb">exec</span> -it postgis bash -c <span class="s2">&quot;apt-get update &amp;&amp; apt-get install postgis&quot;</span>
 docker cp dem.tif postgis:/
 </pre></div>
 </div>
-<p>kemudian, gunakan raster2pgsql untuk mengkonversi raster menjadi sql:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker <span class="nb">exec</span> -it postgrest_tut bash -c <span class="s1">&#39;raster2pgsql -s 32749 -I -C -M dem.tif -F -t 100x100 public.rstdem  | psql -U postgres -d postgres&#39;</span>
+<p>ini apabila kita asumsikan data raster yang kita copykan bernama <code class="docutils literal notranslate"><span class="pre">dem.tif</span></code>.</p>
+</li>
+<li><p>Selanjutnya, gunakan raster2pgsql untuk mengkonversi raster menjadi sql melalui operasi <em>pipe</em>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker <span class="nb">exec</span> -it postgis bash -c <span class="s1">&#39;raster2pgsql -s 32749 -I -C -M dem.tif -F -t 100x100 public.rstdem  | psql -U postgres -d latihan&#39;</span>
 </pre></div>
 </div>
+<p>Dengan demikian, <code class="docutils literal notranslate"><span class="pre">raster2pgsql</span></code> akan mengkonversi data <code class="docutils literal notranslate"><span class="pre">dem.tif</span></code> menjadi tabel <code class="docutils literal notranslate"><span class="pre">rstdem</span></code> pada basisdata <code class="docutils literal notranslate"><span class="pre">latihan</span></code>.</p>
+</li>
+</ol>
+<p>Setelah semua data selesai kita muat pada QGIS, saatnya meng-eksplorasi berbagai fungsi analisis PostGIS. Berikut adalah beberapa contoh penggunaan fungsi pada PostGIS untuk keperluan analisis spasial pada data vektor maupun raster.</p>
+<p> </p>
 </div>
 <div class="section" id="latihan-query-spasial-pada-data-vektor">
 <h3>Latihan: Query Spasial pada data vektor<a class="headerlink" href="#latihan-query-spasial-pada-data-vektor" title="Permalink to this headline">¶</a></h3>
-<p>Berikut adalah beberapa latihan yang dapat dilakukan menggunakan QGIS dan PostGIS:</p>
+<p>Berikut adalah beberapa latihan yang dapat dilakukan menggunakan QGIS dan PostGIS. Gunakan DBManager (Menu <code class="docutils literal notranslate"><span class="pre">Database</span> <span class="pre">&gt;</span> <span class="pre">DBManager</span></code>) pada QGIS untuk mengakses PostGIS,</p>
+<p>Selanjutnya, buat query-query berikut ini. Sesuaikan atribut dan nama kolom dengan data yang digunakan.</p>
 <ul>
 <li><p>Mencari titik-titik penting (POI) yang berada pada kawasan rawan bencana:</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="n">poi</span><span class="p">.</span><span class="n">id_0</span><span class="p">,</span> <span class="n">poi</span><span class="p">.</span><span class="n">geom</span>
@@ -536,7 +576,7 @@ Dibuat query sebagai berikut:</p></li>
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="dbmanagement.html" title="previous page">Administrasi Pengguna pada Basisdata</a>
-    <a class='right-next' id="next-link" href="nosql.html" title="next page">Basisdata SQL dan NoSQL</a>
+    <a class='right-next' id="next-link" href="../sesi3/introogc.html" title="next page">Pengantar Interoperabilitas Data Spasial</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

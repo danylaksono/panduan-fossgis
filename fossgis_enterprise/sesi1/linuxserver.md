@@ -1,6 +1,6 @@
 # Linux sebagai Sistem Operasi Server
 
-Linux merupakan salah satu sistem operasi yang paling banyak digunakan untuk server, karena kemampuan enterprise dan biaya yang murah (bahkan gratis). Atas alasan itulah, Linux banyak dijumpai pada berbagai server, baik dalam skala besar maupun kecil.  Pada bagian ini akan dilakukan pengaturan Linux untuk sebagai server dengan menggunakan beberapa perangkat webserver dan application server. 
+Linux merupakan salah satu sistem operasi yang paling banyak digunakan untuk server, karena kemampuan enterprise dan biaya yang murah (bahkan gratis). Atas alasan itulah, Linux banyak dijumpai pada berbagai platform mesin server, baik dalam skala besar maupun kecil.  Pada bagian ini akan dilakukan pengaturan Linux untuk sebagai server dengan menggunakan beberapa perangkat *webserver* dan *application server*. 
 
 
 ## Perangkat Lunak untuk Web Server dan Application Server
@@ -12,7 +12,7 @@ Sebuah aplikasi **webserver** berguna untuk mempublikasi file lokal agar dapat d
 * NodeJS
 * Flask
   
-Apache adalah salah satu webserver berbasis PHP yang paling sering digunakan. Dengan Apache, maka berkas yang tersimpan pada komputer akan dapat dionlinekan dengan pengaturan tertentu. Pengaturan yang dimaksud meliputi pengaturan keamanan, *virtual host*, *proxy*, dan lain sebagainya.
+Apache adalah salah satu webserver berbasis PHP yang paling sering digunakan. Dengan Apache, maka berkas yang tersimpan pada komputer akan dapat di*online*kan dengan pengaturan tertentu. Pengaturan yang dimaksud meliputi pengaturan keamanan, *virtual host*, *proxy*, dan lain sebagainya.
 
 **Application Server** merupakan sebuah kelompok *framework* perangkat lunak yang memungkinkan sebuah *web application* untuk disajikan melalui internet. Contoh application server adalah *Java Servlet Container*, yaitu perangkat yang berfungsi untuk menyajikan aplikasi yang dibuat dengan bahasa Java pada internet. Beberapa Contoh Application Server adalah sebagai berikut:
 * Apache Tomcat
@@ -25,6 +25,7 @@ Jika sebuah *webserver* umumnya menyajikan *static content*(seperti HTML, CSS, J
 
 ```{figure} img/2020-12-03-03-02-24.png
 ---
+height: 500px
 name: appserver
 ---
 Perbandingan App Server dan Web Server
@@ -46,7 +47,7 @@ Apabila kita membuat sebuah file HTML pada folder tersebut, maka berkas tersebut
 
 
 ### Instalasi Apache HTTP Server
-Server web **Apache HTTP Server **adalah perangkat paling populer saat ini untuk menyajikan konten web di internet. Apache menyumbang lebih dari setengah dari selurh situs web aktif di internet dengan berbagai fungsi dan kelebihan yang dimilikinya.
+Server web **Apache HTTP Server **adalah perangkat paling populer saat ini untuk menyajikan konten web di internet. Apache menyumbang lebih dari setengah dari seluruh situs web aktif di internet dengan berbagai fungsi dan kelebihan yang dimilikinya.
 Pada latihan ini akan dilakukan instalasi dan konfigurasi Apache untuk publikasi data dalam bentuk HTML sederhana.
 
 Lakukan langkah berikut untuk melakukan instalasi Apache pada sistem Ubuntu WSL:
@@ -55,10 +56,12 @@ Lakukan langkah berikut untuk melakukan instalasi Apache pada sistem Ubuntu WSL:
    ```bash
     sudo apt update
     ```
+&nbsp;  
 2. Instalasi Apache2
     ```bash
     sudo apt install apache2
     ```
+&nbsp;  
 3. Pengaturan firewall. Firewall berfungsi untuk 'mencegat' terjadinya  transfer data antara sistem lokal dengan jaringan internet. Pengaturan ini diperlukan agar apache diizinkan untuk mengakses port yang diperlukan untuk berkomunikasi dengan dunia luar
 
     ```bash
@@ -85,6 +88,7 @@ Lakukan langkah berikut untuk melakukan instalasi Apache pada sistem Ubuntu WSL:
     Apache (v6)                ALLOW       Anywhere (v6)
     ```
 
+&nbsp;  
     
 4. Jalankan Apache setelah instalasi
 
@@ -100,15 +104,24 @@ Lakukan langkah berikut untuk melakukan instalasi Apache pada sistem Ubuntu WSL:
     Apabila status menunjukkan 'running', artinya webserver Apache sudah berhasil dijalankan
     ![](img/2020-12-02-10-56-11.png)
 
+&nbsp;  
+
 5. Buka localhost melalui browser pada Windows
 
    ![](img/2020-12-02-10-57-55.png)
 
    Apabila halaman Apache Ubuntu sudah terbuka, artinya instalasi Apache berhasil dengan baik    
 
+WSL menggunakan *port forwarding* dan perubahan DNS lola pada alamat localhost, sehingga localhost pada WSL akan sama dengan localhost pada Windows. Untuk melihat alamat IP dari port yang digunakan oleh WSL, gunakan perintah `ip addr`:
+
+![](img/2020-12-07-11-38-03.png)
+
+pada bagian `eth0`, terdapat ip address yang akan membuka halaman yang sama dengan localhost apabila diakses di Windows. Dalam hal ini alamat tersebut adalah `172.17.27.221`.
+
 
 ### Membuat Website sederhana
 Setelah webserver selesai dipasang, selanjutnya adalah menggunakan webserver ini untuk mempublikasi halaman web dalam bentuk HTML. Apache memiliki direktori default dalam publikasi webnya di folder:
+
 ```
 /var/www/html
 ```
@@ -116,16 +129,19 @@ Setelah webserver selesai dipasang, selanjutnya adalah menggunakan webserver ini
 Dengan demikian, seluruh file yang disimpan pada folder tersebut akan dapat dibuka melalui browser pada alamat `localhost`.
 Untuk menguji webserver ini, kita akan lakukan latihan sebagai berikut:
 
-1. Masuk ke folder `/var/www/html` menggunakan perintah `cd`
+1. Masuk ke folder `/var/www/html` menggunakan perintah `cd`.
+   &nbsp;   
 2. Buat sebuah folder baru dengan nama `trial` pada direktori `/html` tersebut. 
    ```bash
    sudo mkdir trial
    ``` 
    Perintah `mkdir` pada folder tersebut memerlukan akses `sudo`, karena owner dari folder adalah `root`.
+   &nbsp;  
 3. Pada folder tersebut, buat sebuah file dengan nama `index.html`
    ```bash
    sudo touch index.html
    ```
+   &nbsp;  
 4. Isilah file tersebut dengan baris bahasa HTML berikut:
    ```html
    <html>
@@ -136,12 +152,13 @@ Untuk menguji webserver ini, kita akan lakukan latihan sebagai berikut:
    </body>
    </html>   
    ```
+   &nbsp;  
 5. Buka http://localhost/trial:
    ![](img/2020-12-02-12-38-31.png)
    File html yang dibuat pada folder berhasil dipanggil pada webserver
 
 ## Tomcat sebagai Servlet Aplikasi berbasis Java
-Apache Tomcat adalah implementasi open-source dari Java Servlet, JavaServer Pages, Java Expression Language, dan teknologi Java WebSocket. Tomcat merupakan salah satu web Application yang paling banyak diadopsi di dunia saat ini. Tomcat mudah digunakan dan memiliki ekosistem add-on yang kuat. Apache Tomcat digunakan untuk publikasi berbagai aplikasi geospasial, seperti misalnya Geoserver dan Mapstore.
+Apache Tomcat adalah implementasi open-source dari Java Servlet, JavaServer Pages, Java Expression Language, dan teknologi Java WebSocket. Tomcat merupakan salah satu web Application yang paling banyak diadopsi di dunia saat ini. Tomcat mudah digunakan dan memiliki ekosistem add-on yang kuat. Apache Tomcat digunakan untuk publikasi berbagai aplikasi geospasial berbasis Java, seperti misalnya Geoserver, GeoTools dan Mapstore.
 
 ### Instalasi Tomcat
 Untuk melakukan instalasi Tomcat, lakukan langkah berikut:
@@ -150,23 +167,28 @@ Untuk melakukan instalasi Tomcat, lakukan langkah berikut:
    ```bash
    sudo apt install default-jdk
    ```
+   &nbsp;  
 2. Atas alasan keamanan, Tomcat tidak boleh dijalankan di bawah pengguna root. Kita perlu membuat pengguna dan grup sistem baru dengan direktori home /opt/tomcat yang akan menjalankan layanan Tomcat:
    ```bash
    sudo useradd -r -m -U -d /opt/tomcat -s /bin/false tomcat
    ```
+   &nbsp;  
 3. Unduh instalasi Tomcat 9. Pada saat penulisan modul ini, Versi terbaru Tomcat adalah 9.0.40. Sesuaikan versi Tomcat yang digunakan dengan melihat versi rilis terbaru pada [halaman ini](https://tomcat.apache.org/download-90.cgi).
    Gunakan wget untuk mengunduh binary Tomcat untuk Instalasi:
    ```bash
    wget http://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.40/bin/apache-tomcat-9.0.40.tar.gz -P /tmp
    ```
+   &nbsp;  
 4. Setelah unduhan selesai, gunakan perintah berikut untuk mengekstrak dan memindah file Tomcat pada folder `/opt/tomcat`:
    ```bash
    sudo tar xf /tmp/apache-tomcat-9*.tar.gz -C /opt/tomcat
    ```
+   &nbsp;  
 5. Untuk keperluan praktis, lebih baik apabila dibuat sebuah Symbolic Link untuk mengacu pada binary yang dimaksud:
    ```bash
    sudo ln -s /opt/tomcat/apache-tomcat-9.0.40 /opt/tomcat/latest
    ```
+   &nbsp;  
 6. Agar folder tomcat dimiliki oleh pengguna `tomcat` yang telah dibuat sebelumnya, gunakan perintah berikut:
    ```bash
    sudo chown -RH tomcat: /opt/tomcat/latest
@@ -175,6 +197,7 @@ Untuk melakukan instalasi Tomcat, lakukan langkah berikut:
    ```bash
    sudo sh -c 'chmod +x /opt/tomcat/latest/bin/*.sh'
    ```
+   &nbsp;  
 7. Untuk memudahkan manajemen, Tomcat perlu dijalankan sebagai service:
    ```bash
    sudo nano /etc/systemd/system/tomcat.service
@@ -205,6 +228,7 @@ Untuk melakukan instalasi Tomcat, lakukan langkah berikut:
    [Install]
    WantedBy=multi-user.target
    ```
+   &nbsp;  
 
 8. Lakukan aktivasi untuk Tomcat yang sudah diinstall:
    ```bash
@@ -216,11 +240,15 @@ Untuk melakukan instalasi Tomcat, lakukan langkah berikut:
    ```bash
    sudo systemctl enable tomcat
    ```
+   &nbsp;  
+
 9.  Izinkan Firewall untuk Tomcat.
     Sama seperti pada Apache, firewall perlu dibuka untuk mengizinkan Tomcat dapat diakses:
     ```bash
     sudo ufw allow 8080/tcp
     ```
+
+    &nbsp;  
 
 10. Buka localhost:8080 pada browser di Windows untuk memeriksa apakah Tomcat sudah berhasil dijalankan
     
@@ -256,3 +284,4 @@ Untuk saat ini, berikut adalah cara yang dapat digunakan sebagai *workaround*. M
     ```
 apabila tidak muncul error, maka perbaikan sistem berhasil dilakukan, dan `systemctl` sudah bisa digunakan
 ```
+

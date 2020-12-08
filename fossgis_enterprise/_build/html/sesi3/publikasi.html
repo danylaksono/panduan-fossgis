@@ -148,11 +148,6 @@
    Basisdata Spasial dengan PostGIS
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../sesi2/nosql.html">
-   Basisdata SQL dan NoSQL
-  </a>
- </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -180,11 +175,6 @@
    Konsumsi Data dengan Standar OGC
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="arsitektur.html">
-   Arsitektur Enterprise GIS dengan Perangkat Lunak (FOSS)
-  </a>
- </li>
 </ul>
 
 </nav>
@@ -192,7 +182,7 @@
  <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  Buku ini disusun menggunakan <a href="https://jupyterbook.org">Jupyter Book</a>
 </div>
 
 </div>
@@ -262,25 +252,30 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mengunggah-shapefile">
-     Mengunggah Shapefile
+    <a class="reference internal nav-link" href="#latihan-mengunggah-shapefile">
+     Latihan: Mengunggah Shapefile
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#basisdata-postgis">
-     Basisdata PostGIS
+    <a class="reference internal nav-link" href="#latihan-melakukan-publikasi-dari-shapefile">
+     Latihan: Melakukan Publikasi dari Shapefile
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#publikasi-data-melalui-rest-api-geoserver">
-     Publikasi Data melalui REST-API Geoserver
+    <a class="reference internal nav-link" href="#latihan-menghubungkan-geoserver-dan-basisdata-postgis">
+     Latihan: Menghubungkan Geoserver dan Basisdata PostGIS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#latihan-publikasi-data-melalui-rest-api-geoserver">
+     Latihan: Publikasi Data melalui REST-API Geoserver
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#styling-dengan-sld">
-   Styling dengan SLD
+  <a class="reference internal nav-link" href="#styling-publikasi-dengan-sld">
+   Styling Publikasi dengan SLD
   </a>
  </li>
 </ul>
@@ -302,51 +297,112 @@ data dan informasi geografis. Aplikasi ini, sebagaimana dibahas sebelumnya, adal
 <h2>Menghubungkan Geoserver dengan Data<a class="headerlink" href="#menghubungkan-geoserver-dengan-data" title="Permalink to this headline">¶</a></h2>
 <p>Geoserver mengenali berbagai jenis data spasial. Adapun urutan untuk melakukan publikasi data pada Geoserver adalah sebagai berikut:</p>
 <ol class="simple">
-<li><p>Membuat Workspace</p></li>
-<li><p>Menambahkan Data Store</p></li>
-<li><p>Menambahkan Layer pada Data Store</p></li>
-<li><p>Mengatur Simbologi (opsional)</p></li>
-<li><p>Mengatur Publikasi</p></li>
+<li><p>Buat <strong>Workspace</strong> baru (workspace ≈ nama project)</p></li>
+<li><p>Buat <strong>Store</strong> baru sesuai jenis data (vector/raster/cascading). Pilih workspace yang telah dibuat</p></li>
+<li><p><strong>Publish layer</strong> dengan mengatur extent, proyeksi dan styling</p></li>
+<li><p>Atur <strong>Style</strong> apabila diperlukan</p></li>
+<li><p>Uji Layanan Layer dengan menggunakan <strong>Layer Preview</strong></p></li>
 </ol>
-<p>Langkah tersebut dapat diikuti pada antarmuka Geoserver berikut:
+<p>Langkah tersebut dapat diikuti sesuai urutan pada antarmuka Geoserver berikut:
 <img alt="" src="../_images/2020-12-04-08-57-51.png" /></p>
-<p>Berikut adalah daftar datastore yang didukung oleh Geoserver:
-<img alt="" src="../_images/2020-12-04-08-55-02.png" /></p>
-<div class="section" id="mengunggah-shapefile">
-<h3>Mengunggah Shapefile<a class="headerlink" href="#mengunggah-shapefile" title="Permalink to this headline">¶</a></h3>
+<p>Berikut adalah daftar datastore yang didukung oleh Geoserver pada instalasi defaultnya:</p>
+<p><img alt="" src="../_images/2020-12-04-08-55-02.png" /></p>
+<p>Dengan menggunakan ekstensi, daftar tersebut dapat berkembang menjadi lebih banyak. Silahkan mengacu pada halaman <a class="reference external" href="https://docs.geoserver.org/stable/en/user/extensions/index.html">ekstensi Geoserver</a> maupun <a class="reference external" href="https://docs.geoserver.org/stable/en/user/community/index.html">modul komunitas</a> untuk melihat opsi yang tersedia.</p>
+<div class="section" id="latihan-mengunggah-shapefile">
+<h3>Latihan: Mengunggah Shapefile<a class="headerlink" href="#latihan-mengunggah-shapefile" title="Permalink to this headline">¶</a></h3>
 <p>Geoserver membaca data yang disimpan pada Environment variable <code class="docutils literal notranslate"><span class="pre">GEOSERVER_DATA_DIR</span></code>, sehingga untuk melakukan ini, kita perlu mengcopy shapefile yang akan diunggah ke dalam folder tersebut. Lokasi folder ini dapat dilihat pada bagian data directory di server status:</p>
 <p><img alt="" src="../_images/2020-12-04-08-53-02.png" /></p>
 <p>Pada gambar di atas, folder Data Directory adalah <code class="docutils literal notranslate"><span class="pre">/opt/tomcat/apache-tomcat-9.0.40/webapps/geoserver/data</span></code>.</p>
+<p>Masih dengan data latihan sebelumnya, kita akan gunakan layer-layer tersebut untuk mengunggah data pada Geoserver.</p>
+<ol>
+<li><p>Dengan menggunakan koneksi WSL ke Windows Explorer, copykan data yang akan kita unggah ke folder di dalam WSL, misalnya <code class="docutils literal notranslate"><span class="pre">home</span> <span class="pre">directory</span></code> kita. Ingat, wsl dapat dibuka dari Windows Explorer menggunakan <code class="docutils literal notranslate"><span class="pre">\\wsl$</span></code>.</p>
+<p><img alt="" src="../_images/2020-12-08-13-45-12.png" /></p>
+</li>
+<li><p>Dari WSL, copykan data tersebut ke folder <code class="docutils literal notranslate"><span class="pre">GEOSERVER_DATA_DIR</span></code> yang kita catat sebelumnya. Gunakan perintah <code class="docutils literal notranslate"><span class="pre">cp</span></code> untuk mengcopy berkas ke folder yang dimaksud.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo cp -a Data_Geoserver/ <span class="s2">&quot;/opt/tomcat/apache-tomcat-9.0.40/webapps/geoserver/data/shpsleman/&quot;</span> 
+</pre></div>
 </div>
-<div class="section" id="basisdata-postgis">
-<h3>Basisdata PostGIS<a class="headerlink" href="#basisdata-postgis" title="Permalink to this headline">¶</a></h3>
+</li>
+</ol>
+<p>Pada Geoserver, kita dapat memanggil layer tersebut pada saat publikasi layer. Pembahasan mengenai publikasi layer adalah sebagai berikut.</p>
+</div>
+<div class="section" id="latihan-melakukan-publikasi-dari-shapefile">
+<h3>Latihan: Melakukan Publikasi dari Shapefile<a class="headerlink" href="#latihan-melakukan-publikasi-dari-shapefile" title="Permalink to this headline">¶</a></h3>
+<p>Setelah kita memiliki shapefile pada server, berkas tersebut perlu dipublikasi agar dapat diakses menggunakan Standar OGC. Berikut langkah untuk melakukan publikasi data pada Geoserver:</p>
+<ol>
+<li><p>Membuat Workspace. Workspace pada Geoserver dapat dianggap sebagai sebuah project yang didalamnya berisi beberapa layer sekaligus. Untuk membuat workspace, gunakan menu <code class="docutils literal notranslate"><span class="pre">Workspace</span></code> pada bagian kiri dari halaman Geoserver, kemudian Klik <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">New</span> <span class="pre">Workspace</span></code>.</p>
+<p><img alt="" src="../_images/2020-12-08-14-02-26.png" /></p>
+<p>Berikan nama dan URI pada workspace tersebut. URI digunakan sebagai identitas pada saat layer yang tersimpan di dalam workspace tersebut dipanggil nantinya. Klik <code class="docutils literal notranslate"><span class="pre">Save</span></code> untuk menyimpan workspace</p>
+</li>
+<li><p>Berpindah ke langkah selanjutnya, kita akan menghubungkan Geoserver dengan data pada direktori. Gunakan menu <code class="docutils literal notranslate"><span class="pre">Stores</span></code> untuk menyimpan dan menghubungkan satu atau beberapa layer dengan menggunakan Geoserver. Klik pada <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">New</span> <span class="pre">Store</span></code> untuk menghubungkan sumber data baru. Karena kita akan menambahkan beberapa <strong>Shapefile</strong> sekaligus, gunakan pilihan <code class="docutils literal notranslate"><span class="pre">Directory</span> <span class="pre">of</span> <span class="pre">Spatial</span> <span class="pre">Files</span> <span class="pre">(shapefiles)</span></code> seperti berikut:</p>
+<p><img alt="" src="../_images/2020-12-08-14-07-57.png" /></p>
+<p>klik OK untuk konfirmasi penambahan <strong>Store</strong></p>
+</li>
+<li><p>Geoserver akan secara otomatis mengarahkan kita ke halaman layer. Selanjutnya adalah menggunakan menu ‘Publish` pada halaman tersebut untuk mempublikasikan data</p>
+<p><img alt="" src="../_images/2020-12-08-14-09-30.png" /></p>
+</li>
+<li><p>Pada saat publikasi, hal yang harus diperhatikan adalah pengaturan <strong>sistem proyeksi</strong> dan <strong>extent</strong>. Pengaturan ini dapat dijumpai pada bagian akhir di halaman publikasi:</p>
+<p><img alt="" src="../_images/2020-12-08-15-17-01.png" /></p>
+<p>Terdapat tiga pengaturan penggunaan sistem proyeksi yang ada pada Geoserver:</p>
+<ul class="simple">
+<li><p><strong>Force Declared</strong>, abaikan sistem proyeksi asli dari layer, dan berikan definisi sistem proyeksi baru pada layer tersebut. Ini dapat digunakan apabila sistem proyeksi asli dari layer hilang atau rusak, misalnya pada berkas dengan tipe <em>shapefile</em> (prj). Tool ini sama seperti <em>Define Projection</em> pada perangkat desktop</p></li>
+<li><p><strong>Reproject Native to Declared</strong>, digunakan untuk melakukan transformasi sistem proyeksi, misalnya dari sistem proyeksi UTM-49S (EPSG:32749) menjadi sistem proyeksi geografis (EPSG:4326). Ini sama seperti tool <em>Reproject</em> pada perangkat lunak GIS desktop</p></li>
+<li><p><strong>Keep Native</strong>, abaikan sistem proyeksi yang didefinisikan oleh Geoserver, dan gunakan sistem proyeksi asli yang terdapat pada data. Ini dapat dipilih, sebagai contoh, pada saat melakukan publikasi peta dengan sistem proyeksi lokal</p></li>
+</ul>
+</li>
+<li><p>Untuk menguji apakah layer sudah sesuai dengan keinginan, gunakan menu <code class="docutils literal notranslate"><span class="pre">Layer</span> <span class="pre">Preview</span></code> pada Geoserver</p>
+<p><img alt="" src="../_images/2020-12-08-16-08-26.png" /></p>
+<p>Pada bagian ini, dapat diperiksa apakah pemanggilan WMS dan WFS untuk layer yang dipublikasi sudah sesuai. Demikian pula, dapat diperiksa mengenai kesesuaian bounding box dan sistem proyeksi yang digunakan.</p>
+</li>
+</ol>
+<p>Setelah publikasi, pengaturan yang diperlukan adalah pembuatan style serta pengaturan keamanan apabila diperlukan. Bagian akhir dari bab ini membahas mengenai pengaturan style pada layer yang dapat digunakan untuk WMS pada Geoserver.</p>
+</div>
+<div class="section" id="latihan-menghubungkan-geoserver-dan-basisdata-postgis">
+<h3>Latihan: Menghubungkan Geoserver dan Basisdata PostGIS<a class="headerlink" href="#latihan-menghubungkan-geoserver-dan-basisdata-postgis" title="Permalink to this headline">¶</a></h3>
 <p>PostGIS dapat dihubungkan melalui antarmuka Geoserver. Berikut adalah tampilan antarmuka dan parameter koneksinya:</p>
 <p><img alt="" src="../_images/2020-12-04-08-55-41.png" /></p>
 <p>Sama seperti pada QGIS, koneksi ke PostGIS dari Geoserver juga menggunakan parameter seperti Host, Username, Basisdata dan Password.</p>
+<p>Setelah terkoneksi sebagai <code class="docutils literal notranslate"><span class="pre">store</span></code>, layer pada store tersebut juga dapat ditambahkan pada Geoserver melalui Publikasi sebagaimana pada layer yang dipublikasi menggunakan Shapefile. Penggunaan PostGIS dalam hal ini memiliki beberapa keuntungan, diantaranya adalah:</p>
+<ul class="simple">
+<li><p>Keamanan data yang lebih baik, karena akses pada data dibatasi oleh Geoserver dan PostGIS sekaligus</p></li>
+<li><p>Manajemen data yang fleksibel. Dengan menggunakan PostGIS, akses terhadap data dapat diatur menggunakan aplikasi framework di luar Geoserver, seperti menggunakan Laravel atau NodeJS.</p></li>
+<li><p><a class="reference external" href="https://geoserver.geo-solutions.it/educational/en/adding_data/add_sqllayers.html">SQL View</a>, merupakan cara untuk memanggil layer menggunakan parameter. Sebagai contoh, kita dapat memanggil hanya layer titik yang dipilih oleh pengguna melalui bounding box, misalnya.</p></li>
+</ul>
 </div>
-<div class="section" id="publikasi-data-melalui-rest-api-geoserver">
-<h3>Publikasi Data melalui REST-API Geoserver<a class="headerlink" href="#publikasi-data-melalui-rest-api-geoserver" title="Permalink to this headline">¶</a></h3>
-<p>Pada remote server, seringkali kita tidak dapat menggunakan antarmuka yang memungkinkan untuk publikasi data secara langsung. Dengan demikian, interaksi pada Geoserver juga menjadi terbatas. Untuk itu, Geoserver menyediakan REST API yang dapat digunakan untuk berinteraksi dengan fungsi-fungsi Geoserver melalui antar muka API standard. API ini dapat diakses melalui http://alamatgeoserver:8080/geoserver/rest/workspaces.</p>
+<div class="section" id="latihan-publikasi-data-melalui-rest-api-geoserver">
+<h3>Latihan: Publikasi Data melalui REST-API Geoserver<a class="headerlink" href="#latihan-publikasi-data-melalui-rest-api-geoserver" title="Permalink to this headline">¶</a></h3>
+<p>Pada remote server, seringkali kita tidak dapat menggunakan antarmuka yang memungkinkan untuk publikasi data secara langsung. Boleh jadi kita tidak dapat menggunakan console pada server untuk mengcopy data pada folder Data Directory seperti yang kita lakukan sebelumnya. Dengan demikian, interaksi pada Geoserver juga menjadi terbatas. Untuk itu, Geoserver menyediakan REST API yang dapat digunakan untuk berinteraksi dengan fungsi-fungsi Geoserver melalui antar muka API standard. API ini dapat diakses melalui http://alamatgeoserver:8080/geoserver/<strong>rest</strong>/workspaces.</p>
 <p>Berikut adalah langkah untuk mengunggah file pada server:</p>
-<ol class="simple">
-<li><p>Membuat Workspace baru dengan nama <code class="docutils literal notranslate"><span class="pre">latihan</span></code> (lewati jika Workspace sudah tersedia)</p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -v -u admin:password -XPOST -H <span class="s2">&quot;Content-type: text/xml&quot;</span>  -d <span class="s2">&quot;&lt;workspace&gt;&lt;name&gt;latihan&lt;/name&gt;&lt;/workspace&gt;&quot;</span> http://alamatgeoserver:8080/geoserver/rest/workspaces
+<ol>
+<li><p>Membuat Workspace baru dengan nama <code class="docutils literal notranslate"><span class="pre">latihan</span></code> (lewati jika Workspace sudah tersedia)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -v -u admin:password -XPOST -H <span class="s2">&quot;Content-type: text/xml&quot;</span>  -d <span class="s2">&quot;&lt;workspace&gt;&lt;name&gt;latihan&lt;/name&gt;&lt;/workspace&gt;&quot;</span> http://alamatgeoserver:8080/geoserver/**rest**/workspaces
 </pre></div>
 </div>
-<ol class="simple">
-<li><p>Mengunggah file <code class="docutils literal notranslate"><span class="pre">jalan.zip</span></code> sebagai layer baru pada workspace <code class="docutils literal notranslate"><span class="pre">latihan</span></code> dengan nama datastore <code class="docutils literal notranslate"><span class="pre">jalan</span></code></p></li>
-</ol>
+</li>
+<li><p>Mengunggah file <code class="docutils literal notranslate"><span class="pre">jalan.zip</span></code> sebagai layer baru pada workspace <code class="docutils literal notranslate"><span class="pre">latihan</span></code> dengan nama datastore <code class="docutils literal notranslate"><span class="pre">jalan</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -v -u admin:geoserver -XPUT -H <span class="s2">&quot;Content-type: application/zip&quot;</span> --data-binary @jalan.zip http://54.254.9.31:8080/geoserver/rest/workspaces/latihan/datastores/jalan/file.shp
 </pre></div>
 </div>
+</li>
+</ol>
+<p>Dengan cara seperti ini, kita dapat mengunggah layer dengan format shapefile sebagai layer pada Geoserver meskipun kita tidak memiliki akses pada server tersebut secara langsung.</p>
 </div>
 </div>
-<div class="section" id="styling-dengan-sld">
-<h2>Styling dengan SLD<a class="headerlink" href="#styling-dengan-sld" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="styling-publikasi-dengan-sld">
+<h2>Styling Publikasi dengan SLD<a class="headerlink" href="#styling-publikasi-dengan-sld" title="Permalink to this headline">¶</a></h2>
 <p>Protokol WMS yang digunakan pada Geoserver memerlukan styling sebelum disajikan pada client. Format yang digunakan oleh Geoserver adalah SLD (<em>Style Layer Descriptor</em>). Antarmuka untuk pengaturan SLD adalah sebagai berikut:</p>
 <p><img alt="" src="../_images/2020-12-04-08-58-42.png" /></p>
-<p>SLD menggunakan format XML untuk menyimpan style. Untuk memudahkan styling, dapat digunakan QGIS untuk menyimpan simbolosasi yang diinginkan.</p>
+<p>SLD menggunakan format XML untuk menyimpan style. Untuk memudahkan styling, dapat digunakan QGIS untuk menyimpan simbolosasi yang diinginkan. Berikut adalah menu untuk melakukan <em>export</em>  Style yang dapat dilakukan pada QGIS:</p>
+<ol>
+<li><p>Pada Properti layer di QGIS, buka simbologi, kemudian buat simbol sesuai dengan style yang diinginkan</p>
+<p><img alt="" src="../_images/2020-12-08-16-01-09.png" /></p>
+<p>Klik pada <code class="docutils literal notranslate"><span class="pre">Style</span> <span class="pre">&gt;</span> <span class="pre">Save</span> <span class="pre">Style</span></code> untuk membuka kotak dialog penyimpanan style tersebut.</p>
+</li>
+<li><p>Simpan style tersebut sebagai SLD. File inilah yang nanti akan diunggah pada antarmuka SLD di Geoserver seperti di atas</p>
+<p><img alt="" src="../_images/2020-12-08-16-03-00.png" /></p>
+</li>
+</ol>
+<p>Hasil publikasi dapat dikonsumsi oleh perangkat client seperti QGIS atau LeafletJS melalui alamat publikasi masing-masing layer sesuai standar OGC. Pembahasan ini akan diberikan pada bab selanjutnya.</p>
 </div>
 </div>
 

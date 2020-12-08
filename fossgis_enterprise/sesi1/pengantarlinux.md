@@ -171,9 +171,13 @@ Berikut adalah petunjuk untuk melakukan instalasi WSL2 pada Sistem Operasi Windo
 
    ![](img/2020-12-02-00-27-37.png)
 
+   &nbsp;  
+
 2. *Update ke WSL versi 2* 
 
    Pastikan versi build Windows yang digunakan sesuai untuk persyaratan WSL2 seperti di atas. Periksa [link berikut](https://docs.microsoft.com/en-us/windows/wsl/install-win10#step-2---update-to-wsl-2) untuk melihat lebih detil mengenai bagian ini.
+
+   &nbsp;  
 
 3. *Aktifkan Virtual Machine Platform*
 
@@ -183,7 +187,17 @@ Berikut adalah petunjuk untuk melakukan instalasi WSL2 pada Sistem Operasi Windo
    dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
    ```
 
-   Setelah perintah selesai dijalankan, lakukan restart pada Windows. Ini akan mengupdate WSL pada system menjadi versi ke-2
+   Setelah perintah selesai dijalankan, lakukan **restart pada Windows**. Ini akan mengupdate WSL pada system menjadi versi ke-2
+
+   &nbsp;  
+
+   ```{Caution}
+   Restart Windows penting dalam hal ini agar sistem WSL terupdate pada versi terbaru.
+   ```
+   
+   &nbsp;  
+
+
 
 4. *Unduh Linux kernel untuk WSL2*
 
@@ -197,19 +211,26 @@ Berikut adalah petunjuk untuk melakukan instalasi WSL2 pada Sistem Operasi Windo
 
    Ini akan membuat versi WSL yang telah terinstall menggunakan versi kedua.
 
+   &nbsp;  
+
 5. *Melakukan Instalasi Distro Linux*
 
    Pada [Microsoft Store](https://aka.ms/wslstore) telah tersedia beberapa distro Linux yang dapat digunakan pada WSL. Buka Microsoft Store, kemudian lakukan instalasi untuk distro yang dipilih. Untuk latihan ini, gunakan `Ubuntu`, khususnya versi [Ubuntu 18.04](https://www.microsoft.com/store/apps/9N9TNGVNDL3Q).
 
    ![](img/2020-12-02-00-28-08.png)
 
+   &nbsp;  
    Klik `Get` untuk melakukan instalasi Ubuntu pada WSL2
 
+   &nbsp;  
    ![](img/2020-12-02-00-28-23.png)
+
+   &nbsp;  
+
 
 6. *Memulai WSL*
 
-   Setelah instalasi selesai, Ubuntu dapat langsung digunakan pada Windows. Untuk memulai WSL, buka icon menu bergambar logo Ubuntu (![](img/2020-12-02-00-28-54.png)). 
+   Setelah instalasi selesai, Ubuntu dapat langsung digunakan pada Windows. Untuk memulai WSL, buka icon menu bergambar logo Ubuntu pada Start Menu. 
 
    Pada saat pertama kali dibuka, mesin akan meminta **username** dan **password**. Catat username dan password yang dimasukkan karena ini akan menjadi akun *sudoer*  pada mesin Linux yang dibuat.
 
@@ -218,6 +239,8 @@ Berikut adalah petunjuk untuk melakukan instalasi WSL2 pada Sistem Operasi Windo
    Selanjutnya, Ubuntu siap digunakan
 
    ![](img/2020-12-02-00-29-18.png)
+
+   &nbsp;  
 
 7. *Integrasi WSL dan Windows*
 
@@ -243,6 +266,8 @@ Berikut adalah petunjuk untuk melakukan instalasi WSL2 pada Sistem Operasi Windo
 
    ![](img/2020-12-02-00-29-53.png)
 
+   &nbsp;  
+
 8. *WSL2 untuk keperluan pembangunan aplikasi (development)*
 
    Untuk keperluan pembangunan aplikasi, WSL2 memungkinkan koneksi pada beberapa Code Editor. Sebagai contoh, VSCode memiliki dukungan untuk melakukan *editing* kode pada WSL2 melalui plugin. Klik [Link berikut](https://code.visualstudio.com/docs/remote/wsl) untuk detilnya.
@@ -261,7 +286,8 @@ Berikut adalah petunjuk untuk melakukan instalasi WSL2 pada Sistem Operasi Windo
 
    ![](img/2020-12-02-00-30-27.png)
 
-   
+
+&nbsp;  
 
 Karena pengaturan *resource* untuk komputasi (memory, space harddisk) dilakukan [secara bersama-sama](https://www.digitalocean.com/community/posts/trying-the-new-wsl-2-its-fast-windows-subsystem-for-linux) oleh Windows dan WSL2 melalui Linux Kernel, maka penggunaan WSL tidak akan membebani sistem Windows. Dengan demikian, penggunaan Linux pada WSL2 ini adalah metode yang lebih disarankan daripada menggunakan Virtual Machine seperti VirtualBox atau VMWare yang dapat membebani kinerja sistem.
 

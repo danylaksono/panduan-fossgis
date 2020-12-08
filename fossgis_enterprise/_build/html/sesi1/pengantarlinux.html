@@ -148,11 +148,6 @@
    Basisdata Spasial dengan PostGIS
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../sesi2/nosql.html">
-   Basisdata SQL dan NoSQL
-  </a>
- </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -180,11 +175,6 @@
    Konsumsi Data dengan Standar OGC
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../sesi3/arsitektur.html">
-   Arsitektur Enterprise GIS dengan Perangkat Lunak (FOSS)
-  </a>
- </li>
 </ul>
 
 </nav>
@@ -192,7 +182,7 @@
  <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  Buku ini disusun menggunakan <a href="https://jupyterbook.org">Jupyter Book</a>
 </div>
 
 </div>
@@ -439,16 +429,24 @@
 </div>
 <p>Akan muncul pemberitahuan apabila proses telah berhasil:</p>
 <p><img alt="" src="../_images/2020-12-02-00-27-37.png" /></p>
+<p> </p>
 </li>
 <li><p><em>Update ke WSL versi 2</em></p>
 <p>Pastikan versi build Windows yang digunakan sesuai untuk persyaratan WSL2 seperti di atas. Periksa <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install-win10#step-2---update-to-wsl-2">link berikut</a> untuk melihat lebih detil mengenai bagian ini.</p>
+<p> </p>
 </li>
 <li><p><em>Aktifkan Virtual Machine Platform</em></p>
 <p>Pada jendela PowerShell yang sama (sebagai Administrator), ketikkan perintah berikut:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 </pre></div>
 </div>
-<p>Setelah perintah selesai dijalankan, lakukan restart pada Windows. Ini akan mengupdate WSL pada system menjadi versi ke-2</p>
+<p>Setelah perintah selesai dijalankan, lakukan <strong>restart pada Windows</strong>. Ini akan mengupdate WSL pada system menjadi versi ke-2</p>
+<p> </p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Restart Windows penting dalam hal ini agar sistem WSL terupdate pada versi terbaru.</p>
+</div>
+<p> </p>
 </li>
 <li><p><em>Unduh Linux kernel untuk WSL2</em></p>
 <p>Terlebih dahulu unduh dan install Linux Kernel untuk WSL2 dari <a class="reference external" href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">Link Berikut</a>.</p>
@@ -457,19 +455,24 @@
 </pre></div>
 </div>
 <p>Ini akan membuat versi WSL yang telah terinstall menggunakan versi kedua.</p>
+<p> </p>
 </li>
 <li><p><em>Melakukan Instalasi Distro Linux</em></p>
 <p>Pada <a class="reference external" href="https://aka.ms/wslstore">Microsoft Store</a> telah tersedia beberapa distro Linux yang dapat digunakan pada WSL. Buka Microsoft Store, kemudian lakukan instalasi untuk distro yang dipilih. Untuk latihan ini, gunakan <code class="docutils literal notranslate"><span class="pre">Ubuntu</span></code>, khususnya versi <a class="reference external" href="https://www.microsoft.com/store/apps/9N9TNGVNDL3Q">Ubuntu 18.04</a>.</p>
 <p><img alt="" src="../_images/2020-12-02-00-28-08.png" /></p>
-<p>Klik <code class="docutils literal notranslate"><span class="pre">Get</span></code> untuk melakukan instalasi Ubuntu pada WSL2</p>
-<p><img alt="" src="../_images/2020-12-02-00-28-23.png" /></p>
+<p> <br />
+Klik <code class="docutils literal notranslate"><span class="pre">Get</span></code> untuk melakukan instalasi Ubuntu pada WSL2</p>
+<p> <br />
+<img alt="" src="../_images/2020-12-02-00-28-23.png" /></p>
+<p> </p>
 </li>
 <li><p><em>Memulai WSL</em></p>
-<p>Setelah instalasi selesai, Ubuntu dapat langsung digunakan pada Windows. Untuk memulai WSL, buka icon menu bergambar logo Ubuntu (<img alt="" src="../_images/2020-12-02-00-28-54.png" />).</p>
+<p>Setelah instalasi selesai, Ubuntu dapat langsung digunakan pada Windows. Untuk memulai WSL, buka icon menu bergambar logo Ubuntu pada Start Menu.</p>
 <p>Pada saat pertama kali dibuka, mesin akan meminta <strong>username</strong> dan <strong>password</strong>. Catat username dan password yang dimasukkan karena ini akan menjadi akun <em>sudoer</em>  pada mesin Linux yang dibuat.</p>
 <p><img alt="" src="../_images/2020-12-02-00-29-10.png" /></p>
 <p>Selanjutnya, Ubuntu siap digunakan</p>
 <p><img alt="" src="../_images/2020-12-02-00-29-18.png" /></p>
+<p> </p>
 </li>
 <li><p><em>Integrasi WSL dan Windows</em></p>
 <p>Telah disampaikan sebelumnya bahwa integrasi Linux dan Windows menggunakan WSL2 bersifat hampir seamless. Artinya, kedua sistem dapat saling berkomunikasi tanpa memerlukan media perantara yang rumit.</p>
@@ -483,6 +486,7 @@
 <p><img alt="" src="../_images/2020-12-02-00-29-45.png" /></p>
 <p>Dan berikut adalah tampilan Jupyter Lab apabila dibuka pada browser di Windows:</p>
 <p><img alt="" src="../_images/2020-12-02-00-29-53.png" /></p>
+<p> </p>
 </li>
 <li><p><em>WSL2 untuk keperluan pembangunan aplikasi (development)</em></p>
 <p>Untuk keperluan pembangunan aplikasi, WSL2 memungkinkan koneksi pada beberapa Code Editor. Sebagai contoh, VSCode memiliki dukungan untuk melakukan <em>editing</em> kode pada WSL2 melalui plugin. Klik <a class="reference external" href="https://code.visualstudio.com/docs/remote/wsl">Link berikut</a> untuk detilnya.</p>
@@ -495,6 +499,7 @@
 <p><img alt="" src="../_images/2020-12-02-00-30-27.png" /></p>
 </li>
 </ol>
+<p> </p>
 <p>Karena pengaturan <em>resource</em> untuk komputasi (memory, space harddisk) dilakukan <a class="reference external" href="https://www.digitalocean.com/community/posts/trying-the-new-wsl-2-its-fast-windows-subsystem-for-linux">secara bersama-sama</a> oleh Windows dan WSL2 melalui Linux Kernel, maka penggunaan WSL tidak akan membebani sistem Windows. Dengan demikian, penggunaan Linux pada WSL2 ini adalah metode yang lebih disarankan daripada menggunakan Virtual Machine seperti VirtualBox atau VMWare yang dapat membebani kinerja sistem.</p>
 <p>Hasil dari latihan di atas adalah WSL2 dengan Ubuntu sebagai sistem operasi yang dapat digunakan pada Windows. Selain diinstall sebagai WSL yang dapat diakses pada sistem lokal, terdapat beberapa opsi lain yang daat dilakukan untuk menggunakan Linux. <a class="reference external" href="https://www.danylaksono.com/docs/linuxvm/">Link berikut</a> memberikan panduan ringkas mengenai bagaimana melakukan instalasi Linux baik pada Cloud maupun lokal.</p>
 <hr class="docutils" />

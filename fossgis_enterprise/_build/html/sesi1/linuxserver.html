@@ -148,11 +148,6 @@
    Basisdata Spasial dengan PostGIS
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../sesi2/nosql.html">
-   Basisdata SQL dan NoSQL
-  </a>
- </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -180,11 +175,6 @@
    Konsumsi Data dengan Standar OGC
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../sesi3/arsitektur.html">
-   Arsitektur Enterprise GIS dengan Perangkat Lunak (FOSS)
-  </a>
- </li>
 </ul>
 
 </nav>
@@ -192,7 +182,7 @@
  <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  Buku ini disusun menggunakan <a href="https://jupyterbook.org">Jupyter Book</a>
 </div>
 
 </div>
@@ -303,7 +293,7 @@
                 
   <div class="section" id="linux-sebagai-sistem-operasi-server">
 <h1>Linux sebagai Sistem Operasi Server<a class="headerlink" href="#linux-sebagai-sistem-operasi-server" title="Permalink to this headline">¶</a></h1>
-<p>Linux merupakan salah satu sistem operasi yang paling banyak digunakan untuk server, karena kemampuan enterprise dan biaya yang murah (bahkan gratis). Atas alasan itulah, Linux banyak dijumpai pada berbagai server, baik dalam skala besar maupun kecil.  Pada bagian ini akan dilakukan pengaturan Linux untuk sebagai server dengan menggunakan beberapa perangkat webserver dan application server.</p>
+<p>Linux merupakan salah satu sistem operasi yang paling banyak digunakan untuk server, karena kemampuan enterprise dan biaya yang murah (bahkan gratis). Atas alasan itulah, Linux banyak dijumpai pada berbagai platform mesin server, baik dalam skala besar maupun kecil.  Pada bagian ini akan dilakukan pengaturan Linux untuk sebagai server dengan menggunakan beberapa perangkat <em>webserver</em> dan <em>application server</em>.</p>
 <div class="section" id="perangkat-lunak-untuk-web-server-dan-application-server">
 <h2>Perangkat Lunak untuk Web Server dan Application Server<a class="headerlink" href="#perangkat-lunak-untuk-web-server-dan-application-server" title="Permalink to this headline">¶</a></h2>
 <p>Sebuah aplikasi <strong>webserver</strong> berguna untuk mempublikasi file lokal agar dapat diakses melalui jaringan. Sebagai contoh, halaman HTML yang dibuat di komputer belum akan dapat diakses secara luas apabila tidak dipasang pada aplikasi webserver yang dapat mempublikasi data ini. Beberapa contoh perangkat Webserver adalah sebagai berikut:</p>
@@ -315,7 +305,7 @@
 <li><p>NodeJS</p></li>
 <li><p>Flask</p></li>
 </ul>
-<p>Apache adalah salah satu webserver berbasis PHP yang paling sering digunakan. Dengan Apache, maka berkas yang tersimpan pada komputer akan dapat dionlinekan dengan pengaturan tertentu. Pengaturan yang dimaksud meliputi pengaturan keamanan, <em>virtual host</em>, <em>proxy</em>, dan lain sebagainya.</p>
+<p>Apache adalah salah satu webserver berbasis PHP yang paling sering digunakan. Dengan Apache, maka berkas yang tersimpan pada komputer akan dapat di<em>online</em>kan dengan pengaturan tertentu. Pengaturan yang dimaksud meliputi pengaturan keamanan, <em>virtual host</em>, <em>proxy</em>, dan lain sebagainya.</p>
 <p><strong>Application Server</strong> merupakan sebuah kelompok <em>framework</em> perangkat lunak yang memungkinkan sebuah <em>web application</em> untuk disajikan melalui internet. Contoh application server adalah <em>Java Servlet Container</em>, yaitu perangkat yang berfungsi untuk menyajikan aplikasi yang dibuat dengan bahasa Java pada internet. Beberapa Contoh Application Server adalah sebagai berikut:</p>
 <ul class="simple">
 <li><p>Apache Tomcat</p></li>
@@ -326,8 +316,8 @@
 </ul>
 <p>Jika sebuah <em>webserver</em> umumnya menyajikan <em>static content</em>(seperti HTML, CSS, Javascript, gambar, video, dst) maka sebuah <em>application server</em> menyajikan <em>bussiness logic</em> yang memungkinkan aplikasi yang disajikan bersifat dinamis.</p>
 <div class="figure align-default" id="appserver">
-<img alt="../_images/2020-12-03-03-02-24.png" src="../_images/2020-12-03-03-02-24.png" />
-<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Perbandingan App Server dan Web Server</span><a class="headerlink" href="#appserver" title="Permalink to this image">¶</a></p>
+<a class="reference internal image-reference" href="../_images/2020-12-03-03-02-24.png"><img alt="../_images/2020-12-03-03-02-24.png" src="../_images/2020-12-03-03-02-24.png" style="height: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Perbandingan App Server dan Web Server</span><a class="headerlink" href="#appserver" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="latihan-menjalankan-sebuah-web-server-sederhana">
 <h3>Latihan: Menjalankan sebuah Web Server Sederhana<a class="headerlink" href="#latihan-menjalankan-sebuah-web-server-sederhana" title="Permalink to this headline">¶</a></h3>
@@ -341,7 +331,7 @@
 </div>
 <div class="section" id="instalasi-apache-http-server">
 <h3>Instalasi Apache HTTP Server<a class="headerlink" href="#instalasi-apache-http-server" title="Permalink to this headline">¶</a></h3>
-<p>Server web **Apache HTTP Server **adalah perangkat paling populer saat ini untuk menyajikan konten web di internet. Apache menyumbang lebih dari setengah dari selurh situs web aktif di internet dengan berbagai fungsi dan kelebihan yang dimilikinya.
+<p>Server web **Apache HTTP Server **adalah perangkat paling populer saat ini untuk menyajikan konten web di internet. Apache menyumbang lebih dari setengah dari seluruh situs web aktif di internet dengan berbagai fungsi dan kelebihan yang dimilikinya.
 Pada latihan ini akan dilakukan instalasi dan konfigurasi Apache untuk publikasi data dalam bentuk HTML sederhana.</p>
 <p>Lakukan langkah berikut untuk melakukan instalasi Apache pada sistem Ubuntu WSL:</p>
 <ol>
@@ -350,32 +340,39 @@ Pada latihan ini akan dilakukan instalasi dan konfigurasi Apache untuk publikasi
 </pre></div>
 </div>
 </li>
-<li><p>Instalasi Apache2</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install apache2
-</pre></div>
-</div>
-</li>
-<li><p>Pengaturan firewall. Firewall berfungsi untuk ‘mencegat’ terjadinya  transfer data antara sistem lokal dengan jaringan internet. Pengaturan ini diperlukan agar apache diizinkan untuk mengakses port yang diperlukan untuk berkomunikasi dengan dunia luar</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo ufw allow <span class="s1">&#39;Apache&#39;</span>
-</pre></div>
-</div>
-<p>Selanjutnya periksa status <code class="docutils literal notranslate"><span class="pre">ufw</span></code> menggunakan perintah:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo ufw status
-</pre></div>
-</div>
-<p>Apabila keluarannya seperti berikut, artinya port berhasil dibuka:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Output</span>
-<span class="n">Status</span><span class="p">:</span> <span class="n">active</span>
+</ol>
+<p> <br />
+2. Instalasi Apache2
+<code class="docutils literal notranslate"><span class="pre">bash</span>&#160;&#160;&#160;&#160; <span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">apache2</span>&#160;&#160;&#160;&#160; </code>
+ <br />
+3. Pengaturan firewall. Firewall berfungsi untuk ‘mencegat’ terjadinya  transfer data antara sistem lokal dengan jaringan internet. Pengaturan ini diperlukan agar apache diizinkan untuk mengakses port yang diperlukan untuk berkomunikasi dengan dunia luar</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```bash
+sudo ufw allow &#39;Apache&#39;
+```
 
-<span class="n">To</span>                         <span class="n">Action</span>      <span class="n">From</span>
-<span class="o">--</span>                         <span class="o">------</span>      <span class="o">----</span>
-<span class="n">OpenSSH</span>                    <span class="n">ALLOW</span>       <span class="n">Anywhere</span>                  
-<span class="n">Apache</span>                     <span class="n">ALLOW</span>       <span class="n">Anywhere</span>                  
-<span class="n">OpenSSH</span> <span class="p">(</span><span class="n">v6</span><span class="p">)</span>               <span class="n">ALLOW</span>       <span class="n">Anywhere</span> <span class="p">(</span><span class="n">v6</span><span class="p">)</span>             
-<span class="n">Apache</span> <span class="p">(</span><span class="n">v6</span><span class="p">)</span>                <span class="n">ALLOW</span>       <span class="n">Anywhere</span> <span class="p">(</span><span class="n">v6</span><span class="p">)</span>
+Selanjutnya periksa status `ufw` menggunakan perintah:
+
+```bash
+sudo ufw status
+```
+
+Apabila keluarannya seperti berikut, artinya port berhasil dibuka:
+
+```
+Output
+Status: active
+
+To                         Action      From
+--                         ------      ----
+OpenSSH                    ALLOW       Anywhere                  
+Apache                     ALLOW       Anywhere                  
+OpenSSH (v6)               ALLOW       Anywhere (v6)             
+Apache (v6)                ALLOW       Anywhere (v6)
+```
 </pre></div>
 </div>
-</li>
+<p> </p>
+<ol>
 <li><p>Jalankan Apache setelah instalasi</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo service apache2 start
 </pre></div>
@@ -387,11 +384,17 @@ Pada latihan ini akan dilakukan instalasi dan konfigurasi Apache untuk publikasi
 <p>Apabila status menunjukkan ‘running’, artinya webserver Apache sudah berhasil dijalankan
 <img alt="" src="../_images/2020-12-02-10-56-11.png" /></p>
 </li>
+</ol>
+<p> </p>
+<ol>
 <li><p>Buka localhost melalui browser pada Windows</p>
 <p><img alt="" src="../_images/2020-12-02-10-57-55.png" /></p>
 <p>Apabila halaman Apache Ubuntu sudah terbuka, artinya instalasi Apache berhasil dengan baik</p>
 </li>
 </ol>
+<p>WSL menggunakan <em>port forwarding</em> dan perubahan DNS lola pada alamat localhost, sehingga localhost pada WSL akan sama dengan localhost pada Windows. Untuk melihat alamat IP dari port yang digunakan oleh WSL, gunakan perintah <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">addr</span></code>:</p>
+<p><img alt="" src="../_images/2020-12-07-11-38-03.png" /></p>
+<p>pada bagian <code class="docutils literal notranslate"><span class="pre">eth0</span></code>, terdapat ip address yang akan membuka halaman yang sama dengan localhost apabila diakses di Windows. Dalam hal ini alamat tersebut adalah <code class="docutils literal notranslate"><span class="pre">172.17.27.221</span></code>.</p>
 </div>
 <div class="section" id="membuat-website-sederhana">
 <h3>Membuat Website sederhana<a class="headerlink" href="#membuat-website-sederhana" title="Permalink to this headline">¶</a></h3>
@@ -402,17 +405,20 @@ Pada latihan ini akan dilakukan instalasi dan konfigurasi Apache untuk publikasi
 <p>Dengan demikian, seluruh file yang disimpan pada folder tersebut akan dapat dibuka melalui browser pada alamat <code class="docutils literal notranslate"><span class="pre">localhost</span></code>.
 Untuk menguji webserver ini, kita akan lakukan latihan sebagai berikut:</p>
 <ol>
-<li><p>Masuk ke folder <code class="docutils literal notranslate"><span class="pre">/var/www/html</span></code> menggunakan perintah <code class="docutils literal notranslate"><span class="pre">cd</span></code></p></li>
+<li><p>Masuk ke folder <code class="docutils literal notranslate"><span class="pre">/var/www/html</span></code> menggunakan perintah <code class="docutils literal notranslate"><span class="pre">cd</span></code>.
+ </p></li>
 <li><p>Buat sebuah folder baru dengan nama <code class="docutils literal notranslate"><span class="pre">trial</span></code> pada direktori <code class="docutils literal notranslate"><span class="pre">/html</span></code> tersebut.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo mkdir trial
 </pre></div>
 </div>
-<p>Perintah <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> pada folder tersebut memerlukan akses <code class="docutils literal notranslate"><span class="pre">sudo</span></code>, karena owner dari folder adalah <code class="docutils literal notranslate"><span class="pre">root</span></code>.</p>
+<p>Perintah <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> pada folder tersebut memerlukan akses <code class="docutils literal notranslate"><span class="pre">sudo</span></code>, karena owner dari folder adalah <code class="docutils literal notranslate"><span class="pre">root</span></code>.
+ </p>
 </li>
 <li><p>Pada folder tersebut, buat sebuah file dengan nama <code class="docutils literal notranslate"><span class="pre">index.html</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo touch index.html
 </pre></div>
 </div>
+<p> </p>
 </li>
 <li><p>Isilah file tersebut dengan baris bahasa HTML berikut:</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
@@ -424,6 +430,7 @@ Untuk menguji webserver ini, kita akan lakukan latihan sebagai berikut:</p>
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>   
 </pre></div>
 </div>
+<p> </p>
 </li>
 <li><p>Buka http://localhost/trial:
 <img alt="" src="../_images/2020-12-02-12-38-31.png" />
@@ -433,7 +440,7 @@ File html yang dibuat pada folder berhasil dipanggil pada webserver</p></li>
 </div>
 <div class="section" id="tomcat-sebagai-servlet-aplikasi-berbasis-java">
 <h2>Tomcat sebagai Servlet Aplikasi berbasis Java<a class="headerlink" href="#tomcat-sebagai-servlet-aplikasi-berbasis-java" title="Permalink to this headline">¶</a></h2>
-<p>Apache Tomcat adalah implementasi open-source dari Java Servlet, JavaServer Pages, Java Expression Language, dan teknologi Java WebSocket. Tomcat merupakan salah satu web Application yang paling banyak diadopsi di dunia saat ini. Tomcat mudah digunakan dan memiliki ekosistem add-on yang kuat. Apache Tomcat digunakan untuk publikasi berbagai aplikasi geospasial, seperti misalnya Geoserver dan Mapstore.</p>
+<p>Apache Tomcat adalah implementasi open-source dari Java Servlet, JavaServer Pages, Java Expression Language, dan teknologi Java WebSocket. Tomcat merupakan salah satu web Application yang paling banyak diadopsi di dunia saat ini. Tomcat mudah digunakan dan memiliki ekosistem add-on yang kuat. Apache Tomcat digunakan untuk publikasi berbagai aplikasi geospasial berbasis Java, seperti misalnya Geoserver, GeoTools dan Mapstore.</p>
 <div class="section" id="instalasi-tomcat">
 <h3>Instalasi Tomcat<a class="headerlink" href="#instalasi-tomcat" title="Permalink to this headline">¶</a></h3>
 <p>Untuk melakukan instalasi Tomcat, lakukan langkah berikut:
@@ -443,27 +450,32 @@ File html yang dibuat pada folder berhasil dipanggil pada webserver</p></li>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install default-jdk
 </pre></div>
 </div>
+<p> </p>
 </li>
 <li><p>Atas alasan keamanan, Tomcat tidak boleh dijalankan di bawah pengguna root. Kita perlu membuat pengguna dan grup sistem baru dengan direktori home /opt/tomcat yang akan menjalankan layanan Tomcat:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo useradd -r -m -U -d /opt/tomcat -s /bin/false tomcat
 </pre></div>
 </div>
+<p> </p>
 </li>
 <li><p>Unduh instalasi Tomcat 9. Pada saat penulisan modul ini, Versi terbaru Tomcat adalah 9.0.40. Sesuaikan versi Tomcat yang digunakan dengan melihat versi rilis terbaru pada <a class="reference external" href="https://tomcat.apache.org/download-90.cgi">halaman ini</a>.
 Gunakan wget untuk mengunduh binary Tomcat untuk Instalasi:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget http://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.40/bin/apache-tomcat-9.0.40.tar.gz -P /tmp
 </pre></div>
 </div>
+<p> </p>
 </li>
 <li><p>Setelah unduhan selesai, gunakan perintah berikut untuk mengekstrak dan memindah file Tomcat pada folder <code class="docutils literal notranslate"><span class="pre">/opt/tomcat</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo tar xf /tmp/apache-tomcat-9*.tar.gz -C /opt/tomcat
 </pre></div>
 </div>
+<p> </p>
 </li>
 <li><p>Untuk keperluan praktis, lebih baik apabila dibuat sebuah Symbolic Link untuk mengacu pada binary yang dimaksud:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo ln -s /opt/tomcat/apache-tomcat-9.0.40 /opt/tomcat/latest
 </pre></div>
 </div>
+<p> </p>
 </li>
 <li><p>Agar folder tomcat dimiliki oleh pengguna <code class="docutils literal notranslate"><span class="pre">tomcat</span></code> yang telah dibuat sebelumnya, gunakan perintah berikut:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo chown -RH tomcat: /opt/tomcat/latest
@@ -473,6 +485,7 @@ Gunakan wget untuk mengunduh binary Tomcat untuk Instalasi:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo sh -c <span class="s1">&#39;chmod +x /opt/tomcat/latest/bin/*.sh&#39;</span>
 </pre></div>
 </div>
+<p> </p>
 </li>
 <li><p>Untuk memudahkan manajemen, Tomcat perlu dijalankan sebagai service:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo nano /etc/systemd/system/tomcat.service
@@ -504,6 +517,7 @@ Gunakan wget untuk mengunduh binary Tomcat untuk Instalasi:</p>
 <span class="n">WantedBy</span><span class="o">=</span><span class="n">multi</span><span class="o">-</span><span class="n">user</span><span class="o">.</span><span class="n">target</span>
 </pre></div>
 </div>
+<p> </p>
 </li>
 <li><p>Lakukan aktivasi untuk Tomcat yang sudah diinstall:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo systemctl daemon-reload
@@ -515,12 +529,14 @@ sudo systemctl status tomcat
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo systemctl <span class="nb">enable</span> tomcat
 </pre></div>
 </div>
+<p> </p>
 </li>
 <li><p>Izinkan Firewall untuk Tomcat.
 Sama seperti pada Apache, firewall perlu dibuka untuk mengizinkan Tomcat dapat diakses:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo ufw allow <span class="m">8080</span>/tcp
 </pre></div>
 </div>
+<p> </p>
 </li>
 <li><p>Buka localhost:8080 pada browser di Windows untuk memeriksa apakah Tomcat sudah berhasil dijalankan</p>
 <p><img alt="" src="../_images/2020-12-03-05-06-39.png" /></p>

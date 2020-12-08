@@ -53,7 +53,7 @@ Apabila diberikan pada sesi pelatihan tentang Free and OpenSource GIS, pembagian
 
 ### Lisensi Dokumen 
 
-Dokumen ini dan latihan yang ada di dalamnya disusun di bawah panduan [Lisensi MIT](https://opensource.org/licenses/MIT). 
+Dokumen ini dan latihan yang ada di dalamnya disusun di bawah panduan [CC-BY-SA versi 4.0](https://creativecommons.org/licenses/by-sa/4.0/). 
 
 Dokumen ini ditulis oleh [Dany Laksono](https://www.danylaksono.com/) untuk Pusat Data dan Teknologi Informasi (Pusdatin) Kementerian PUPR tahun 2020
 

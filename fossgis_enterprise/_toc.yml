@@ -23,7 +23,7 @@
   - file: sesi2/relationaldb
   - file: sesi2/dbmanagement
   - file: sesi2/postgisquery
-  - file: sesi2/nosql
+  #- file: sesi2/nosql
 
   
 
@@ -34,4 +34,4 @@
   - file: sesi3/interoperabilitas
   - file: sesi3/publikasi
   - file: sesi3/konsumsiogc
-  - file: sesi3/arsitektur
+  #- file: sesi3/arsitektur

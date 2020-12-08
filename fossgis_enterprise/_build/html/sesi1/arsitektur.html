@@ -148,11 +148,6 @@
    Basisdata Spasial dengan PostGIS
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../sesi2/nosql.html">
-   Basisdata SQL dan NoSQL
-  </a>
- </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -180,11 +175,6 @@
    Konsumsi Data dengan Standar OGC
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../sesi3/arsitektur.html">
-   Arsitektur Enterprise GIS dengan Perangkat Lunak (FOSS)
-  </a>
- </li>
 </ul>
 
 </nav>
@@ -192,7 +182,7 @@
  <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  Buku ini disusun menggunakan <a href="https://jupyterbook.org">Jupyter Book</a>
 </div>
 
 </div>
@@ -370,6 +360,7 @@
 <li><p><strong>Shell</strong> - Linux menyediakan program penerjemah khusus yang dapat digunakan untuk menjalankan perintah sistem operasi. Dapat digunakan untuk melakukan berbagai jenis operasi, memanggil program aplikasi. dll.</p></li>
 <li><p><strong>Keamanan</strong> - Linux menyediakan keamanan pengguna menggunakan fitur otentikasi seperti proteksi password dan akses terkontrol ke file/enkripsi data tertentu.</p></li>
 </ul>
+<p> </p>
 </div>
 </div>
 <div class="section" id="mengunakan-shell">
@@ -386,6 +377,7 @@
 <p class="admonition-title">Catatan</p>
 <p><strong>Bash Shell</strong> adalah aplikasi Command Shell yang saat ini merupakan aplikasi standar pada hampir semua distribusi Linux, sehingga perintah pada panduan ini mengacu pada Bash Shell. Perintah-perintah pada Bash Shell dapat dilihat pada <a class="reference external" href="https://devhints.io/bash">link berikut</a> atau <a class="reference external" href="https://courses.cs.washington.edu/courses/cse391/16sp/bash.html">link berikut</a>.</p>
 </div>
+<p> </p>
 <div class="section" id="latihan-perintah-dasar-pada-shell">
 <h3>Latihan: Perintah Dasar pada Shell<a class="headerlink" href="#latihan-perintah-dasar-pada-shell" title="Permalink to this headline">¶</a></h3>
 <p>WSL2 untuk Windows 10 yang diinstall pada latihan sebelumnya memberikan antarmuka Shell pada pengguna (lihat <a class="reference internal" href="pengantarlinux.html#wsl2"><span class="std std-ref">gambar sebelumnya</span></a>). Latihan-latihan berikut menggunakan antarmuka <em>shell command</em> yang diberikan oleh WSL2 ini.</p>
@@ -397,41 +389,33 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:center"><p>pwd</p></td>
-<td class="text-align:left"><p>print current working directory</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p>cd</p></td>
-<td class="text-align:left"><p>change working directory</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p>ls</p></td>
-<td class="text-align:left"><p>list files in working directory</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p>man</p></td>
+<tr class="row-even"><td class="text-align:center"><p>man</p></td>
 <td class="text-align:left"><p>bring up manual for a command</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p>exit</p></td>
+<tr class="row-odd"><td class="text-align:center"><p>exit</p></td>
 <td class="text-align:left"><p>log out of shell</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p>clear</p></td>
+<tr class="row-even"><td class="text-align:center"><p>clear</p></td>
 <td class="text-align:left"><p>clears all output from console</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p>date</p></td>
+<tr class="row-odd"><td class="text-align:center"><p>date</p></td>
 <td class="text-align:left"><p>output the system date</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p>cal</p></td>
+<tr class="row-even"><td class="text-align:center"><p>cal</p></td>
 <td class="text-align:left"><p>output a text calendar</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p>uname</p></td>
+<tr class="row-odd"><td class="text-align:center"><p>uname</p></td>
 <td class="text-align:left"><p>print information about the current system</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p></p></td>
-<td class="text-align:left"><p></p></td>
+<tr class="row-even"><td class="text-align:center"><p><img width=100/></p></td>
+<td class="text-align:left"><p><img width=500/></p></td>
 </tr>
 </tbody>
 </table>
 <p>Untuk latihan, buka konsol Ubuntu WSL2, kemudian ketikkan salah satu perintah di atas:</p>
 <p><img alt="" src="../_images/2020-12-02-04-08-05.png" /></p>
 <p>Perintah <code class="docutils literal notranslate"><span class="pre">pwd</span></code> pada gambar di atas digunakan untuk menampilkan direktori tempat shell saat ini berjalan. Keluaran dari perintah ini langsung ditampilkan pada konsol. Untuk latihan, jalankan perintah-perintah lain dan perhatikan apa yang terjadi pada konsol.</p>
+<p> </p>
 </div>
 <div class="section" id="latihan-operasi-pada-file-dan-direktori">
 <h3>Latihan: Operasi pada File dan Direktori<a class="headerlink" href="#latihan-operasi-pada-file-dan-direktori" title="Permalink to this headline">¶</a></h3>
@@ -464,11 +448,12 @@
 <tr class="row-even"><td class="text-align:center"><p>/apt</p></td>
 <td class="text-align:left"><p>folder <strong>apt</strong> pada root</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p></p></td>
-<td class="text-align:left"><p></p></td>
+<tr class="row-odd"><td class="text-align:center"><p><img width=100/></p></td>
+<td class="text-align:left"><p><img width=300/></p></td>
 </tr>
 </tbody>
 </table>
+<p> </p>
 </li>
 <li><p>Selanjutnya, perintah-perintah berikut dapat digunakan pada saat berhubungan dengan pengaturan direktori:</p>
 <table class="colwidths-auto table">
@@ -479,34 +464,47 @@
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-align:center"><p>ls</p></td>
-<td class="text-align:left"><p>list files in working directory</p></td>
+<td class="text-align:left"><p>tampilkan daftar berkas pada direktori saat ini</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:center"><p>pwd</p></td>
-<td class="text-align:left"><p>print current working directory</p></td>
+<td class="text-align:left"><p>print working directory - cetak direktori saat ini</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:center"><p>cd</p></td>
-<td class="text-align:left"><p>change working directory</p></td>
+<td class="text-align:left"><p>change directory - berpindah ke direktori baru</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:center"><p>mkdir</p></td>
-<td class="text-align:left"><p>make a new directory</p></td>
+<td class="text-align:left"><p>membuat direktori baru</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:center"><p>rmdir</p></td>
-<td class="text-align:left"><p>remove the given directory (must be empty)</p></td>
+<td class="text-align:left"><p>menghapus direktori (isi folder harus kosong)</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p></p></td>
-<td class="text-align:left"><p></p></td>
+<tr class="row-odd"><td class="text-align:center"><p>rm</p></td>
+<td class="text-align:left"><p>hapus file atau direktori (<code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span></code> untuk menghapus secara paksa)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><img width=100/></p></td>
+<td class="text-align:left"><p><img width=300/></p></td>
 </tr>
 </tbody>
 </table>
+<p> </p>
 </li>
-<li><p>Gunakan perintah <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">&lt;namaperintah&gt;</span></code> atau <code class="docutils literal notranslate"><span class="pre">namaperintah</span> <span class="pre">--help</span></code> untuk menampilkan opsi apa saja yang dapat digunakan pada tiap perintah tersebut</p></li>
-<li><p>Untuk latihan selanjutnya, tampilkan isi dari root folder, seperti berikut:
-<img alt="" src="../_images/2020-12-02-05-08-58.png" /></p></li>
-<li><p>Selanjutnya, buatlah struktur folder berikut pada home directory Anda (pengguna aktif saat ini):
+<li><p>Gunakan perintah <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">&lt;namaperintah&gt;</span></code> atau <code class="docutils literal notranslate"><span class="pre">namaperintah</span> <span class="pre">--help</span></code> untuk menampilkan opsi apa saja yang dapat digunakan pada tiap perintah tersebut. Sebagai contoh berikut adalah manual page untuk perintah <code class="docutils literal notranslate"><span class="pre">ls</span></code>:
+<img alt="" src="../_images/2020-12-07-11-00-11.png" />
+ </p></li>
+<li><p>Untuk latihan selanjutnya, tampilkan isi dari <strong>root directory</strong> (satu tingkat di atas <code class="docutils literal notranslate"><span class="pre">home</span> <span class="pre">directory</span></code>), seperti berikut:
+<img alt="" src="../_images/2020-12-02-05-08-58.png" />
+ </p></li>
+<li><p>Selanjutnya, buatlah struktur folder berikut pada <code class="docutils literal notranslate"><span class="pre">home</span> <span class="pre">directory</span></code> Anda (pengguna aktif saat ini):
 <img alt="" src="../_images/2020-12-02-05-01-36.png" /></p>
-<p>Buat folder <code class="docutils literal notranslate"><span class="pre">workspace</span></code> yang didalamnya berisi dua buah folder, masing-masing folder <code class="docutils literal notranslate"><span class="pre">latihan1</span></code> dan <code class="docutils literal notranslate"><span class="pre">latihan2</span></code>. Di dalam folder <code class="docutils literal notranslate"><span class="pre">latihan1</span></code> berisi sebuah folder lain</p>
+<p>Buat folder <code class="docutils literal notranslate"><span class="pre">workspace</span></code> yang didalamnya berisi dua buah folder, masing-masing folder <code class="docutils literal notranslate"><span class="pre">latihan1</span></code> dan <code class="docutils literal notranslate"><span class="pre">latihan2</span></code>. Di dalam folder <code class="docutils literal notranslate"><span class="pre">latihan1</span></code> berisi sebuah folder lain.</p>
+<div class="admonition-catatan admonition">
+<p class="admonition-title">Catatan</p>
+<p>Berbagai perintah pada <em>shell</em> Linux sangat efektif apabila digunakan dengan baik. Perintah yang berbeda dapat dikombinasikan dan dioptimalkan untuk mempersingkat tugas-tugas yang diberikan. Sebagai contoh, beberapa perintah dapat menerima lebih dari satu argumen (misalnya, <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">folder1</span> <span class="pre">folder2</span></code>). Penggunaan operator pada command juga dapat menyingkat operasi yang diinginkan (misalnya, <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">update</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">update</span></code> dengan operator <code class="docutils literal notranslate"><span class="pre">AND_IF</span></code>), operasi ekspansi dengan bracket (misalnya <code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">/alamat/file.txt{,.bak}</span></code>)</p>
+<p>Sebagai catatan tambahan, Shell pada Linux bahkan mendukung <a class="reference external" href="https://likegeeks.com/regex-tutorial-linux/">Regex</a>!</p>
+</div>
+<p> </p>
 </li>
-<li><p>Untuk bekerja dengan file, gunakan perintah-perintah berikut:</p>
+<li><p>Untuk bekerja dengan file, beberapa perintah berikut dapat digunakan:</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-align:center head"><p>Command</p></th>
@@ -526,19 +524,23 @@
 <tr class="row-odd"><td class="text-align:center"><p>touch</p></td>
 <td class="text-align:left"><p>create empty file, or change time-modified</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p></p></td>
-<td class="text-align:left"><p></p></td>
+<tr class="row-even"><td class="text-align:center"><p><img width=100/></p></td>
+<td class="text-align:left"><p><img width=300/></p></td>
 </tr>
 </tbody>
 </table>
 <p>Gunakan perintah di atas untuk membuat file <code class="docutils literal notranslate"><span class="pre">berkas1.txt</span></code> pada <code class="docutils literal notranslate"><span class="pre">folder_a</span></code> di dalam folder <code class="docutils literal notranslate"><span class="pre">latihan1</span></code>. Selanjutnya, lakukan perintah copy dan rename untuk menghasilkan struktur file seperti berikut:</p>
 <p><img alt="" src="../_images/2020-12-02-05-21-44.png" /></p>
+<p>untuk melakukan editing pada file, kebanyakan distro Linux menyediakan shell editor bawaan, misalnya <code class="docutils literal notranslate"><span class="pre">nano</span></code>.</p>
+<p> </p>
 </li>
-<li><p>Terakhir, hapus folder_b berikut semua file dan sub direktori di dalamnya. Hasil akhirnya sebagai berikut:</p>
+<li><p>Terakhir, hapus <strong>folder_b</strong> berikut semua file dan sub-direktori di dalamnya. Hasil akhirnya sebagai berikut:</p>
 <p><img alt="" src="../_images/2020-12-02-05-29-52.png" /></p>
 </li>
 </ol>
+<p> </p>
 <p>Dengan demikian, latihan ini menunjukkan bagaimana manajemen terhadap file dilakukan di Linux. Berbagai perintah dapat digabungkan untuk memperoleh hasil yang diinginkan, misalnya membuat beberapa folder baru sekaligus atau membuat dan mengcopy berkas secara cepat.</p>
+<p> </p>
 </div>
 <div class="section" id="latihan-instalasi-aplikasi">
 <h3>Latihan: Instalasi aplikasi<a class="headerlink" href="#latihan-instalasi-aplikasi" title="Permalink to this headline">¶</a></h3>
@@ -547,7 +549,8 @@
 <img alt="../_images/2020-12-03-02-08-32.png" src="../_images/2020-12-03-02-08-32.png" />
 <p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Cara kerja Package Manager pada Linux</span><a class="headerlink" href="#apt" title="Permalink to this image">¶</a></p>
 </div>
-<p>Terdapat beberapa antarmuka yang berhubungan dengan Package Manager ini yang dikenal di sistem operasi berbasis Debian, seperti <em>apt-get, aptitude,</em> maupun <em>apt</em>. Antarmuka ini menghubungkan perintah dari pengguna (misalnya <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">update</span></code>) dengan <em>package manager</em>, seperti APT untuk kemudian melakukan operasi terkait dengan basisdata aplikasi pada repository.</p>
+<p>Pada pemanggilan berkas yang tersimpan di repository, berlaku kondisi sebagaimana akses informasi melalui internet pada umumnya: semakin jauh secara fisik lokasi server, semakin lambat koneksi yang akan diperoleh. Untuk itu, terdapat sejumlah repository lokal untuk tiap versi distribusi Linux. Sebagai contoh, <a class="reference external" href="http://repo.ugm.ac.id/">http://repo.ugm.ac.id/</a> berisi repository untuk beberapa distribusi Linux yang disimpan pada server UGM.</p>
+<p>Terdapat beberapa antarmuka yang berhubungan dengan Package Manager yang dikenal di sistem operasi berbasis Debian, seperti <em>apt-get, aptitude,</em> maupun <em>apt</em>. Aplikasi antarmuka ini menghubungkan perintah dari pengguna (misalnya <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">update</span></code>) dengan <em>package manager</em> (seperti APT) untuk kemudian melakukan operasi terkait dengan basisdata aplikasi pada repository.</p>
 <p>Latihan berikut diberikan untuk memahamkan bagaimana menggunakan <em>apt</em> untuk memanajemen aplikasi pada Linux <a class="footnote-reference brackets" href="#footnote4" id="id2">2</a>.</p>
 <ol>
 <li><p>Melakukan <em>update</em> basisdata APT
@@ -576,6 +579,9 @@ Pada Ubuntu dan distro berbasis Debian lainnya, aplikasi yang terinstall disimpa
 </div>
 <p>selanjutnya, perintah <code class="docutils literal notranslate"><span class="pre">tree</span></code> dapat langsung digunakan pada shell.</p>
 </li>
+</ol>
+<p> </p>
+<ol>
 <li><p>Untuk menghapus aplikasi, gunakan perintah:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt purge &lt;nama aplikasi&gt;
 </pre></div>
@@ -584,8 +590,11 @@ Pada Ubuntu dan distro berbasis Debian lainnya, aplikasi yang terinstall disimpa
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt remove &lt;nama aplikasi&gt;
 </pre></div>
 </div>
-<p>perbedaan keduanya terletak pada kedalaman penghapusan. <code class="docutils literal notranslate"><span class="pre">purge</span></code> menghapus seluruh aplikasi berikut konfigurasi yang tersimpan, sedangkan <code class="docutils literal notranslate"><span class="pre">remove</span></code> hanya menghapus aplikasi dari daftar basisdata <strong>APT</strong>, tetapi meninggalkan konfigurasi dari aplikasi, sehingga apabila kelak dilakukan instalasi kembali, konfigurasi ini akan digunakan</p>
+<p>perbedaan keduanya terletak pada kedalaman penghapusan. <code class="docutils literal notranslate"><span class="pre">purge</span></code> menghapus seluruh aplikasi berikut konfigurasi yang tersimpan, sedangkan <code class="docutils literal notranslate"><span class="pre">remove</span></code> hanya menghapus aplikasi dari daftar basisdata <strong>APT</strong>, tetapi meninggalkan konfigurasi dari aplikasi, sehingga apabila kelak dilakukan instalasi kembali, konfigurasi ini akan digunakan.</p>
 </li>
+</ol>
+<p> </p>
+<ol class="simple">
 <li><p>Sebagai latihan, lakukan instalasi untuk aplikasi editing bernama <code class="docutils literal notranslate"><span class="pre">vim</span></code>. <strong>vim</strong> dapat digunakan untuk mengedit sebuah file yang memiliki tingkat kompleksitas tinggi, dan akan membantu pada saat kita melakukan editing file, misalnya pada sebuah mesin server.</p></li>
 </ol>
 </div>
@@ -647,41 +656,43 @@ Setelah membuat akun, langkah selanjutnya adalah merubah password untuk akun ter
 <div class="section" id="latihan-pengaturan-grup">
 <h3>Latihan: Pengaturan Grup<a class="headerlink" href="#latihan-pengaturan-grup" title="Permalink to this headline">¶</a></h3>
 <p>Grup pada Linux dapat digunakan untuk mendefinisikan peranan yang berbeda untuk tiap pengguna, misalnya membatasi akses pada direktori serta akses untuk perintah tertentu. Untuk memasukkan pengguna yang sudah dibuat pada sebuah grup, perintahnya adalah sebagai berikut:</p>
-<ol class="simple">
-<li><p>Menambahkan pengguna ke grup</p></li>
-</ol>
+<ol>
+<li><p>Menambahkan pengguna ke grup</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo usermod –a –G namagrup namauser
 </pre></div>
 </div>
-<ol class="simple">
-<li><p>jika grup yang dimaksud adalah <strong>sudoer</strong>, maka perintahnya adalah sebagai berikut:</p></li>
-</ol>
+<p> </p>
+</li>
+<li><p>Jika grup yang dimaksud adalah <strong>sudoer</strong>, maka perintahnya adalah sebagai berikut:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>usermod -aG sudo namauser
 </pre></div>
 </div>
-<ol class="simple">
-<li><p>selanjutnya, lakukan penambahan akses pengguna ini ke dalam sudoer:</p></li>
-</ol>
+<p> </p>
+</li>
+<li><p>Selanjutnya, lakukan penambahan akses pengguna ini ke dalam <em>sudoer</em>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo visudo
 </pre></div>
 </div>
-<p>masukkan informasi nama user sebagai sudoer</p>
+<p>masukkan informasi nama user sebagai <em>sudoer</em></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>namauser  <span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span> NOPASSWD:ALL
 </pre></div>
 </div>
-<ol class="simple">
+<p> </p>
+</li>
 <li><p>Berpindah akun (switch user)
-Untuk keperluan administrasi, seringkali pengguna harus berpindah dari satu akun (non-sudoer) ke akun lain (sudoer). untuk itu, perintah berikut dapat digunakan:</p></li>
+Untuk keperluan administrasi, seringkali pengguna harus berpindah dari satu akun (non-sudoer) ke akun lain (sudoer). untuk itu, perintah berikut dapat digunakan:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>su –u userkedua
+whoami
+</pre></div>
+</div>
+<p>untuk mengakses <em>superelevated user</em> atau <strong>root</strong>, perintah berikut dapat digunakan:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo su
+whoami
+</pre></div>
+</div>
+</li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> su –u userkedua
- whoami
-</pre></div>
-</div>
-<p>untuk mengakses <em>superelevated user</em> atau root, perintah berikut dapat digunakan:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> su –u userkedua
- whoami
-</pre></div>
-</div>
+<p>Grup dapat digunakan untuk mengatur dan mengelompokkan pengguna pada satu hak akses yang sama. Selanjutnya adalah bagaimana melakukan pengaturan hak akses tersebut.</p>
 </div>
 <div class="section" id="pengaturan-hak-akses">
 <h3>Pengaturan Hak Akses<a class="headerlink" href="#pengaturan-hak-akses" title="Permalink to this headline">¶</a></h3>
@@ -700,7 +711,10 @@ Untuk keperluan administrasi, seringkali pengguna harus berpindah dari satu akun
 <li><p><strong>r-x</strong> : izin <em>grup</em>, pengguna dari grup <code class="docutils literal notranslate"><span class="pre">danylaksono</span></code> (kebetulan untuk contoh di atas nama pengguna dan grup sama) dapat melakukan <em>read dan execute</em> pada file tersebut</p></li>
 <li><p><strong>r-x</strong> : izin untuk <em>other</em>, atau pengguna lain</p></li>
 </ul>
-<p><img alt="" src="../_images/2020-12-03-02-33-45.png" /></p>
+<div class="figure align-default" id="izin">
+<a class="reference internal image-reference" href="../_images/2020-12-03-02-33-45.png"><img alt="../_images/2020-12-03-02-33-45.png" src="../_images/2020-12-03-02-33-45.png" style="height: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Penjelasan hak akses pada Linux</span><a class="headerlink" href="#izin" title="Permalink to this image">¶</a></p>
+</div>
 <p>Penulisan izin tersebut juga dapat dilakukan menggunakan <strong>notasi numerik</strong>:</p>
 <ul class="simple">
 <li><p>0: Tidak ada izin</p></li>
@@ -710,9 +724,11 @@ Untuk keperluan administrasi, seringkali pengguna harus berpindah dari satu akun
 </ul>
 <p>Sekarang, bagaimana cara menghitung izin untuk pengguna dan grup dalam notasi numerik? Cukup tambahkan nilai izin untuk mendapatkan nilai pengguna, grup, dan izin lainnya masing-masing.</p>
 <p>Sebagai contoh:</p>
-<p>baca (4), tulis (2) dan jalankan (1) izin <strong>rwx</strong> diterjemahkan ke 7 (4 + 2 + 1)
-baca (4) dan tulis (2) izin <strong>rw-</strong> diterjemahkan ke 6 (4 + 2)
-tulis (2) dan jalankan (1) izin <strong>-wx</strong> diterjemahkan ke 3 (2 + 1), dan seterusnya.</p>
+<ul class="simple">
+<li><p>Izin <em>baca</em> (4), <em>tulis</em> (2) dan <em>jalankan</em> (1): izin <strong>rwx</strong> diterjemahkan menjadi 7 (4 + 2 + 1)</p></li>
+<li><p>Izin <em>baca</em> (4) dan <em>tulis</em> (2): izin <strong>rw-</strong> diterjemahkan menjadi 6 (4 + 2)</p></li>
+<li><p>Izin <em>tulis</em> (2) dan <em>jalankan</em> (1): izin <strong>-wx</strong> diterjemahkan menjadi 3 (2 + 1), dan seterusnya.</p></li>
+</ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Kira-kira apa pengaruh <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">777</span></code>?</p>
@@ -727,7 +743,7 @@ tulis (2) dan jalankan (1) izin <strong>-wx</strong> diterjemahkan ke 3 (2 + 1),
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod +x latihan.txt
 </pre></div>
 </div>
-<p>maksudnya adalah memberi izin kepada semua pengguna untuk mengakses file tersebut. Ini sama dengan <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">a+x</span> <span class="pre">latihan1.txt</span></code>, dimana <strong>a</strong> berarti ‘all’. Hal yang sama berlaku untuk grup (g) dan other (o).</p>
+<p>maksudnya adalah memberi izin kepada semua pengguna untuk mengakses file tersebut. Ini sama dengan <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">a+x</span> <span class="pre">latihan1.txt</span></code>, dimana <strong>a</strong> berarti ‘all’. Hal yang sama berlaku untuk <em>grup</em> (g) dan <em>other</em> (o).</p>
 <p>Perintah lain yang berguna untuk merubah kepemilikan berkas pada Linux adalah <code class="docutils literal notranslate"><span class="pre">chown</span></code>. Format untuk perintah ini adalah:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chown user<span class="o">[</span>:group<span class="o">]</span> namafile
 </pre></div>
@@ -737,6 +753,10 @@ tulis (2) dan jalankan (1) izin <strong>-wx</strong> diterjemahkan ke 3 (2 + 1),
 </pre></div>
 </div>
 <p>Sebagai latihan untuk sesi ini, buat user kedua, kemudian rubah akses pada file <code class="docutils literal notranslate"><span class="pre">latihan1.txt</span></code> yang sudah dibuat sebelumnya agar user lain tidak dapat membaca file tersebut. Apa pengaruhnya apabila user pertama hendak mengakses file tersebut?</p>
+<div class="admonition-catatan admonition">
+<p class="admonition-title">Catatan</p>
+<p>Penggunaan DAC (<em>Discretionary Access Control</em>) seperti di atas akan lebih baik apabila dilengkapi dengan pengaturan ACL (<em>Access Control List</em>) atau SELinux pada distribusi seperti Centos untuk manajemen berkas pada server.</p>
+</div>
 <hr class="docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="footnote2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
