@@ -148,11 +148,6 @@
    Basisdata Spasial dengan PostGIS
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nosql.html">
-   Basisdata SQL dan NoSQL
-  </a>
- </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -180,11 +175,6 @@
    Konsumsi Data dengan Standar OGC
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../sesi3/arsitektur.html">
-   Arsitektur Enterprise GIS dengan Perangkat Lunak (FOSS)
-  </a>
- </li>
 </ul>
 
 </nav>
@@ -192,7 +182,7 @@
  <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  Buku ini disusun menggunakan <a href="https://jupyterbook.org">Jupyter Book</a>
 </div>
 
 </div>
@@ -267,13 +257,18 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#latihan-membuat-pengguna-dan-grup-baru">
-     Latihan: Membuat pengguna dan grup baru
+    <a class="reference internal nav-link" href="#membuat-pengguna-dan-grup-baru">
+     Membuat pengguna dan grup baru
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#latihan-menerapkan-peran-baru">
-     Latihan: Menerapkan peran baru
+    <a class="reference internal nav-link" href="#menerapkan-peran-baru">
+     Menerapkan peran baru
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#latihan-menggunakan-pengaturan-roles-untuk-membatasi-akses">
+     Latihan: Menggunakan Pengaturan Roles untuk membatasi akses
     </a>
    </li>
   </ul>
@@ -311,8 +306,11 @@
 <p>Pada basisdata enterprise, concurrent use atau pemakaian bersama menjadi kebutuhan utama pada sistem yang berjalan. Sama seperti pada sistem operasi Linux yang sudah dibahas sebelumnya, terdapat pengaturan untuk memberikan izin pada basisdata yang memungkinkan pengguna berbeda mempunyai izin akses yang berbeda.</p>
 <div class="section" id="roles-group-dan-priviledges">
 <h2>Roles, Group dan Priviledges<a class="headerlink" href="#roles-group-dan-priviledges" title="Permalink to this headline">¶</a></h2>
-<p>Izin pada pengguna di PostgreSQL mirip dengan pemberian izin pada Linux: pembagian peran (role) dapat diberikan pada</p>
-<p><img alt="" src="../_images/2020-12-03-09-08-19.png" /></p>
+<p>Izin pada pengguna di PostgreSQL mirip dengan pemberian izin pada Linux: pembagian peran (role) dapat diberikan pada user maupun grup, dengan tiap role memiliki hak akses (priviledges) yang berbeda</p>
+<div class="figure align-default" id="pgroles">
+<a class="reference internal image-reference" href="../_images/2020-12-03-09-08-19.png"><img alt="../_images/2020-12-03-09-08-19.png" src="../_images/2020-12-03-09-08-19.png" style="height: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">Roles pada PostgreSQL dapat diberikan pada <code class="docutils literal notranslate"><span class="pre">grup</span></code> maupun pada <code class="docutils literal notranslate"><span class="pre">user</span></code></span><a class="headerlink" href="#pgroles" title="Permalink to this image">¶</a></p>
+</div>
 <p>Berikut adalah beberapa peran yang dapat diberikan pada pengguna atau grup:</p>
 <ul class="simple">
 <li><p><strong>SUPERUSER</strong> - SUPERUSER database perlu mendapat perhatian khusus. Intinya, peran dengan atribut ini dapat membuat SUPERUSER lain. Faktanya, atribut ini diperlukan untuk membuat peran SUPERUSER lainnya. Karena peran dengan atribut ini mengabaikan semua pemeriksaan izin, berikan hak istimewa ini dengan bijaksana.</p></li>
@@ -320,14 +318,22 @@
 <li><p><strong>CREATEROLE</strong> - Dengan atribut ini, peran dapat mengeluarkan perintah CREATE ROLE, yaitu membuat peran lain.</p></li>
 <li><p><strong>LOGIN</strong> - Memungkinkan kemampuan untuk login. Nama peran dengan atribut ini dapat digunakan dalam perintah koneksi klien.</p></li>
 </ul>
+<p>Pada PostgreSQL, pengaturan ini dapat dijumpai pada menu Create Roles, seperti berikut:</p>
+<div class="figure align-default" id="pengaturanroles">
+<a class="reference internal image-reference" href="../_images/2020-12-08-08-09-45.png"><img alt="../_images/2020-12-08-08-09-45.png" src="../_images/2020-12-08-08-09-45.png" style="height: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">Menu pengaturan Roles pada PostgreSQL</span><a class="headerlink" href="#pengaturanroles" title="Permalink to this image">¶</a></p>
+</div>
 </div>
 <div class="section" id="pengaturan-hak-akses-pada-postgresql">
 <h2>Pengaturan hak akses pada PostgreSQL<a class="headerlink" href="#pengaturan-hak-akses-pada-postgresql" title="Permalink to this headline">¶</a></h2>
 <p>Dengan PostgreSQL, Anda dapat membuat pengguna dan peran dengan izin akses secara <em>granular</em>. Pengguna atau peran baru harus secara selektif diberikan izin yang diperlukan untuk setiap objek database. Ini memberi banyak kekuatan kepada pengguna akhir, tetapi pada saat yang sama, itu membuat proses pembuatan pengguna dan peran dengan izin yang benar berpotensi rumit.</p>
-<p>PostgreSQL memungkinkan Anda memberikan izin langsung ke pengguna database. Namun, sebagai praktik yang baik, Anda disarankan untuk membuat <strong>banyak peran</strong> dengan kumpulan izin tertentu berdasarkan aplikasi dan persyaratan akses. Kemudian tetapkan peran yang sesuai untuk setiap pengguna. Peran harus digunakan untuk menerapkan model dengan hak istimewa terendah untuk mengakses objek database. Pengguna master pada PostgreSQL harus digunakan hanya untuk tugas administrasi database seperti membuat pengguna, peran, dan database lain. Pengguna master tidak boleh digunakan oleh aplikasi. Berikut adalah contoh pembagian peran dan pemberian izin:
-<img alt="" src="../_images/2020-12-03-09-09-34.png" /></p>
-<div class="section" id="latihan-membuat-pengguna-dan-grup-baru">
-<h3>Latihan: Membuat pengguna dan grup baru<a class="headerlink" href="#latihan-membuat-pengguna-dan-grup-baru" title="Permalink to this headline">¶</a></h3>
+<p>PostgreSQL memungkinkan Anda memberikan izin langsung ke pengguna database. Namun, sebagai praktik yang baik, Anda disarankan untuk membuat <strong>banyak peran</strong> dengan kumpulan izin tertentu berdasarkan aplikasi dan persyaratan akses. Kemudian tetapkan peran yang sesuai untuk setiap pengguna. Peran harus digunakan untuk menerapkan model dengan hak istimewa terendah untuk mengakses objek database. Pengguna master pada PostgreSQL harus digunakan hanya untuk tugas administrasi database seperti membuat pengguna, peran, dan database lain. Pengguna master tidak boleh digunakan oleh aplikasi. Berikut adalah contoh pembagian peran dan pemberian izin:</p>
+<div class="figure align-default" id="pembagianperan">
+<a class="reference internal image-reference" href="../_images/2020-12-03-09-09-34.png"><img alt="../_images/2020-12-03-09-09-34.png" src="../_images/2020-12-03-09-09-34.png" style="height: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">Contoh pengaturan untuk pembagian peran pada PostgreSQL</span><a class="headerlink" href="#pembagianperan" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="membuat-pengguna-dan-grup-baru">
+<h3>Membuat pengguna dan grup baru<a class="headerlink" href="#membuat-pengguna-dan-grup-baru" title="Permalink to this headline">¶</a></h3>
 <p>Pengguna pada PostgreSQL dibuat melalui query berikut:</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span> <span class="k">CREATE</span> <span class="k">USER</span> <span class="n">username</span> <span class="p">[</span> <span class="p">[</span> <span class="k">WITH</span> <span class="p">]</span> 
    <span class="k">SYSID</span> <span class="n">uid</span> 
@@ -338,21 +344,68 @@
    <span class="o">|</span> <span class="k">VALID</span> <span class="k">UNTIL</span> <span class="s1">&#39;abstime&#39;</span> <span class="p">]</span>
 </pre></div>
 </div>
-<p>Sebagai contoh, perintah berikut akan membuat pengguna dengan nama ‘user1’ dan password ‘password1’:</p>
+<p>Sebagai contoh, perintah berikut akan membuat <strong>pengguna baru</strong> dengan nama ‘user1’ dan password ‘password1’:</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">USER</span> <span class="n">user1</span> <span class="k">WITH</span> <span class="n">PASSWORD</span> <span class="s1">&#39;password1&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Adapun grup merupakan salah satu cara untuk mengelompokkan pengguna tertentu. Grup dapat dibuat dengan perintah berikut:</p>
+<p>Adapun <strong>grup</strong> merupakan salah satu cara untuk mengelompokkan pengguna tertentu. Grup dapat dibuat dengan perintah berikut:</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">GROUP</span> <span class="n">sales</span> <span class="k">WITH</span> <span class="k">USER</span> <span class="n">user1</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="latihan-menerapkan-peran-baru">
-<h3>Latihan: Menerapkan peran baru<a class="headerlink" href="#latihan-menerapkan-peran-baru" title="Permalink to this headline">¶</a></h3>
-<p>Role merupakan cara PostgreSQL mengatur pengguna. Tiap peran dapat memiliki pengaturan Priviledges yang berbeda untuk membatasi hak akses tiap pengguna. Berikut adalah bagaimana peran dibuat dengan menggunakan bahasa SQL:</p>
+<div class="section" id="menerapkan-peran-baru">
+<h3>Menerapkan peran baru<a class="headerlink" href="#menerapkan-peran-baru" title="Permalink to this headline">¶</a></h3>
+<p><strong><a class="reference external" href="https://www.postgresql.org/docs/13/user-manag.html">Role</a></strong> merupakan cara PostgreSQL mengatur batasan akses oleh pengguna. Tiap Role dapat memiliki pengaturan <em>Priviledges</em> yang berbeda untuk membatasi hak akses yang dapat dilakukan oleh tiap-tiap pengguna. Berikut adalah bagaimana peran dibuat dengan menggunakan bahasa SQL:</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">ROLE</span> <span class="n">user_viewer</span> <span class="k">WITH</span> <span class="n">LOGIN</span> <span class="n">PASSWORD</span> <span class="s1">&#39;pass2&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
+<p>PostgreSQL 13 telah dilengkapi dengan beberapa roles default yang dapat digunakan, yaitu sebagai berikut:</p>
+<p><img alt="" src="../_images/2020-12-08-08-16-03.png" /></p>
+<p>Peran <em>default</em> tersebut dapat diberikan pada pengguna tertentu melalui perintah:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">GRANT</span> <span class="n">pg_read_server_files</span> <span class="k">TO</span> <span class="n">user1</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Demikian pula, perintah tersebut dapat dilakukan untuk grup, sehingga hak akses menjadi milik semua pengguna pada grup tersebut.</p>
+</div>
+<div class="section" id="latihan-menggunakan-pengaturan-roles-untuk-membatasi-akses">
+<h3>Latihan: Menggunakan Pengaturan Roles untuk membatasi akses<a class="headerlink" href="#latihan-menggunakan-pengaturan-roles-untuk-membatasi-akses" title="Permalink to this headline">¶</a></h3>
+<p>Untuk latihan ini, kita akan gunakan tabel <code class="docutils literal notranslate"><span class="pre">anggota</span></code> pada latihan sebelumnya. Kita akan membuat skema pengaturan pengguna melalui grup, user dan roles untuk membatasi akses pada tabel <code class="docutils literal notranslate"><span class="pre">anggota</span></code>. Kita akan menggunakan Query pada PostgreSQL untuk keperluan ini (bukan antarmuka PostgreSQL - menggunakan Query relatif lebih sederhana).</p>
+<p><img alt="" src="../_images/2020-12-08-08-30-36.png" /></p>
+<ol>
+<li><p>Langkah pertama adalah membuat <em>role</em> baru untuk pengguna kita nantinya. Role ini diatur agar hanya dapat membaca tabel tertentu:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">ROLE</span> <span class="n">readonly_tabel</span><span class="p">;</span>
+<span class="k">GRANT</span> <span class="k">CONNECT</span> <span class="k">ON</span> <span class="k">DATABASE</span> <span class="n">latihan</span> <span class="k">TO</span> <span class="n">readonly_tabel</span><span class="p">;</span>
+<span class="k">GRANT</span> <span class="k">USAGE</span> <span class="k">ON</span> <span class="k">SCHEMA</span> <span class="k">public</span> <span class="k">TO</span> <span class="n">readonly_tabel</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Tiga perintah di atas berfungsi untuk membuat role baru, memberikan hak akses atas basisdata <code class="docutils literal notranslate"><span class="pre">latihan</span></code> kepada role tersebut, serta memberi akses pada skema <code class="docutils literal notranslate"><span class="pre">public</span></code> yang terdapat di dalam basisdata latihan. Hasilnya adalah sebagai berikut:</p>
+<p><img alt="" src="../_images/2020-12-08-08-28-48.png" /></p>
+</li>
+<li><p>Kita akan membatasi akses ke tabel <code class="docutils literal notranslate"><span class="pre">anggota</span></code> agar role <code class="docutils literal notranslate"><span class="pre">readonly_tabel</span></code> hanya dapat membaca kolom id dan jenis kelamin saja.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">GRANT</span> <span class="k">SELECT</span> <span class="p">(</span><span class="n">no_id</span><span class="p">,</span> <span class="n">jenis_kelamin</span><span class="p">)</span> <span class="k">ON</span> <span class="k">TABLE</span> <span class="k">public</span><span class="p">.</span><span class="n">anggota</span> <span class="k">TO</span> <span class="n">readonly_tabel</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>pada perintah di atas, user budi hanya dapat mengakses kolom no_id dan jenis_kelamin</p>
+</li>
+<li><p>Membuat pengguna baru untuk akses dengan role ini</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">USER</span> <span class="n">budi</span> <span class="k">WITH</span> <span class="n">PASSWORD</span> <span class="s1">&#39;secret&#39;</span><span class="p">;</span>
+<span class="k">GRANT</span> <span class="n">readonly_tabel</span> <span class="k">TO</span> <span class="n">budi</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Lakukan koneksi ke PostgreSQL dengan user baru ini. Gunakan antarmuka PostgreSQL untuk Logout, kemudian login kembali dengan user <code class="docutils literal notranslate"><span class="pre">budi</span></code> dan password <code class="docutils literal notranslate"><span class="pre">secret</span></code>.</p></li>
+<li><p>Buat query untuk memilih seluruh isi tabel anggota:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="k">TABLE</span> <span class="n">anggota</span>
+</pre></div>
+</div>
+<p>hasilnya adalah error karena user <code class="docutils literal notranslate"><span class="pre">budi</span></code> tidak diizinkan untuk mengakses seluruh isi tabel:</p>
+<p><img alt="" src="../_images/2020-12-08-08-49-47.png" /></p>
+</li>
+<li><p>Apabila kita hanya memilih kolom <code class="docutils literal notranslate"><span class="pre">no_id</span></code> dan <code class="docutils literal notranslate"><span class="pre">jenis_kelamin</span></code>, maka hasilnya:</p>
+<p><img alt="" src="../_images/2020-12-08-08-54-57.png" /></p>
+</li>
+</ol>
+<p>Latihan di atas menunjukkan bagaimana pengaturan role pada pengguna dapat digunakan untuk membatasi akses pada basisdata, tabel, kolom maupun view. Dengan demikian kita dapat mengatur hak akses yang cukup kompleks untuk berbagai kebutuhan.</p>
 </div>
 </div>
 <div class="section" id="mengatur-koneksi-multi-pengguna">

@@ -56,7 +56,6 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Arsitektur Enterprise GIS dengan Perangkat Lunak (FOSS)" href="arsitektur.html" />
     <link rel="prev" title="Publikasi Data Spasial dengan Geoserver" href="publikasi.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -148,11 +147,6 @@
    Basisdata Spasial dengan PostGIS
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../sesi2/nosql.html">
-   Basisdata SQL dan NoSQL
-  </a>
- </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -180,11 +174,6 @@
    Konsumsi Data dengan Standar OGC
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="arsitektur.html">
-   Arsitektur Enterprise GIS dengan Perangkat Lunak (FOSS)
-  </a>
- </li>
 </ul>
 
 </nav>
@@ -192,7 +181,7 @@
  <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  Buku ini disusun menggunakan <a href="https://jupyterbook.org">Jupyter Book</a>
 </div>
 
 </div>
@@ -286,27 +275,68 @@
                 
   <div class="section" id="konsumsi-data-dengan-standar-ogc">
 <h1>Konsumsi Data dengan Standar OGC<a class="headerlink" href="#konsumsi-data-dengan-standar-ogc" title="Permalink to this headline">¶</a></h1>
+<p>Dengan publikasi pada Geoserver, layer yang tersimpan tersebut akan dapat dipanggil dari berbagai macam client. Seperti tujuan awal penggunaan server data spasial, terdapat beragam client yang mendukung standar internasional OGC, sehingga dengan menggunakan standar tersebut, berbagai layanan dapat dikombinasikan dengan memperhatikan prinsip-prinsip FAIR. Pada bagian ini akan dibahas mengenai bagaimana menggunakan perangkat FOSS untuk mengakses layanan OGC yang disajikan dari Geoserver.</p>
 <div class="section" id="menggunakan-perangkat-foss-untuk-mengakses-data-ogc">
 <h2>Menggunakan Perangkat FOSS untuk mengakses data OGC<a class="headerlink" href="#menggunakan-perangkat-foss-untuk-mengakses-data-ogc" title="Permalink to this headline">¶</a></h2>
-<p>Berbagai perangkat FOSS dapat saling berkomunikasi dengan bantuan dukungan standar OGC. Untuk latihan ini, QGIS akan digunakan sebagai perangkat client untuk memanggil data dari Geoserver.</p>
-<p><img alt="" src="../_images/2020-12-04-05-23-55.png" /></p>
+<p>Berbagai perangkat FOSS dapat saling berkomunikasi dengan bantuan dukungan standar OGC. Untuk latihan ini, QGIS akan digunakan sebagai perangkat client untuk memanggil data dari Geoserver. Anda juga dipersilahkan untuk mencoba perangkat lunak lain, seperti uDIG atau gvSIG yang memiliki kemampuan serupa.</p>
+<div class="figure align-default" id="konsumsi">
+<a class="reference internal image-reference" href="../_images/2020-12-04-05-23-55.png"><img alt="../_images/2020-12-04-05-23-55.png" src="../_images/2020-12-04-05-23-55.png" style="height: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 34 </span><span class="caption-text">Konsumsi WMS dan WFS dari Geoserver</span><a class="headerlink" href="#konsumsi" title="Permalink to this image">¶</a></p>
+</div>
+<p>Standar-standar OGC menggunakan rangkaian parameter pada URL yang digunakan untuk memanggil berbagai layanan sesuai fungsinya, seperti WMS, WFS maupun WCS. Dari parameter inilah aplikasi client dapat digunakan untuk memanggil layanan yang dibutuhkannya. Perangkat lunak seperti QGIS dapat memanggil beragam layanan yang menggunakan standar OGC ini.</p>
 <div class="section" id="memanggil-wms-wfs-dan-wcs-dengan-qgis">
 <h3>Memanggil WMS, WFS dan WCS dengan QGIS<a class="headerlink" href="#memanggil-wms-wfs-dan-wcs-dengan-qgis" title="Permalink to this headline">¶</a></h3>
-<p>QGIS telah menyediakan fungsi yang cukup lengkap untuk memanggil data dari Geoserver. Berikut caranya:</p>
+<p>Apabila kita perhatikan, link publikasi WMS dari Geoserver adalah seperti berikut. Link ini dapat dipanggil dari Layer Preview, kemudian memilih WMS atau WFS:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>**http://localhost:8080/geoserver/Sleman/wms?**
+service=WMS
+&amp;version=1.1.0
+&amp;request=GetMap
+&amp;layers=Sleman%3ABatas_Desa
+&amp;bbox=413535.5625%2C9133697.0%2C450074.4375%2C9166253.0
+&amp;width=768&amp;height=684
+&amp;srs=EPSG%3A32749
+&amp;format=image%2Fpng
+</pre></div>
+</div>
+<p>Sedangkan berikut adalah link publikasi untuk WFS:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>**http://localhost:8080/geoserver/Sleman/ows?**
+service=WFS
+&amp;version=1.0.0
+&amp;request=GetFeature
+&amp;typeName=Sleman%3ABatas_Desa
+&amp;maxFeatures=50
+&amp;outputFormat=application%2Fgml%2Bxml%3B%20version%3D3.2
+
+</pre></div>
+</div>
+<p>Baris-baris di atas menunjukkan parameter yang dapat diakses dari client, dan disebut sebagai <code class="docutils literal notranslate"><span class="pre">key-value</span> <span class="pre">pair</span></code> (KVP), dimana tiap kunci berisi parameter yang dapat diatur untuk memanggil WMS yang dimaksud (misalnya, format PNG atau JPG). Apabila kita menggunakan QGIS, parameter inilah yang akan dipanggil. QGIS telah menyediakan fungsi yang cukup lengkap untuk memanggil data dari Geoserver. Berikut caranya:</p>
 <p><img alt="" src="../_images/2020-12-04-08-47-22.png" /></p>
-<p>Tiap menu digunakan untuk memanggil layanan OGC dari jenis yang berbeda. Parameter yang digunakan antara lain adalah alamat host Geoserver, sedangkan QGIS akan memanggil daftar layer yang tersedia secara otomatis.</p>
+<p>Tiap menu digunakan untuk memanggil layanan OGC dari jenis yang berbeda (WMS/WMTS, WFS, dan WCS). Parameter yang diperlukan untuk memanggil layer ini adalah <em>alamat host Geoserver</em>. Alamat ini adalah link bertanda tebal pada contoh KVP di atas. Misalnya untuk WMS:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">geoserver</span><span class="o">/</span><span class="n">Sleman</span><span class="o">/</span><span class="n">wms</span>
+</pre></div>
+</div>
+<p>QGIS selanjutnya akan memanggil seluruh layer pada Geoserver tersebut melalui WMS GetCapabilities. Berikut adalah layer yang dipanggil dari Geoserver Geoportal Propinsi Jogja melalui WMS GetCapabilitiesnya:</p>
+<p><img alt="" src="../_images/2020-12-08-16-38-57.png" /></p>
+<p>Apabila kita panggil layer tersebut pada QGIS, kita dapat melihat perbedaan antara WMS, WFS, dan WCS seperti berikut:</p>
+<p><img alt="" src="../_images/2020-12-08-16-45-50.png" /></p>
+<p>WMS dipanggil sebagai Image atau raster, sehingga kita tidak dapat melakukan simbologi pada layer tersebut. Data atribut pada WMS dapat diakses dengan menggunakan tool <em>Feature Info</em> pada QGIS, tetapi atribut ini hanya dapat ditampilkan, dan bukan untuk dianalisis</p>
+<p><img alt="" src="../_images/2020-12-08-16-47-23.png" /></p>
+<p>WFS dipanggil sebagai vektor, sehingga kita dapat melakukan simbologi, analisis spasial, dan perlakuan lain yang dapat kita lakukan pada sebuah layer vektor biasa. Seluruh atribut dan Geometri dari layer ini dapat dipanggil.</p>
+<p><img alt="" src="../_images/2020-12-08-16-48-59.png" /></p>
+<p>Sama seperti WMS, WCS memanggil raster dari Geoserver. Perbedaannya terletak pada nilai raster yang diteruskan ke QGIS. Pada WCS, seluruh nilai raster sama seperti data aslinya, sehingga kita dapat menggunakan simbologi pada sisi client seperti gambar di atas.</p>
 </div>
 <div class="section" id="memanggil-data-publikasi-ogc-dengan-javascript-library-leafletjs">
 <h3>Memanggil data publikasi OGC dengan Javascript Library (LeafletJS)<a class="headerlink" href="#memanggil-data-publikasi-ogc-dengan-javascript-library-leafletjs" title="Permalink to this headline">¶</a></h3>
 <p>Pada LeafletJS (dan library web map lain seperti OpenLayers, GMap API, Mapbox dst), layer secara umum terbagi menjadi dua macam, yaitu 1) Tilelayer (‘Slippy Map’) yang dapat diperoleh dalam bentuk layanan (service) dari penyedia tile, dan 2) Feature Layer yang dapat ditambahkan sendiri pada Leaflet. Tilelayer cenderung bersifat statis, tidak interaktif dan disajikan dalam bentuk ‘tile’. Tilelayer sering digunakan sebagai background atau basemap untuk peta yang akan dibuat pada sebuah webmap library seperti Leaflet. Pada Tilelayer ini tidak dapat diterapkan konsep interaktivitas, misalnya memunculkan popup berdasarkan atribut (dengan beberapa pengecualian, misalnya pada Vector Tile).</p>
-<p>Adapun Feature Layer merupakan layer yangdapat ditambahkan pada LeafletJS Map bersumber dari data yang kita miliki. Contoh Feature layer yang banyak dijumpai adalah Marker. Pada Marker kita dapat memberikan atribut dan menerapkan interaktivitas, misalnya dengan memunculkan popup, melakukan drag and drop, dan seterusnya. Selain marker, kita juga dapat menambahkan polygon dan polyline dengan cara yang hampir sama. Feature Layer yang lain adalah GeoJSON, yang memungkinkan kita untuk menambahkan layer data spasial lengkap dengan atribut dan fungsi interaktifnya. Pada bagian ini akan dibahas bagaimana menggunakan GeoJSON untuk menampilkan data spasial (shapefile) menjadi peta yang interaktif pada LeafletJS melalui Geoserver.</p>
+<p>Adapun Feature Layer merupakan layer yang dapat ditambahkan pada LeafletJS Map bersumber dari data yang kita miliki. Contoh Feature layer yang banyak dijumpai adalah Marker. Pada Marker kita dapat memberikan atribut dan menerapkan interaktivitas, misalnya dengan memunculkan popup, melakukan drag and drop, dan seterusnya. Selain marker, kita juga dapat menambahkan polygon dan polyline dengan cara yang hampir sama. Feature Layer yang lain adalah GeoJSON, yang memungkinkan kita untuk menambahkan layer data spasial lengkap dengan atribut dan fungsi interaktifnya. Pada bagian ini akan dibahas bagaimana menggunakan GeoJSON untuk menampilkan data spasial (shapefile) menjadi peta yang interaktif pada LeafletJS melalui Geoserver.</p>
 <p>Untuk memanggil data dari Geoserver menggunakan LeafletJS, dapat digunakan script seperti berikut:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span>    <span class="kd">var</span> <span class="nx">layerjalan</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="nx">tileLayer</span><span class="p">.</span><span class="nx">wms</span><span class="p">(</span><span class="s1">&#39;http://localhost:8080/geoserver/wms?&#39;</span><span class="p">,</span> <span class="p">{</span>
         <span class="nx">layers</span><span class="o">:</span> <span class="s1">&#39;latihan:jalan&#39;</span>
     <span class="p">}).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Contoh script LeafletJS tersedia pada https://github.com/danylaksono/sample-leafletjs. Sebagai latihan, modifikasi script tersebut untuk memanggil layer KRB dari Server pada alamat http://54.254.9.31:8080/geoserver sebagai WMS.</p>
+<p>Contoh script LeafletJS tersedia pada <a class="reference external" href="https://github.com/danylaksono/sample-leafletjs">https://github.com/danylaksono/sample-leafletjs</a>.</p>
+<p>Sebagai latihan, modifikasi script tersebut untuk memanggil layer KRB yang sudah diunggah pada Geoserver WSL pada alamat <a class="reference external" href="http://localhost:8080/geoserver">http://localhost:8080/geoserver</a> sebagai WMS dan WFS, kemudian bandingkan perbedaan antara keduanya.</p>
 </div>
 </div>
 </div>
@@ -340,7 +370,6 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="publikasi.html" title="previous page">Publikasi Data Spasial dengan Geoserver</a>
-    <a class='right-next' id="next-link" href="arsitektur.html" title="next page">Arsitektur Enterprise GIS dengan Perangkat Lunak (FOSS)</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

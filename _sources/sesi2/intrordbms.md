@@ -13,5 +13,5 @@ Bagian ini membahas mengenai:
 {fa}`check,text-success mr-1` [Basisdata Spasial dengan PostGIS](postgisquery)
 : Bagaimana menggunakan ekstensi PostGIS untuk menginput data spasial, melakukan analisis serta visualisasi data spasial dan menghubungkan basisdata dengan QGIS
 
-{fa}`check,text-success mr-1` [SQL dan NoSQL untuk Aplikasi Spasial](nosql)
-: Penjelasan mengenai perbandingan basisdata SQL dan NoSQL dalam aplikasi di bidang geospasial
+<!-- {fa}`check,text-success mr-1` [SQL dan NoSQL untuk Aplikasi Spasial](nosql) -->
+<!-- : Penjelasan mengenai perbandingan basisdata SQL dan NoSQL dalam aplikasi di bidang geospasial -->

@@ -148,11 +148,6 @@
    Basisdata Spasial dengan PostGIS
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../sesi2/nosql.html">
-   Basisdata SQL dan NoSQL
-  </a>
- </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -180,11 +175,6 @@
    Konsumsi Data dengan Standar OGC
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="arsitektur.html">
-   Arsitektur Enterprise GIS dengan Perangkat Lunak (FOSS)
-  </a>
- </li>
 </ul>
 
 </nav>
@@ -192,7 +182,7 @@
  <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  Buku ini disusun menggunakan <a href="https://jupyterbook.org">Jupyter Book</a>
 </div>
 
 </div>
@@ -291,18 +281,18 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cog">
-     COG
+    <a class="reference internal nav-link" href="#cloud-optimised-geotiff-cog">
+     Cloud Optimised GeoTIFF (COG)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#stac">
-     STAC
+    <a class="reference internal nav-link" href="#spatio-temporal-asset-catalog-stac">
+     Spatio Temporal Asset Catalog (STAC)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ogc-api">
-     OGC API
+    <a class="reference internal nav-link" href="#standar-baru-untuk-dunia-baru-ogc-api">
+     Standar Baru untuk Dunia Baru: OGC-API
     </a>
    </li>
   </ul>
@@ -339,8 +329,11 @@
 <div class="section" id="interoperabilitas-data-spasial">
 <h3>Interoperabilitas Data Spasial<a class="headerlink" href="#interoperabilitas-data-spasial" title="Permalink to this headline">¶</a></h3>
 <p>Berbagai instansi di Indonesia menggunakan data spasial pada berbagai level. Sebagai produser atau pemilik data spasial pada domain masing-masing, tiap instansi menggunakan format data dan perangkat lunak yang berbeda. Hal ini berakibat pada sulitnya berbagi pakai data antar instansi. Terlebih lagi, data spasial memiliki karakteristik yang berbeda dibandingkan dengan data biasa, seperti adanya sistem proyeksi, geometri, topologi yang mendefinisikan data tersebut. Pertukaran data pada berbagai vendor yang berbeda dengan format data masing-masing berpotensi mengakibatkan <em>loss of information</em>, dan dalam kasus data spasial, dapat menyebabkan pengambilan keputusan yang salah.</p>
-<p><em>Fair Principle</em> (<em>Findable, Accessible, Interoperable</em> dan <em>Reuseable</em>) digunakan untuk menjamin agar data spasial dapat digunakan oleh berbagai aktor yang berbeda. Prinsip FAIR memungkinan format data dari berbagai instansi yang berbeda untuk dapat digunakan tanpa hilangnya informasi penting terkait data tersebut. Pada data spasial, implementasi FAIR principle merupakan kebutuhan utama pada Infrastruktur Data Spasial, dimana data geospasial antar wali data yang berbeda dapat saling digunakan satu dengan yang lain.
-<img alt="" src="../_images/2020-12-04-03-46-57.png" /></p>
+<p><em>Fair Principle</em> (<em>Findable, Accessible, Interoperable</em> dan <em>Reuseable</em>) digunakan untuk menjamin agar data spasial dapat digunakan oleh berbagai aktor yang berbeda. Prinsip FAIR memungkinan format data dari berbagai instansi yang berbeda untuk dapat digunakan tanpa hilangnya informasi penting terkait data tersebut. Pada data spasial, implementasi FAIR principle merupakan kebutuhan utama pada Infrastruktur Data Spasial, dimana data geospasial antar wali data yang berbeda dapat saling digunakan satu dengan yang lain.</p>
+<div class="figure align-default" id="fairprinciple">
+<img alt="../_images/2020-12-04-03-46-57.png" src="../_images/2020-12-04-03-46-57.png" />
+<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">Prinsip FAIR</span><a class="headerlink" href="#fairprinciple" title="Permalink to this image">¶</a></p>
+</div>
 </div>
 </div>
 <div class="section" id="standar-ogc">
@@ -350,18 +343,25 @@
 <h3>OGC untuk interoperabilitas<a class="headerlink" href="#ogc-untuk-interoperabilitas" title="Permalink to this headline">¶</a></h3>
 <p>OGC mengikuti Spesifikasi OpenGIS yang mendefinisikan bagaimana data spasial disimpan dan direpresentasikan. Standar Simple Feature Spesification ini menjadi acuan bagi OGC dan berbagai perangkat lunak yang mendefinisikan data spasial sehingga memungkinkan satu interpretasi yang sama pada fitur yang direpresentasikan oleh data spasial yang dimaksud. Simple Feature didefinisikan sebagai berikut:</p>
 <div class="figure align-default" id="sfs">
-<a class="reference internal image-reference" href="../_images/2020-12-04-03-48-23.png"><img alt="../_images/2020-12-04-03-48-23.png" src="../_images/2020-12-04-03-48-23.png" style="height: 700px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Simple Feature Specification</span><a class="headerlink" href="#sfs" title="Permalink to this image">¶</a></p>
+<a class="reference internal image-reference" href="../_images/2020-12-04-03-48-23.png"><img alt="../_images/2020-12-04-03-48-23.png" src="../_images/2020-12-04-03-48-23.png" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">Simple Feature Specification</span><a class="headerlink" href="#sfs" title="Permalink to this image">¶</a></p>
 </div>
 <p>Berbagai standar OGC dibuat untuk memungkinkan data-data spasial yang beragam dari berbagai domain untuk dapat digunakan mengikuti prinsip FAIR sesuai dengan format yang juga didefinisikan oleh OGC. Dengan tujuan untuk memungkinkan data spasial dapat disajikan melalui internet, standar ini juga menjamin prinsip FAIR melalui penggunaan metadata dan data dalam bentuk layanan (<em>services</em>). Layanan inilah yang digunakan untuk meng-onlinekan data spasial agar dapat digunakan oleh aktor yang berbeda agar dapat menggunakan data spasial dengan semua karakteristiknya.</p>
 <div class="figure align-default" id="ogcservice">
-<a class="reference internal image-reference" href="../_images/2020-12-04-03-49-43.png"><img alt="../_images/2020-12-04-03-49-43.png" src="../_images/2020-12-04-03-49-43.png" style="height: 700px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">OGC Data &amp; Metadata Services</span><a class="headerlink" href="#ogcservice" title="Permalink to this image">¶</a></p>
+<a class="reference internal image-reference" href="../_images/2020-12-04-03-49-43.png"><img alt="../_images/2020-12-04-03-49-43.png" src="../_images/2020-12-04-03-49-43.png" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">OGC Data &amp; Metadata Services</span><a class="headerlink" href="#ogcservice" title="Permalink to this image">¶</a></p>
 </div>
-<p>Terdapat puluhan standar OGC berbeda yang digunakan untuk berbagai keperluan. Standar untuk layanan dan format data diatur tersendiri. Demikian pula standar untuk memungkinkan Discovery atau pencarian data spasial pada portal untuk menjamin prinsip Findable dan Accessible. Berikut adalah standar terkait dengan Discovery, Container, serta layanan dan API.
-<img alt="" src="../_images/2020-12-04-06-07-31.png" /></p>
+<p>Terdapat puluhan standar OGC berbeda yang digunakan untuk berbagai keperluan. Standar untuk layanan dan format data diatur tersendiri. Demikian pula standar untuk memungkinkan Discovery atau pencarian data spasial pada portal untuk menjamin prinsip Findable dan Accessible. Berikut adalah standar terkait dengan Discovery, Container, serta layanan dan API.</p>
+<div class="figure align-default" id="standarogcdiscovery">
+<a class="reference internal image-reference" href="../_images/2020-12-04-06-07-31.png"><img alt="../_images/2020-12-04-06-07-31.png" src="../_images/2020-12-04-06-07-31.png" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text">Standar OGC untuk Discovery, Container, Service dan API</span><a class="headerlink" href="#standarogcdiscovery" title="Permalink to this image">¶</a></p>
+</div>
 <p>Berikut standar OGC untuk Model data dan Sensor:</p>
-<p><img alt="" src="../_images/2020-12-04-06-09-08.png" /></p>
+<div class="figure align-default" id="standarogcmodel">
+<a class="reference internal image-reference" href="../_images/2020-12-04-06-09-08.png"><img alt="../_images/2020-12-04-06-09-08.png" src="../_images/2020-12-04-06-09-08.png" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">Standar OGC untuk Model Data dan Sensor</span><a class="headerlink" href="#standarogcmodel" title="Permalink to this image">¶</a></p>
+</div>
+<p>Tiap standar tersebut memiliki fungsi dan fitur yang berbeda. Pada bagian selanjutnya akan dibahas mengenai WMS, WFS dan WCS yang merupakan standar yang umum dijumpai saat ini.</p>
 </div>
 <div class="section" id="wms-wfs-dan-wcs">
 <h3>WMS WFS dan WCS<a class="headerlink" href="#wms-wfs-dan-wcs" title="Permalink to this headline">¶</a></h3>
@@ -380,27 +380,41 @@ WFS digunakan untuk menyajikan data vector lengkap dengan semua propertinya (atr
 <li><p><strong>Web Coverage Service (WCS)</strong>
 WCS berbeda dengan WMS dalam hal penyajian informasi detil dari sebuah citra. Jika WMS menyederhanakan nilai pixel pada raster menjadi nilai RGB sesuai dengan tampilannya, maka WCS menjaga nilai pixel dan band dari raster masukan sehingga client dapat menggunakan data tersebut untuk analisis raster. Contoh penggunaan WCS adalah untuk menampilkan raster elevasi yang memungkinkan pengguna untuk melakukan analisis seperti slope atau aspect.</p></li>
 </ul>
+<p>Berikut adalah contoh skenario penggunaan ketiga jenis layanan tersebut:</p>
+<p>Sebagai contoh, dibuat sebuah WebGIS Desa yang memanfaatkan data dari berbagai sumber sebagai berikut:</p>
+<ul class="simple">
+<li><p>WMS Citra SPOT 6 desa dari Badan Informasi Geospasial sebagai latar belakang</p></li>
+<li><p>WMS Batas Desa dari BPS sebagai latar belakang</p></li>
+<li><p>WFS Jaringan Jalan dari PU untuk analisis buffer</p></li>
+<li><p>WFS bangunan desa dari server local untuk simbologi atribut</p></li>
+<li><p>WCS raster ketinggian (elevasi) DEMNAS dari BIG</p></li>
+<li><p>WCS raster cuaca terkini dari BIG</p></li>
+</ul>
+<p>Dengan menggunakan layanan OGC, data dari berbagai sumber dapat digabungkan pada satu platform yang sama, sekaligus memungkinkan analisis dan visualisasi dari data yang berbeda. Ini merupakan implementasi interoperabilitas pada Prinsip FAIR.</p>
 </div>
 </div>
 <div class="section" id="moving-forward">
 <h2>Moving Forward<a class="headerlink" href="#moving-forward" title="Permalink to this headline">¶</a></h2>
-<p>Standar OGC mengatur pertukaran data spasial pada domain utama, khususnya terkait dengan berbagai format data baik raster maupun vektor.</p>
-<div class="section" id="cog">
-<h3>COG<a class="headerlink" href="#cog" title="Permalink to this headline">¶</a></h3>
+<p>Standar OGC mengatur pertukaran data spasial pada domain utama, khususnya terkait dengan berbagai format data baik raster maupun vektor. Seiring perkembangan teknologi, khususnya trend pengolahan data berbasis <em>cloud</em> dan Analysis Ready Data maupun perkembangan teknologi internet itu sendiri, terdapat beberapa standar lain yang saat ini berkembang untuk memungkinkan beragam aplikasi di luar standar yang disediakan oleh OGC saat ini. Beberapa diantaranya adalah seperti berikut:</p>
+<div class="section" id="cloud-optimised-geotiff-cog">
+<h3><a class="reference external" href="https://www.cogeo.org/">Cloud Optimised GeoTIFF (COG)</a><a class="headerlink" href="#cloud-optimised-geotiff-cog" title="Permalink to this headline">¶</a></h3>
 <p><img alt="" src="../_images/2020-12-04-04-22-28.png" /></p>
 <p>Cloud Optimized GeoTIFF (COG) mirip dengan file GeoTIFF biasa tetapi dengan organisasi internal yang memungkinkan akses baca yang lebih efisien ke sebagian gambar, alur kerja yang paling umum untuk mengakses citra yang disimpan di infrastruktur cloud. Hal ini dilakukan dengan memanfaatkan kemampuan klien yang mengeluarkan permintaan rentang HTTP GET untuk meminta hanya bagian dari file yang mereka butuhkan. Teknologi yang sangat mirip yang memungkinkan Anda untuk langsung mulai menonton video streaming memungkinkan analisis pada GeoTIFF besar tanpa perlu mengunduh seluruh file.
 Sementara beberapa standar berbeda telah mengatasi masalah ini, COG berada pada posisi yang baik untuk menjadi standar komunitas dan industri. Dukungan untuk standar baru dengan cepat diintegrasikan ke dalam pustaka perangkat lunak sumber terbuka dan mempertahankan kompatibilitas ke belakang; sistem yang dapat melihat file TIFF biasa juga dapat melihat COG, meskipun sistem tersebut tidak memanfaatkan pembacaan rentang byte HTTP atau komponen geospasial. COG adalah GeoTIFFS adalah TIFF. Dalam waktu singkat sejak dikembangkan, format COG dengan cepat diadopsi oleh penyedia citra observasi Bumi karena ini merupakan cara untuk dengan mudah mengurangi biaya transfer jaringan dalam infrastruktur terdistribusi.</p>
 </div>
-<div class="section" id="stac">
-<h3>STAC<a class="headerlink" href="#stac" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="spatio-temporal-asset-catalog-stac">
+<h3><a class="reference external" href="https://stacspec.org/">Spatio Temporal Asset Catalog (STAC)</a><a class="headerlink" href="#spatio-temporal-asset-catalog-stac" title="Permalink to this headline">¶</a></h3>
 <p><img alt="" src="../_images/2020-12-04-04-27-12.png" /></p>
 <p>Spesifikasi SpatioTemporal Asset Catalog (STAC) bertujuan untuk menstandarkan bagaimana data geospasial diekspos secara online dan di<em>query</em>. ‘Aset spasiotemporal’ adalah file apa pun yang mewakili informasi tentang bumi yang ditangkap dalam ruang dan waktu tertentu. Fokus awal utamanya adalah citra penginderaan jarak jauh (dari satelit, tetapi juga pesawat, drone, balon, dll.), tetapi intinya dirancang agar dapat diperluas ke SAR, FMV, Point-cloud, hiperspektral, LiDAR, dan data turunan seperti NDVI , Model Elevasi Digital, mozaik, dll.</p>
 <p>Tujuan STAC adalah agar semua penyedia utama citra dan data observasi bumi lainnya mengekspos data mereka sebagai Katalog Aset SpatioTemporal, sehingga kode baru tidak perlu ditulis setiap kali REST API berbasis JSON baru keluar yang membuat datanya tersedia di dengan cara yang sedikit berbeda. Ini akan mengaktifkan komponen pustaka standar dalam banyak bahasa. STAC juga dapat diimplementasikan dengan cara yang sepenuhnya ‘statis’, memungkinkan penerbit data mengekspos data mereka hanya dengan menerbitkan file JSON yang ditautkan secara online.</p>
-<p>Kedua standar tersebut mendukung penggunaan citra dan analisis citra pada cloud, tanpa perlu mengunduh satupun data pada komputer lokal. Rilis terbaru Landsat Collection 2 telah menggunakan <a class="reference external" href="https://prd-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/atoms/files/LSDS-1388-Landsat-Cloud-Optimized-GeoTIFF_DFCB-v2.0.pdf">standar COG dan STAC</a>, dan menunjukkan <a class="reference external" href="https://www.usgs.gov/core-science-systems/nli/landsat/landsat-data-access?qt-science_support_page_related_con=0#qt-science_support_page_related_con">arah penggunaan format data yang lebih terbuka</a> untuk mendukung interoperabilitas data spasial.
-<img alt="" src="../_images/2020-12-04-04-33-50.png" /></p>
+<p>Kedua standar tersebut mendukung penggunaan citra dan analisis citra pada cloud, tanpa perlu mengunduh satupun data pada komputer lokal. Rilis terbaru Landsat Collection 2 telah menggunakan <a class="reference external" href="https://prd-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/atoms/files/LSDS-1388-Landsat-Cloud-Optimized-GeoTIFF_DFCB-v2.0.pdf">standar COG dan STAC</a>, dan menunjukkan <a class="reference external" href="https://www.usgs.gov/core-science-systems/nli/landsat/landsat-data-access?qt-science_support_page_related_con=0#qt-science_support_page_related_con">arah penggunaan format data yang lebih terbuka</a> untuk mendukung interoperabilitas data spasial.</p>
+<div class="figure align-default" id="landsatcol2">
+<a class="reference internal image-reference" href="../_images/2020-12-04-04-33-50.png"><img alt="../_images/2020-12-04-04-33-50.png" src="../_images/2020-12-04-04-33-50.png" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text">Landsat telah mengumumkan rilis untuk Collection 2 yang menggunakan STAC dan COG sebagai metode delivery data citra</span><a class="headerlink" href="#landsatcol2" title="Permalink to this image">¶</a></p>
 </div>
-<div class="section" id="ogc-api">
-<h3>OGC API<a class="headerlink" href="#ogc-api" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="standar-baru-untuk-dunia-baru-ogc-api">
+<h3><a class="reference external" href="https://ogcapi.ogc.org/">Standar Baru untuk Dunia Baru: OGC-API</a><a class="headerlink" href="#standar-baru-untuk-dunia-baru-ogc-api" title="Permalink to this headline">¶</a></h3>
 <p>Standar seperti WMS, WFS dan WCS dibuat berdasarkan standar dan teknologi internet yang berlaku pada awal tahun 2000an. Dengan perkembangan teknologi saat ini serta perubahan paradigma data spasial pada web, OGC mengusulkan serangkaian standar baru untuk menggantikan standar WMS, WFS, dst yang digunakan saat ini.</p>
 <p>Berikut adalah beberapa standar OGC-API yang sedang diusulkan:</p>
 <ul class="simple">
@@ -412,13 +426,16 @@ Sementara beberapa standar berbeda telah mengatasi masalah ini, COG berada pada 
 <li><p>OGC API - Processing (former WPS)</p></li>
 <li><p>OGC API - Records (former CSW)</p></li>
 </ul>
-<p>OGC-API saat ini sedang dalam <a class="reference external" href="https://ogcapi.ogc.org/apiroadmap.html">tahap pengembangan aktif</a>, dan prosedur migrasi dari standar lama (WMS, WFS, WCS, dst) sedang disiapkan. Beberapa aplikasi, seperti PyGeoAPI dikembangkan untuk keperluan ini. PyGeoAPI merupakan salah satu prototip aplikasi yang dikembangkan untuk mendukung Standar OGC API yang baru. Saat ini, PyGeoAPI telah diujicobakan dan berhasil digunakan untuk mendukung infrastruktur data spasial di beberapa negara.
-<img alt="" src="../_images/2020-12-04-03-55-05.png" /></p>
+<p>OGC-API saat ini sedang dalam <a class="reference external" href="https://ogcapi.ogc.org/apiroadmap.html">tahap pengembangan aktif</a>, dan prosedur migrasi dari standar lama (WMS, WFS, WCS, dst) sedang disiapkan. Beberapa aplikasi, seperti PyGeoAPI dikembangkan untuk keperluan ini. PyGeoAPI merupakan salah satu prototip aplikasi yang dikembangkan untuk mendukung Standar OGC API yang baru. Saat ini, PyGeoAPI telah diujicobakan dan berhasil digunakan untuk mendukung infrastruktur data spasial di beberapa negara.</p>
+<div class="figure align-default" id="pygeoapi">
+<a class="reference internal image-reference" href="../_images/2020-12-04-03-55-05.png"><img alt="../_images/2020-12-04-03-55-05.png" src="../_images/2020-12-04-03-55-05.png" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 33 </span><span class="caption-text">Arsitektur PyGeoAPI</span><a class="headerlink" href="#pygeoapi" title="Permalink to this image">¶</a></p>
+</div>
 </div>
 </div>
 <div class="section" id="server-data-spasial-geoserver">
 <h2>Server Data Spasial: Geoserver<a class="headerlink" href="#server-data-spasial-geoserver" title="Permalink to this headline">¶</a></h2>
-<p>Geoserver merupakan aplikasi Server Data Spasial yang mendukung publikasi berbagai macam jenis data spasial menjadi format yang didukung oleh OGC. Geoserver seringkali digunakan bersamaan dengan aplikasi lain sebagai bagian dari sebuah sistem informasi spasial, web GIS atau infrastruktur data spasial untuk memastikan data spasial dapat digunakan pada berbagai sistem yang berbeda dan menjamin interoperabilitas.</p>
+<p><a class="reference external" href="http://geoserver.org/">Geoserver</a> merupakan aplikasi Server Data Spasial yang mendukung publikasi berbagai macam jenis data spasial menjadi format yang didukung oleh OGC. Geoserver seringkali digunakan bersamaan dengan aplikasi lain sebagai bagian dari sebuah sistem informasi spasial, web GIS atau infrastruktur data spasial untuk memastikan data spasial dapat digunakan pada berbagai sistem yang berbeda dan menjamin interoperabilitas.</p>
 <div class="section" id="latihan-instalasi-geoserver">
 <h3>Latihan: Instalasi Geoserver<a class="headerlink" href="#latihan-instalasi-geoserver" title="Permalink to this headline">¶</a></h3>
 <p>Pada bagian ini akan dibahas mengenai cara instalasi Geoserver: melalui aplikasi servlet seperti Tomcat, serta menggunakan paket aplikasi yang tersedia pada Docker.</p>
@@ -429,7 +446,7 @@ Pada bagian ini, akan digunakan Docker sebagai media instalasi Geoserver. Sebelu
 <ol>
 <li><p>Dengan cara pertama ini, dapat digunakan berbagai Image Geoserver yang tersedia pada Docker Hub. Untuk latihan ini akan digunakan image yang dibuat oleh <a class="reference external" href="https://github.com/kartoza/docker-geoserver">Kartoza</a>, sama seperti PostGIS pada materi sebelumnya.</p></li>
 <li><p>Jalankan perintah berikut untuk menginstall Geoserver pada port 8080 menggunakan Docker:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run -d -p <span class="m">8800</span>:8080 --name geoserver kartoza/geoserver:latest 
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run -d -p <span class="m">8080</span>:8080 --name geoserver kartoza/geoserver:latest 
 </pre></div>
 </div>
 <p>Maka Geoserver akan diunduh dan dijalankan pada Localhost:8080.</p>
@@ -444,36 +461,47 @@ Pada latihan ini, akan dibuat instalasi baru Geoserver dengan menggunakan Tomcat
 <li><p>Unduh Geoserver dari website resminya: <a class="reference external" href="http://geoserver.org/release/stable/">http://geoserver.org/release/stable/</a>
 Untuk latihan ini, yang diunduh adalah build Geoserver dengan format Web Archive (WAR). Karena unduhan akan dilakukan pada mesin WSL, maka cukup copykan link yang mengarah pada Web Archive tersebut:</p>
 <p><img alt="" src="../_images/2020-12-04-06-51-38.png" /></p>
-<p>dalam hal ini, linknya adalah: http://sourceforge.net/projects/geoserver/files/GeoServer/2.18.1/geoserver-2.18.1-war.zip</p>
+<p>dalam hal ini, linknya adalah:</p>
+<p><a class="reference external" href="http://sourceforge.net/projects/geoserver/files/GeoServer/2.18.1/geoserver-2.18.1-war.zip">http://sourceforge.net/projects/geoserver/files/GeoServer/2.18.1/geoserver-2.18.1-war.zip</a></p>
+<p> </p>
 </li>
 <li><p>Buka WSL, kemudian pada folder dimana kita memiliki akses untuk menulis, jalankan perintah berikut</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget http://sourceforge.net/projects/geoserver/files/GeoServer/2.18.1/geoserver-2.18.1-war.zip
 </pre></div>
 </div>
+<p> </p>
 <p><img alt="" src="../_images/2020-12-04-06-53-48.png" /></p>
+<p> </p>
 <p>perintah tersebut akan mengunduh file zip dengan nama: <code class="docutils literal notranslate"><span class="pre">geoserver-2.18.1-war.zip</span></code> (sesuaikan nama berkas jika menggunakan versi yang berbeda)</p>
+<p> </p>
 </li>
 <li><p>Lakukan ekstraksi file zip hasil unduhan pada folder aktif Tomcat.
 Pada Ubuntu, Tomcat menggunakan folder <code class="docutils literal notranslate"><span class="pre">/opt/tomcat/latest/webapps</span></code> (sebagaimana pengaturan softlink yang telah dibuat pada saat instalasi) untuk mempublikasikan aplikasi WAR. Gunakan perintah berikut untuk mengextract zip ke dalam folder tersebut:</p>
 <p>Install <code class="docutils literal notranslate"><span class="pre">unzip</span></code> terlebih dahulu:
 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">unzip</span></code>, kemudian:</p>
+<p> </p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> sudo unzip -o geoserver-2.18.1-war.zip -d <span class="s2">&quot;/opt/tomcat/latest/webapps/&quot;</span>
 </pre></div>
 </div>
+<p> </p>
 </li>
 <li><p>Jika belum, aktifkan Tomcat menggunakan perintah:</p>
+<p> </p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo systemctl start tomcat
 </pre></div>
 </div>
+<p> </p>
 <p>Tunggu sampai beberapa saat pada saat Tomcat melakukan ekstraksi file WAR tersebut.</p>
+<p> </p>
 </li>
 <li><p>Buka browser pada Windows di alamat: <code class="docutils literal notranslate"><span class="pre">localhost:8080/geoserver</span></code>
 <img alt="" src="../_images/2020-12-04-07-15-07.png" /></p></li>
 </ol>
-<p>Cara yang sama dapat digunakan untuk aplikasi berbasis web archive lain, seperti Mapstore, Geonetwork atau GeoTools. Instalasi melalui WAR ini akan memberikan kita kontrol penuh pada aplikasi, seperti pengaturan SSL, CORS, dan lain sebagainya. Demikian pula, deployment pada Tomcat memungkinkan beberapa aplikasi sekaligus untuk dapat diinstall pada port yang sama (Port 8080), sehingga cara inilah yang akan digunakan dalam latihan ini.</p>
+<p> </p>
+<p>Cara yang sama dapat digunakan untuk aplikasi berbasis Java Web Archive lain, seperti <a class="reference external" href="https://mapstore.readthedocs.io/en/latest/">Mapstore</a> atau <a class="reference external" href="https://geonetwork-opensource.org/">Geonetwork</a>. Instalasi melalui WAR ini akan memberikan kita kontrol penuh pada aplikasi, seperti pengaturan SSL, CORS, dan lain sebagainya. Demikian pula, deployment pada Tomcat memungkinkan beberapa aplikasi sekaligus untuk dapat diinstall pada port yang sama (Port 8080), sehingga cara inilah yang akan digunakan dalam latihan ini.</p>
 <p>Selanjutnya, Geoserver siap digunakan untuk mengunggah data. Berikut adalah antarmuka Geoserver dengan menggunakan username: <code class="docutils literal notranslate"><span class="pre">admin</span></code> dan password <code class="docutils literal notranslate"><span class="pre">geoserver</span></code>.</p>
 <p><img alt="" src="../_images/2020-12-04-09-00-34.png" /></p>
-<p>Pada bagian kanan adalah daftar layanan yang didukung oleh Geoserver. Semua data yang diunggah pada Geoserver akan menggunakan layanan tersebut agar dapat diakses dari berbagai client, seperti QGIS.</p>
+<p>Pada bagian kanan adalah daftar layanan yang didukung oleh Geoserver. Semua data yang diunggah pada Geoserver akan menggunakan layanan tersebut agar dapat diakses dari berbagai client, seperti QGIS. Inilah pembahasan kita berikutnya: bagaimana melakukan publikasi data agar dapat diakses secara <em>interoperable</em> oleh client?</p>
 </div>
 </div>
 </div>

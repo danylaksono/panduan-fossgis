@@ -3,9 +3,10 @@ Pada bagian ini akan dibahas mengenai bagaimana menggunakan PostGIS untuk melaku
 
 ```{admonition} Catatan
 Latihan ini akan menggunakan QGIS, sehingga terlebih dahulu lakukan instalasi QGIS.
-Data latihan dapat diperoleh dari link berikut:
 
-https://github.com/danylaksono/sleman-dataset/
+Adapun Data untuk latihan ini dapat diperoleh dari link berikut:
+
+[https://github.com/danylaksono/sleman-dataset/](https://github.com/danylaksono/sleman-dataset/)
 
 Gunakan Github untuk melakukan clone atau unduh seluruh data sebagai zip
 ```
@@ -16,12 +17,18 @@ Dalam implementasi GIS **generasi pertama**, semua data spasial disimpan dalam f
 
 Sistem spasial **generasi kedua** menyimpan beberapa data dalam database relasional (biasanya "atribut" atau bagian non-spasial) tetapi masih kekurangan fleksibilitas yang diberikan dengan integrasi langsung.
 
-*"Database spasial sejati lahir ketika orang mulai memperlakukan fitur spasial sebagai objek database kelas satu."*
+> *"Database spasial sejati lahir ketika orang mulai memperlakukan fitur spasial sebagai objek database kelas satu."*
 
 Database spasial sepenuhnya mengintegrasikan data spasial dengan database relasional objek. Orientasi berubah dari *GIS-centric* menjadi *database-centric*.
 
 
-![](img/2020-12-03-07-15-37.png)
+```{figure} img/2020-12-03-07-15-37.png
+---
+height: 400px
+name: evolusi
+---
+Evolusi Basisdata Spasial untuk GIS
+```
 
 Untuk memanipulasi data selama kueri, database biasa menyediakan fungsi seperti menggabungkan string, melakukan operasi hash pada string, melakukan matematika pada angka, dan mengekstraksi informasi dari tanggal. Database spasial menyediakan satu set lengkap fungsi untuk menganalisis komponen geometris, menentukan hubungan spasial, dan memanipulasi geometri. Fungsi spasial ini berfungsi sebagai blok bangunan untuk setiap proyek tata ruang.
 
@@ -35,41 +42,103 @@ Mayoritas dari semua fungsi spasial pada PostGIS dapat dikelompokkan ke dalam sa
 Daftar fungsi yang mungkin sangat besar, tetapi sekumpulan fungsi umum ditentukan oleh OGC SFSQL dan diimplementasikan (bersama dengan fungsi tambahan yang berguna) oleh PostGIS.
 
 ## Menggunakan QGIS sebagai antarmuka PostGIS
-QGIS barangkali merupakan perangkat lunak GIS OpenSource yang paling terkenal. QGIS memiliki berbagai dukungan format data spasial, termasuk untuk koneksi terhadap basisdata PostGIS. Pada latihan ini akan digunakan QGIS untuk melakukan koneksi pada basisdata.
+QGIS barangkali merupakan perangkat lunak GIS OpenSource yang paling terkenal. QGIS memiliki berbagai dukungan format data spasial, termasuk untuk koneksi terhadap basisdata PostGIS. Pada latihan ini akan digunakan QGIS untuk melakukan koneksi pada basisdata. 
+
+QGIS memiliki berbagai opsi untuk terhubung dengan beragam format data yang berbeda. Koneksi ke basisdata PostgreSQL (dan dengan demikian PostGIS), dapat dilakukan melalui menu Data Source Manager sebagai berikut:
+
+![](img/2020-12-08-10-11-09.png)
 
 
-### Memasukkan Data pada PostGIS
-Berikut adalah data yang tersedia pada link yang disebutkan di atas:
+Lakukan koneksi pada basisdata PostGIS yang tersimpan pada WSL. Gunakan menu connect untuk menyambungkan basisdata sesuai dengan parameter yang diperlukan. Untuk saat ini, basisdata ini masih kosong tanpa ada isi apapun. Kita akan gunakan data dari unduhan di atas untuk mengisi basisdata ini dengan menggunakan QGIS.
+
+### Latihan: Memasukkan Data pada PostGIS
+Berikut adalah data yang tersedia pada link unduhan yang disebutkan di atas:
 Data vector yang digunakan berupa data di daerah Kabupaten Sleman, antara lain:
-    o	Data jaringan jalan (line)
-    o	Data jaringan sungai (line)
-    o	Data bangunan (polygon)
-    o	Data titik-titik penting (point)
-    o	Data batas administrasi (polygon)
-    o	Data penggunaan lahan (multipolygon)
-    o	Data Kawasan Rawan Bencana (KRB) BNPB 2010 (polygon)
+    *	Data jaringan jalan (line)
+    *	Data jaringan sungai (line)
+    *	Data bangunan (polygon)
+    *	Data titik-titik penting (point)
+    *	Data batas administrasi (polygon)
+    *	Data penggunaan lahan (multipolygon)
+    *	Data Kawasan Rawan Bencana (KRB) BNPB 2010 (polygon)
 Data berupa raster terdiri atas:
-    o	Raster populasi penduduk Indonesia dengan resolusi 100 meter yang diambil dari www.worldpop.org.uk 
-    o	Raster SRTM dengan resolusi 30 meter.
+    *	Raster populasi penduduk Indonesia dengan resolusi 100 meter yang diambil dari www.worldpop.org.uk 
+    *	Raster SRTM dengan resolusi 30 meter.
 
-Untuk data vektor, kita akan gunakan QGIS untuk memasukkan data pada PostGIS:
-![](img/2020-12-03-12-57-00.png)
+Untuk latihan ini, terlebih dahulu kita masukkan data-data tersebut di atas ke dalam Basisdata PostGIS. Kita akan menggunakan basisdata `latihan` yang kita buat pada latihan sebelumnya. Akan tetapi, kita perlu untuk terlebih dulu mengaktifkan ekstensi PostGIS pada basisdata `latihan`. Gunakan `psql` atau `pgAdmin4` untuk menjalankan query berikut:
 
-Adapun untuk data raster, terlebih dahulu perlu mengakses mesin Docker dengan mengcopikan data pada root mesin tersebut, sebagai berikut:
 
-```bash
-docker exec -it postgrest_tut bash -c "apt-get update && apt-get install postgis"
-docker cp dem.tif postgis:/
+```sql
+CREATE EXTENSION postgis;
 ```
 
-kemudian, gunakan raster2pgsql untuk mengkonversi raster menjadi sql:
-```bash
-docker exec -it postgrest_tut bash -c 'raster2pgsql -s 32749 -I -C -M dem.tif -F -t 100x100 public.rstdem  | psql -U postgres -d postgres'
-```
+Kita dapat memeriksa bahwa ekstensi postgis telah diaktifkan pada basisdata ini menggunakan pgAdmin:
+
+![](img/2020-12-08-11-09-21.png)
+
+Dengan demikian, basisdata `latihan` sudah dapat digunakan untuk menyimpan dan menganalisis data geospasial. Untuk itu kita akan masukkan data vektor dan data raster di atas ke dalam basisdata. QGIS memiliki menu yang praktis untuk keperluan ini.
+
+1. Untuk data vektor, kita akan gunakan QGIS untuk memasukkan data pada PostGIS. Pastikan bahwa basisdata telah terkoneksi melalui menu `Data Source Manager` pada langkah sebelumnya. 
+   
+   ![](img/2020-12-08-11-14-45.png)
+
+   Centang `also list tables with no geometry` akan memunculkan tabel `anggota` yang kita gunakan pada latihan sebelumnya.    Parameter koneksi pada antarmuka tersebut sama dengan parameter koneksi yang diperlukan untuk menghubungkan pgAdmin dan PostgreSQL pada latihan sebelumnya.
+   
+2. Selanjutnya, tambahkan tiap layer **shapefile** pada data unduhan ke dalam QGIS, seperti berikut:
+   
+   ![](img/2020-12-08-13-01-57.png)
+   
+   
+3. Buka menu **DBManager**, kemudian lakukan koneksi ke basisdata (cukup dengan membuka/expand koneksi basisdata yang dimaksud)
+   
+   ![](img/2020-12-08-13-05-18.png)
+   
+4. Gunakan menu `Import Layer/File...` untuk mengkonversi layer pada QGIS menjadi tabel pada PostGIS, seperti berikut. 
+   
+      ![](img/2020-12-08-13-07-12.png)
+
+      Penggunaan Spatial Index akan sangat membantu apabila data yang digunakan cukup besar.
+
+    ```{admonition} Catatan
+    Karena suatu alasan, QGIS sepertinya tidak mendukung penggunaan huruf besar pada nama tabel maupun kolom. Gunakan huruf kecil pada nama **Table** dan centang `Convert field names to lowercase` untuk memastikan tidak ada masalah pada saat menjalankan SQL nantinya.
+    ```
+   
+5. Gunakan menu SQL Window untuk memasukkan Query:
+   
+   ![](img/2020-12-08-13-14-28.png)
+   
+6. Hasil Query dapat disimpan dalam bentuk View (tabel baru) maupun layer pada QGIS. Klik pada centang `Load as New Layer` 
+   ![](img/2020-12-08-13-15-59.png)
+
+    Klik Load untuk memuat layer tersebut pada QGIS
+
+
+Pada pembahasan di bawah ini terdapat contoh-contoh penggunaan SQL pada PostGIS untuk menyelesaikan berbagai permasalahan. Sebelum itu, kita perlu memasukkan terlebih dahulu data raster ke dalam basisdata PostGIS. Untuk menambahkan raster ke PostGIS kita dapat menggunakan fungsi `raster2pgsql`.
+
+1. Untuk data raster, terlebih dahulu kita perlu mengakses mesin Docker dengan mengcopikan data pada root mesin tersebut, sebagai berikut:
+   ```bash
+   docker exec -it postgis bash -c "apt-get update && apt-get install postgis"
+   docker cp dem.tif postgis:/
+   ```
+   ini apabila kita asumsikan data raster yang kita copykan bernama `dem.tif`.
+
+2. Selanjutnya, gunakan raster2pgsql untuk mengkonversi raster menjadi sql melalui operasi *pipe*:
+   ```bash
+   docker exec -it postgis bash -c 'raster2pgsql -s 32749 -I -C -M dem.tif -F -t 100x100 public.rstdem  | psql -U postgres -d latihan'
+   ```
+
+   Dengan demikian, `raster2pgsql` akan mengkonversi data `dem.tif` menjadi tabel `rstdem` pada basisdata `latihan`.
+
+Setelah semua data selesai kita muat pada QGIS, saatnya meng-eksplorasi berbagai fungsi analisis PostGIS. Berikut adalah beberapa contoh penggunaan fungsi pada PostGIS untuk keperluan analisis spasial pada data vektor maupun raster.
+
+&nbsp;  
 
 ### Latihan: Query Spasial pada data vektor
 
-Berikut adalah beberapa latihan yang dapat dilakukan menggunakan QGIS dan PostGIS:
+Berikut adalah beberapa latihan yang dapat dilakukan menggunakan QGIS dan PostGIS. Gunakan DBManager (Menu `Database > DBManager`) pada QGIS untuk mengakses PostGIS, 
+
+
+Selanjutnya, buat query-query berikut ini. Sesuaikan atribut dan nama kolom dengan data yang digunakan.
 
 * Mencari titik-titik penting (POI) yang berada pada kawasan rawan bencana:
     ```sql

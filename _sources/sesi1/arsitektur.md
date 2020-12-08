@@ -52,6 +52,7 @@ Dari uraian di atas, dapat disimpulkan bahwa beberapa karakteristik dari Linux a
 * **Shell** - Linux menyediakan program penerjemah khusus yang dapat digunakan untuk menjalankan perintah sistem operasi. Dapat digunakan untuk melakukan berbagai jenis operasi, memanggil program aplikasi. dll.
 * **Keamanan** - Linux menyediakan keamanan pengguna menggunakan fitur otentikasi seperti proteksi password dan akses terkontrol ke file/enkripsi data tertentu.
 
+&nbsp;  
 
 ## Mengunakan Shell 
 **Shell Command** merupakan antarmuka untuk melakukan berbagai operasi pada sistem operasi Linux. Meskipun saat ini berbagai Distro Linux telah dilengkapi dengan antarmuka yang sangat canggih, penggunaan Shell untuk operasi sehari-hari memiliki beberapa kelebihan:
@@ -65,6 +66,7 @@ Pada bagian ini akan dilakukan beberapa latihan untuk mengenal perintah-perintah
 ```{admonition} Catatan
 **Bash Shell** adalah aplikasi Command Shell yang saat ini merupakan aplikasi standar pada hampir semua distribusi Linux, sehingga perintah pada panduan ini mengacu pada Bash Shell. Perintah-perintah pada Bash Shell dapat dilihat pada [link berikut](https://devhints.io/bash) atau [link berikut](https://courses.cs.washington.edu/courses/cse391/16sp/bash.html).
 ```
+&nbsp;  
 
 ### Latihan: Perintah Dasar pada Shell
 
@@ -74,22 +76,21 @@ Berikut adalah beberapa perintah yang dapat digunakan untuk berlatih manajemen f
 
 |  Command	| Deskripsi |
 | :--: | :--- |
-| pwd |	print current working directory |
-| cd |	change working directory |
-| ls	| list files in working directory |
 | man |	bring up manual for a command |
 | exit |	log out of shell |
 | clear | 	clears all output from console |
 | date | 	output the system date  |
 | cal | 	output a text calendar  |
 | uname | 	print information about the current system |
-|  |  |
+|<img width=100/>|<img width=500/>|
 
 Untuk latihan, buka konsol Ubuntu WSL2, kemudian ketikkan salah satu perintah di atas:
 
 ![](img/2020-12-02-04-08-05.png)
 
 Perintah `pwd` pada gambar di atas digunakan untuk menampilkan direktori tempat shell saat ini berjalan. Keluaran dari perintah ini langsung ditampilkan pada konsol. Untuk latihan, jalankan perintah-perintah lain dan perhatikan apa yang terjadi pada konsol.
+
+&nbsp;  
 
 ### Latihan: Operasi pada File dan Direktori
 Sebagaimana pada Windows, berkas pada Linux disusun dalam beberapa folder yang masing-masing mengatur pekerjaan tertentu. Pada Linux, struktur direktorinya adalah sebagai berikut:
@@ -111,28 +112,48 @@ Perintah pada Shell umumnya mengikuti struktur sebagai berikut:
    | ~	 | home directory untuk pengguna saat ini |
    | /	 | root directory |
    | /apt	| folder **apt** pada root|
-   | | |
+   |<img width=100/>|<img width=300/>|
+
+   &nbsp;  
 
 2. Selanjutnya, perintah-perintah berikut dapat digunakan pada saat berhubungan dengan pengaturan direktori:
 
    |  Command	| Deskripsi |
    | :--: | :--- |
-   | ls | 	list files in working directory | 
-   | pwd | 	print current working directory | 
-   | cd | 	change working directory | 
-   | mkdir | 	make a new directory | 
-   | rmdir | 	remove the given directory (must be empty) | 
-   | | | 
+   | ls | 	tampilkan daftar berkas pada direktori saat ini | 
+   | pwd | 	print working directory - cetak direktori saat ini | 
+   | cd | 	change directory - berpindah ke direktori baru | 
+   | mkdir | 	membuat direktori baru | 
+   | rmdir | 	menghapus direktori (isi folder harus kosong) | 
+   | rm | 	hapus file atau direktori (`rm -rf` untuk menghapus secara paksa) | 
+   |<img width=100/>|<img width=300/>|
 
-3. Gunakan perintah `man <namaperintah>` atau `namaperintah --help` untuk menampilkan opsi apa saja yang dapat digunakan pada tiap perintah tersebut
-4. Untuk latihan selanjutnya, tampilkan isi dari root folder, seperti berikut:
+   &nbsp;  
+
+3. Gunakan perintah `man <namaperintah>` atau `namaperintah --help` untuk menampilkan opsi apa saja yang dapat digunakan pada tiap perintah tersebut. Sebagai contoh berikut adalah manual page untuk perintah `ls`:
+   ![](img/2020-12-07-11-00-11.png)
+   &nbsp;  
+
+
+4. Untuk latihan selanjutnya, tampilkan isi dari **root directory** (satu tingkat di atas `home directory`), seperti berikut:
    ![](img/2020-12-02-05-08-58.png)
-5. Selanjutnya, buatlah struktur folder berikut pada home directory Anda (pengguna aktif saat ini):
+   &nbsp;  
+
+5. Selanjutnya, buatlah struktur folder berikut pada `home directory` Anda (pengguna aktif saat ini):
    ![](img/2020-12-02-05-01-36.png)
 
-   Buat folder `workspace` yang didalamnya berisi dua buah folder, masing-masing folder `latihan1` dan `latihan2`. Di dalam folder `latihan1` berisi sebuah folder lain
+   Buat folder `workspace` yang didalamnya berisi dua buah folder, masing-masing folder `latihan1` dan `latihan2`. Di dalam folder `latihan1` berisi sebuah folder lain.
 
-6. Untuk bekerja dengan file, gunakan perintah-perintah berikut:
+   ```{admonition} Catatan
+   Berbagai perintah pada *shell* Linux sangat efektif apabila digunakan dengan baik. Perintah yang berbeda dapat dikombinasikan dan dioptimalkan untuk mempersingkat tugas-tugas yang diberikan. Sebagai contoh, beberapa perintah dapat menerima lebih dari satu argumen (misalnya, `mkdir folder1 folder2`). Penggunaan operator pada command juga dapat menyingkat operasi yang diinginkan (misalnya, `sudo apt update && sudo apt update` dengan operator `AND_IF`), operasi ekspansi dengan bracket (misalnya `cp /alamat/file.txt{,.bak}`)
+
+
+   Sebagai catatan tambahan, Shell pada Linux bahkan mendukung [Regex](https://likegeeks.com/regex-tutorial-linux/)!
+   ```
+
+   &nbsp;  
+
+6. Untuk bekerja dengan file, beberapa perintah berikut dapat digunakan:
 
    |  Command	| Deskripsi |
    | :--: | :--- |
@@ -140,19 +161,25 @@ Perintah pada Shell umumnya mengikuti struktur sebagai berikut:
    | mv	| move a file (also used to rename files)  |
    | rm	| remove the given file  |
    | touch	| create empty file, or change time-modified  |
-   | | |
+   |<img width=100/>|<img width=300/>|
 
    Gunakan perintah di atas untuk membuat file `berkas1.txt` pada `folder_a` di dalam folder `latihan1`. Selanjutnya, lakukan perintah copy dan rename untuk menghasilkan struktur file seperti berikut:
 
    ![](img/2020-12-02-05-21-44.png)
 
-7. Terakhir, hapus folder_b berikut semua file dan sub direktori di dalamnya. Hasil akhirnya sebagai berikut:
+   untuk melakukan editing pada file, kebanyakan distro Linux menyediakan shell editor bawaan, misalnya `nano`.
+
+   &nbsp;  
+
+7. Terakhir, hapus **folder_b** berikut semua file dan sub-direktori di dalamnya. Hasil akhirnya sebagai berikut:
 
    ![](img/2020-12-02-05-29-52.png)
 
+&nbsp;  
 
 Dengan demikian, latihan ini menunjukkan bagaimana manajemen terhadap file dilakukan di Linux. Berbagai perintah dapat digabungkan untuk memperoleh hasil yang diinginkan, misalnya membuat beberapa folder baru sekaligus atau membuat dan mengcopy berkas secara cepat.
 
+&nbsp;  
 
 ### Latihan: Instalasi aplikasi
 Ubuntu menggunakan APT (*Advanced Package Tool*) sebagai *package manager* untuk mengatur seluruh aplikasi yang digunakan. Sebuah Package manager menghubungkan antara Repository dan mesin linux yang kita gunakan. [**Repositori Linux**](https://www.linuxid.net/24289/penjelasan-lengkap-ubuntu-repository-dan-cara-menggunakan-repository/) merupakan lokasi penyimpanan tempat sistem Anda mengambil dan menginstal pembaruan dan aplikasi OS. Setiap repositori adalah kumpulan perangkat lunak yang disimpan pada server jarak jauh dan digunakan untuk menginstal dan memperbarui paket perangkat lunak pada sistem Linux.
@@ -164,7 +191,9 @@ name: apt
 Cara kerja Package Manager pada Linux
 ```
 
-Terdapat beberapa antarmuka yang berhubungan dengan Package Manager ini yang dikenal di sistem operasi berbasis Debian, seperti *apt-get, aptitude,* maupun *apt*. Antarmuka ini menghubungkan perintah dari pengguna (misalnya `sudo apt update`) dengan *package manager*, seperti APT untuk kemudian melakukan operasi terkait dengan basisdata aplikasi pada repository.
+Pada pemanggilan berkas yang tersimpan di repository, berlaku kondisi sebagaimana akses informasi melalui internet pada umumnya: semakin jauh secara fisik lokasi server, semakin lambat koneksi yang akan diperoleh. Untuk itu, terdapat sejumlah repository lokal untuk tiap versi distribusi Linux. Sebagai contoh, [http://repo.ugm.ac.id/](http://repo.ugm.ac.id/) berisi repository untuk beberapa distribusi Linux yang disimpan pada server UGM.
+
+Terdapat beberapa antarmuka yang berhubungan dengan Package Manager yang dikenal di sistem operasi berbasis Debian, seperti *apt-get, aptitude,* maupun *apt*. Aplikasi antarmuka ini menghubungkan perintah dari pengguna (misalnya `sudo apt update`) dengan *package manager* (seperti APT) untuk kemudian melakukan operasi terkait dengan basisdata aplikasi pada repository.
 
 Latihan berikut diberikan untuk memahamkan bagaimana menggunakan *apt* untuk memanajemen aplikasi pada Linux [^footnote4].
 
@@ -207,6 +236,8 @@ Latihan berikut diberikan untuk memahamkan bagaimana menggunakan *apt* untuk mem
 
    selanjutnya, perintah `tree` dapat langsung digunakan pada shell.
 
+&nbsp;  
+
 3. Untuk menghapus aplikasi, gunakan perintah:
    ```bash
    sudo apt purge <nama aplikasi>
@@ -218,7 +249,9 @@ Latihan berikut diberikan untuk memahamkan bagaimana menggunakan *apt* untuk mem
    sudo apt remove <nama aplikasi>
    ```
 
-   perbedaan keduanya terletak pada kedalaman penghapusan. `purge` menghapus seluruh aplikasi berikut konfigurasi yang tersimpan, sedangkan `remove` hanya menghapus aplikasi dari daftar basisdata **APT**, tetapi meninggalkan konfigurasi dari aplikasi, sehingga apabila kelak dilakukan instalasi kembali, konfigurasi ini akan digunakan
+   perbedaan keduanya terletak pada kedalaman penghapusan. `purge` menghapus seluruh aplikasi berikut konfigurasi yang tersimpan, sedangkan `remove` hanya menghapus aplikasi dari daftar basisdata **APT**, tetapi meninggalkan konfigurasi dari aplikasi, sehingga apabila kelak dilakukan instalasi kembali, konfigurasi ini akan digunakan.
+
+&nbsp;  
 
 4. Sebagai latihan, lakukan instalasi untuk aplikasi editing bernama `vim`. **vim** dapat digunakan untuk mengedit sebuah file yang memiliki tingkat kompleksitas tinggi, dan akan membantu pada saat kita melakukan editing file, misalnya pada sebuah mesin server.
 
@@ -271,42 +304,47 @@ Grup pada Linux dapat digunakan untuk mendefinisikan peranan yang berbeda untuk 
 
 1. Menambahkan pengguna ke grup
 
-```bash
-sudo usermod –a –G namagrup namauser
-```
+   ```bash
+   sudo usermod –a –G namagrup namauser
+   ```
+   &nbsp;  
+2. Jika grup yang dimaksud adalah **sudoer**, maka perintahnya adalah sebagai berikut:
 
-2. jika grup yang dimaksud adalah **sudoer**, maka perintahnya adalah sebagai berikut:
+   ```bash
+   usermod -aG sudo namauser
+   ```
+   &nbsp;  
 
-```bash
-usermod -aG sudo namauser
-```
+3. Selanjutnya, lakukan penambahan akses pengguna ini ke dalam *sudoer*:
 
-3. selanjutnya, lakukan penambahan akses pengguna ini ke dalam sudoer:
+   ```bash
+   sudo visudo
+   ```
 
-```bash
-sudo visudo
-```
+   masukkan informasi nama user sebagai *sudoer*
 
-masukkan informasi nama user sebagai sudoer
-
-```bash
-namauser  ALL=(ALL) NOPASSWD:ALL
-```
-
+   ```bash
+   namauser  ALL=(ALL) NOPASSWD:ALL
+   ```
+   &nbsp;  
 4. Berpindah akun (switch user)
-Untuk keperluan administrasi, seringkali pengguna harus berpindah dari satu akun (non-sudoer) ke akun lain (sudoer). untuk itu, perintah berikut dapat digunakan:
+   Untuk keperluan administrasi, seringkali pengguna harus berpindah dari satu akun (non-sudoer) ke akun lain (sudoer). untuk itu, perintah berikut dapat digunakan:
 
-```bash
- su –u userkedua
- whoami
- ``` 
+   ```bash
+   su –u userkedua
+   whoami
+   ``` 
 
-untuk mengakses *superelevated user* atau root, perintah berikut dapat digunakan:
+   untuk mengakses *superelevated user* atau **root**, perintah berikut dapat digunakan:
 
-```bash
- su –u userkedua
- whoami
- ``` 
+   ```bash
+   sudo su
+   whoami
+   ``` 
+
+Grup dapat digunakan untuk mengatur dan mengelompokkan pengguna pada satu hak akses yang sama. Selanjutnya adalah bagaimana melakukan pengaturan hak akses tersebut.
+
+
 
 ### Pengaturan Hak Akses 
 Sebagaimana disebutkan sebelumnya, akses terhadap file dan perintah pada Linux dapat dibatasi untuk user tertentu. Izin (*Permission*) ini pada linux dibagi menjadi:
@@ -325,7 +363,14 @@ akan muncul keterangan (`drwxr-xr-x`) mengenai status dan hak akses pada file te
 * **r-x** : izin *grup*, pengguna dari grup `danylaksono` (kebetulan untuk contoh di atas nama pengguna dan grup sama) dapat melakukan *read dan execute* pada file tersebut
 * **r-x** : izin untuk *other*, atau pengguna lain
 
-![](img/2020-12-03-02-33-45.png)
+
+```{figure} img/2020-12-03-02-33-45.png
+---
+height: 500px
+name: izin
+---
+Penjelasan hak akses pada Linux
+```
 
 Penulisan izin tersebut juga dapat dilakukan menggunakan **notasi numerik**:
 * 0: Tidak ada izin
@@ -337,14 +382,13 @@ Sekarang, bagaimana cara menghitung izin untuk pengguna dan grup dalam notasi nu
 
 Sebagai contoh:
 
-baca (4), tulis (2) dan jalankan (1) izin **rwx** diterjemahkan ke 7 (4 + 2 + 1)
-baca (4) dan tulis (2) izin **rw-** diterjemahkan ke 6 (4 + 2)
-tulis (2) dan jalankan (1) izin **-wx** diterjemahkan ke 3 (2 + 1), dan seterusnya.
+* Izin *baca* (4), *tulis* (2) dan *jalankan* (1): izin **rwx** diterjemahkan menjadi 7 (4 + 2 + 1)
+* Izin *baca* (4) dan *tulis* (2): izin **rw-** diterjemahkan menjadi 6 (4 + 2)
+* Izin *tulis* (2) dan *jalankan* (1): izin **-wx** diterjemahkan menjadi 3 (2 + 1), dan seterusnya.
 
 ```{warning}
 Kira-kira apa pengaruh `chmod 777`?
 ```
-
 
 Dengan menggunakan perintah `chmod`, izin suatu file dapat dirubah. perintah ini menggunakan notasi:
 * tanda minus (-), yang berarti "hapus izin ini"
@@ -356,7 +400,7 @@ Sebagai contoh:
 chmod +x latihan.txt
 ```
 
-maksudnya adalah memberi izin kepada semua pengguna untuk mengakses file tersebut. Ini sama dengan `chmod a+x latihan1.txt`, dimana **a** berarti 'all'. Hal yang sama berlaku untuk grup (g) dan other (o).
+maksudnya adalah memberi izin kepada semua pengguna untuk mengakses file tersebut. Ini sama dengan `chmod a+x latihan1.txt`, dimana **a** berarti 'all'. Hal yang sama berlaku untuk *grup* (g) dan *other* (o).
 
 Perintah lain yang berguna untuk merubah kepemilikan berkas pada Linux adalah `chown`. Format untuk perintah ini adalah:
 
@@ -372,6 +416,7 @@ chown -R user[:group] direktori
 Sebagai latihan untuk sesi ini, buat user kedua, kemudian rubah akses pada file `latihan1.txt` yang sudah dibuat sebelumnya agar user lain tidak dapat membaca file tersebut. Apa pengaruhnya apabila user pertama hendak mengakses file tersebut?
 
 
-
-
+```{admonition} Catatan
+Penggunaan DAC (*Discretionary Access Control*) seperti di atas akan lebih baik apabila dilengkapi dengan pengaturan ACL (*Access Control List*) atau SELinux pada distribusi seperti Centos untuk manajemen berkas pada server. 
+```
 
