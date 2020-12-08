@@ -1,6 +1,6 @@
 # Pengantar Interoperabilitas Data Spasial
 
-Basisdata merupakan salah satu elemen penting pada aplikasi Enterprise GIS. Dengan basisdata, sebuah sistem dapat didesain untuk digunakan oleh multi-user, dengan hak akses untuk tiap pengguna yang berbeda-beda. Demikian pula, basisdata memungkinkan data dalam jumlah besar untuk disimpan pada satu lokasi penyimpanan yang aman, memungkinkan analisis data secara cepat serta menjamin keselamatan data apabila terjadi masalah pada data tersebut.
+Proses bisnis Sistem Informasi Geospasial saat ini tidak terbatas pada aktivitas akuisisi data, penyimpanan, pengolahan dan visualisasi pada sebuah sistem tunggal. Kebutuhan tukar-guna data semakin besar pada sebuah ekosistem Enterprise GIS, sehingga diperlukan adanya mekanisme yang memungkinkan data spasial dengan segala propertinya. Pada bagian ini akan dibahas mengenai konsep interoperabilitas dan implementasinya menggunakan perangkat server data spasial.
 
 Bagian ini membahas mengenai:
 
