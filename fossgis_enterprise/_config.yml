@@ -16,6 +16,9 @@ html:
   favicon             : favicon.ico
   home_page_in_navbar : false
   use_repository_button: true
+  use_issues_button : true
+  use_edit_page_button: true
+  baseurl             : https://www.danylaksono.com/panduan-fossgis/
   extra_navbar        : Buku ini disusun dengan <a href="https://jupyterbook.org">Jupyter Book</a>
   
 
@@ -23,8 +26,7 @@ repository:
   url: https://github.com/danylaksono/panduan-fossgis/
   path_to_book: ./fossgis_enterprise  # An optional path to your book, defaults to repo root
   branch: master  # An optional branch, defaults to `master`
-html:
-  use_edit_page_button: true
+  
 
 
 latex:

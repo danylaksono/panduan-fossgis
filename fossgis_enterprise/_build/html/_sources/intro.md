@@ -6,6 +6,13 @@ Panduan ini dibuat untuk memberikan pengantar dalam penggunaan perangkat lunak O
 
 Panduan ini dapat diberikan sebagai pegangan pada pelatihan maupun sebagai bahan untuk *self-paced learning*. Modul ini dilengkapi berbagai latihan yang diberikan untuk mendukung pemahaman tiap materi yang disampaikan.
 
+```{admonition} Catatan
+Versi PDF dari panduan ini dapat diunduh pada [link berikut](https://github.com/danylaksono/panduan-fossgis/blob/master/build/Enterprise-FOSSGIS.pdf)
+
+Apabila Anda ingin berkontribusi dan memberikan tambahan (misalnya koreksi penulisan, dst), Anda dapat menemukan repository Github dokumen ini pada tombol di sebelah kanan atas tiap halaman
+```
+
+
 **Jadwal Pelatihan**
 
 Apabila diberikan pada sesi pelatihan tentang Free and OpenSource GIS, pembagian jadwal dari materi ini dapat dilakukan sebagai berikut:
