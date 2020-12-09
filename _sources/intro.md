@@ -1,18 +1,16 @@
 # Enterprise GIS dengan Perangkat Lunak Free and OpenSource (FOSS)
 
-## Pengantar
-
-### Tentang Panduan ini
+**Tentang Panduan ini**
 
 Panduan ini dibuat untuk memberikan pengantar dalam penggunaan perangkat lunak OpenSource untuk Enterprise GIS. Panduan ini memberikan dasar yang diperlukan untuk mengenal dan menggunakan beberapa aplikasi GIS yang bersifat bebas dan terbuka, dengan Linux sebagai sistem operasi utamanya.
 
 Panduan ini dapat diberikan sebagai pegangan pada pelatihan maupun sebagai bahan untuk *self-paced learning*. Modul ini dilengkapi berbagai latihan yang diberikan untuk mendukung pemahaman tiap materi yang disampaikan.
 
-### Jadwal Pelatihan
+**Jadwal Pelatihan**
 
 Apabila diberikan pada sesi pelatihan tentang Free and OpenSource GIS, pembagian jadwal dari materi ini dapat dilakukan sebagai berikut:
 
-**Hari 1: Linux Server dan FOSS4G**
+*Hari 1: Linux Server dan FOSS4G*
 |     Waktu     | Materi Pelatihan                                           |
 | :-----------: | :-------------------------------------------------------- |
 | 09.00 - 10.00 | Pendahuluan, Instalasi Linux VM                            |
@@ -24,7 +22,7 @@ Apabila diberikan pada sesi pelatihan tentang Free and OpenSource GIS, pembagian
 | 15.15 - 16.00 | Pengantar Free and OpenSource GIS (FOSS-GIS)               |
 |<img width=200/>|<img width=500/>|
 
-**Hari 2: Relational Spatial Database**
+*Hari 2: Relational Spatial Database*
 
 |     Waktu     | Materi Pelatihan                                             |
 | :-----------: | :------------------------------------------------------------ |
@@ -37,7 +35,7 @@ Apabila diberikan pada sesi pelatihan tentang Free and OpenSource GIS, pembagian
 | 15.15 - 16.00 | SQL vs NoSQL Database                                        |
 |<img width=200/>|<img width=500/>|
 
-**Hari 3: Standar OGC untuk Interoperabilitas Data Spasial**
+*Hari 3: Standar OGC untuk Interoperabilitas Data Spasial*
 
 |     Waktu     | Materi Pelatihan                                             |
 | :-----------: | :------------------------------------------------------------ |
@@ -51,7 +49,7 @@ Apabila diberikan pada sesi pelatihan tentang Free and OpenSource GIS, pembagian
 |<img width=200/>|<img width=500/>|
 
 
-### Lisensi Dokumen 
+**Lisensi Dokumen**
 
 Dokumen ini dan latihan yang ada di dalamnya disusun di bawah panduan [CC-BY-SA versi 4.0](https://creativecommons.org/licenses/by-sa/4.0/). 
 
@@ -59,7 +57,7 @@ Dokumen ini ditulis oleh [Dany Laksono](https://www.danylaksono.com/) untuk Pusa
 
 
 
-### Lisensi Perangkat Lunak
+**Lisensi Perangkat Lunak**
 
 Seluruh perangkat lunak yang digunakan maupun diacu pada modul ini memiliki lisensi bebas dan terbuka (Free and Open Source). Lisensi masing-masing perangkat lunak dapat dilihat pada penjelasan lebih rinci mengenai software tersebut
 
