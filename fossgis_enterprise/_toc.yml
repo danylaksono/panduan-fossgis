@@ -3,23 +3,22 @@
 
 - file: intro
 
-- part: Bagian I - Linux Server dan FOSS-GIS
+#- part: Bagian I - Linux Server dan FOSS-GIS
+
+- file: sesi1/introlinux
+  title: Bagian I - Linux Server dan FOSS-GIS
   expand_sections: true
   sections:
-  - file: sesi1/introlinux
   - file: sesi1/pengantarlinux
   - file: sesi1/arsitektur
   - file: sesi1/linuxserver
-    #sections:
-    #  - file: sesi1/linuxserver/prerequisites
-    #  - file: sesi1/linuxserver/webserver
   - file: sesi1/fossgis
   
 
-- part: Bagian II - Relational Spatial Database
+- file: sesi2/intrordbms
+  title: Bagian II - Relational Spatial Database
   expand_sections: true
-  sections:
-  - file: sesi2/intrordbms
+  sections:  
   - file: sesi2/relationaldb
   - file: sesi2/dbmanagement
   - file: sesi2/postgisquery
@@ -27,10 +26,10 @@
 
   
 
-- part: Bagian III - Standar OGC untuk Interoperabilitas
+- file: sesi3/introogc
+  title: Bagian III - Standar OGC untuk Interoperabilitas
   expand_sections: true
   sections:
-  - file: sesi3/introogc
   - file: sesi3/interoperabilitas
   - file: sesi3/publikasi
   - file: sesi3/konsumsiogc

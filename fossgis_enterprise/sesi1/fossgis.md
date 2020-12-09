@@ -21,7 +21,7 @@ name: freebeear
 "Think Free Speech, not Free Beer"
 ```
 
-> "**'Free software' is a matter of liberty, not price. To understand the concept, you should think of "free" as in "free speech", not as in "free beer"**."
+> "*'Free software' is a matter of liberty, not price. To understand the concept, you should think of "free" as in "free speech", not as in "free beer"*."
 > 
 > (**Free Software Definition, Richard Stallman**)
 
@@ -101,12 +101,12 @@ Website berikut memberikan perbandingan dan panduan yang dapat digunakan untuk m
 > https://choosealicense.com/licenses/
 
 ```{admonition} Catatan
-Pembahasan ini seharusnya telah memberikan gambaran kepada Anda mengenai jawaban pertanyaan, seperti, "Seandainya saya membuat QGIS yang saya distribusikan dengan nama saya sendiri, apakah saya diizinkan?"
+Pembahasan ini seharusnya telah memberikan gambaran kepada Anda mengenai jawaban pertanyaan, seperti, "*Seandainya saya membuat QGIS yang saya distribusikan dengan nama saya sendiri, apakah saya diizinkan*?"
 ```
 
 
 ## Sekilas Tentang Perangkat FOSS-GIS
-Perangkat lunak FOSS (Free and Open Source) dapat dijumpai dalam berbagai bentuk, mulai kernel (seperti Linux), Sistem Operasi, perangkat lunak pengolah kata (*word processor*), analisis data, hingga *machine learning* dan analisis *big data*. Demikian pula, pada bidang Sistem Informasi Geografis, terdapat banyak aplikasi free and open source yang dapat digunakan untuk menggantikan atau melengkapi perangkat lunak *proprietary* yang digunakan saat ini.
+Perangkat lunak FOSS (Free and Open Source) dapat dijumpai dalam berbagai bentuk, mulai kernel (seperti Linux), Sistem Operasi, perangkat lunak pengolah kata (*word processor*), analisis data, hingga *machine learning* dan analisis *big data*. Demikian pula, pada bidang Sistem Informasi Geografis, terdapat banyak aplikasi free and open source yang dapat digunakan untuk menggantikan dan/atau melengkapi perangkat lunak *proprietary* yang digunakan saat ini.
 
 Berbagai perangkat Lunak ini (kita sebut saja sebagai perangkat **FOSS-GIS**, *Free and Open Source GIS*) tersedia untuk berbagai keperluan di bidang SIG, mulai dari akuisisi data, analisis, penyimpanan data spasial hingga visualisasi pada media desktop dan web. Dapat dikatakan bahwa ekosistem aplikasi FOSS-GIS telah sedemikian matang sehingga hampir tiap aplikasi berbayar untuk keperluan GIS dapat diperoleh satu atau beberapa aplikasi open source yang dapat menggantikannya. 
 
@@ -119,6 +119,7 @@ Beberapa perangkat lunak FOSS-GIS
 ```
 
 FOSS-GIS tidak hanya tentang perangkat lunak. Sebagaimana disebutkan, ekosistem Open Source pada proses bisnis geospasial meliputi berbagai bidang, [diantaranya](https://www.osgeo.org/about/what-is-open-source/):
+
 * **Open Data** menerapkan prinsip bebas dan terbuka untuk data geospasial. Prinsip bebas dan terbuka ini lebih dari sekadar menerbitkan informasi dengan akses gratis. Data terbuka menyediakan mekanisme bagi peserta untuk memberikan kontribusi sebagai mitra yang setara dalam pengumpulan dan peninjauan terhadap data.
 * **Open Education** menerapkan prinsip-prinsip open source untuk pembuatan bahan ajar yang memungkinkan organisasi untuk berbagi bahan silabus mengurangi biaya dan menjangkau khalayak yang lebih luas.
 * **Open Science** menggabungkan ide-ide ini untuk mewujudkan tujuan penelitian dengan lebih baik, dengan berbagi data yang digunakan untuk mendukung kesimpulan, di samping perangkat lunak sopensource yang digunakan untuk analisis.
@@ -175,17 +176,24 @@ Beberapa aplikasi pada OSGeo Live
 Sebagaimana distro Linux lainnya, OSGeoLive dapat digunakan sebagai sebuah [Linux Live](https://www.computerworld.com/article/2519158/5-ways-to-use-bootable-linux-live-discs.html) yang dipasang pada DVD maupun USB pada saat Boot. Berbeda dengan instalasi sistem operasi pada umumnya, Linux Live tidak akan meninggalkan jejak pada harddisk di komputer tempat ia dijalankan. Seluruh proses sistem operasinya akan diajalankan dari DVD dan USB, dan begitu selesai, sistem berikut data yang dibuat juga akan hilang. Pada latihan ini akan dibuat sebuah mesin Linux Live menggunakan distro OSGeo Live.
 
 1. Langkah pertama adalah mengunduh perangkat lunak yang dapat digunakan untuk membuat Linux Live USB. Diantara perangkat yang dapat digunakan adalah [LinuxLiveUSB](https://www.linuxliveusb.com/) dan [Rufus](https://rufus.ie/). Pada latihan ini akan diunduh **Rufus** untuk membuat Live OSGeo pada USB. Unduh Rufus dari alamat web rufus di atas atau [rilis terbaru pada Github](https://github.com/pbatard/rufus/releases/).
+   
 2. Unduh ISO dari OSGeo Live (**osgeolive iso**) pada alamat https://live.osgeo.org/en/download.html. Perlu diingat bahwa ukuran unduhan adalah sekitar 4 GB, jadi pastikan bahwa Anda memiliki koneksi internet yang memadai
+   
 3. Buka Rufus, kemudian masukkan **USB Flashdisk** kosong yang akan digunakan sebagai Bootable USB. Rufus akan mendeteksi secara otomatis USB Flashdisk yang akan digunakan.
    
-   Selanjutnya, pada bagian `Boot Selection` masukkan **ISO OSGeo Live** yang sudah diunduh sebelumnya. Biarkan opsi lain dengan pengaturan *default*, kemudian klik `Start`.
+4. Selanjutnya, pada bagian `Boot Selection` masukkan **ISO OSGeo Live** yang sudah diunduh sebelumnya. Biarkan opsi lain dengan pengaturan *default*, kemudian klik `Start`.
+   
+   ```{figure} img/2020-12-07-19-55-11.png
+   ---
+   height: 350px
+   ---
+   ```
 
-   ![](img/2020-12-07-19-55-11.png)
-
-4. Setelah proses selesai, lakukan restart Komputer. Pastikan bahwa Laptop atau Komputer Anda menggunakan USB sebagai [prioritas Boot pertama](https://neosmart.net/wiki/boot-usb-drive/). Pengaturan untuk ini dilakukan melalui BIOS, dan memiliki bentuk yang berbeda untuk tiap jenis BIOS. Pengaturan ini biasanya dapat dijumpai pada menu **Boot Priority**. Silahkan mengacu pada dokumentasi tiap BIOS untuk penjelasan lebih lanjut.
+5. Setelah proses selesai, lakukan restart Komputer. Pastikan bahwa Laptop atau Komputer Anda menggunakan USB sebagai [prioritas Boot pertama](https://neosmart.net/wiki/boot-usb-drive/). Pengaturan untuk ini dilakukan melalui BIOS, dan memiliki bentuk yang berbeda untuk tiap jenis BIOS. Pengaturan ini biasanya dapat dijumpai pada menu **Boot Priority**. Silahkan mengacu pada dokumentasi tiap BIOS untuk penjelasan lebih lanjut.
+   
    ![](img/2020-12-07-20-26-38.png)
    
-5. Tunggu sampai GRUB (Boot Manager Linux) memanggil OSGeo. Setelah selesai, Linux akan dimulai. Gunakan OSGeo Live seperti menggunakan sistem operasi seperti biasa
+6. Tunggu sampai GRUB (Boot Manager Linux) memanggil OSGeo. Setelah selesai, Linux akan dimulai. Gunakan OSGeo Live seperti menggunakan sistem operasi seperti biasa
    ![](img/2020-12-07-18-26-15.png)
 
 

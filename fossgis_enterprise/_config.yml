@@ -5,7 +5,7 @@
 
 #######################################################################################
 # Book settings
-title                       : fossgis-enterprise  # The title of the book. Will be placed in the left navbar.
+title                       : Enterprise FOSS-GIS  # The title of the book. Will be placed in the left navbar.
 author                      : Dany Laksono  # The author of the book
 copyright                   : "2020"  # Copyright year to be placed in the footer
 logo                        : logo.png  # A path to the book logo
@@ -13,9 +13,10 @@ logo                        : logo.png  # A path to the book logo
 
 # html settings
 html:
-  favicon             : 'favicon.ico'
+  favicon             : favicon.ico
   home_page_in_navbar : false
-  extra_navbar        : Buku ini disusun menggunakan <a href="https://jupyterbook.org">Jupyter Book</a>
+  use_repository_button: true
+  extra_navbar        : Buku ini disusun dengan <a href="https://jupyterbook.org">Jupyter Book</a>
   
 
 repository:
@@ -24,3 +25,13 @@ repository:
   branch: master  # An optional branch, defaults to `master`
 html:
   use_edit_page_button: true
+
+
+latex:
+  latex_engine: xelatex
+  latex_documents:
+     targetname: Enterprise-FOSSGIS.tex
+
+#sphinx:
+  #config:
+    #latex_toplevel_sectioning: 'part'

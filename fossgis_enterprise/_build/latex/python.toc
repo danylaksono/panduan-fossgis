@@ -1,0 +1,102 @@
+\babel@toc {english}{}
+\contentsline {chapter}{\numberline {1}Pengantar}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Tentang Panduan ini}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Jadwal Pelatihan}{1}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Lisensi Dokumen}{2}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Lisensi Perangkat Lunak}{2}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Pengantar Linux Server, FOSS\sphinxhyphen {}GIS dan Web Server}{2}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Pengantar Linux dan Server}{3}{subsection.1.4.2}%
+\contentsline {subsubsection}{Sejarah dan Perkembangan Sistem Operasi Linux}{3}{subsubsection*.3}%
+\contentsline {subsubsection}{Distribusi Linux}{4}{subsubsection*.4}%
+\contentsline {paragraph}{Ubuntu}{5}{paragraph*.5}%
+\contentsline {paragraph}{CentOS}{6}{paragraph*.6}%
+\contentsline {paragraph}{Linuxmint}{7}{paragraph*.7}%
+\contentsline {paragraph}{ArchLinux}{7}{paragraph*.8}%
+\contentsline {paragraph}{Elemetary OS}{8}{paragraph*.9}%
+\contentsline {paragraph}{Kali Linux}{9}{paragraph*.10}%
+\contentsline {subsubsection}{Windows Subsystem for Linux}{9}{subsubsection*.11}%
+\contentsline {paragraph}{Tentang Windows Subsystem for Linux (WSL)}{10}{paragraph*.12}%
+\contentsline {paragraph}{Latihan: Instalasi WSL2 Pada Windows 10}{11}{paragraph*.13}%
+\contentsline {subsection}{\numberline {1.4.3}Pengaturan dan Administrasi Linux}{19}{subsection.1.4.3}%
+\contentsline {subsubsection}{Arsitektur Linux}{20}{subsubsection*.14}%
+\contentsline {paragraph}{Kernel dan komponen\sphinxhyphen {}komponen Linux}{20}{paragraph*.15}%
+\contentsline {paragraph}{Filosofi Linux}{21}{paragraph*.16}%
+\contentsline {subsubsection}{Mengunakan Shell}{22}{subsubsection*.17}%
+\contentsline {paragraph}{Latihan: Perintah Dasar pada Shell}{22}{paragraph*.18}%
+\contentsline {paragraph}{Latihan: Operasi pada File dan Direktori}{24}{paragraph*.19}%
+\contentsline {paragraph}{Latihan: Instalasi aplikasi}{28}{paragraph*.20}%
+\contentsline {subsubsection}{Pengaturan Pengguna dan Hak Akses}{30}{subsubsection*.21}%
+\contentsline {paragraph}{Latihan: Administrasi Pengguna}{31}{paragraph*.22}%
+\contentsline {paragraph}{Latihan: Pengaturan Grup}{31}{paragraph*.23}%
+\contentsline {paragraph}{Pengaturan Hak Akses}{32}{paragraph*.24}%
+\contentsline {subsection}{\numberline {1.4.4}Linux sebagai Sistem Operasi Server}{34}{subsection.1.4.4}%
+\contentsline {subsubsection}{Perangkat Lunak untuk Web Server dan Application Server}{34}{subsubsection*.25}%
+\contentsline {paragraph}{Latihan: Menjalankan sebuah Web Server Sederhana}{35}{paragraph*.26}%
+\contentsline {paragraph}{Instalasi Apache HTTP Server}{37}{paragraph*.27}%
+\contentsline {paragraph}{Membuat Website sederhana}{39}{paragraph*.28}%
+\contentsline {subsubsection}{Tomcat sebagai Servlet Aplikasi berbasis Java}{40}{subsubsection*.29}%
+\contentsline {paragraph}{Instalasi Tomcat}{40}{paragraph*.30}%
+\contentsline {subsection}{\numberline {1.4.5}Free and Open Source Software\sphinxhyphen {}GIS}{43}{subsection.1.4.5}%
+\contentsline {subsubsection}{Mengenal Lisensi Perangkat Lunak OpenSource}{43}{subsubsection*.31}%
+\contentsline {paragraph}{Free as in \sphinxstyleliteralintitle {\sphinxupquote {Free\sphinxhyphen {}Speech}} dan \sphinxstyleliteralintitle {\sphinxupquote {Free\sphinxhyphen {}Drinks}}}{43}{paragraph*.32}%
+\contentsline {paragraph}{Lisensi Perangkat Lunak}{45}{paragraph*.33}%
+\contentsline {subsubsection}{Sekilas Tentang Perangkat FOSS\sphinxhyphen {}GIS}{47}{subsubsection*.34}%
+\contentsline {paragraph}{Komunitas FOSS\sphinxhyphen {}GIS}{49}{paragraph*.35}%
+\contentsline {paragraph}{Latihan: Menggunakan OSGeo Live}{50}{paragraph*.36}%
+\contentsline {subsubsection}{Menggunakan Perangkat Lunak OpenSource untuk GIS}{53}{subsubsection*.37}%
+\contentsline {subsection}{\numberline {1.4.6}Pengantar Basisdata Relational}{54}{subsection.1.4.6}%
+\contentsline {subsection}{\numberline {1.4.7}Basisdata Relational}{54}{subsection.1.4.7}%
+\contentsline {subsubsection}{Pemodelan data pada Basisdata Relasional}{54}{subsubsection*.38}%
+\contentsline {subsubsection}{Pengantar Basisdata Relational}{56}{subsubsection*.39}%
+\contentsline {paragraph}{Beberapa istilah pada Basisdata Relasional}{56}{paragraph*.40}%
+\contentsline {paragraph}{Relasi pada basisdata relasional}{57}{paragraph*.41}%
+\contentsline {paragraph}{Operasi pada Basisdata Relasional}{59}{paragraph*.42}%
+\contentsline {subsubsection}{Structured Query Language (SQL)}{59}{subsubsection*.43}%
+\contentsline {paragraph}{Bahasa SQL}{60}{paragraph*.44}%
+\contentsline {paragraph}{Menggunakan Query untuk menanyakan pertanyaan pada Basisdata}{62}{paragraph*.45}%
+\contentsline {paragraph}{DDL, DML, DCL dan TCL}{63}{paragraph*.46}%
+\contentsline {subsubsection}{Instalasi dan Pengaturan Basisdata PostgreSQL}{65}{subsubsection*.47}%
+\contentsline {paragraph}{Latihan: Instalasi dan Pengaturan Docker}{65}{paragraph*.48}%
+\contentsline {paragraph}{Latihan: Memulai Docker untuk PostGIS}{67}{paragraph*.49}%
+\contentsline {subsubsection}{Menggunakan Query SQL pada Basisdata}{69}{subsubsection*.50}%
+\contentsline {paragraph}{Latihan: Menggunakan \sphinxstyleliteralintitle {\sphinxupquote {psql}} untuk melakukan query sederhana}{69}{paragraph*.51}%
+\contentsline {paragraph}{Latihan: Menggunakan pgAdmin sebagai GUI Basisdata PostgreSQL}{70}{paragraph*.52}%
+\contentsline {subsection}{\numberline {1.4.8}Administrasi Pengguna pada Basisdata}{74}{subsection.1.4.8}%
+\contentsline {subsubsection}{Roles, Group dan Priviledges}{74}{subsubsection*.53}%
+\contentsline {subsubsection}{Pengaturan hak akses pada PostgreSQL}{75}{subsubsection*.54}%
+\contentsline {paragraph}{Membuat pengguna dan grup baru}{76}{paragraph*.55}%
+\contentsline {paragraph}{Menerapkan peran baru}{76}{paragraph*.56}%
+\contentsline {paragraph}{Latihan: Menggunakan Pengaturan Roles untuk membatasi akses}{77}{paragraph*.57}%
+\contentsline {subsubsection}{Mengatur koneksi multi\sphinxhyphen {}pengguna}{79}{subsubsection*.58}%
+\contentsline {paragraph}{Latihan: Pengaturan Priviledges}{79}{paragraph*.59}%
+\contentsline {paragraph}{Latihan: Terhubung dengan server basisdata}{80}{paragraph*.60}%
+\contentsline {subsection}{\numberline {1.4.9}Basisdata Spasial dengan PostGIS}{81}{subsection.1.4.9}%
+\contentsline {subsubsection}{Pengantar PostGIS}{81}{subsubsection*.61}%
+\contentsline {subsubsection}{Menggunakan QGIS sebagai antarmuka PostGIS}{83}{subsubsection*.62}%
+\contentsline {paragraph}{Latihan: Memasukkan Data pada PostGIS}{83}{paragraph*.63}%
+\contentsline {paragraph}{Latihan: Query Spasial pada data vektor}{88}{paragraph*.64}%
+\contentsline {paragraph}{Latihan: Query Spasial pada Raster}{92}{paragraph*.65}%
+\contentsline {subsection}{\numberline {1.4.10}Pengantar Interoperabilitas Data Spasial}{94}{subsection.1.4.10}%
+\contentsline {subsection}{\numberline {1.4.11}Interoperabilitas dan Standar OGC}{94}{subsection.1.4.11}%
+\contentsline {subsubsection}{Kebijakan Satu Peta dan Interoperabilitas Data Spasial}{95}{subsubsection*.66}%
+\contentsline {paragraph}{Interoperabilitas Data Spasial}{95}{paragraph*.67}%
+\contentsline {subsubsection}{Standar OGC}{96}{subsubsection*.68}%
+\contentsline {paragraph}{OGC untuk interoperabilitas}{96}{paragraph*.69}%
+\contentsline {paragraph}{WMS WFS dan WCS}{98}{paragraph*.70}%
+\contentsline {subsubsection}{Moving Forward}{100}{subsubsection*.71}%
+\contentsline {paragraph}{Cloud Optimised GeoTIFF (COG)}{100}{paragraph*.72}%
+\contentsline {paragraph}{Spatio Temporal Asset Catalog (STAC)}{101}{paragraph*.73}%
+\contentsline {paragraph}{Standar Baru untuk Dunia Baru: OGC\sphinxhyphen {}API}{102}{paragraph*.74}%
+\contentsline {subsubsection}{Server Data Spasial: Geoserver}{103}{subsubsection*.75}%
+\contentsline {paragraph}{Latihan: Instalasi Geoserver}{103}{paragraph*.76}%
+\contentsline {subsection}{\numberline {1.4.12}Publikasi Data Spasial dengan Geoserver}{106}{subsection.1.4.12}%
+\contentsline {subsubsection}{Menghubungkan Geoserver dengan Data}{106}{subsubsection*.77}%
+\contentsline {paragraph}{Latihan: Mengunggah Shapefile}{107}{paragraph*.78}%
+\contentsline {paragraph}{Latihan: Melakukan Publikasi dari Shapefile}{109}{paragraph*.79}%
+\contentsline {paragraph}{Latihan: Menghubungkan Geoserver dan Basisdata PostGIS}{112}{paragraph*.80}%
+\contentsline {paragraph}{Latihan: Publikasi Data melalui REST\sphinxhyphen {}API Geoserver}{114}{paragraph*.81}%
+\contentsline {subsubsection}{Styling Publikasi dengan SLD}{114}{subsubsection*.82}%
+\contentsline {subsection}{\numberline {1.4.13}Konsumsi Data dengan Standar OGC}{116}{subsection.1.4.13}%
+\contentsline {subsubsection}{Menggunakan Perangkat FOSS untuk mengakses data OGC}{116}{subsubsection*.83}%
+\contentsline {paragraph}{Memanggil WMS, WFS dan WCS dengan QGIS}{117}{paragraph*.84}%
+\contentsline {paragraph}{Memanggil data publikasi OGC dengan Javascript Library (LeafletJS)}{120}{paragraph*.85}%
